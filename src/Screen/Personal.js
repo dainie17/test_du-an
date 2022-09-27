@@ -1,26 +1,18 @@
-
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
-import PublicIcon from '@mui/icons-material/Public';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import PersonIcon from '@mui/icons-material/Person';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import AlignVerticalCenterIcon from '@mui/icons-material/AlignVerticalCenter';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import './Personal.css'
 
 const logo = "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
-const Introduce = () => {
-    let navgate = useNavigate();
-    const onclick = () => {
-        localStorage.setItem("uses", 0);
-        navgate("/");
-    }
+
+
+function Person() {
     return (
         <div>
-            <nav className="home-header">
+             <nav className="home-header">
                 <h3 style={{ width: "20%", textAlign: "center" }}>logo</h3>
                 <ul className="home-header_ul">
                     <li>
@@ -60,49 +52,44 @@ const Introduce = () => {
                     <ShoppingCartIcon />
                 </div>
             </nav>
-            <div className="title">
-                <div className="title_header">
-                    <h2>Liên hệ</h2>
+            <div className="fersonal_container">
+                <div className="fersonal_container-left">
+                    <h2>Tài khoản của tôi</h2>
+                    <div className="fersonal_container-left--info">
+                        <a href="#1">Thông tin</a>
+                        <a href="#2">Thông tin</a>
+                        <a href="#3">Thông tin</a>
+                        <a href="#4">Thông tin</a>
+                        <a href="#5">Thông tin</a>
+                        <a href="#6">Thông tin</a>
+                    </div>
                 </div>
-                <div className="title_container">
-                    <div className="title_container--text">
-                        <p className="CT">CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ TM DV XNK VŨ GIA GROUP</p>
-                        <div className="title_container--text--name">
-                            <PublicIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
-                            <p style={{ marginRight: '10%' }}>Tên quốc tế</p>
-                            <p >CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ TM DV XNK VŨ GIA GROUP</p><br />   <hr />
-                            <AlignVerticalCenterIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
-                            <p style={{ marginRight: '10%' }}>Mã số thuế</p>
-                            <p >0782565750</p><br /><hr />
-                            <LocationOnIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
-                            <p style={{ marginRight: '13%' }}>Địa chỉ </p>
-                            <p >840/20B Hương Lộ 2, Phường Bình Trị Đông A, Quận Bình Tân, T.P Hồ Chí Mình, Việt Nam</p><br /><hr />
-                            <PersonIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
-                            <p style={{ marginRight: '7%' }}>Người Đại Diện </p>
-                            <p >Vũ Anh Tuấn <br /> Ngoài ra Vũ Anh Tuấn còn đại diện các doanh nghiệp: <br />    Công Ty Cổ Phần Thương Mại Dịch Vụ</p><br /><hr />
-                            <LocalPhoneIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
-                            <p style={{ marginRight: '9%' }}>Số điện thoại</p>
-                            <p >0782565750</p><br />
+                <div className="fersonal_container-right">
+                    <div className="fersonal_container-right--header">
+                        <div className="fersonal_container-right--header--avatar">
+
                         </div>
+                        <div className="fersonal_container-right--header--content">
+                            <div className="content">
+                            <AccountCircleSharpIcon/>
+                            <p>đơn hàng</p>
+                            </div>
+                            <div className="content">
+                            <AccountCircleSharpIcon/>
+                            <p>đơn hàng</p>
+                            </div>
+                            <div className="content">
+                            <AccountCircleSharpIcon/>
+                            <p>đơn hàng</p>
+                            </div>
+                        </div>
+                        
+                        
                     </div>
-                    <div className="title_container--input">
-                        <input type="text" name="search" placeholder="Họ và tên" />
-                        <input type="text" name="search" placeholder="Email" />
-                        <input type="text" name="search" placeholder="Điện thoại" />
-                        <input type="text" name="search" placeholder="Địa chỉ" />
-                        <input id="container" type="text" name="search" placeholder="Nội dung" />
-                        <button > Gửi</button>
+                    <div className="fersonal_container-right--fooder--content">
+
                     </div>
-
                 </div>
-
-            </div>
-            <div className="bando">
-                <div className='bando_khobau'>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d210063.33014376528!2d105.6389760715208!3d9.804323603329172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a089b78ddc936b%3A0x8e8d46a009e63c4e!2zU0hPUCBUSOG7giBUSEFPIFTDglkgxJDDlCBTUE9SVA!5e0!3m2!1svi!2s!4v1663951607719!5m2!1svi!2s"
-                    ></iframe>
-                </div>
-
             </div>
             <div className="footer">
                 <div className="footer_container">
@@ -145,4 +132,4 @@ const Introduce = () => {
     )
 }
 
-export default Introduce;
+export default Person;

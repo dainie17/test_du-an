@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    font-family: sans-serif;
+}
+.fersonal{
+    background-color: #F6F6F6;
+}
+.fersonal_container{
+    max-width: 83%;
+    margin: 0px auto;
+    overflow: hidden;
+    background-color: aqua;
+    
+}
+.fersonal_container-left{
+    width: 25%;
+    float: left;
+    background-color: white;
+    border-radius: 10px ;
+    margin: 2% 2% 2% 2%;
+}
+.fersonal_container-left h2{
+    margin: 5% 0% 10% 4%;
+}
+.fersonal_container-left--info a{
+    display: block;
+    margin: 0% 0% 10% 4%;
+}
+.fersonal_container-right{
+    width: 70%;
+    background-color: rgb(204, 222, 222);
+    float: left;
+    margin-top: 2%;
+}
+
+.fersonal_container-right--header--avatar{
+    width: 30%;
+    height: 160px;
+    background-color: blueviolet;
+    display: inline-block;
+    border-radius: 10px;
+}
+.fersonal_container-right--header--content{
+    width: 60%;
+    background-color: rgb(248, 245, 251);
+    display: inline-block;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.content{
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    margin: 5% 5% 0% 5%;
+    
+}
+.fersonal_container-right--fooder--content{
+    height: 500px;
+    background-color: #F6F6F6;
+}
