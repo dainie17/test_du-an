@@ -7,7 +7,6 @@ import { NavLink } from "react-router-dom";
 import { AssignmentReturnSharp, DiamondSharp, GppGoodSharp, SupportAgentSharp, TokenSharp, ViewListSharp } from "@mui/icons-material";
 import Slider from "react-slick";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
-import { Button } from "@mui/material";
 
 const image1 = "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
 const image2 = "https://cdn.tgdd.vn/Files/2019/11/18/1220010/4-cach-ve-sinh-ben-trong-chai-lo-cuc-sach-ban-nen-thu-21-760x367.jpg";
@@ -37,6 +36,62 @@ const Product = () => {
 
     const data = [image1, image2, image3, image4, image5]
     const dataList = [image1, image2, image3]
+    const dataProduct = [
+        {
+            image: image1,
+            name: "Tên sản phẩm",
+            price: "305.000",
+            number: 30
+        },
+        {
+            image: image1,
+            name: "Tên sản phẩm",
+            price: "305.000",
+            number: 30
+        },
+        {
+            image: image1,
+            name: "Tên sản phẩm",
+            price: "305.000",
+            number: 30
+        },
+        {
+            image: image1,
+            name: "Tên sản phẩm",
+            price: "305.000",
+            number: 30
+        },
+        {
+            image: image1,
+            name: "Tên sản phẩm",
+            price: "305.000",
+            number: 30
+        },
+        {
+            image: image1,
+            name: "Tên sản phẩm",
+            price: "305.000",
+            number: 30
+        },
+        {
+            image: image1,
+            name: "Tên sản phẩm",
+            price: "305.000",
+            number: 30
+        },
+        {
+            image: image1,
+            name: "Tên sản phẩm",
+            price: "305.000",
+            number: 30
+        },
+        {
+            image: image1,
+            name: "Tên sản phẩm",
+            price: "305.000",
+            number: 30
+        },
+    ]
 
     return (
         <div className="product">
@@ -172,6 +227,21 @@ const Product = () => {
                         </div>
                         <div className="product-main-top-right-image">
                             <img src={image1} alt="" />
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className="product-main-list">
+                    <div className="product-main-list-title">
+                        <p>Tên loại sản phẩm</p>
+                    </div>
+                    <div className="product-main-list-content">
+                        <div className="product-main-list-content-card">
+                            <img src={image3} alt="" className="product-main-list-content-card-img" />
+                            <p className="product-main-list-content-card-name">Tên sản phẩm</p>
+                            <p className="product-main-list-content-card-price">305.000 Đ</p>
+                            <p className="product-main-list-content-card-number">Số lượng: 30</p>
                         </div>
                     </div>
                 </div>
