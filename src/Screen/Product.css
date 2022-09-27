@@ -1,0 +1,220 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.product-main-top{
+    width: 95%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    margin-left: 2.5%;
+}
+
+.product-main-top-left{
+    width: 32.5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-main-top-left-title{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #63A3F7;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 4%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.product-main-top-left-title p{
+    margin-left: 2%;
+}
+
+.product-main-top-left-content{
+    width: 100%;
+    height: 360px;
+    background-color: blueviolet;
+}
+
+.product-main-top-center{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+}
+
+.product-main-top-center-right-slide{
+    width: 100%;
+    border-radius: 15px;
+}
+
+.product-main-top-center-right-slide-img{
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+}
+
+.product-main-top-center-right-content{
+    width: 100%;
+    height: 100px;
+    background-color: #63A3F7;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
+.product-main-top-center-right-content p{
+    color: white;
+    margin-left: 2%;
+}
+
+.product-main-top-center-right-content-list{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.product-main-top-center-right-content-list-item{
+    width: 30%;
+    margin-left: 2.4%;
+}
+
+.product-main-top-center-right-content-list-item-img{
+    width: 100%;
+    height: 60px;
+}
+
+
+.product-main-top-right{
+    width: 22.5%;
+    margin-left: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #FFEDE3;
+    border-radius: 15px;
+}
+
+.product-main-top-right-user{
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.product-main-top-right-user-icon{
+    width: 30%;
+}
+
+.product-main-top-right-user-information{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-main-top-right-user-information-title{
+    width: 100%;
+}
+
+.product-main-top-right-user-information-button{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.product-main-top-right-user-information-button-left{
+    background-color: white;
+    border: black 1px solid;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.product-main-top-right-user-information-button-right{
+    background-color: white;
+    border: black 1px solid;
+    border-radius: 15px;
+    padding: 5px;
+    margin-left: 5%;
+}
+
+.product-main-top-right-title{
+    width: 100%;
+    margin-top: 5px;
+}
+
+.product-main-top-right-service{
+    width: 90%;
+    margin-top: 1px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.product-main-top-right-service-top{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.product-main-top-right-service-top-left{
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+}
+
+.product-main-top-right-service-top-right{
+    width: 45%;
+    margin-left: 3%;
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+}
+
+.product-main-top-right-service-bottom{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.product-main-top-right-service-bottom-left{
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+}
+
+.product-main-top-right-service-bottom-right{
+    width: 45%;
+    margin-left: 3%;
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+}
+
+.product-main-top-right-image{
+    width: 90%;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.product-main-top-right-image img{
+    width: 100%;
+    height: 200px;
+}
