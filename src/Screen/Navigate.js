@@ -83,8 +83,8 @@ function Navigate() {
                 </div>
                 <div className="title_list">
                     <div >
-                        {uudai.map(uudai =>
-                            <div className="title_list_cottom">
+                        {uudai.map((uudai, index) =>
+                            <div key={index} className="title_list_cottom">
                                 <img src={uudai.image}/>
                                 <p>{uudai.mota}</p>
                                 <button>Đọc Thêm</button>

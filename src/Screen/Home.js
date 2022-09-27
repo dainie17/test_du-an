@@ -20,7 +20,7 @@ const PreviousBtn = (props) => {
     const { className, onClick } = props;
     return (
         <div className={className} onClick={onClick}>
-            <ArrowBackIos style={{ color: "blue" }} />
+            <ArrowBackIos style={{ color: "blue", fontSize: "70px" }} />
         </div>
     )
 }
@@ -29,7 +29,43 @@ const NextBtn = (props) => {
     const { className, onClick } = props;
     return (
         <div className={className} onClick={onClick}>
+            <ArrowForwardIos style={{ color: "blue", fontSize: "70px" }} />
+        </div>
+    )
+}
+
+const PreviousBtnList = (props) => {
+    const { className, onClick } = props;
+    return (
+        <div className={className} onClick={onClick}>
+            <ArrowBackIos style={{ color: "blue" }} />
+        </div>
+    )
+}
+
+const NextBtnList = (props) => {
+    const { className, onClick } = props;
+    return (
+        <div className={className} onClick={onClick}>
             <ArrowForwardIos style={{ color: "blue" }} />
+        </div>
+    )
+}
+
+const PreviousBtnR = (props) => {
+    const { className, onClick } = props;
+    return (
+        <div className={className} onClick={onClick}>
+            <ArrowBackIos style={{ color: "white" }} />
+        </div>
+    )
+}
+
+const NextBtnR = (props) => {
+    const { className, onClick } = props;
+    return (
+        <div className={className} onClick={onClick}>
+            <ArrowForwardIos style={{ color: "white" }} />
         </div>
     )
 }
@@ -176,8 +212,8 @@ const Home = () => {
                 <Slider
                     autoplay={true}
                     autoplaySpeed={2000}
-                    prevArrow={<PreviousBtn />}
-                    nextArrow={<NextBtn />}
+                    prevArrow={<PreviousBtnList />}
+                    nextArrow={<NextBtnList />}
                     slidesToShow={4}
                     slidesToScroll={4}
                     infinite={true}
@@ -219,8 +255,8 @@ const Home = () => {
                 <Slider
                     autoplay={true}
                     autoplaySpeed={2000}
-                    prevArrow={<PreviousBtn />}
-                    nextArrow={<NextBtn />}
+                    prevArrow={<PreviousBtnList />}
+                    nextArrow={<NextBtnList />}
                     slidesToShow={4}
                     slidesToScroll={4}
                     infinite={true}
@@ -245,8 +281,8 @@ const Home = () => {
                 <Slider
                     autoplay={true}
                     autoplaySpeed={2000}
-                    prevArrow={<PreviousBtn />}
-                    nextArrow={<NextBtn />}
+                    prevArrow={<PreviousBtnR />}
+                    nextArrow={<NextBtnR />}
                     slidesToShow={3}
                     slidesToScroll={3}
                     infinite={true}
@@ -255,9 +291,9 @@ const Home = () => {
                         dataIntroduce.map((item, index) => (
                             <div className="home-main-news-item" key={index}>
                                 <img src={item.image} alt="" className="home-main-news-item-image" />
-                                <p style={{width: "200px",fontSize: "20px", fontWeight: "bold",
-                                textAlign: "left"}}>{item.title}</p>
-                                <p style={{width: "200px",textAlign: "left"}}>{item.content.substring(0, 110)+" [...]"}</p>
+                                <p className="home-main-news-item-title">{item.title}</p>
+                                <p className="home-main-news-item-content">{item.content.substring(0, 230)+" [...]"}</p>
+                                <button className="home-main-news-item-button">Đọc thêm</button>
                             </div>
                         ))
                     }

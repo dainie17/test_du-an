@@ -237,12 +237,34 @@ const Product = () => {
                         <p>Tên loại sản phẩm</p>
                     </div>
                     <div className="product-main-list-content">
-                        <div className="product-main-list-content-card">
-                            <img src={image3} alt="" className="product-main-list-content-card-img" />
-                            <p className="product-main-list-content-card-name">Tên sản phẩm</p>
-                            <p className="product-main-list-content-card-price">305.000 Đ</p>
-                            <p className="product-main-list-content-card-number">Số lượng: 30</p>
-                        </div>
+                        {
+                            dataProduct.map((item, index) => (
+                                <div key={index} className="product-main-list-content-card">
+                                <img src={item.image} alt="" className="product-main-list-content-card-img" />
+                                <p className="product-main-list-content-card-name">{item.name}</p>
+                                <p className="product-main-list-content-card-price">{item.price} Đ</p>
+                                <p className="product-main-list-content-card-number">Số lượng: {item.number}</p>
+                            </div>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                <div className="product-main-list">
+                    <div className="product-main-list-title">
+                        <p>Tên loại sản phẩm</p>
+                    </div>
+                    <div className="product-main-list-content">
+                        {
+                            dataProduct.map((item, index) => (
+                                <div key={index} className="product-main-list-content-card">
+                                <img src={item.image} alt="" className="product-main-list-content-card-img" />
+                                <p className="product-main-list-content-card-name">{item.name}</p>
+                                <p className="product-main-list-content-card-price">{item.price} Đ</p>
+                                <p className="product-main-list-content-card-number">Số lượng: {item.number}</p>
+                            </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>
