@@ -22,8 +22,12 @@
 .title_container--text--name p {
     color: #63A3F7;
     display: inline-block;
-    font-size: 15px;
-    margin-top: 2%;
+    font-size: 13px;
+    margin: 2% 0% 2% 0%;
+}
+.title_container--text--name hr{
+    width: 90%;
+    background-color: #fff8f8;
 }
 
 #name {
