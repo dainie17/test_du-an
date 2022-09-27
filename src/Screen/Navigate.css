@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.title {
+    max-width: 83%;
+    margin: 0px auto;
+    overflow: hidden;
+    margin-top: 7%;
+
+}
+
+.title_header {
+    background-color: #63A3F7;
+    border-radius: 20px 20px 0px 0px;
+    margin: 0% 2% 0% 2%;
+    color: #fff;
+}
+
+.title_header h2 {
+    padding: 20px 0px 20px 50px;
+}
+
+.title_list_cottom {
+    display: inline-block;
+    max-width: 29.3%;
+    margin: 3% 2% 5% 2%;
+    background-color: #F9F9F9;
+    text-align: left;
+}
+
+.title_list_cottom img {
+    width: 100%;
+    height: 300px;
+}
+
+.title_list_cottom button {
+    width: 30%;
+    padding: 10px 0px 10px 0px;
+    background-color: #F4534E;
+    border: 0ch;
+    border-radius: 10px 10px 10px 10px;
+    color: rgb(255, 255, 255);
+    margin: 4% 0% 4% 2%;
+}
+
+.hashtag {
+    list-style-type: none;
+    background-color: #F6F6F6;
+}
+
+.hashtag_header {
+    max-width: 81%;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+.hashtag_header--list {
+    background-color: white;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+
+}
+
+.hashtag_header--list img {
+    width: 17.6%;
+    margin: 2% 1% 2% 1%;
+}
+
+.hashtag_header--list p {
+    padding-top: 1%;
+}
+
+.footer {
+    background-color: #242222;
+    text-align: center;
+
+}
+
+.footer_container {
+    max-width: 83%;
+    margin: 0px auto;
+    overflow: hidden;
+    display: block;
+
+}
+
+.footer_container img {
+    width: 6%;
+    margin: 7% 0% 2% 0%;
+}
+
+.footer_container input {
+    width: 5%;
+    margin-bottom: 5%;
+}
+
+.footer_container--page {
+    margin-bottom: 5%;
+    display: inline-block;
+
+}
+
+.footer_container--page--page {
+    width: 30%;
+    float: left;
+    text-align: left;
+}
+
+.footer_container--page--page iframe {
+    border: none;
+    overflow: hidden ;
+    margin-top: 9%;
+}
+
+.footer_container--page--company {
+    width: 35%;
+    float: left;
+    text-align: left;
+}
+
+.footer_container--page--we {
+    width: 12%;
+    float: left;
+    text-align: left;
+    margin-left: 7%;
+}
+
+.footer_container--page--policy {
+    width: 13%;
+    float: left;
+    text-align: left;
+    margin-left: 3%;
+
+}
+
+.footer_container--page h2 {
+    text-align: left;
+    font-size: 20px;
+    color: white;
+}
+
+.footer_container--page p {
+    color: white;
+    margin-top: 7%;
+}
