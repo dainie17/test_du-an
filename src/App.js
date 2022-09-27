@@ -7,9 +7,11 @@ import Navbar from './Screen/Navbar';
 import Home from './Screen/Home';
 import Introduce from './Screen/Introduce';
 import Product from './Screen/Product';
+import Detail from './Screen/Detail';
 import './Screen/Introduce.css'
 import './Screen/Home.css'
 import './Screen/Product.css'
+import './Screen/Detail.css'
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
         <Route path='/Home' element={<Home />} />
         <Route path='/Introduce' element={<Introduce />} />
         <Route path='/Product' element={<Product />} />
+        <Route path='/Detail' element={<Detail />} />
       </Routes>
     </div>
   );

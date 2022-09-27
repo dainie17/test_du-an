@@ -4,6 +4,7 @@ import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { NavLink } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import { AssignmentReturnSharp, DiamondSharp, GppGoodSharp, SupportAgentSharp, TokenSharp, ViewListSharp } from "@mui/icons-material";
 import Slider from "react-slick";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
@@ -92,6 +93,12 @@ const Product = () => {
             number: 30
         },
     ]
+
+    let navgate = useNavigate();
+
+    const onclickItem =()=>{
+        navgate("/Detail");
+    }
 
     return (
         <div className="product">
@@ -239,7 +246,7 @@ const Product = () => {
                     <div className="product-main-list-content">
                         {
                             dataProduct.map((item, index) => (
-                                <div key={index} className="product-main-list-content-card">
+                                <div onClick={onclickItem} key={index} className="product-main-list-content-card">
                                 <img src={item.image} alt="" className="product-main-list-content-card-img" />
                                 <p className="product-main-list-content-card-name">{item.name}</p>
                                 <p className="product-main-list-content-card-price">{item.price} Đ</p>
@@ -257,7 +264,7 @@ const Product = () => {
                     <div className="product-main-list-content">
                         {
                             dataProduct.map((item, index) => (
-                                <div key={index} className="product-main-list-content-card">
+                                <div onClick={onclickItem} key={index} className="product-main-list-content-card">
                                 <img src={item.image} alt="" className="product-main-list-content-card-img" />
                                 <p className="product-main-list-content-card-name">{item.name}</p>
                                 <p className="product-main-list-content-card-price">{item.price} Đ</p>
