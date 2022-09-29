@@ -9,6 +9,7 @@ import Introduce from './Screen/Introduce';
 import Product from './Screen/Product';
 import Detail from './Screen/Detail';
 import Cart from './Screen/Cart';
+import Personal from './Screen/Personal'
 import './Screen/Introduce.css'
 import './Screen/Home.css'
 import './Screen/Product.css'
@@ -28,6 +29,7 @@ function App() {
         <Route path='/Product' element={<Product />} />
         <Route path='/Detail' element={<Detail />} />
         <Route path='/Cart' element={<Cart />} />
+        <Route path='/Personal' element={<Personal />} />
       </Routes>
     </div>
   );
