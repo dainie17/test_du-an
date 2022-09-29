@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
@@ -23,10 +24,13 @@ const Detail = () => {
         console.log(u);
     });
 
-    const data = [image1, image2, image3, image4, image5];
+    let navgate = useNavigate();
 
-    const [nav1, Slider1] = useState([]);
-    const [nav2, Slider2] = useState([]);
+    const onclickItem =()=>{
+        navgate("/Cart");
+    }
+
+    const data = [image1, image2, image3, image4, image5];
 
     return (
         <div className="detail">
@@ -113,7 +117,7 @@ const Detail = () => {
                             <p>153</p>
                         </div>
                     </div>
-                    <button className="detail-main-top-right-btngh">Thêm vào giỏ hàng</button>
+                    <button onClick={onclickItem} className="detail-main-top-right-btngh">Thêm vào giỏ hàng</button>
                     <p className="detail-main-top-right-titlepay">Thanh toán an toàn</p>
                     <p className="detail-main-top-right-option">Nhiều tùy chọn thanh toán</p>
                     <p className="detail-main-top-right-service">Đảm bảo dịch vụ khách hàng</p>
