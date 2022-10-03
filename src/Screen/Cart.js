@@ -1,12 +1,16 @@
 import { DeleteOutlineSharp, FavoriteBorderSharp, VerifiedUserSharp } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import PinDropIcon from '@mui/icons-material/PinDrop';
+import CallIcon from '@mui/icons-material/Call';
+import EmailIcon from '@mui/icons-material/Email';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const image1 = "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
 const image2 = "https://cdn.tgdd.vn/Files/2019/11/18/1220010/4-cach-ve-sinh-ben-trong-chai-lo-cuc-sach-ban-nen-thu-21-760x367.jpg";
-const image3 = "https://bizweb.dktcdn.net/100/154/029/files/san-xuat-chai-lo-nhua-2-941c40bb-0124-4086-8aab-ad24dc55c0b8.jpg?v=1501056541035";
-const image4 = "https://i-raovat.vnecdn.net/2020/05/22/51ade386733b048d7c00c29720e39c04.jpeg?w=1280&h=768&q=100&dpr=1&rt=fit&g=no&wmi=&wmg=ce&wmo=50&wms=30&wmx=0&wmy=0&s=irmRdkv5lf-nqmbP2V8WXg";
-const image5 = "https://thuytinhtadaco.com/wp-content/uploads/2021/08/chai-lo-thuy-tinh.jpg";
+const logo = "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
 
 const Cart = () => {
 
@@ -147,6 +151,47 @@ const Cart = () => {
                         <p className="cart-main-right-total-content">6.883.034&#8363;</p>
                     </div>
                     <button className="cart-main-right-button" onClick={onclickItem}>Thanh toán</button>
+                </div>
+            </div>
+            <div className="footer">
+                <div className="footer_container">
+                    <img src={logo} />
+                    <br />
+                    <input></input>
+                    <br />
+                    <div className="footer_container--page" >
+                        <div className="footer_container--page--page">
+                            <h3>FANPAGE</h3>
+                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" ></iframe>
+                        </div>
+                        <div className="footer_container--page--company" >
+                            <h3> Công ty TNHH SẢN XUẤT ĐẦU TƯ TM DV XNK VŨ GIA GROUP</h3>
+                            <p><PinDropIcon sx={{marginRight:'2%'}}/> 840/20B Hương Lộ 2, Phường Bình Trị Đông A,
+                                Quận Bình Tân, Thành phố Hồ Chí Minh, Việt Nam</p>
+                            <p><CallIcon sx={{marginRight:'2%'}}/>(84+) 706 185 986</p>
+                            <p><EmailIcon sx={{marginRight:'2%'}}/>vagabonds.2hand@gmail.comt</p>
+                            <div className="netword">
+                                <FacebookIcon sx={{color:'#fff', float:'left',marginTop:'5%'}}/>
+                                <YouTubeIcon sx={{color:'#fff', float:'left',margin:'5%'}}/>
+                                <InstagramIcon sx={{color:'#fff', float:'left',marginTop:'5%'}}/>
+                            </div>
+                        </div>
+                        <div className="footer_container--page--we" >
+                            <h3>Về chúng tôi</h3><br></br>
+                            <p>Giới thiệu</p>
+                            <p>Sản phẩm</p>
+                            <p>Ưu đãi</p>
+                            <p>Liên hệ</p>
+                        </div>
+                        <div className="footer_container--page--policy" >
+                            <h3>Chính sách</h3><br />
+                            <p>Chính sách bảo mật</p>
+                            <p>Chính sách đổi trả</p>
+                            <p>Chính sách bảo hành </p>
+                            <p>Chính sách giao hàng</p>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
@@ -41,48 +41,62 @@ function Navigate() {
             mota: 'Hệ Cao đẳng thực hành thuộc Đại học FPT, còn gọi là FPT Polytechnic, được thực hiện đào tạo và cấp bằng Cao đẳng nghề theo Quyết định của Tổng cục dạy nghề bắt đầu từ ngày 01/07/2010. Trường hướng tới mục tiêu cung cấp kỹ năng nghề nghiệp chất lượng cao cho người học, đảm bảo được tính cạnh tranh trong môi trường phát triển ngày càng cao.',
         }
     ]
+
+    let navgate = useNavigate();
+
+    const onclickItem =()=>{
+        navgate("/Personal");
+    }
     return (
         <div className="home">
-            <nav className="home-header">
-                <h3 style={{ width: "20%", textAlign: "center" }}>logo</h3>
-                <ul className="home-header_ul">
-                    <li>
-                        <NavLink className="home-header_ul_li_navlink" to="/Home">Trang chủ</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className="home-header_ul_li_navlink" to="/Introduce">Giới thiệu</NavLink>
-                    </li>
-                    <li className="home-header_ul_subnav">
-                        <NavLink className="home-header_ul_li_navlink" to="/Product">Sản phẩm</NavLink>
-                        <ArrowDropDownIcon className="home-header_ul_li_navlink_icon" />
-                        <div className="home-header_ul_subnav_content">
-                            <a href="#company">Company</a>
-                            <a href="#team">Team</a>
-                            <a href="#careers">Careers</a>
-                        </div>
-                    </li>
-                    <li>
-                        <NavLink className="home-header_ul_li_navlink" to="/Navigate">Ưu đãi</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className="home-header_ul_li_navlink" to="/Introduce">Liên hệ</NavLink>
-                    </li>
-                </ul>
-                <div className="home-header_icon">
-                    <SearchSharpIcon />
-
-                    <div className="home-header_icon_user">
-                        <AccountCircleSharpIcon className="home-header_icon_user_img" />
-                        <div className="home-header_icon_user_content">
-                            <a href="#company">Company</a>
-                            <a href="#team">Team</a>
-                            <a href="#careers">Careers</a>
-                        </div>
+           <div className="container">
+                <nav className="home-header">
+                    <div className="home-header_logo">
+                    <img className="home-header-logo-image" src={logo} alt="" />
+                    <p className="home-header-logo-title">logo</p>
                     </div>
+                    <ul className="home-header_ul">
+                        <li>
+                            <NavLink className="home-header_ul_li_navlink" to="/Home">Trang chủ</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">Giới thiệu</NavLink>
+                        </li>
+                        <li className="home-header_ul_subnav">
+                            <NavLink className="home-header_ul_li_navlink" to="/Product">Sản phẩm</NavLink>
+                            <ArrowDropDownIcon className="home-header_ul_li_navlink_icon" />
+                            <div className="home-header_ul_subnav_content">
+                                <a href="#company">Company</a>
+                                <a href="#team">Team</a>
+                                <a href="#careers">Careers</a>
+                                
+                            </div>
+                            
+                        </li>
+                        <li>
+                            <NavLink className="home-header_ul_li_navlink" to="/Navigate">Ưu đãi</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">Liên hệ</NavLink>
+                        </li>
+                    </ul>
+                    <div className="home-header_icon">
+                        <SearchSharpIcon style={{fontSize: "40px"}}/>
 
-                    <ShoppingCartIcon />
-                </div>
-            </nav>
+                        <div className="home-header_icon_user" >
+                            <AccountCircleSharpIcon style={{fontSize: "40px",cursor: "pointer"}} className="home-header_icon_user_img" onClick={onclickItem}/>
+                            <div style={{right: "6%"}} className="home-header_icon_user_content">
+                                <a href="#company">Company</a>
+                                <a href="#team">Team</a>
+                                <a href="#careers">Careers</a>
+                            </div>
+                        </div>
+
+                        <ShoppingCartIcon style={{fontSize: "40px"}}/>
+                    </div>
+                </nav>
+
+            </div>
             <div className="title">
                 <div className="title_header">
                     <h2>Tin tức & Ưu đãi</h2>

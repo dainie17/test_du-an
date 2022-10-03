@@ -30,46 +30,52 @@ function Person() {
     }
     return (
         <div className="fersonal">
-            <nav className="home-header">
-                <h3 style={{ width: "20%", textAlign: "center" }}>logo</h3>
-                <ul className="home-header_ul">
-                    <li>
-                        <NavLink className="home-header_ul_li_navlink" to="/Home">Trang chủ</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className="home-header_ul_li_navlink" to="/Introduce">Giới thiệu</NavLink>
-                    </li>
-                    <li className="home-header_ul_subnav">
-                        <NavLink className="home-header_ul_li_navlink" to="/Product">Sản phẩm</NavLink>
-                        <ArrowDropDownIcon className="home-header_ul_li_navlink_icon" />
-                        <div className="home-header_ul_subnav_content">
-                            <a href="#company">Company</a>
-                            <a href="#team">Team</a>
-                            <a href="#careers">Careers</a>
-                        </div>
-                    </li>
-                    <li>
-                        <NavLink className="home-header_ul_li_navlink" to="/Navigate">Ưu đãi</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className="home-header_ul_li_navlink" to="/Introduce">Liên hệ</NavLink>
-                    </li>
-                </ul>
-                <div className="home-header_icon">
-                    <SearchSharpIcon />
-
-                    <div className="home-header_icon_user">
-                        <a href="/Personal"><AccountCircleSharpIcon className="home-header_icon_user_img" /></a>
-                        <div className="home-header_icon_user_content">
-                            <a href="#company">Company</a>
-                            <a href="#team">Team</a>
-                            <a href="#careers">Careers</a>
-                        </div>
+            <div className="container">
+                <nav className="home-header">
+                    <div className="home-header_logo">
+                    <img className="home-header-logo-image" src={logo} alt="" />
+                    <p className="home-header-logo-title">logo</p>
                     </div>
+                    <ul className="home-header_ul">
+                        <li>
+                            <NavLink className="home-header_ul_li_navlink" to="/Home">Trang chủ</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">Giới thiệu</NavLink>
+                        </li>
+                        <li className="home-header_ul_subnav">
+                            <NavLink className="home-header_ul_li_navlink" to="/Product">Sản phẩm</NavLink>
+                            <ArrowDropDownIcon className="home-header_ul_li_navlink_icon" />
+                            <div className="home-header_ul_subnav_content">
+                                <a href="#company">Company</a>
+                                <a href="#team">Team</a>
+                                <a href="#careers">Careers</a>
+                            </div>
+                        </li>
+                        <li>
+                            <NavLink className="home-header_ul_li_navlink" to="/Navigate">Ưu đãi</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">Liên hệ</NavLink>
+                        </li>
+                    </ul>
+                    <div className="home-header_icon">
+                        <SearchSharpIcon style={{fontSize: "40px"}}/>
 
-                    <ShoppingCartIcon />
-                </div>
-            </nav>
+                        <div className="home-header_icon_user">
+                            <AccountCircleSharpIcon style={{fontSize: "40px"}} className="home-header_icon_user_img" />
+                            <div style={{right: "6%"}} className="home-header_icon_user_content">
+                                <a href="#company">Company</a>
+                                <a href="#team">Team</a>
+                                <a href="#careers">Careers</a>
+                            </div>
+                        </div>
+
+                        <ShoppingCartIcon style={{fontSize: "40px"}}/>
+                    </div>
+                </nav>
+
+            </div>
             <div className="fersonal_container">
                 <div className="fersonal_container-left">
                     <h2>Tài khoản của tôi</h2>
