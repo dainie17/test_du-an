@@ -4,6 +4,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LocalTaxiIcon from '@mui/icons-material/LocalTaxi';
 import './Personal.css'
 
 const logo = "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
@@ -11,7 +12,7 @@ const logo = "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149
 
 function Person() {
     return (
-        <div>
+        <div className="fersonal">
              <nav className="home-header">
                 <h3 style={{ width: "20%", textAlign: "center" }}>logo</h3>
                 <ul className="home-header_ul">
@@ -71,16 +72,16 @@ function Person() {
                         </div>
                         <div className="fersonal_container-right--header--content">
                             <div className="content">
-                            <AccountCircleSharpIcon/>
-                            <p>đơn hàng</p>
+                            <AccountCircleSharpIcon sx={{fontSize:50}}/>
+                            <p>Đơn hàng của tôi</p>
                             </div>
                             <div className="content">
-                            <AccountCircleSharpIcon/>
-                            <p>đơn hàng</p>
+                            <LocalTaxiIcon sx={{fontSize:50}}/>
+                            <p>Tình trạng đơn hàng</p>
                             </div>
                             <div className="content">
-                            <AccountCircleSharpIcon/>
-                            <p>đơn hàng</p>
+                            <AccountCircleSharpIcon sx={{fontSize:50}}/>
+                            <p>Yêu thích</p>
                             </div>
                         </div>
                         
