@@ -8,6 +8,7 @@ import Home from './Screen/Home';
 import Introduce from './Screen/Introduce';
 import Product from './Screen/Product';
 import Detail from './Screen/Detail';
+import Person from './Screen/Personal';
 import Cart from './Screen/Cart';
 import Personal from './Screen/Personal'
 import Order from './Screen/Order';
@@ -30,6 +31,7 @@ function App() {
         <Route path='/Introduce' element={<Introduce />} />
         <Route path='/Product' element={<Product />} />
         <Route path='/Detail' element={<Detail />} />
+        <Route path='/Personal' element={<Person/>}/>
         <Route path='/Cart' element={<Cart />} />
         <Route path='/Personal' element={<Personal />} />
         <Route path='/Order' element={<Order />} />
