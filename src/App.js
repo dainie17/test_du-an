@@ -9,10 +9,15 @@ import Introduce from './Screen/Introduce';
 import Product from './Screen/Product';
 import Detail from './Screen/Detail';
 import Person from './Screen/Personal';
+import Cart from './Screen/Cart';
+import Personal from './Screen/Personal'
+import Order from './Screen/Order';
 import './Screen/Introduce.css'
 import './Screen/Home.css'
 import './Screen/Product.css'
 import './Screen/Detail.css'
+import './Screen/Cart.css'
+import './Screen/Order.css'
 
 function App() {
   return (
@@ -27,6 +32,9 @@ function App() {
         <Route path='/Product' element={<Product />} />
         <Route path='/Detail' element={<Detail />} />
         <Route path='/Personal' element={<Person/>}/>
+        <Route path='/Cart' element={<Cart />} />
+        <Route path='/Personal' element={<Personal />} />
+        <Route path='/Order' element={<Order />} />
       </Routes>
     </div>
   );
