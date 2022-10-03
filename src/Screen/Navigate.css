@@ -9,7 +9,7 @@
     max-width: 83%;
     margin: 0px auto;
     overflow: hidden;
-    margin-top: 7%;
+    margin-top: 4%;
 
 }
 
@@ -36,6 +36,12 @@
     width: 100%;
     height: 300px;
 }
+.title_list_cottom--content{
+    margin: 5%
+}
+.title_list_cottom--content h2{
+    margin-bottom: 4%;
+}
 
 .title_list_cottom button {
     width: 30%;
@@ -44,7 +50,7 @@
     border: 0ch;
     border-radius: 10px 10px 10px 10px;
     color: rgb(255, 255, 255);
-    margin: 4% 0% 4% 2%;
+    margin: 4% 0% 0% 0%;
 }
 
 .hashtag {
@@ -78,7 +84,6 @@
 .footer {
     background-color: #242222;
     text-align: center;
-
 }
 
 .footer_container {
@@ -120,7 +125,7 @@
 .footer_container--page--company {
     width: 35%;
     float: left;
-    text-align: left;
+
 }
 
 .footer_container--page--we {
@@ -138,13 +143,16 @@
 
 }
 
-.footer_container--page h2 {
+.footer_container--page h3 {
     text-align: left;
-    font-size: 20px;
     color: white;
 }
 
 .footer_container--page p {
     color: white;
+    font-size: 13px;
     margin-top: 7%;
+    display: flex;
+    text-align: left;
+    
 }

@@ -22,11 +22,13 @@
     margin: 2% 2% 2% 2%;
 }
 .fersonal_container-left h2{
-    margin: 5% 0% 10% 4%;
+    margin: 5% 0% 15% 4%;
 }
 .fersonal_container-left--info--tabs{
     cursor: pointer;
-    margin: 5% 0% 5% 4%;
+    margin: 10% 0% 5% 4%;
+    display: flex;
+    text-align: left;
 }
 .fersonal_container-left--info a{
     display: block;
