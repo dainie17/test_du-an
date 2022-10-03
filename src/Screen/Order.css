@@ -10,6 +10,7 @@
     flex-direction: column;
 }
 
+/* chỉnh cho phần ô tròn thứ hai trên slide tiến trình mua hàng  */
 .order-header-stage-wrapper-container-step2::after {
     content: "";
     display: block;
@@ -24,6 +25,7 @@
     transition: all ease 0.2s;
 }
 
+/* tùy chỉnh kích thước line xanh */
 .order-header-stage-wrapper-container-line-process {
     content: "";
     width: 50%;
@@ -43,8 +45,10 @@
     background: #F6F6F6;
     align-items: center;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
+/* khối div bên trái */
 .order-main-left{
     width: 60%;
     display: flex;
@@ -52,6 +56,9 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
+/* 
+khối div địa chỉ giao hàng */
 .order-main-left-address{
     width: 100%;
     background: white;
@@ -117,6 +124,8 @@
     margin-left: 20px;
 }
 
+
+/* khối div phương thức thanh toán */
 .order-main-left-payment{
     width: 100%;
     background: white;
@@ -152,12 +161,15 @@
     margin-left: 2%;
 }
 
+/* tiêu đề list sản phẩm */
 .cart-main-left-list-title{
     font-size: 20px;
     font-weight: 700;
     padding-top: 20px;
 }
 
+
+/* khối div bên phải */
 .order-main-right{
     width: 30%;
     height: 300px;

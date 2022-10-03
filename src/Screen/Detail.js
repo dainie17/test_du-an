@@ -165,6 +165,8 @@ const Detail = () => {
                     </div>
                 </div>
             </div>
+
+            
             <div className="footer">
                 <div className="footer_container">
                     <img src={logo} />

@@ -8,8 +8,10 @@
     width: 100%;
     align-items: center;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
+/* khối div chứa hình ảnh và thông tin sản phẩm */
 .detail-main-top{
     width: 95%;
     margin-left: 2.5%;
@@ -19,36 +21,43 @@
     flex-direction: row;
 }
 
+/* div chứa hình ảnh  */
 .detail-main-top-left{
     width: 45%;
    margin-top: -170px;     
 }
 
+/* vị trí list ảnh nhỏ */
 .detail-main-top-left .custom-indicator{
     bottom: -110px;
 }
 
+/* kích thước list ảnh nhỏ chỉnh css của slide slick*/
 .detail-main-top-left .custom-indicator li{
     width: 100px;
     height: 100px;
     filter: grayscale(100%);
 }
 
+/* khi ảnh nhỏ đc hiển thị */
 .detail-main-top-left .custom-indicator li.slick-active{
     filter: grayscale(0%);
 }
 
+/* kích thước ảnh nhỏ */
 .detail-main-top-left-img{
     width: 100px;
     height: 100px;
     object-fit: cover;
 }
 
+/* kích thước ảnh to */
 .detail-main-top-left-image{
     width: 100%;
     height: 400px;
 }
 
+/* khối div chứa thông tin sản phẩm */
 .detail-main-top-right{
     width: 45%;
     display: flex;
@@ -57,6 +66,7 @@
     margin-top: 50px;
 }
 
+/* tên sản phẩm */
 .detail-main-top-right-name{
     width: 100%;
     font-size: 20px;
@@ -65,6 +75,7 @@
     margin-bottom: 10px;
 }
 
+/* số lượng */
 .detail-main-top-right-number{
     width: 100%;
     font-size: 15px;
@@ -73,6 +84,7 @@
     margin-bottom: 20px;
 }
 
+/* giá */
 .detail-main-top-right-price{
     width: 100%;
     font-size: 20px;
@@ -85,6 +97,7 @@
     margin-bottom: 20px;
 }
 
+/* tiêu đề */
 .detail-main-top-right-title{
     width: 100%;
     font-size: 17px;
@@ -93,6 +106,7 @@
     margin-bottom: 20px;
 }
 
+/* thông tin sản phẩm  */
 .detail-main-top-right-content{
     width: 100%;
     height: 100px;
@@ -103,6 +117,7 @@
     margin-bottom: 20px;
 }
 
+/* div chứa button */
 .detail-main-top-right-button{
     width: 100%;
     display: flex;
@@ -119,6 +134,7 @@
     flex-direction: row;
 }
 
+/* giảm số lượng */
 .detail-main-top-right-button-picknb-reduce{
     width: 50px;
     height: 50px;
@@ -126,11 +142,13 @@
     border: none;
 }
 
+/* số lượng */
 .detail-main-top-right-button-picknb-num{
     padding: 10px;
     font-size: 30px;
 }
 
+/* Tăng số lượng */
 .detail-main-top-right-button-picknb-augment{
     width: 50px;
     height: 50px;
@@ -138,6 +156,7 @@
     border: none;
 }
 
+/* icon trái tim */
 .detail-main-top-right-button-favorite{
     width: 70px;
     height: 55;
@@ -151,6 +170,7 @@
     margin-left: 3%;
 }
 
+/* button thêm vào giỏ hàng */
 .detail-main-top-right-btngh{
     width: 100%;
     background-color: #63A3F7;

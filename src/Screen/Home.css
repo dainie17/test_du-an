@@ -217,6 +217,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .home-main-introduce{
@@ -358,6 +359,7 @@
     padding-right: 5%;
 }
 
+/* tùy chỉnh nút tiến lùi */
 .home-main-news .slick-arrow.slick-prev,
 .home-main-news .slick-arrow.slick-next{
     background-color: #555;
@@ -370,16 +372,18 @@
     z-index: 1;
 }
 
+/* vị trí nút tiến */
 .home-main-news .slick-next{
     right: -35px;
 }
 
+/* vị trí của nút tiến */
 .home-main-news .slick-prev{
     left: -25px;
     padding-left: 10px;
 } 
 
-
+/* tùy chỉnh item của slide */
 .home-main-news-item{
     width: 300px;
     margin-left: 12%;
@@ -387,11 +391,13 @@
     flex-direction: column;
 }
 
+/* kích thước hình ảnh */
 .home-main-news-item-image{
     width: 300px;
     height: 300px;
 }
 
+/* tiêu đề của slide */
 .home-main-news-item-title{
     width: 300px;
     font-size: 20px;
@@ -401,12 +407,14 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* nội dung của item */
 .home-main-news-item-content{
     width: 300px;
     text-align: left;
     margin-top: 10px;
 }
 
+/* tùy chỉnh button xem thêm */
 .home-main-news-item-button{
     padding-top: 8px;
     padding-bottom: 8px;
