@@ -44,16 +44,16 @@ function Navigate() {
 
     let navgate = useNavigate();
 
-    const onclickItem =()=>{
+    const onclickItem = () => {
         navgate("/Personal");
     }
     return (
         <div className="home">
-           <div className="container">
+            <div className="container">
                 <nav className="home-header">
                     <div className="home-header_logo">
-                    <img className="home-header-logo-image" src={logo} alt="" />
-                    <p className="home-header-logo-title">logo</p>
+                        <img className="home-header-logo-image" src={logo} alt="" />
+                        <p className="home-header-logo-title">logo</p>
                     </div>
                     <ul className="home-header_ul">
                         <li>
@@ -69,9 +69,9 @@ function Navigate() {
                                 <a href="#company">Company</a>
                                 <a href="#team">Team</a>
                                 <a href="#careers">Careers</a>
-                                
+
                             </div>
-                            
+
                         </li>
                         <li>
                             <NavLink className="home-header_ul_li_navlink" to="/Navigate">Ưu đãi</NavLink>
@@ -81,18 +81,18 @@ function Navigate() {
                         </li>
                     </ul>
                     <div className="home-header_icon">
-                        <SearchSharpIcon style={{fontSize: "40px"}}/>
+                        <SearchSharpIcon style={{ fontSize: "40px" }} />
 
                         <div className="home-header_icon_user" >
-                            <AccountCircleSharpIcon style={{fontSize: "40px",cursor: "pointer"}} className="home-header_icon_user_img" onClick={onclickItem}/>
-                            <div style={{right: "6%"}} className="home-header_icon_user_content">
+                            <AccountCircleSharpIcon style={{ fontSize: "40px", cursor: "pointer" }} className="home-header_icon_user_img" onClick={onclickItem} />
+                            <div style={{ right: "6%" }} className="home-header_icon_user_content">
                                 <a href="#company">Company</a>
                                 <a href="#team">Team</a>
                                 <a href="#careers">Careers</a>
                             </div>
                         </div>
 
-                        <ShoppingCartIcon style={{fontSize: "40px"}}/>
+                        <ShoppingCartIcon style={{ fontSize: "40px" }} />
                     </div>
                 </nav>
 
@@ -137,33 +137,37 @@ function Navigate() {
                     <div className="footer_container--page" >
                         <div className="footer_container--page--page">
                             <h3>FANPAGE</h3>
-                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" ></iframe>
+                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"  ></iframe>
                         </div>
                         <div className="footer_container--page--company" >
                             <h3> Công ty TNHH SẢN XUẤT ĐẦU TƯ TM DV XNK VŨ GIA GROUP</h3>
-                            <p><PinDropIcon sx={{marginRight:'2%'}}/> 840/20B Hương Lộ 2, Phường Bình Trị Đông A,
+                            <p><PinDropIcon sx={{ marginRight: '2%' }} /> 840/20B Hương Lộ 2, Phường Bình Trị Đông A,
                                 Quận Bình Tân, Thành phố Hồ Chí Minh, Việt Nam</p>
-                            <p><CallIcon sx={{marginRight:'2%'}}/>(84+) 706 185 986</p>
-                            <p><EmailIcon sx={{marginRight:'2%'}}/>vagabonds.2hand@gmail.comt</p>
+                            <p><CallIcon sx={{ marginRight: '2%' }} />(84+) 706 185 986</p>
+                            <p><EmailIcon sx={{ marginRight: '2%' }} />vagabonds.2hand@gmail.comt</p>
                             <div className="netword">
-                                <FacebookIcon sx={{color:'#fff', float:'left',marginTop:'5%'}}/>
-                                <YouTubeIcon sx={{color:'#fff', float:'left',margin:'5%'}}/>
-                                <InstagramIcon sx={{color:'#fff', float:'left',marginTop:'5%'}}/>
+                                <FacebookIcon sx={{ color: '#fff', float: 'left', marginTop: '5%' }} />
+                                <YouTubeIcon sx={{ color: '#fff', float: 'left', margin: '5%' }} />
+                                <InstagramIcon sx={{ color: '#fff', float: 'left', marginTop: '5%' }} />
                             </div>
                         </div>
                         <div className="footer_container--page--we" >
                             <h3>Về chúng tôi</h3><br></br>
-                            <p>Giới thiệu</p>
-                            <p>Sản phẩm</p>
-                            <p>Ưu đãi</p>
-                            <p>Liên hệ</p>
+                            <div className="we">
+                                <p>Giới thiệu</p>
+                                <p>Sản phẩm</p>
+                                <p>Ưu đãi</p>
+                                <p>Liên hệ</p>
+                            </div>
                         </div>
                         <div className="footer_container--page--policy" >
                             <h3>Chính sách</h3><br />
-                            <p>Chính sách bảo mật</p>
-                            <p>Chính sách đổi trả</p>
-                            <p>Chính sách bảo hành </p>
-                            <p>Chính sách giao hàng</p>
+                            <div className="policy">
+                                <p>Chính sách bảo mật</p>
+                                <p>Chính sách đổi trả</p>
+                                <p>Chính sách bảo hành </p>
+                                <p>Chính sách giao hàng</p>
+                            </div>
                         </div>
 
                     </div>

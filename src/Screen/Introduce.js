@@ -21,16 +21,16 @@ const logo = "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149
 const Introduce = () => {
     let navgate = useNavigate();
 
-    const onclickItem =()=>{
+    const onclickItem = () => {
         navgate("/Personal");
     }
     return (
         <div>
-           <div className="container">
+            <div className="container">
                 <nav className="home-header">
                     <div className="home-header_logo">
-                    <img className="home-header-logo-image" src={logo} alt="" />
-                    <p className="home-header-logo-title">logo</p>
+                        <img className="home-header-logo-image" src={logo} alt="" />
+                        <p className="home-header-logo-title">logo</p>
                     </div>
                     <ul className="home-header_ul">
                         <li>
@@ -56,18 +56,18 @@ const Introduce = () => {
                         </li>
                     </ul>
                     <div className="home-header_icon">
-                        <SearchSharpIcon style={{fontSize: "40px"}}/>
+                        <SearchSharpIcon style={{ fontSize: "40px" }} />
 
                         <div className="home-header_icon_user">
-                            <AccountCircleSharpIcon style={{fontSize: "40px",cursor: "pointer"}} className="home-header_icon_user_img" onClick={onclickItem}/>
-                            <div style={{right: "6%"}} className="home-header_icon_user_content">
+                            <AccountCircleSharpIcon style={{ fontSize: "40px", cursor: "pointer" }} className="home-header_icon_user_img" onClick={onclickItem} />
+                            <div style={{ right: "6%" }} className="home-header_icon_user_content">
                                 <a href="#company">Company</a>
                                 <a href="#team">Team</a>
                                 <a href="#careers">Careers</a>
                             </div>
                         </div>
 
-                        <ShoppingCartIcon style={{fontSize: "40px"}}/>
+                        <ShoppingCartIcon style={{ fontSize: "40px" }} />
                     </div>
                 </nav>
 
@@ -80,10 +80,63 @@ const Introduce = () => {
                     <div className="title_container--text">
                         <p className="CT">CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ TM DV XNK VŨ GIA GROUP</p>
                         <div className="title_container--text--name">
-                            <PublicIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
+                            <div className="title_container--text--name--content">
+                                <div className="title_container--text--name--content--group" >
+                                    <div className="name">
+                                        <PublicIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
+                                        <p style={{fontWeight:'bold'}}>Tên quốc tế</p>
+                                    </div>
+                                    <p id="diachi">CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ TM DV XNK VŨ GIA GROUP</p>
+                                </div>
+                                <div className="Br"></div>
+                            </div>
+                            <div className="title_container--text--name--content">
+                                <div className="title_container--text--name--content--group" >
+                                    <div className="name">
+                                        <AlignVerticalCenterIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
+                                        <p style={{fontWeight:'bold'}}>Mã số thuế</p>
+                                    </div>
+                                    <p id="diachi" >0782565750</p>
+                                </div>
+                                <div className="Br"></div>
+                            </div>
+                            <div className="title_container--text--name--content">
+                                <div className="title_container--text--name--content--group" >
+                                    <div className="name">
+                                        <LocationOnIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
+                                        <p style={{fontWeight:'bold'}}>Địa chỉ </p>
+                                    </div>
+                                    <p id="diachi">840/20B Hương Lộ 2, Phường Bình Trị Đông A, Quận Bình Tân, T.P Hồ Chí Mình, Việt Nam</p>
+                                </div>
+                                <div className="Br"></div>
+
+                            </div>
+                            <div className="title_container--text--name--content">
+                                <div className="title_container--text--name--content--group" >
+                                    <div className="name">
+                                        <PersonIcon sx={{ fontSize: 15 }} />
+                                        <p style={{fontWeight:'bold'}}>Người Đại Diện </p>
+                                    </div>
+                                    <p id="diachi" >Vũ Anh Tuấn <br /> Ngoài ra Vũ Anh Tuấn còn đại diện các doanh nghiệp: <br />    Công Ty Cổ Phần Thương Mại Dịch Vụ</p>
+                                </div>
+                                <div className="Br"></div>
+                            </div>
+                            <div className="title_container--text--name--content">
+                                <div className="title_container--text--name--content--group" >
+                                    <div className="name">
+                                        <LocalPhoneIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
+                                        <p style={{fontWeight:'bold'}}>Số điện thoại</p>
+                                    </div>
+                                    <p id="diachi">0782565750</p>
+                                </div>
+
+                            </div>
+
+
+                            {/* <PublicIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
                             <p style={{ marginRight: '10%' }}>Tên quốc tế</p>
-                            <p >CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ TM DV XNK VŨ GIA GROUP</p><br />   <hr />
-                            <AlignVerticalCenterIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
+                            <p >CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ TM DV XNK VŨ GIA GROUP</p><br />   <hr /> */}
+                            {/* <AlignVerticalCenterIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
                             <p style={{ marginRight: '10%' }}>Mã số thuế</p>
                             <p >0782565750</p><br /><hr />
                             <LocationOnIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
@@ -94,7 +147,7 @@ const Introduce = () => {
                             <p >Vũ Anh Tuấn <br /> Ngoài ra Vũ Anh Tuấn còn đại diện các doanh nghiệp: <br />    Công Ty Cổ Phần Thương Mại Dịch Vụ</p><br /><hr />
                             <LocalPhoneIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
                             <p style={{ marginRight: '9%' }}>Số điện thoại</p>
-                            <p >0782565750</p><br />
+                            <p >0782565750</p><br /> */}
                         </div>
                     </div>
                     <div className="title_container--input">
@@ -129,14 +182,14 @@ const Introduce = () => {
                         </div>
                         <div className="footer_container--page--company" >
                             <h3> Công ty TNHH SẢN XUẤT ĐẦU TƯ TM DV XNK VŨ GIA GROUP</h3>
-                            <p><PinDropIcon sx={{marginRight:'2%'}}/> 840/20B Hương Lộ 2, Phường Bình Trị Đông A,
+                            <p><PinDropIcon sx={{ marginRight: '2%' }} /> 840/20B Hương Lộ 2, Phường Bình Trị Đông A,
                                 Quận Bình Tân, Thành phố Hồ Chí Minh, Việt Nam</p>
-                            <p><CallIcon sx={{marginRight:'2%'}}/>(84+) 706 185 986</p>
-                            <p><EmailIcon sx={{marginRight:'2%'}}/>vagabonds.2hand@gmail.comt</p>
+                            <p><CallIcon sx={{ marginRight: '2%' }} />(84+) 706 185 986</p>
+                            <p><EmailIcon sx={{ marginRight: '2%' }} />vagabonds.2hand@gmail.comt</p>
                             <div className="netword">
-                                <FacebookIcon sx={{color:'#fff', float:'left',marginTop:'5%'}}/>
-                                <YouTubeIcon sx={{color:'#fff', float:'left',margin:'5%'}}/>
-                                <InstagramIcon sx={{color:'#fff', float:'left',marginTop:'5%'}}/>
+                                <FacebookIcon sx={{ color: '#fff', float: 'left', marginTop: '5%' }} />
+                                <YouTubeIcon sx={{ color: '#fff', float: 'left', margin: '5%' }} />
+                                <InstagramIcon sx={{ color: '#fff', float: 'left', marginTop: '5%' }} />
                             </div>
                         </div>
                         <div className="footer_container--page--we" >

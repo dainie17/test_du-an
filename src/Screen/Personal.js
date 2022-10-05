@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
@@ -17,6 +17,7 @@ import AutorenewIcon from '@mui/icons-material/Autorenew';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { DeleteOutlineSharp, FavoriteBorderSharp, VerifiedUserSharp } from "@mui/icons-material";
 import './Personal.css'
 import { pink } from "@mui/material/colors";
 
@@ -28,13 +29,47 @@ function Person() {
     const toogleTab = (index) => {
         setToggleState(index);
     }
+    const [user, setUser] = useState([]);
+
+    useEffect(() => {
+        setUser(data);
+    }, []);
+
+    const data = [
+        {
+            name: "Kéo cắt tóc điện USB Sạc tóc Cắt tóc Dao cắt dầu Đầu kéo tông đơ",
+            Loai: "B",
+            Ship: "CN",
+            price: "368.374",
+            image: logo
+        },
+        {
+            name: "Kéo cắt tóc điện USB Sạc tóc Cắt tóc",
+            Loai: "B",
+            Ship: "CN",
+            price: "368.374",
+            image: logo
+        },]
+    const handleChange = (e) => {
+        const { name, checked } = e.target;
+        if (name === "allSelect") {
+            let tempUser = user.map((user) => {
+                return { ...user, isChecked: checked };
+            })
+            setUser(tempUser);
+        } else {
+            let tempUser = user.map((user) => user.name === name ? { ...user, isChecked: checked } : user);
+            setUser(tempUser);
+        }
+
+    }
     return (
         <div className="fersonal">
             <div className="container">
                 <nav className="home-header">
                     <div className="home-header_logo">
-                    <img className="home-header-logo-image" src={logo} alt="" />
-                    <p className="home-header-logo-title">logo</p>
+                        <img className="home-header-logo-image" src={logo} alt="" />
+                        <p className="home-header-logo-title">logo</p>
                     </div>
                     <ul className="home-header_ul">
                         <li>
@@ -60,25 +95,25 @@ function Person() {
                         </li>
                     </ul>
                     <div className="home-header_icon">
-                        <SearchSharpIcon style={{fontSize: "40px"}}/>
+                        <SearchSharpIcon style={{ fontSize: "40px" }} />
 
                         <div className="home-header_icon_user">
-                            <AccountCircleSharpIcon style={{fontSize: "40px"}} className="home-header_icon_user_img" />
-                            <div style={{right: "6%"}} className="home-header_icon_user_content">
+                            <AccountCircleSharpIcon style={{ fontSize: "40px" }} className="home-header_icon_user_img" />
+                            <div style={{ right: "6%" }} className="home-header_icon_user_content">
                                 <a href="#company">Company</a>
                                 <a href="#team">Team</a>
                                 <a href="#careers">Careers</a>
                             </div>
                         </div>
 
-                        <ShoppingCartIcon style={{fontSize: "40px"}}/>
+                        <ShoppingCartIcon style={{ fontSize: "40px" }} />
                     </div>
                 </nav>
 
             </div>
             <div className="fersonal_container">
                 <div className="fersonal_container-left">
-                    <h2>Tài khoản của tôi</h2>
+                    <h3>Tài khoản của tôi</h3>
                     <div className="fersonal_container-left--info">
                         <div className="fersonal_container-left--info--tabs" onClick={() => toogleTab(1)}>
                             <PermContactCalendarIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Thông tin</div>
@@ -97,19 +132,18 @@ function Person() {
                 <div className="fersonal_container-right">
                     <div className="fersonal_container-right--header">
                         <div className="fersonal_container-right--header--avatar">
-
                         </div>
                         <div className="fersonal_container-right--header--content">
                             <div className="content" onClick={() => toogleTab(4)}>
-                                <AccountCircleSharpIcon sx={{ fontSize: 50, color: '#ffa726' }} />
+                                <AccountCircleSharpIcon sx={{ fontSize: 60, color: '#ffa726' }} />
                                 <p>Đơn hàng của tôi</p>
                             </div>
                             <div className="content" onClick={() => toogleTab(5)}>
-                                <LocalTaxiIcon sx={{ fontSize: 50, color: '#ffa726' }} />
+                                <LocalTaxiIcon sx={{ fontSize: 60, color: '#ffa726' }} />
                                 <p>Tình trạng đơn hàng</p>
                             </div>
                             <div className="content" onClick={() => toogleTab(1)}>
-                                <FavoriteIcon sx={{ fontSize: 50, color: pink[500] }} />
+                                <FavoriteIcon sx={{ fontSize: 60, color: pink[500] }} />
                                 <p>Yêu thích</p>
                             </div>
                         </div>
@@ -118,8 +152,7 @@ function Person() {
                     </div>
                     <div className="fersonal_container-right--fooder--content">
                         <div className={toggleState === 1 ? "contentt active-content" : "ac"}>
-                            <p> Thông tin</p>
-                        </div>
+                            <p>Thong Tin</p></div>
                         <div className={toggleState === 2 ? "contentt active-content" : "ac"}>
                             <p>Sản phẩm ưa thích</p>
                         </div>
@@ -147,7 +180,7 @@ function Person() {
                     <div className="footer_container--page" >
                         <div className="footer_container--page--page">
                             <h3>FANPAGE</h3>
-                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" ></iframe>
+                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"  ></iframe>
                         </div>
                         <div className="footer_container--page--company" >
                             <h3> Công ty TNHH SẢN XUẤT ĐẦU TƯ TM DV XNK VŨ GIA GROUP</h3>
@@ -156,24 +189,28 @@ function Person() {
                             <p><CallIcon sx={{ marginRight: '2%' }} />(84+) 706 185 986</p>
                             <p><EmailIcon sx={{ marginRight: '2%' }} />vagabonds.2hand@gmail.comt</p>
                             <div className="netword">
-                                <FacebookIcon sx={{color:'#fff', float:'left',marginTop:'5%'}}/>
-                                <YouTubeIcon sx={{color:'#fff', float:'left',margin:'5%'}}/>
-                                <InstagramIcon sx={{color:'#fff', float:'left',marginTop:'5%'}}/>
+                                <FacebookIcon sx={{ color: '#fff', float: 'left', marginTop: '5%' }} />
+                                <YouTubeIcon sx={{ color: '#fff', float: 'left', margin: '5%' }} />
+                                <InstagramIcon sx={{ color: '#fff', float: 'left', marginTop: '5%' }} />
                             </div>
                         </div>
                         <div className="footer_container--page--we" >
                             <h3>Về chúng tôi</h3><br></br>
-                            <p>Giới thiệu</p>
-                            <p>Sản phẩm</p>
-                            <p>Ưu đãi</p>
-                            <p>Liên hệ</p>
+                            <div className="we">
+                                <p>Giới thiệu</p>
+                                <p>Sản phẩm</p>
+                                <p>Ưu đãi</p>
+                                <p>Liên hệ</p>
+                            </div>
                         </div>
                         <div className="footer_container--page--policy" >
                             <h3>Chính sách</h3><br />
-                            <p>Chính sách bảo mật</p>
-                            <p>Chính sách đổi trả</p>
-                            <p>Chính sách bảo hành </p>
-                            <p>Chính sách giao hàng</p>
+                            <div className="policy">
+                                <p>Chính sách bảo mật</p>
+                                <p>Chính sách đổi trả</p>
+                                <p>Chính sách bảo hành </p>
+                                <p>Chính sách giao hàng</p>
+                            </div>
                         </div>
 
                     </div>

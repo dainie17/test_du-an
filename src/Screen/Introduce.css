@@ -10,8 +10,9 @@
 }
 
 .title_container--text {
-    width: 65%;
+    width: 50%;
     float: left;
+    margin-left: 4%;
 }
 
 .title_container--text .CT {
@@ -19,24 +20,36 @@
     margin-bottom: 5%;
 }
 
-.title_container--text--name p {
-    color: #000000;
-    display: inline-block;
-    font-size: 13px;
+.title_container--text--name--content{
+    display: flex;
+    flex-direction: column;
     margin: 2% 0% 2% 0%;
 }
-.title_container--text--name hr{
-    width: 90%;
-    background-color: #fff8f8;
+.title_container--text--name--content p{
+    font-size: 13px;
 }
-
-#name {
-    margin-right: 10%;
+.title_container--text--name--content--group{
+    
+    display: flex;
+    padding: 3% 0% 3% 0%;
+}
+.name{
+    display: flex;
+    width: 25%;
+}
+#diachi{
+    width: 70%;
+}
+.Br{
+    width: 80%;
+    height: 1px;
+    background-color: #9d9d9d;
+    box-shadow: 0px 0.4px #888888
 }
 
 .title_container--input {
     max-width: 35%;
-    float: left;
+    float: right;
 }
 
 .title_container--input input {
