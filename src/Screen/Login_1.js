@@ -8,7 +8,7 @@ import { Link, Stack, IconButton, InputAdornment, Checkbox } from '@mui/material
 import { useForm } from 'react-hook-form';
 import FormProvider from './FormProvider';
 import { RHFCheckbox } from './RHFCheckbox';
-import './Login_1.css'
+import '../CSS/Login_1.css'
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 function Login_1() {
     const navigate = useNavigate();

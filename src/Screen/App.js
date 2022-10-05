@@ -1,28 +1,26 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom'
-import Login from './Screen/Login'
-import Signup from './Screen/Signup'
-import Navigate from './Screen/Navigate';
-import Navbar from './Screen/Navbar';
-import Home from './Screen/Home';
-import Introduce from './Screen/Introduce';
-import Product from './Screen/Product';
-import Detail from './Screen/Detail';
-import Person from './Screen/Personal';
-import Cart from './Screen/Cart';
-import Personal from './Screen/Personal'
-import Order from './Screen/Order';
+import Login from './Login'
+import Signup from './Signup'
+import Navigate from './Navigate';
+import Navbar from './Navbar';
+import Home from './Home';
+import Introduce from './Introduce';
+import Product from './Product';
+import Detail from './Detail';
+import Person from './Personal';
+import Cart from './Cart';
+import Personal from './Personal'
+import Order from './Order';
+import Login_1 from './Login_1.js';
 
-import Login_1 from './Screen/Login_1.js';
-
-import './Screen/Introduce.css'
-import './Screen/Home.css'
-import './Screen/Product.css'
-import './Screen/Detail.css'
-import './Screen/Cart.css'
-import './Screen/Order.css'
-
-import './Screen/Login_1.css'
+import '../CSS/Introduce.css'
+import '../CSS/Home.css'
+import '../CSS/Product.css'
+import '../CSS/Detail.css'
+import '../CSS/Cart.css'
+import '../CSS/Order.css'
+import '../CSS/Login_1.css'
 
 function App() {
   return (
