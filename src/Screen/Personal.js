@@ -22,7 +22,7 @@ import '../css/Personal.css'
 import { pink } from "@mui/material/colors";
 
 const logo = "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
-
+const img ="https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
 
 function Person() {
     const [toggleState, setToggleState] = useState(1);
@@ -41,28 +41,16 @@ function Person() {
             Loai: "B",
             Ship: "CN",
             price: "368.374",
-            image: logo
+            image: img
         },
         {
             name: "Kéo cắt tóc điện USB Sạc tóc Cắt tóc",
             Loai: "B",
             Ship: "CN",
             price: "368.374",
-            image: logo
+            image: img
         },]
-    const handleChange = (e) => {
-        const { name, checked } = e.target;
-        if (name === "allSelect") {
-            let tempUser = user.map((user) => {
-                return { ...user, isChecked: checked };
-            })
-            setUser(tempUser);
-        } else {
-            let tempUser = user.map((user) => user.name === name ? { ...user, isChecked: checked } : user);
-            setUser(tempUser);
-        }
 
-    }
     return (
         <div className="fersonal">
             <div className="container">
@@ -157,7 +145,40 @@ function Person() {
                             <p>Sản phẩm ưa thích</p>
                         </div>
                         <div className={toggleState === 3 ? "contentt active-content" : "ac"}>
-                            <p>Giỏ Hàng</p>
+                            <div className="active-content-title">
+                                <p className="active-content-title-content">Giỏ hàng </p>
+                            </div>
+                            <div className="active-content-list">
+                                {
+                                    user.map((item, index) => (
+                                        <div>
+                                        <div key={index} className="active-content-list-card">
+                                            <img className="active-content-list-card-image" src={item.image} alt="" />
+                                            <div className="active-content-list-card-content">
+                                                <p className="active-content-list-card-content-name">{item.name}</p>
+                                                <p className="active-content-list-card-content-type">Loại:{item.Loai}/Ship từ:{item.Ship}</p>
+                                                <p className="active-content-list-card-content-price">{item.price}&#8363;</p>
+                                                <p className="active-content-list-card-content-cod"><p>COD</p></p>
+                                            </div>
+                                            <div className="active-content-list-card-function">
+                                                <div className="active-content-list-card-function-button">
+                                                    <button className="active-content-list-card-function-button-reduce">-</button>
+                                                    <p className="active-content-list-card-function-button-num">1</p>
+                                                    <button className="active-content-list-card-function-button-more">+</button>
+                                                </div>
+                                                <div className="active-content-list-card-function-icon">
+                                                    <FavoriteBorderSharp />
+                                                    <DeleteOutlineSharp />
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                        <div className="personal-br"></div>
+                                        </div>
+                                    ))
+                                }
+                                
+                            </div>
                         </div>
                         <div className={toggleState === 4 ? "contentt active-content" : "ac"}>
                             <p>Đơn hàng</p>
