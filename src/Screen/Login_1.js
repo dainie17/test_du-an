@@ -7,7 +7,7 @@ import RHFTextField from './RHFTextField';
 import { Stack, IconButton, InputAdornment, Checkbox } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import FormProvider from './FormProvider';
-import '../CSS/Login_1.css'
+import '../css/Login_1.css'
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 function Login_1() {
     const navigate = useNavigate();
