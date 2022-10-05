@@ -4,11 +4,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RHFTextField from './RHFTextField';
-import { Link, Stack, IconButton, InputAdornment, Checkbox } from '@mui/material';
+import { Stack, IconButton, InputAdornment, Checkbox } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import FormProvider from './FormProvider';
-import { RHFCheckbox } from './RHFCheckbox';
-import './Login_1.css'
+import '../CSS/Login_1.css'
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 function Login_1() {
     const navigate = useNavigate();
@@ -94,7 +93,7 @@ function Login_1() {
                     </div>
 
                     <div className='btn_tw'>
-                        <div className='logo_tw'></div>
+                        <div  className='logo_tw'/>
                         <div className='title_tw'>
                             Twiter
                         </div>

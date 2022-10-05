@@ -97,21 +97,25 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .btn_gg{
-    width: 25%;
+    width: 30%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     border: #707070 2px solid;
     border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .logo_gg{
-    width: 17%;
-    background-image: url('../assets/a.png');
-    background-size: cover;
+    width: 20%;
+    background-image: url('../assets/icon_gg.png');
+    background-size: contain;
     background-repeat: no-repeat;
 }
 
@@ -120,10 +124,45 @@
 }
 
 .btn_tw{
-    width: 25%;
+    width: 30%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     border: #707070 2px solid;
     border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.logo_tw{
+    width: 20%;
+    background-image: url('../assets/logo_tw.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.title_tw{
+    font-size: 13px;
+}
+
+.btn_fb{
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: #707070 2px solid;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.logo_fb{
+    width: 20%;
+    background-image: url('../assets/logo_fb.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.title_fb{
+    font-size: 13px;
 }
