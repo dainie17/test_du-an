@@ -27,7 +27,6 @@
 .login{
     margin: 0 auto;     
     width: 27%;     
-    min-height: 70%;     
     top:50%;     
     left: 50%;     
     transform: translate( -50%, -50%);     
@@ -36,7 +35,6 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 15px;
     padding: 60px 40px;
-    /* width: 27%; */
     display: flex;
     flex-direction: column;
 }
@@ -51,7 +49,7 @@
 
 .title_content{
     width: 50%;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 750;
     color: #707070;
 }
@@ -61,7 +59,7 @@
     text-align: right;
     color: #63A3F7;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .form_login_input{
@@ -77,26 +75,27 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 5%;
+    margin-top: 2%;
 }
 
 .form_login_forgetmenot_left{
     width: 50%;
     display: flex;
     align-items: center;
-    margin-left: -12px;
+    margin-left: -10px;
     justify-content: space-between;
 }
 
 .title_chb{
     width: 80%;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .form_login_forgetmenot p{
     width: 35%;
     text-align: right;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 
@@ -105,6 +104,8 @@
     background-color: #63A3F7;
     color: white;
     padding: 3% 2%;
+    border: none;
+    cursor: pointer;
     text-align: center;
     border-radius: 5px;
     margin-bottom: 7%;
@@ -113,7 +114,7 @@
 .login_or{
     width: 100%;
     text-align: center;
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 7%;
     color: #707070;
 }
@@ -222,6 +223,6 @@
 .about_line{
     width: 1px;
     height: 20px;
-    background: #ff0000;
+    background: #707070;
     margin: 0 10px;
 }
