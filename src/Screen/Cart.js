@@ -153,6 +153,7 @@ const Cart = () => {
                     <button className="cart-main-right-button" onClick={onclickItem}>Thanh toán</button>
                 </div>
             </div>
+            
             <div className="footer">
                 <div className="footer_container">
                     <img src={logo} />

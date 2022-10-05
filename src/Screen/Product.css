@@ -4,8 +4,13 @@
     margin: 0;
 }
 
+.product-main{
+    margin-bottom: 50px;
+}
+
 .product-main-top{
     width: 95%;
+    margin-top: 30px;
     align-items: center;
     justify-content: center;
     display: flex;

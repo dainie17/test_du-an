@@ -1,0 +1,129 @@
+.container{
+    width: 85%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* -------------------logo--------------- */
+.logo_form{
+    width: 4%;
+    display: flex;
+    align-items: center;
+    
+}
+.logo{
+    width: 100%;
+}
+.name_logo{
+    font-size: 20px;
+    margin: 5px;
+}
+
+/* -----------------------form login--------------------- */
+
+.login{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 40px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form_login_title{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.title_content{
+    width: 50%;
+    font-size: 20px;
+    font-weight: 750;
+    color: #707070;
+}
+
+.nouser{
+    width: 50%;
+    text-align: right;
+    color: #63A3F7;
+}
+
+.form_login_forgetmenot{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    color: #707070;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form_login_forgetmenot_left{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title_chb{
+    width: 80%;
+}
+
+.form_login_forgetmenot p{
+    width: 30%;
+
+}
+
+
+.form_login_btn{
+    width: 100%;
+    background-color: #63A3F7;
+    color: white;
+    padding: 3% 2%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.login_or{
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.form_login_with{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.btn_gg{
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: #707070 2px solid;
+    border-radius: 5px;
+}
+
+.logo_gg{
+    width: 17%;
+    background-image: url('../assets/a.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.title_gg{
+    font-size: 13px;
+}
+
+.btn_tw{
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: #707070 2px solid;
+    border-radius: 5px;
+}

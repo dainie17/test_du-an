@@ -19,6 +19,7 @@
     padding-bottom: 20px;
 }
 
+/* tùy chỉnh logo */
 .cart-header-logo {
     width: 10%;
     float: left;
@@ -27,6 +28,7 @@
     border-right: solid 1px #777;
 }
 
+/* tiêu đề của header */
 .cart-header-test {
     width: 20%;
     padding-left: 1%;
@@ -40,11 +42,13 @@
     margin-top: 5px;
 }
 
+/* tùy chỉnh slide tiến trình mua hàng */
 .cart-header-stage-wrapper {
     width: 40%;
     float: right;
 }
 
+/* chỉnh kich thước của slide tiến trình mua hàng */
 .cart-header-stage-wrapper-container {
     position: relative;
     width: 90%;
@@ -52,6 +56,7 @@
     float: right;
 }
 
+/* vị trí nội dung tiến trình mua hàng */
 .cart-header-stage-wrapper-container ul {
     position: absolute;
     width: 100%;
@@ -62,6 +67,7 @@
     margin-top: -40px;
 }
 
+/* tùy chỉnh chữ trong slide tiến trình mua hàng */
 .cart-header-stage-wrapper-container li {
     list-style: none;
     float: left;
@@ -78,13 +84,14 @@
     position: relative;
 }
 
+/* tùy chỉnh chữ trong slide tiến trình mua hàng */
 .cart-header-stage-wrapper-container-step-inner {
     position: absolute;
     width: 100%;
     bottom: 0;
-    font-size: 14px;
 }
 
+/* tùy chỉnh các ô trong slide tiến trình mua hàng */
 .cart-header-stage-wrapper-container-step1::after {
     content: "";
     display: block;
@@ -141,6 +148,7 @@
     transition: all ease 0.2s;
 }
 
+/* tùy chỉnh line tiến trình mua hàng */
 .cart-header-stage-wrapper-container-line {
     width: 60%;
     margin: auto;
@@ -154,6 +162,7 @@
     transition: all ease 0.9s;
 }
 
+/* tùy chỉnh kích thước đường line xanh */
 .cart-header-stage-wrapper-container-line-process {
     content: "";
     width: 18%;
@@ -175,9 +184,10 @@
     background: #F6F6F6;
     align-items: center;
     justify-content: center;
-    margin-left: -10px;
+    margin-bottom: 50px;
 }
 
+/* khối div bên trái */
 .cart-main-left {
     width: 60%;
     display: flex;
@@ -185,6 +195,7 @@
     padding: 20px;
 }
 
+/* khối div tiêu đề */
 .cart-main-left-title {
     background: white;
     padding: 20px;
@@ -218,6 +229,8 @@
     margin-left: 10px;
 }
 
+
+/* list sản phẩm */
 .cart-main-left-list {
     display: flex;
     flex-direction: column;
@@ -333,6 +346,9 @@
     margin-left: 20px;
 }
 
+
+
+/* khối div bên phải */
 .cart-main-right {
     width: 30%;
     height: 300px;
