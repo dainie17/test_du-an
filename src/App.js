@@ -12,6 +12,9 @@ import Person from './Screen/Personal';
 import Cart from './Screen/Cart';
 import Personal from './Screen/Personal'
 import Order from './Screen/Order';
+
+import Login_1 from './Screen/Login_1.js';
+
 import './Screen/Introduce.css'
 import './Screen/Home.css'
 import './Screen/Product.css'
@@ -19,11 +22,13 @@ import './Screen/Detail.css'
 import './Screen/Cart.css'
 import './Screen/Order.css'
 
+import './Screen/Login_1.css'
+
 function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Login />} />
+        <Route path='/' element={<Login_1 />} />
         <Route path='/Signup' element={<Signup />} />
         <Route path='/Navigate' element={<Navigate />} />
         <Route path='/Navbar' element={<Navbar />} />
