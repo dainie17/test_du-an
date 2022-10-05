@@ -1,15 +1,16 @@
 .container{
-    width: 85%;
-    margin: 0 auto;
-    overflow: hidden;
+    position: fixed;
+    min-height: 100%;
+    min-width: 100%;
+    background-size: cover;
+    background-position: center;
 }
 
 /* -------------------logo--------------- */
 .logo_form{
     width: 4%;
     display: flex;
-    align-items: center;
-    
+    align-items: center;    
 }
 .logo{
     width: 100%;
@@ -22,13 +23,19 @@
 /* -----------------------form login--------------------- */
 
 .login{
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    border-radius: 15px;
+    margin: 0 auto;     
+    /* width: 30%;     
+    min-height: 70%;     
+    top:50%;     
+    left: 50%;     
+    transform: translate( -50%, -50%);     
+    display: inline;   
+    position: absolute; */
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
     padding: 40px 40px;
+    width: 30%;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
 }
@@ -37,6 +44,7 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+    margin-bottom: 10%;
 }
 
 .title_content{
@@ -50,6 +58,12 @@
     width: 50%;
     text-align: right;
     color: #63A3F7;
+    cursor: pointer;
+}
+
+.form_login_input{
+    width: 100%;
+    margin-bottom: 5%;
 }
 
 .form_login_forgetmenot{
@@ -59,6 +73,7 @@
     color: #707070;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 5%;
 }
 
 .form_login_forgetmenot_left{
@@ -73,8 +88,8 @@
 }
 
 .form_login_forgetmenot p{
-    width: 30%;
-
+    width: 35%;
+    cursor: pointer;
 }
 
 
@@ -85,12 +100,14 @@
     padding: 3% 2%;
     text-align: center;
     border-radius: 5px;
+    margin-bottom: 5%;
 }
 
 .login_or{
     width: 100%;
     text-align: center;
     font-size: 15px;
+    margin-bottom: 5%;
 }
 
 .form_login_with{
@@ -106,10 +123,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    border: #707070 2px solid;
+    border: #d0d0d0 2px solid;
     border-radius: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
 }
 
 .logo_gg{
@@ -128,10 +146,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    border: #707070 2px solid;
+    border: #d0d0d0 2px solid;
     border-radius: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
 }
 
 .logo_tw{
@@ -150,10 +169,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    border: #707070 2px solid;
+    border: #d0d0d0 2px solid;
     border-radius: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
 }
 
 .logo_fb{
@@ -165,4 +185,30 @@
 
 .title_fb{
     font-size: 13px;
+}
+
+.footer_login{
+    width: 100%;
+    text-align: center;
+}
+
+.footer_login_content{
+    width: 80%;
+    padding: 20px 0;
+    margin: 0 auto;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+}
+
+.about_we{
+
+}
+
+.about_line{
+    width: 1px;
+    height: 20px;
+    background: #ff0000;
+    margin: 0 20px;
 }

@@ -28,10 +28,12 @@ function Login_1() {
         resolver: yupResolver(LoginSchema),
         defaultValues,
     });
+
     const {
         handleSubmit,
         formState: { isSubmitting },
     } = methods;
+
     const onSubmit = async () => {
         navigate('/Home', { replace: true });
     };
@@ -109,7 +111,18 @@ function Login_1() {
                 </div>
             </div>
 
-            <div></div>
+            <div className='footer_login'>
+                <div className='footer_login_content'>
+                    <div className='about_we'>Về chúng tôi</div>
+                    <div className='about_line'></div>
+                    <div className='about_we'>Các điều khoản</div>
+                    <div className='about_line'></div>
+                    <div className='about_we'>Chính sách bảo mật</div>
+                    <div className='about_line'></div>
+                    <div className='about_we'>Trung tâm trợ giúp</div>
+                </div>
+                <div className=''>©2022 Bản quyền thuộc về Công Ty TNHH Sản Xuất Đầu Tư TM DV XNK Vũ Gia Group.</div>
+            </div>
         </div>
     )
 }
