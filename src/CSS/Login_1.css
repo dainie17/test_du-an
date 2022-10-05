@@ -10,10 +10,12 @@
 .logo_form{
     width: 4%;
     display: flex;
-    align-items: center;    
+    align-items: center;  
+    margin-top: 3%;
+    margin-left: 3%;
 }
 .logo{
-    width: 100%;
+    width: 80%;
 }
 .name_logo{
     font-size: 20px;
@@ -33,9 +35,9 @@
     position: absolute; */
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 15px;
-    padding: 40px 40px;
+    padding: 60px 40px;
     width: 30%;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
 }
@@ -45,6 +47,7 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 10%;
+    align-items: center;
 }
 
 .title_content{
@@ -59,6 +62,7 @@
     text-align: right;
     color: #63A3F7;
     cursor: pointer;
+    font-size: 13px;
 }
 
 .form_login_input{
@@ -80,16 +84,20 @@
     width: 50%;
     display: flex;
     align-items: center;
+    margin-left: -12px;
     justify-content: space-between;
 }
 
 .title_chb{
     width: 80%;
+    font-size: 13px;
 }
 
 .form_login_forgetmenot p{
     width: 35%;
+    text-align: right;
     cursor: pointer;
+    font-size: 13px;
 }
 
 
@@ -100,14 +108,15 @@
     padding: 3% 2%;
     text-align: center;
     border-radius: 5px;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
 }
 
 .login_or{
     width: 100%;
     text-align: center;
     font-size: 15px;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
+    color: #707070;
 }
 
 .form_login_with{
@@ -119,7 +128,7 @@
 }
 
 .btn_gg{
-    width: 30%;
+    width: 31%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -142,7 +151,7 @@
 }
 
 .btn_tw{
-    width: 30%;
+    width: 31%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -165,7 +174,7 @@
 }
 
 .btn_fb{
-    width: 30%;
+    width: 31%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -190,11 +199,13 @@
 .footer_login{
     width: 100%;
     text-align: center;
+    font-size: 12px;
+    color: #707070;
 }
 
 .footer_login_content{
     width: 80%;
-    padding: 20px 0;
+    padding-bottom: 3px;
     margin: 0 auto;
    display: flex;
    flex-direction: row;
@@ -210,5 +221,5 @@
     width: 1px;
     height: 20px;
     background: #ff0000;
-    margin: 0 20px;
+    margin: 0 10px;
 }

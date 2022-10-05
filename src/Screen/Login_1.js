@@ -84,7 +84,7 @@ function Login_1() {
                 <div className='form_login_btn'>
                     Đăng nhập
                 </div>
-                <div className='login_or'>Đăng nhập với</div>
+                <div className='login_or'>Hoặc</div>
                 <div className='form_login_with'>
 
                     <div className='btn_gg'>
