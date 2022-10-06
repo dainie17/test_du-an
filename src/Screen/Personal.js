@@ -181,7 +181,40 @@ function Person() {
                             </div>
                         </div>
                         <div className={toggleState === 4 ? "contentt active-content" : "ac"}>
-                            <p>Đơn hàng</p>
+                        <div className="active-content-title">
+                                <p className="active-content-title-content">Giỏ hàng </p>
+                            </div>
+                            <div className="active-content-list">
+                                {
+                                    user.map((item, index) => (
+                                        <div>
+                                        <div key={index} className="active-content-list-card">
+                                            <img className="active-content-list-card-image" src={item.image} alt="" />
+                                            <div className="active-content-list-card-content">
+                                                <p className="active-content-list-card-content-name">{item.name}</p>
+                                                <p className="active-content-list-card-content-type">Loại:{item.Loai}/Ship từ:{item.Ship}</p>
+                                                <p className="active-content-list-card-content-price">{item.price}&#8363;</p>
+                                                <p className="active-content-list-card-content-cod"><p>COD</p></p>
+                                            </div>
+                                            <div className="active-content-list-card-function">
+                                                <div className="active-content-list-card-function-button">
+                                                    <button className="active-content-list-card-function-button-reduce">-</button>
+                                                    <p className="active-content-list-card-function-button-num">1</p>
+                                                    <button className="active-content-list-card-function-button-more">+</button>
+                                                </div>
+                                                <div className="active-content-list-card-function-icon">
+                                                    <FavoriteBorderSharp />
+                                                    <DeleteOutlineSharp />
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                        <div className="personal-br"></div>
+                                        </div>
+                                    ))
+                                }
+                                
+                            </div>
                         </div>
                         <div className={toggleState === 5 ? "contentt active-content" : "ac"}>
                             <p>Tình trạng</p>
