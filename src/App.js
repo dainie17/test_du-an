@@ -14,14 +14,6 @@ import Personal from './Screen/Personal'
 import Order from './Screen/Order';
 import Login_1 from './Screen/Login_1.js';
 
-import './css/Introduce.css'
-import './css/Home.css'
-import './css/Product.css'
-import './css/Detail.css'
-import './css/Cart.css'
-import './css/Order.css'
-import './css/Login_1.css'
-
 function App() {
   return (
     <div>

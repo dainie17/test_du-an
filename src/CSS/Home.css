@@ -6,7 +6,7 @@
 }
 
  /* căn lề */
-.container{
+.home_container{
     width: 85% ;
     padding: 0;
     margin: 0 auto;
@@ -17,51 +17,46 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 70px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     top: 0;
     left: 0;
+    z-index: 1;
 }
 
 /* logo header */
 .home-header_logo{
-    width: 20%;
+    width: 10%;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     justify-content: left;
 }
 
 .home-header-logo-image{
-    width: 25%;
-    height: 25%;
+    width: 30%;
 }
 
 .home-header-logo-title{
-    width: 75%;
+    width: 50%;
     font-size: 20px;
     font-weight: 600;
-    text-align: left;
-    padding-top: 7%;
+    text-align: center;
 }
 
 /* list header */
 .home-header_ul {
-    width: 60%;
-    height: 100%;
+    width: 50%;
     display: flex;
     flex-direction: row;
     list-style: none;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .home-header_ul li {
-    padding: 2%;
-    height: 100%;
     text-align: center;
-    padding-top: 25px;
+    padding: 3% 3%;
 }
 
 .home-header_ul_li_navlink {
@@ -71,10 +66,17 @@
     color: black;
 }
 
-.home-header_ul_li_navlink_icon {
-    padding-bottom: 5px;
-    float: right;
-}
+/* chỉnh menu cấp 2 tạm ẩn */
+.home-header_ul_subnav {
+    display: flex;
+    flex-direction: column;
+ }
+ 
+ .home-header_ul_subnav_title{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+ }
 
 /* căn chỉnh menu cấp 2 sẩn phẩm */
 .home-header_ul_subnav_content {
@@ -82,7 +84,7 @@
     position: absolute;
     background-color: rgb(252, 252, 252);
     width: 15%;
-    margin-top: 27px;
+    top: 8%;
     left: 45%;
     z-index: 1;
     border-radius: 10px;
@@ -97,11 +99,6 @@
     color: white;
 }
 
-
-/* chỉnh menu cấp 2 tạm ẩn */
-.home-header_ul_subnav {
-    overflow: hidden;
-}
 
 /* căn chỉnh thẻ a trong menu cấp 2 */
 .home-header_ul_subnav_content a {
@@ -124,16 +121,16 @@
 
 /* căn chỉnh icon */
 .home-header_icon{
-    width: 20%;
+    width: 10%;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    justify-content: right;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* menu cấp 2 icon user */
 .home-header_icon_user{
-    overflow: hidden;
+    height: 100%;
 }
 
 .home-header_icon_user_content{
@@ -141,7 +138,7 @@
     position: absolute;
     background-color: rgb(249, 249, 249);
     width: 10%;
-    z-index: 2;
+    z-index: 1;
     border-radius: 10px;
     box-shadow: rgb(157, 157, 157) 1px 1px 1px 1px;
 }
@@ -169,6 +166,10 @@
 }
 /* kết thúc navbar */
 
+
+
+
+
 /* Banner */
 
 .home-banner{
@@ -179,7 +180,7 @@
 /* chỉnh hình ảnh banner */
 .home-banner-img{
     width: 100%;
-    height: 700px;
+    height: 725px;
 }
 
 /* chỉnh kich thước nút tiến lùi banner */
@@ -221,16 +222,15 @@
 }
 
 .home-main-introduce{
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 50px;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 .home-main-introduce-content{
-    width: 50%;
+    width: 47%;
     display: flex;
     flex-direction: column;
 }
@@ -258,13 +258,11 @@
 }
 
 .home-main-introduce-image{
-    width: 50%;
-    margin-left: 2.5%;
+    width: 47%;
 }
 
 .home-main-introduce-image-style{
     width: 100%;
-    height: 343px;
 }
 
 
@@ -272,8 +270,6 @@
 .home-main-slide{
     width: 100%;
     background-color: #3498DB;
-    padding-left: 5%;
-    padding-right: 5%;
     margin-top: 50px;
 }
 
@@ -309,29 +305,27 @@
 
 /* kích thước item slide */
 .home-main-slide-item{
-    width: 250px;
-    height: 250px;
+    width: 10%;
 }
 
 /* tiêu đề của slide */
 .home-main-slide-item-title{
     background-color: #555;
-    width: 250px;
+    width: 100%;
     height: 250px;
     position: absolute;
-    margin-left: 20px;
     text-align: center;
-    padding-top: 70px;
-    opacity: 80%;
+    opacity: 20%;
 }
 
 /* hình ảnh slide */
 .home-main-slide-item-image{
-    width: 250px;
+    width: 100%;
     height: 250px;
-    margin-left: 20px;
 }
 /* kết thúc slide1 */
+
+
 
 /* quyền lợi khách hàng */
 .home-main-purview{
