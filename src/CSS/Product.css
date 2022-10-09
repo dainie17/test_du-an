@@ -4,18 +4,14 @@
     margin: 0;
 }
 
-.product-main{
-    padding-bottom: 50px;
-    background-color: #F6F6F6;
-}
-
+/* --------------------------căn lề----------------- */
 .product_container{
     width: 85% ;
     padding: 0;
     margin: 0 auto;
 }
 
-/* navbar */
+/* -----------------------------navbar---------------- */
 .home-header {
     display: flex;
     flex-direction: row;
@@ -27,7 +23,7 @@
     z-index: 1;
 }
 
-/* logo header */
+/* ------------------------------logo header------------- */
 .home-header_logo{
     width: 10%;
     display: flex;
@@ -36,10 +32,12 @@
     justify-content: left;
 }
 
+/* --------------------------img trong logo ------------------*/
 .home-header-logo-image{
     width: 30%;
 }
 
+/* -------------------------tiêu đề của logo--------------- */
 .home-header-logo-title{
     width: 50%;
     font-size: 20px;
@@ -47,7 +45,7 @@
     text-align: center;
 }
 
-/* list header */
+/* ----------------------------list header-------------- */
 .home-header_ul {
     width: 50%;
     display: flex;
@@ -57,11 +55,13 @@
     justify-content: space-between;
 }
 
+/* ---------------------------thẻ li trong list header------------------- */
 .home-header_ul li {
     text-align: center;
     padding: 3% 3%;
 }
 
+/* ----------------------tùy chỉnh thẻ navlink trong li------------------ */
 .home-header_ul_li_navlink {
     text-decoration: none;
     text-transform: uppercase; 
@@ -69,19 +69,20 @@
     color: black;
 }
 
-/* chỉnh menu cấp 2 tạm ẩn */
+/* ------------------chỉnh thẻ li chứa menu cấp 2--------------- */
 .home-header_ul_subnav {
     display: flex;
     flex-direction: column;
  }
  
+ /* ---------------chỉnh tiêu đề của menu cấp 2------------ */
  .home-header_ul_subnav_title{
      display: flex;
      flex-direction: row;
      align-items: center;
  }
 
-/* căn chỉnh menu cấp 2 sẩn phẩm */
+/* -----------------căn chỉnh menu cấp 2 sẩn phẩm ---------------*/
 .home-header_ul_subnav_content {
     display: none;
     position: absolute;
@@ -94,7 +95,7 @@
     box-shadow: rgb(157, 157, 157) 1px 1px 1px 1px;
 }
 
-/* hover cho thẻ li */
+/*------------------ hover cho thẻ li------------- */
 .home-header_ul li:hover,
 .home-header_ul li:hover .home-header_ul_li_navlink,
 .home-header_ul_subnav:hover{
@@ -103,7 +104,7 @@
 }
 
 
-/* căn chỉnh thẻ a trong menu cấp 2 */
+/* -------------------căn chỉnh thẻ a trong menu cấp 2------------------- */
 .home-header_ul_subnav_content a {
     float: none;
     color: rgb(5, 5, 5);
@@ -113,16 +114,17 @@
     text-align: center;
 }
 
-/* hover cho các thành phần menu cấp 2 */
+/* -----------------hover cho các thành phần menu cấp 2-------------------- */
 .home-header_ul_subnav:hover .home-header_ul_subnav_content {
     display: block;
 }
 
+/* ---------------tùy chỉnh hover của thẻ a trong menu cấp 2------------ */
 .home-header_ul_subnav_content a:hover{
     color: #555;
 }
 
-/* căn chỉnh icon */
+/* ----------------------căn chỉnh icon header------------------- */
 .home-header_icon{
     width: 10%;
     display: flex;
@@ -131,11 +133,12 @@
     justify-content: space-between;
 }
 
-/* menu cấp 2 icon user */
+/* -------------------------menu cấp 2 icon user------------- */
 .home-header_icon_user{
     height: 100%;
 }
 
+/* --------------------------chỉnh menu cấp 2------------------- */
 .home-header_icon_user_content{
     display: none;
     position: absolute;
@@ -146,6 +149,7 @@
     box-shadow: rgb(157, 157, 157) 1px 1px 1px 1px;
 }
 
+/* ------------------------Chỉnh thẻ a trong menu cấp 2--------------------- */
 .home-header_icon_user_content a{
     float: none;
     color: rgb(12, 12, 12);
@@ -155,20 +159,31 @@
     text-align: center;
 }
 
+/* ---------------------------------hiển thị menu khi hover--------------------- */
 .home-header_icon_user:hover .home-header_icon_user_content {
     display: block;
 }
 
-
+/* ----------------------------chỉnh icon khi hover --------------------*/
 .home-header_icon_user:hover, .home-header_icon_user_img:hover {
     color: #555;
 }
 
+/* -------------------------chỉnh thẻ a trong menu cấp 2-------------------- */
 .home-header_icon_user_content a:hover{
     color: #555;
 }
-/* kết thúc navbar */
+/* ----------------------------------------kết thúc navbar-------------------------------- */
 
+
+
+/* --------------------------------------------main-------------------------------------------- */
+.product-main{
+    padding-bottom: 50px;
+    background-color: #F6F6F6;
+}
+
+/* -----------------------------------chỉnh phần trên của main----------------------------------- */
 .product-main-top{
     width: 100%;
     padding-top: 50px;
@@ -178,6 +193,7 @@
     flex-direction: row;
 }
 
+/* ---------------------chỉnh phần bên trái của main-top--------------- */
 .product-main-top-left{
     width: 30%;
     display: flex;
@@ -187,6 +203,7 @@
     
 }
 
+/* ---------------------------tiêu đề của phần bên trái------------------- */
 .product-main-top-left-title{
     width: 100%;
     display: flex;
@@ -202,10 +219,12 @@
     border-top-right-radius: 15px;
 }
 
+/* ----------------chỉnh thẻ p trong phần tiêu để bên trái------------- */
 .product-main-top-left-title p{
     margin-left: 2%;
 }
 
+/* ----------------phần nội dung của phần bên trái của main_top------------- */
 .product-main-top-left-content{
     width: 100%;
     height: 360px;
@@ -213,30 +232,35 @@
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
+/* ----------------------------------hết phàn bên trái của main_top-------- */
 
 
-
+/* ----------------------------------phần giữa của main_top------------------- */
 .product-main-top-center{
     width: 43%;
     display: flex;
     flex-direction: column;
 }
 
+/* -----------------------silde phần giữa của main-top--------------- */
 .product-main-top-center-slide{
     width: 100%;
     border-radius: 15px;
 }
 
+/* -------------------------chỉnh boder cho silder-------------------- */
 .product-main-top-center-slide .slick-list{
     border-radius: 15px;
 }
 
+/* ----------------------chỉnh hình ảnh cho slider----------------------- */
 .product-main-top-center-slide-img{
     width: 100%;
     height: 300px;
     border-radius: 15px;
 }
 
+/* --------------------phần list thuộc phần giữa của main_top------------------- */
 .product-main-top-center-content{
     width: 100%;
     background-color: #63A3F7;
@@ -245,11 +269,13 @@
     border-radius: 15px;
 }
 
+/* ------------------------------tiêu đề của phần list------------------------- */
 .product-main-top-center-content p{
     color: white;
     padding: 1.5% 0 1% 4.5%;
 }
 
+/* ------------------------------tùy chỉnh list------------------------------- */
 .product-main-top-center-content-list{
     width: 90%;
     display: flex;
@@ -259,16 +285,20 @@
     padding-bottom: 1.5%;
 }
 
+/* --------------------------tùy chỉnh item của list-------------------------- */
 .product-main-top-center-content-list-item{
     width: 25%;
 }
 
+/* -------------------------tùy chỉnh thẻ img trong item của list---------------- */
 .product-main-top-center-content-list-item-img{
     width: 100%;
     height: 60px;
 }
 
 
+
+/* ----------------------------------phần bên phải của main_top----------------- */
 .product-main-top-right{
     width: 23%;
     display: flex;
@@ -281,6 +311,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/* ----------------------------phần người dùng--------------------------------- */
 .product-main-top-right-user{
     width: 100%;
     padding-top: 20px;
@@ -288,20 +319,24 @@
     flex-direction: row;
 }
 
+/* ---------------------icon-------------------- */
 .product-main-top-right-user-icon{
     width: 30%;
 }
 
+/* --------------nội dung của phần người dùng------ */
 .product-main-top-right-user-information{
     width: 70%;
     display: flex;
     flex-direction: column;
 }
 
+/* ------tiêu đề của nội dung người dùng------ */
 .product-main-top-right-user-information-title{
     width: 100%;
 }
 
+/* -----phần button của nội dung người dùng------ */
 .product-main-top-right-user-information-button{
     width: 100%;
     display: flex;
@@ -311,6 +346,7 @@
     margin-top: 10px;
 }
 
+/* ---chỉnh button bên trái--- */
 .product-main-top-right-user-information-button-left{
     background-color: white;
     border: black 1px solid;
@@ -318,6 +354,7 @@
     padding: 5px;
 }
 
+/* ---chỉnh button bên phải--- */
 .product-main-top-right-user-information-button-right{
     background-color: white;
     border: black 1px solid;
@@ -326,11 +363,13 @@
     margin-left: 5%;
 }
 
+/* --------------tiêu đề của chính sách dịch vụ khách hàng------------ */
 .product-main-top-right-title{
     width: 100%;
     margin-top: 5px;
 }
 
+/* -----------------nội dung dịch vụ khách hàng--------------------- */
 .product-main-top-right-service{
     width: 90%;
     margin-top: 1px;
@@ -400,7 +439,10 @@
 .product-main-top-right-service-bottom-right p{
     padding-top: 5px;
 }
+/* ----------------- kết thúc nội dung dịch vụ khách hàng--------------------- */
 
+
+/* ------------------------------hình ảnh------------------------------------ */
 .product-main-top-right-image{
     width: 90%;
     margin-top: 20px;
@@ -411,10 +453,11 @@
     width: 100%;
     height: 200px;
 }
+/* ------------------------------------------kết thúc phần trên của main----------------------------- */
 
 
 
-
+/* -------------------------------------------phần list sản phẩm-------------------------------------- */
 .product-main-list{
     width: 100%;
     margin-top: 50px;
@@ -422,6 +465,7 @@
     flex-direction: column;
 }
 
+/* --------------------------------tiêu đề----------------------------------- */
 .product-main-list-title{
     width: 100%;
     background-color: #63A3F7;
@@ -438,6 +482,7 @@
     width: 100%;
 }
 
+/* --------------------------phần item list sản phẩm------------------------ */
 .product-main-list-content-card{
     width: 30%;
     display: flex;

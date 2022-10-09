@@ -228,6 +228,7 @@ const Product = () => {
                     </div>
 
                     <div className="product-main-top-right">
+
                         <div className="product-main-top-right-user">
                             <div className="product-main-top-right-user-icon">
                                 <SupportAgentSharp style={{ fontSize: "60px" }} />
@@ -246,6 +247,7 @@ const Product = () => {
                                 </div>
                             </div>
                         </div>
+                        
                         <div className="product-main-top-right-title">
                             <p>Chính sách dịch vụ khách hàng</p>
                         </div>
