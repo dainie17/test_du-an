@@ -227,6 +227,7 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
+    margin-top: 50px;
 }
 
 .home-main-introduce-content{
@@ -288,44 +289,38 @@
 
 /* vị trí nút tiến */
 .home-main-slide .slick-next{
-    right: -35px;
+    right: -3%;
 }
 
 /* vị trí nút lùi */
 .home-main-slide .slick-prev{
-    left: -35px;
+    left: -3%;
     padding-left: 10px;
 } 
 
 /* chỉnh pading của slide */
 .home-main-slide .slick-list{
-   padding-top: 40px;
-   padding-bottom: 40px;
+    width: 100%;
+    padding: 3% 0 2.5% 1%;
+}
+
+.home-main-slide .slick-slider{
+    width: 94%;
+    padding: 0 1.5%;
+    margin: 0 auto;
 }
 
 /* kích thước item slide */
-.home-main-slide-item{
-    width: 10%;
-}
+/* .home-main-slide-item{
+    width: 0%;
+} */
 
-/* tiêu đề của slide */
-.home-main-slide-item-title{
-    background-color: #555;
-    width: 100%;
-    height: 250px;
-    position: absolute;
-    text-align: center;
-    opacity: 20%;
-}
-
-/* hình ảnh slide */
 .home-main-slide-item-image{
-    width: 100%;
-    height: 250px;
+    width: 90%;
+    height: 230px;
 }
+
 /* kết thúc slide1 */
-
-
 
 /* quyền lợi khách hàng */
 .home-main-purview{
@@ -339,8 +334,8 @@
 }
 
 .home-main-purview-card{
-    width: 20%;
-    border-right: #555 1px solid;
+    width: 23%;
+    border-right: rgb(173, 173, 173) 1px solid;
 }
 
 /* slide2 mainintroduce-news */
@@ -349,8 +344,6 @@
 .home-main-news{
     width: 100%;
     margin-top: 50px;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 /* tùy chỉnh nút tiến lùi */
@@ -377,24 +370,34 @@
     padding-left: 10px;
 } 
 
+.home-main-news .slick-list{
+    width: 100%;
+    padding: 0 0 0 3.5%;
+}
+
+.home-main-news .slick-slider{
+    width: 96%;
+    padding: 0 0 0 1%;
+    margin: 0 auto;
+}
+
 /* tùy chỉnh item của slide */
 .home-main-news-item{
-    width: 300px;
-    margin-left: 12%;
+    width: 30%;
     display: flex;
     flex-direction: column;
 }
 
 /* kích thước hình ảnh */
 .home-main-news-item-image{
-    width: 300px;
-    height: 300px;
+    width: 80%;
+    height: 250px;
 }
 
 /* tiêu đề của slide */
 .home-main-news-item-title{
-    width: 300px;
-    font-size: 20px;
+    width: 80%;
+    font-size: 15px;
     font-weight: bold;
     text-align: left;
     margin-top: 10px;
@@ -403,17 +406,15 @@
 
 /* nội dung của item */
 .home-main-news-item-content{
-    width: 300px;
+    width: 80%;
     text-align: left;
+    font-size: 13px;
     margin-top: 10px;
 }
 
 /* tùy chỉnh button xem thêm */
 .home-main-news-item-button{
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-left: 15px;
-    padding-right: 15px;
+   padding: 2% 3%;
     margin-top: 10px;
     margin-bottom: 20px;
     float: left;

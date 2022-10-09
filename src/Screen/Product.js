@@ -114,56 +114,77 @@ const Product = () => {
     }
     return (
         <div className="product">
-            <div className="container">
-                <nav className="home-header">
-                    <div className="home-header_logo">
-                    <img className="home-header-logo-image" src={logo} alt="" />
-                    <p className="home-header-logo-title">logo</p>
-                    </div>
-                    <ul className="home-header_ul">
-                        <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Home">Trang chủ</NavLink>
-                        </li>
-                        <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">Giới thiệu</NavLink>
-                        </li>
-                        <li className="home-header_ul_subnav">
-                            <NavLink className="home-header_ul_li_navlink" to="/Product">Sản phẩm</NavLink>
-                            <ArrowDropDownIcon className="home-header_ul_li_navlink_icon" />
-                            <div className="home-header_ul_subnav_content">
-                                <a href="#company">Company</a>
-                                <a href="#team">Team</a>
-                                <a href="#careers">Careers</a>
-                            </div>
-                        </li>
-                        <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Navigate">Ưu đãi</NavLink>
-                        </li>
-                        <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">Liên hệ</NavLink>
-                        </li>
-                    </ul>
-                    <div className="home-header_icon">
-                        <SearchSharpIcon style={{fontSize: "40px"}}/>
+            <div className="product_container">
+            <nav className="home-header">
+          <div className="home-header_logo">
+            <img className="home-header-logo-image" src={logo} alt="" />
+            <p className="home-header-logo-title">logo</p>
+          </div>
+          <ul className="home-header_ul">
+            <li>
+              <NavLink className="home-header_ul_li_navlink" to="/Home">
+                Trang chủ
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="home-header_ul_li_navlink" to="/Introduce">
+                Giới thiệu
+              </NavLink>
+            </li>
+            <li className="home-header_ul_subnav">
+              <div className="home-header_ul_subnav_title">
+                <NavLink className="home-header_ul_li_navlink" to="/Product">
+                  Sản phẩm
+                </NavLink>
+                <ArrowDropDownIcon className="home-header_ul_li_navlink_icon" />
+              </div>
+              <div className="home-header_ul_subnav_content">
+                <a href="#company">Company</a>
+                <a href="#team">Team</a>
+                <a href="#careers">Careers</a>
+              </div>
+            </li>
+            <li>
+              <NavLink className="home-header_ul_li_navlink" to="/Navigate">
+                Ưu đãi
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="home-header_ul_li_navlink" to="/Introduce">
+                Liên hệ
+              </NavLink>
+            </li>
+          </ul>
+          <div className="home-header_icon">
+            <SearchSharpIcon style={{ fontSize: "30px" }} />
 
-                        <div className="home-header_icon_user">
-                            <AccountCircleSharpIcon style={{fontSize: "40px",cursor: "pointer"}} className="home-header_icon_user_img" onClick={onclickItem}/>
-                            <div style={{right: "6%"}} className="home-header_icon_user_content">
-                                <a href="#company">Company</a>
-                                <a href="#team">Team</a>
-                                <a href="#careers">Careers</a>
-                            </div>
-                        </div>
+            <div className="home-header_icon_user">
+              <AccountCircleSharpIcon
+                style={{ fontSize: "30px", cursor: "pointer" }}
+                className="home-header_icon_user_img"
+                onClick={onclickItem}
+              />
+              <div
+                style={{ right: "6%" }}
+                className="home-header_icon_user_content"
+              >
+                <a href="#company">Company</a>
+                <a href="#team">Team</a>
+                <a href="#careers">Careers</a>
+              </div>
+            </div>
 
-                        <ShoppingCartIcon style={{fontSize: "40px"}}/>
-                    </div>
-                </nav>
+            <ShoppingCartIcon style={{ fontSize: "30px" }} />
+          </div>
+        </nav>
 
             </div>
 
             {/* main */}
             <div className="product-main">
+                <div className="product_container">
                 <div className="product-main-top">
+
                     <div className="product-main-top-left">
                         <div className="product-main-top-left-title">
                             <ViewListSharp />
@@ -175,7 +196,7 @@ const Product = () => {
                     </div>
 
                     <div className="product-main-top-center">
-                        <div className="product-main-top-center-right-slide">
+                        <div className="product-main-top-center-slide">
                             <Slider
                                 autoplay={true}
                                 autoplaySpeed={2000}
@@ -185,20 +206,20 @@ const Product = () => {
                                 {
                                     data.map((item, index) => (
                                         <div key={index}>
-                                            <img src={item} alt="" className="product-main-top-center-right-slide-img" />
+                                            <img src={item} alt="" className="product-main-top-center-slide-img" />
                                         </div>
                                     ))
                                 }
 
                             </Slider>
                         </div>
-                        <div className="product-main-top-center-right-content">
+                        <div className="product-main-top-center-content">
                             <p>Sản phẩm mới</p>
-                            <div className="product-main-top-center-right-content-list">
+                            <div className="product-main-top-center-content-list">
                                 {
                                     dataList.map((item, index) => (
-                                        <div className="product-main-top-center-right-content-list-item" key={index}>
-                                            <img src={item} className="product-main-top-center-right-content-list-item-img" alt="" />
+                                        <div className="product-main-top-center-content-list-item" key={index}>
+                                            <img src={item} className="product-main-top-center-content-list-item-img" alt="" />
                                         </div>
                                     ))
                                 }
@@ -255,9 +276,11 @@ const Product = () => {
                         </div>
                     </div>
                 </div>
+                </div>
 
 
                 <div className="product-main-list">
+                    <div className="product_container">
                     <div className="product-main-list-title">
                         <p>Tên loại sản phẩm</p>
                     </div>
@@ -273,9 +296,11 @@ const Product = () => {
                             ))
                         }
                     </div>
+                    </div>
                 </div>
 
                 <div className="product-main-list">
+                    <div className="product_container">
                     <div className="product-main-list-title">
                         <p>Tên loại sản phẩm</p>
                     </div>
@@ -291,6 +316,7 @@ const Product = () => {
                             ))
                         }
                     </div>
+                </div>
                 </div>
             </div>
 
