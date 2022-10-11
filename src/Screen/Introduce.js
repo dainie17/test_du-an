@@ -27,7 +27,7 @@ const Introduce = () => {
     }
     return (
         <div>
-            <div className="container">
+            <div className="home_container">
                 <nav className="home-header">
                     <div className="home-header_logo">
                         <img className="home-header-logo-image" src={logo} alt="" />
@@ -35,14 +35,22 @@ const Introduce = () => {
                     </div>
                     <ul className="home-header_ul">
                         <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Home">Trang chủ</NavLink>
+                            <NavLink className="home-header_ul_li_navlink" to="/Home">
+                                Trang chủ
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">Giới thiệu</NavLink>
+                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">
+                                Giới thiệu
+                            </NavLink>
                         </li>
                         <li className="home-header_ul_subnav">
-                            <NavLink className="home-header_ul_li_navlink" to="/Product">Sản phẩm</NavLink>
-                            <ArrowDropDownIcon className="home-header_ul_li_navlink_icon" />
+                            <div className="home-header_ul_subnav_title">
+                                <NavLink className="home-header_ul_li_navlink" to="/Product">
+                                    Sản phẩm
+                                </NavLink>
+                                <ArrowDropDownIcon className="home-header_ul_li_navlink_icon" />
+                            </div>
                             <div className="home-header_ul_subnav_content">
                                 <a href="#company">Company</a>
                                 <a href="#team">Team</a>
@@ -50,28 +58,38 @@ const Introduce = () => {
                             </div>
                         </li>
                         <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Navigate">Ưu đãi</NavLink>
+                            <NavLink className="home-header_ul_li_navlink" to="/Navigate">
+                                Ưu đãi
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">Liên hệ</NavLink>
+                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">
+                                Liên hệ
+                            </NavLink>
                         </li>
                     </ul>
                     <div className="home-header_icon">
-                        <SearchSharpIcon style={{ fontSize: "40px" }} />
+                        <SearchSharpIcon style={{ fontSize: "30px" }} />
 
                         <div className="home-header_icon_user">
-                            <AccountCircleSharpIcon style={{ fontSize: "40px", cursor: "pointer" }} className="home-header_icon_user_img" onClick={onclickItem} />
-                            <div style={{ right: "6%" }} className="home-header_icon_user_content">
+                            <AccountCircleSharpIcon
+                                style={{ fontSize: "30px", cursor: "pointer" }}
+                                className="home-header_icon_user_img"
+                                onClick={onclickItem}
+                            />
+                            <div
+                                style={{ right: "6%" }}
+                                className="home-header_icon_user_content"
+                            >
                                 <a href="#company">Company</a>
                                 <a href="#team">Team</a>
                                 <a href="#careers">Careers</a>
                             </div>
                         </div>
 
-                        <ShoppingCartIcon style={{ fontSize: "40px" }} />
+                        <ShoppingCartIcon style={{ fontSize: "30px" }} />
                     </div>
                 </nav>
-
             </div>
             <div className="title">
                 <div className="title_header">
@@ -85,7 +103,7 @@ const Introduce = () => {
                                 <div className="title_container--text--name--content--group" >
                                     <div className="name">
                                         <PublicIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
-                                        <p style={{fontWeight:'bold'}}>Tên quốc tế</p>
+                                        <p style={{ fontWeight: 'bold' }}>Tên quốc tế</p>
                                     </div>
                                     <p id="diachi">CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ TM DV XNK VŨ GIA GROUP</p>
                                 </div>
@@ -95,7 +113,7 @@ const Introduce = () => {
                                 <div className="title_container--text--name--content--group" >
                                     <div className="name">
                                         <AlignVerticalCenterIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
-                                        <p style={{fontWeight:'bold'}}>Mã số thuế</p>
+                                        <p style={{ fontWeight: 'bold' }}>Mã số thuế</p>
                                     </div>
                                     <p id="diachi" >0782565750</p>
                                 </div>
@@ -105,7 +123,7 @@ const Introduce = () => {
                                 <div className="title_container--text--name--content--group" >
                                     <div className="name">
                                         <LocationOnIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
-                                        <p style={{fontWeight:'bold'}}>Địa chỉ </p>
+                                        <p style={{ fontWeight: 'bold' }}>Địa chỉ </p>
                                     </div>
                                     <p id="diachi">840/20B Hương Lộ 2, Phường Bình Trị Đông A, Quận Bình Tân, T.P Hồ Chí Mình, Việt Nam</p>
                                 </div>
@@ -116,7 +134,7 @@ const Introduce = () => {
                                 <div className="title_container--text--name--content--group" >
                                     <div className="name">
                                         <PersonIcon sx={{ fontSize: 15 }} />
-                                        <p style={{fontWeight:'bold'}}>Người Đại Diện </p>
+                                        <p style={{ fontWeight: 'bold' }}>Người Đại Diện </p>
                                     </div>
                                     <p id="diachi" >Vũ Anh Tuấn <br /> Ngoài ra Vũ Anh Tuấn còn đại diện các doanh nghiệp: <br />    Công Ty Cổ Phần Thương Mại Dịch Vụ</p>
                                 </div>
@@ -126,7 +144,7 @@ const Introduce = () => {
                                 <div className="title_container--text--name--content--group" >
                                     <div className="name">
                                         <LocalPhoneIcon sx={{ fontSize: 15, marginRight: '0.5%' }} />
-                                        <p style={{fontWeight:'bold'}}>Số điện thoại</p>
+                                        <p style={{ fontWeight: 'bold' }}>Số điện thoại</p>
                                     </div>
                                     <p id="diachi">0782565750</p>
                                 </div>
