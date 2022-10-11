@@ -5,14 +5,14 @@
     
 }
 
- /* căn lề */
+ /*-------------------căn lề-------------------*/
 .home_container{
     width: 85% ;
     padding: 0;
     margin: 0 auto;
 }
 
-/* navbar */
+/*-------------------navbar------------------*/
 .home-header {
     display: flex;
     flex-direction: row;
@@ -24,7 +24,7 @@
     z-index: 1;
 }
 
-/* logo header */
+/*----------------logo header------------------*/
 .home-header_logo{
     width: 10%;
     display: flex;
@@ -33,10 +33,12 @@
     justify-content: left;
 }
 
+/* ----------------chỉnh hình logo-------------- */
 .home-header-logo-image{
     width: 30%;
 }
 
+/* -----------------têu đề của logo------------- */
 .home-header-logo-title{
     width: 50%;
     font-size: 20px;
@@ -44,7 +46,7 @@
     text-align: center;
 }
 
-/* list header */
+/*-------------------list header----------------- */
 .home-header_ul {
     width: 50%;
     display: flex;
@@ -54,11 +56,21 @@
     justify-content: space-between;
 }
 
+/* ------------------list header li---------------- */
 .home-header_ul li {
     text-align: center;
     padding: 3% 3%;
 }
 
+/* --------------hover cho thẻ li--------------- */
+.home-header_ul li:hover,
+.home-header_ul li:hover .home-header_ul_li_navlink,
+.home-header_ul_subnav:hover{
+    background-color: #555;
+    color: white;
+}
+
+/* -----------------list header navlink------------- */
 .home-header_ul_li_navlink {
     text-decoration: none;
     text-transform: uppercase; 
@@ -66,19 +78,20 @@
     color: black;
 }
 
-/* chỉnh menu cấp 2 tạm ẩn */
+/* ---------------chỉnh menu cấp 2 thẻ li------------ */
 .home-header_ul_subnav {
     display: flex;
     flex-direction: column;
  }
  
+ /* ---------------tiêu đề của menu cấp 2----------- */
  .home-header_ul_subnav_title{
      display: flex;
      flex-direction: row;
      align-items: center;
  }
 
-/* căn chỉnh menu cấp 2 sẩn phẩm */
+/* -----------căn chỉnh menu cấp 2 sẩn phẩm--------- */
 .home-header_ul_subnav_content {
     display: none;
     position: absolute;
@@ -91,16 +104,8 @@
     box-shadow: rgb(157, 157, 157) 1px 1px 1px 1px;
 }
 
-/* hover cho thẻ li */
-.home-header_ul li:hover,
-.home-header_ul li:hover .home-header_ul_li_navlink,
-.home-header_ul_subnav:hover{
-    background-color: #555;
-    color: white;
-}
 
-
-/* căn chỉnh thẻ a trong menu cấp 2 */
+/* --------------căn chỉnh thẻ a trong menu cấp 2------------------ */
 .home-header_ul_subnav_content a {
     float: none;
     color: rgb(5, 5, 5);
@@ -110,16 +115,17 @@
     text-align: center;
 }
 
-/* hover cho các thành phần menu cấp 2 */
+/* ---------------hover menu cấp 2--------------- */
 .home-header_ul_subnav:hover .home-header_ul_subnav_content {
     display: block;
 }
 
+/* ---------------hover thẻ a trong menu cấp------------------ */
 .home-header_ul_subnav_content a:hover{
     color: #555;
 }
 
-/* căn chỉnh icon */
+/* --------------căn chỉnh icon--------------- */
 .home-header_icon{
     width: 10%;
     display: flex;
@@ -128,11 +134,12 @@
     justify-content: space-between;
 }
 
-/* menu cấp 2 icon user */
+/* -------------menu cấp 2 icon user----------- */
 .home-header_icon_user{
     height: 100%;
 }
 
+/* --------------chỉnh menu cấp 2------------- */
 .home-header_icon_user_content{
     display: none;
     position: absolute;
@@ -143,6 +150,7 @@
     box-shadow: rgb(157, 157, 157) 1px 1px 1px 1px;
 }
 
+/* ---------------chỉnh thẻ a của menu cấp 2---------- */
 .home-header_icon_user_content a{
     float: none;
     color: rgb(12, 12, 12);
@@ -152,38 +160,41 @@
     text-align: center;
 }
 
+/* ----------------icon user hover menu hiện ra-------------- */
 .home-header_icon_user:hover .home-header_icon_user_content {
     display: block;
 }
 
-
+/* ---------------hover cho icon user-------------- */
 .home-header_icon_user:hover, .home-header_icon_user_img:hover {
     color: #555;
 }
 
+/* ------------chỉnh hover cho thẻ a trong menu cấp 2-------------- */
 .home-header_icon_user_content a:hover{
     color: #555;
 }
-/* kết thúc navbar */
+/* -----------------------------kết thúc navbar-------------------------- */
 
 
 
 
 
-/* Banner */
+/* ---------------------------------Banner--------------------------- */
 
+/* -------------căn lề cho banner----------- */
 .home-banner{
     margin: 0;
     padding: 0;
 }
 
-/* chỉnh hình ảnh banner */
+/* --------------chỉnh hình ảnh banner--------------- */
 .home-banner-img{
     width: 100%;
     height: 725px;
 }
 
-/* chỉnh kich thước nút tiến lùi banner */
+/* -----------------chỉnh kich thước nút tiến lùi banner--------------- */
 .slick-arrow.slick-prev,
 .slick-arrow.slick-next{
     width: 47px;
@@ -194,11 +205,11 @@
     z-index: 1;
 }
 
-/* vị trí nút tiến */
+/* ---------------vị trí nút tiến------------- */
 .slick-next{
     right: 20px;
 }
-/* vị trí nút lùi */
+/*-------------- vị trí nút lùi----------- */
 .slick-prev{
     left: 35px;
 }
@@ -207,9 +218,11 @@
 .slick-prev::before{
     display: none;
 }
-/* kết thúc banner */
+/* -----------------------------kết thúc banner----------------------- */
 
-/* main */
+
+
+/* -----------------------------------main---------------------------- */
 
 .home-main{
     width: 100%;
@@ -221,20 +234,24 @@
     margin-bottom: 30px;
 }
 
+/* --------------tùy chỉnh cho phần giới thiệu công ty-------------- */
 .home-main-introduce{
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
+    margin-top: 50px;
 }
 
+/* -------------tùy chỉnh phần thông tin giới thiệu công ty------------ */
 .home-main-introduce-content{
     width: 47%;
     display: flex;
     flex-direction: column;
 }
 
+/* ------------tiêu đề của phần giới thiệu công ty-------------- */
 .home-main-introduce-content-frontpager{
     width: 100%;
     text-align: left;
@@ -245,6 +262,7 @@
     padding-left: 10px;
 }
 
+/* -------------nội dung giới thiệu về công ty----------------- */
 .home-main-introduce-content-title{
     width: 100%;
     margin-top: 10px;
@@ -253,27 +271,30 @@
     font-weight: 500;
 }
 
+/* ------------chỉnh thẻ p cho phần nội dung----------------- */
 .home-main-introduce-content-title p{
     line-height: 1.5;
 }
 
+/* ------------phần hình ảnh công ty------------------------ */
 .home-main-introduce-image{
     width: 47%;
 }
 
+/* ------------chỉnh thẻ img trong phần hình ảnh công ty--------- */
 .home-main-introduce-image-style{
     width: 100%;
 }
 
 
-/* slide1 */
+/* ---------------------slide1---------------------- */
 .home-main-slide{
     width: 100%;
     background-color: #3498DB;
     margin-top: 50px;
 }
 
-/* chỉnh kích thước nút tiến lùi */
+/* ---------------chỉnh kích thước nút tiến lùi------------------ */
 .home-main-slide .slick-arrow.slick-prev,
 .home-main-slide .slick-arrow.slick-next{
     background-color: white;
@@ -286,48 +307,46 @@
     z-index: 1;
 }
 
-/* vị trí nút tiến */
+/* ------------------vị trí nút tiến--------------- */
 .home-main-slide .slick-next{
-    right: -35px;
+    right: -3%;
 }
 
-/* vị trí nút lùi */
+/* ------------------vị trí nút lùi--------------- */
 .home-main-slide .slick-prev{
-    left: -35px;
+    left: -3%;
     padding-left: 10px;
 } 
 
-/* chỉnh pading của slide */
+/* -----------------chỉnh pading tổng của slide----------- */
 .home-main-slide .slick-list{
-   padding-top: 40px;
-   padding-bottom: 40px;
+    width: 100%;
+    padding: 3% 0 2.5% 1%;
+}
+
+/* ----------------chỉnh phần chứa item của silde-------------- */
+.home-main-slide .slick-slider{
+    width: 94%;
+    padding: 0 1.5%;
+    margin: 0 auto;
 }
 
 /* kích thước item slide */
-.home-main-slide-item{
-    width: 10%;
-}
+/* .home-main-slide-item{
+    width: 0%;
+} */
 
-/* tiêu đề của slide */
-.home-main-slide-item-title{
-    background-color: #555;
-    width: 100%;
-    height: 250px;
-    position: absolute;
-    text-align: center;
-    opacity: 20%;
-}
-
-/* hình ảnh slide */
+/* ------------------chỉnh kích thước hình ảnh silde------------- */
 .home-main-slide-item-image{
-    width: 100%;
-    height: 250px;
+    width: 90%;
+    height: 230px;
 }
-/* kết thúc slide1 */
+
+/* ------------------kết thúc slide1------------------ */
 
 
 
-/* quyền lợi khách hàng */
+/* -------------------quyền lợi khách hàng--------------- */
 .home-main-purview{
  width: 100%;
  display: flex;
@@ -339,21 +358,20 @@
 }
 
 .home-main-purview-card{
-    width: 20%;
-    border-right: #555 1px solid;
+    width: 23%;
+    border-right: rgb(173, 173, 173) 1px solid;
 }
+/* --------------kết thúc phần quyền lợi khách hàng-------------- */
 
-/* slide2 mainintroduce-news */
+/* -------------------slide2 mainintroduce-news------------------- */
 
-/* căn chỉnh tin tức và sự kiện */
+/* ------------------căn chỉnh tin tức và sự kiện----------------- */
 .home-main-news{
     width: 100%;
     margin-top: 50px;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
-/* tùy chỉnh nút tiến lùi */
+/* -------------------tùy chỉnh nút tiến lùi-------------------- */
 .home-main-news .slick-arrow.slick-prev,
 .home-main-news .slick-arrow.slick-next{
     background-color: #555;
@@ -366,54 +384,64 @@
     z-index: 1;
 }
 
-/* vị trí nút tiến */
+/* ------------------vị trí nút tiến -----------------------*/
 .home-main-news .slick-next{
     right: -35px;
 }
 
-/* vị trí của nút tiến */
+/* ---------------vị trí của nút tiến-------------- */
 .home-main-news .slick-prev{
     left: -25px;
     padding-left: 10px;
 } 
 
-/* tùy chỉnh item của slide */
+/* ----------------chỉnh kích thước tổng của slider---------------- */
+.home-main-news .slick-list{
+    width: 100%;
+    padding: 0 0 0 3.5%;
+}
+
+/* ----------------tùy chỉnh phần chứa item của slider---------------- */
+.home-main-news .slick-slider{
+    width: 96%;
+    padding: 0 0 0 1%;
+    margin: 0 auto;
+}
+
+/* ----------------------tùy chỉnh item của slide------------------ */
 .home-main-news-item{
-    width: 300px;
-    margin-left: 12%;
+    width: 30%;
     display: flex;
     flex-direction: column;
 }
 
-/* kích thước hình ảnh */
+/* --------------------kích thước hình ảnh------------- */
 .home-main-news-item-image{
-    width: 300px;
-    height: 300px;
+    width: 80%;
+    height: 250px;
 }
 
-/* tiêu đề của slide */
+/* -------------------tiêu đề của slide--------------- */
 .home-main-news-item-title{
-    width: 300px;
-    font-size: 20px;
+    width: 80%;
+    font-size: 15px;
     font-weight: bold;
     text-align: left;
     margin-top: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* nội dung của item */
+/* ------------------------nội dung của item------------------ */
 .home-main-news-item-content{
-    width: 300px;
+    width: 80%;
     text-align: left;
+    font-size: 13px;
     margin-top: 10px;
 }
 
-/* tùy chỉnh button xem thêm */
+/* -------------------------tùy chỉnh button xem thêm--------------- */
 .home-main-news-item-button{
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-left: 15px;
-    padding-right: 15px;
+   padding: 2% 3%;
     margin-top: 10px;
     margin-bottom: 20px;
     float: left;

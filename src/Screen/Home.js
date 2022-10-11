@@ -228,7 +228,7 @@ const Home = () => {
         </nav>
       </div>
       
-                {/* <div className="home-banner">
+                <div className="home-banner">
                     <Slider
                         autoplay={true}
                         autoplaySpeed={2000}
@@ -244,7 +244,7 @@ const Home = () => {
                         }
 
                     </Slider>
-                </div> */}
+                </div>
 
             {/* Banner */}
 
@@ -291,9 +291,9 @@ const Home = () => {
                         {
                             dataSlide.map((item, index) => (
                                 <div className="home-main-slide-item" key={index}>
-                                    <div className="home-main-slide-item-title">
+                                    {/* <div className="home-main-slide-item-title">
                                         <p style={{ fontSize: "80px", color: "white" }}>{item.title}</p>
-                                    </div>
+                                    </div> */}
                                     <img src={item.image} alt="" className="home-main-slide-item-image" />
                                 </div>
                             ))
@@ -336,9 +336,9 @@ const Home = () => {
                         {
                             dataSlide.map((item, index) => (
                                 <div className="home-main-slide-item" key={index}>
-                                    <div className="home-main-slide-item-title">
+                                    {/* <div className="home-main-slide-item-title">
                                         <p style={{ fontSize: "80px", color: "white" }}>{item.title}</p>
-                                    </div>
+                                    </div> */}
                                     <img src={item.image} alt="" className="home-main-slide-item-image" />
                                 </div>
                             ))
