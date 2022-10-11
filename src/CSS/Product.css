@@ -494,6 +494,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/* ----------------------hình ảnh sản phẩm-------------------- */
 .product-main-list-content-card-img{
     width: 100%;
     height: 300px;
@@ -501,6 +502,7 @@
     border-top-right-radius: 15px;
 }
 
+/* ------------------------tên sản phẩm----------------------- */
 .product-main-list-content-card-name{
     width: 100%;
     padding-left: 20px;
@@ -508,6 +510,7 @@
     font-size: 17px;
 }
 
+/* -----------------------giá sản phẩm---------------------- */
 .product-main-list-content-card-price{
     width: 100%;
     padding-left: 20px;
@@ -515,7 +518,7 @@
     font-size: 20px;
     font-weight: bold;
 }
-
+/* -------------------số lượng sản phẩm--------------------- */
 .product-main-list-content-card-number{
     width: 100%;
     padding-left: 20px;
