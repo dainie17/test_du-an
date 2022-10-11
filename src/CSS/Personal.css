@@ -48,10 +48,18 @@
 
 .fersonal_container-right--header--avatar{
     width: 30%;
-    background-color: blueviolet;
+    background-color: rgb(231, 216, 246);
     border-radius: 10px 10px 10px 10px;
     z-index: 1;
+    text-align: center; 
+    margin: 0 auto;
 }
+
+.fersonal_container-right--header--avatar--user--icon1{
+    margin: 0 auto;
+    margin-top: 10%;
+}
+
 
 .fersonal_container-right--header--content{
     width: 72%;
@@ -88,8 +96,67 @@
     position: absolute;
 }
 
+/* Thong tin */
+.fersonal_container-right--fooder--content--active{
+    background: white;
+    padding: 20px;
+    width: 100%;
+    margin-top: 50px;
+    border-radius: 15px;
+    vertical-align: bottom;
+}
+.fersonal_container-right--fooder--content--active p{
+    display: inline-block;
+    margin-left: 2%;
+    font-size: 14px;
+    font-weight: bold;
+}
+.fersonal_container-right--fooder--content--active--button{
+    padding: 1%;
+    float: right;
+}
 
+.fersonal_container-right--fooder--content--active--edit{
+    background-color: #F6F6F6;
+    margin-top: 2%;
+    border-radius: 15px;
+    padding: 10px;
+}
+.fersonal_container-right--fooder--content--active--edit--name{
+    width: 100%;
+    display: inline-block;
+    padding: 10px;
+    vertical-align: bottom;
+}
+.fersonal_container-right--fooder--content--active--edit--name--p{
+    float: left;
+}
+.fersonal_container-right--fooder--content--active--edit--name--p .name--login{
+    font-weight: bold;
+    font-size: 15px;
+}
+.fersonal_container-right--fooder--content--active--edit--name--p .name--people{
+    font-weight: normal;
+}
+.fersonal_container-right--fooder--content--active--edit--name--button button{
+    float: right;
+    padding: 1%;
+}
 
+.fersonal_container-right--fooder--content--active--password{
+    margin: 2%;
+}
+.fersonal_container-right--fooder--content--active--password button{
+    padding: 1%;
+    background-color: rgb(132, 132, 255);
+    border: none;
+    border-radius: 5px;
+    box-shadow: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 2%;
+}
 
 /* giỏ hàng */
 .active-content-title {
@@ -128,6 +195,7 @@
 
 .active-content-list-card-image {
     width: 15%;
+    
 }
 
 .active-content-list-card-content {
