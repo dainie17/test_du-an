@@ -13,7 +13,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import '../css/Navigate.css'
 
 const logo = "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
-const image5 = "https://thuytinhtadaco.com/wp-content/uploads/2021/08/chai-lo-thuy-tinh.jpg";
+const image5 = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
 function Navigate() {
     const uudai = [
         {
@@ -49,7 +49,7 @@ function Navigate() {
     }
     return (
         <div className="home">
-            <div className="container">
+             <div className="home_container">
                 <nav className="home-header">
                     <div className="home-header_logo">
                         <img className="home-header-logo-image" src={logo} alt="" />
@@ -57,45 +57,61 @@ function Navigate() {
                     </div>
                     <ul className="home-header_ul">
                         <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Home">Trang chủ</NavLink>
+                            <NavLink className="home-header_ul_li_navlink" to="/Home">
+                                Trang chủ
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">Giới thiệu</NavLink>
+                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">
+                                Giới thiệu
+                            </NavLink>
                         </li>
                         <li className="home-header_ul_subnav">
-                            <NavLink className="home-header_ul_li_navlink" to="/Product">Sản phẩm</NavLink>
-                            <ArrowDropDownIcon className="home-header_ul_li_navlink_icon" />
+                            <div className="home-header_ul_subnav_title">
+                                <NavLink className="home-header_ul_li_navlink" to="/Product">
+                                    Sản phẩm
+                                </NavLink>
+                                <ArrowDropDownIcon className="home-header_ul_li_navlink_icon" />
+                            </div>
                             <div className="home-header_ul_subnav_content">
                                 <a href="#company">Company</a>
                                 <a href="#team">Team</a>
                                 <a href="#careers">Careers</a>
-
                             </div>
-
                         </li>
                         <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Navigate">Ưu đãi</NavLink>
+                            <NavLink className="home-header_ul_li_navlink" to="/Navigate">
+                                Ưu đãi
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">Liên hệ</NavLink>
+                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">
+                                Liên hệ
+                            </NavLink>
                         </li>
                     </ul>
                     <div className="home-header_icon">
-                        <SearchSharpIcon style={{ fontSize: "40px" }} />
+                        <SearchSharpIcon style={{ fontSize: "30px" }} />
 
-                        <div className="home-header_icon_user" >
-                            <AccountCircleSharpIcon style={{ fontSize: "40px", cursor: "pointer" }} className="home-header_icon_user_img" onClick={onclickItem} />
-                            <div style={{ right: "6%" }} className="home-header_icon_user_content">
+                        <div className="home-header_icon_user">
+                            <AccountCircleSharpIcon
+                                style={{ fontSize: "30px", cursor: "pointer" }}
+                                className="home-header_icon_user_img"
+                                onClick={onclickItem}
+                            />
+                            <div
+                                style={{ right: "6%" }}
+                                className="home-header_icon_user_content"
+                            >
                                 <a href="#company">Company</a>
                                 <a href="#team">Team</a>
                                 <a href="#careers">Careers</a>
                             </div>
                         </div>
 
-                        <ShoppingCartIcon style={{ fontSize: "40px" }} />
+                        <ShoppingCartIcon style={{ fontSize: "30px" }} />
                     </div>
                 </nav>
-
             </div>
             <div className="title">
                 <div className="title_header">
