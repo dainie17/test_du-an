@@ -116,12 +116,6 @@ const Order = () => {
                         {
                             user.map((item, index) => (
                                 <div key={index} className="cart-main-left-list-card">
-                                    <input
-                                        className="cart-main-left-list-card-checkbox"
-                                        type="checkbox"
-                                        name={item.name}
-                                        checked={item?.isChecked || false}
-                                        onChange={handleChange} />
                                     <img className="cart-main-left-list-card-image" src={item.image} alt="" />
                                     <div className="cart-main-left-list-card-content">
                                         <p className="cart-main-left-list-card-content-name">{item.name}</p>

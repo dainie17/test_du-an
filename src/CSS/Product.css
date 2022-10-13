@@ -317,11 +317,12 @@
     padding-top: 20px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 /* ---------------------icon-------------------- */
 .product-main-top-right-user-icon{
-    width: 30%;
+    width: 20%;
 }
 
 /* --------------nội dung của phần người dùng------ */
@@ -349,7 +350,7 @@
 /* ---chỉnh button bên trái--- */
 .product-main-top-right-user-information-button-left{
     background-color: white;
-    border: black 1px solid;
+    border: none;
     border-radius: 15px;
     padding: 5px;
 }
@@ -357,7 +358,7 @@
 /* ---chỉnh button bên phải--- */
 .product-main-top-right-user-information-button-right{
     background-color: white;
-    border: black 1px solid;
+    border: none;
     border-radius: 15px;
     padding: 5px;
     margin-left: 5%;
@@ -365,8 +366,10 @@
 
 /* --------------tiêu đề của chính sách dịch vụ khách hàng------------ */
 .product-main-top-right-title{
-    width: 100%;
+    width: 90%;
     margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: left;
 }
 
 /* -----------------nội dung dịch vụ khách hàng--------------------- */
