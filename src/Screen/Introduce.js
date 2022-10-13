@@ -174,7 +174,7 @@ const Introduce = () => {
                         <input type="text" name="search" placeholder="Email" />
                         <input type="text" name="search" placeholder="Điện thoại" />
                         <input type="text" name="search" placeholder="Địa chỉ" />
-                        <input id="container" type="text" name="search" placeholder="Nội dung" />
+                        <textarea id="container" type="text" name="search" placeholder="Nội dung" />
                         <button > Gửi</button>
                     </div>
 

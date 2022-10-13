@@ -281,8 +281,8 @@ const Product = () => {
                 </div>
 
 
-                <div className="product-main-list">
-                    <div className="product_container">
+                <div className="product-main-list product_container">
+                    {/* <div className="product_container"> */}
                     <div className="product-main-list-title">
                         <p>Tên loại sản phẩm</p>
                     </div>
@@ -298,7 +298,7 @@ const Product = () => {
                             ))
                         }
                     </div>
-                    </div>
+                    {/* </div> */}
                 </div>
 
                 <div className="product-main-list">

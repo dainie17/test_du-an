@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import '../css/Navbar.css'
 import {
   ArrowBackIos,
   ArrowForwardIos,
@@ -181,12 +182,9 @@ const Home = () => {
               </NavLink>
             </li>
             <li className="home-header_ul_subnav">
-              <div className="home-header_ul_subnav_title">
                 <NavLink className="home-header_ul_li_navlink" to="/Product">
                   Sản phẩm
                 </NavLink>
-                <ArrowDropDownIcon className="home-header_ul_li_navlink_icon" />
-              </div>
               <div className="home-header_ul_subnav_content">
                 <a href="#company">Company</a>
                 <a href="#team">Team</a>
@@ -205,25 +203,24 @@ const Home = () => {
             </li>
           </ul>
           <div className="home-header_icon">
-            <SearchSharpIcon style={{ fontSize: "30px" }} />
+            <div className="font_icon_nav">
+              <div className="search" />
+            </div>
 
-            <div className="home-header_icon_user">
-              <AccountCircleSharpIcon
-                style={{ fontSize: "30px", cursor: "pointer" }}
-                className="home-header_icon_user_img"
-                onClick={onclickItem}
-              />
-              <div
-                style={{ right: "6%" }}
-                className="home-header_icon_user_content"
-              >
+            <div className="font_icon_nav">
+              <div className="home-header_icon_user_img"
+                onClick={onclickItem}>
+              <div className="user" />
+              </div>
+              <div className="home-header_icon_user_content">
                 <a href="#company">Company</a>
                 <a href="#team">Team</a>
                 <a href="#careers">Careers</a>
               </div>
             </div>
-
-            <ShoppingCartIcon style={{ fontSize: "30px" }} />
+            <div className="font_icon_nav">
+              <div className="cart" />
+            </div>
           </div>
         </nav>
       </div>
