@@ -114,8 +114,8 @@ const Product = () => {
     }
     return (
         <div className="product">
-            <div className="product_container">
             <nav className="home-header">
+          <div className="header_container">
           <div className="home-header_logo">
             <img className="home-header-logo-image" src={logo} alt="" />
             <p className="home-header-logo-title">logo</p>
@@ -132,12 +132,9 @@ const Product = () => {
               </NavLink>
             </li>
             <li className="home-header_ul_subnav">
-              <div className="home-header_ul_subnav_title">
                 <NavLink className="home-header_ul_li_navlink" to="/Product">
                   Sản phẩm
                 </NavLink>
-                <ArrowDropDownIcon className="home-header_ul_li_navlink_icon" />
-              </div>
               <div className="home-header_ul_subnav_content">
                 <a href="#company">Company</a>
                 <a href="#team">Team</a>
@@ -156,29 +153,27 @@ const Product = () => {
             </li>
           </ul>
           <div className="home-header_icon">
-            <SearchSharpIcon style={{ fontSize: "30px" }} />
+            <div className="font_icon_nav">
+              <div className="search" />
+            </div>
 
             <div className="home-header_icon_user">
-              <AccountCircleSharpIcon
-                style={{ fontSize: "30px", cursor: "pointer" }}
-                className="home-header_icon_user_img"
-                onClick={onclickItem}
-              />
-              <div
-                style={{ right: "6%" }}
-                className="home-header_icon_user_content"
-              >
+              <div className="home-header_icon_user_img"
+                onClick={onclickItem}>
+              <div className="user" />
+              </div>
+              <div className="home-header_icon_user_content">
                 <a href="#company">Company</a>
                 <a href="#team">Team</a>
                 <a href="#careers">Careers</a>
               </div>
             </div>
-
-            <ShoppingCartIcon style={{ fontSize: "30px" }} />
+            <div className="font_icon_nav">
+              <div className="cart" />
+            </div>
+          </div>
           </div>
         </nav>
-
-            </div>
 
             {/* main */}
             <div className="product-main">

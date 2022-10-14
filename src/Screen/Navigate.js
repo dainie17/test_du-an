@@ -49,70 +49,67 @@ function Navigate() {
     }
     return (
         <div className="home">
-             <div className="home_container">
-                <nav className="home-header">
-                    <div className="home-header_logo">
-                        <img className="home-header-logo-image" src={logo} alt="" />
-                        <p className="home-header-logo-title">logo</p>
-                    </div>
-                    <ul className="home-header_ul">
-                        <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Home">
-                                Trang chủ
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">
-                                Giới thiệu
-                            </NavLink>
-                        </li>
-                        <li className="home-header_ul_subnav">
-                            <div className="home-header_ul_subnav_title">
-                                <NavLink className="home-header_ul_li_navlink" to="/Product">
-                                    Sản phẩm
-                                </NavLink>
-                                <ArrowDropDownIcon className="home-header_ul_li_navlink_icon" />
-                            </div>
-                            <div className="home-header_ul_subnav_content">
-                                <a href="#company">Company</a>
-                                <a href="#team">Team</a>
-                                <a href="#careers">Careers</a>
-                            </div>
-                        </li>
-                        <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Navigate">
-                                Ưu đãi
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">
-                                Liên hệ
-                            </NavLink>
-                        </li>
-                    </ul>
-                    <div className="home-header_icon">
-                        <SearchSharpIcon style={{ fontSize: "30px" }} />
-
-                        <div className="home-header_icon_user">
-                            <AccountCircleSharpIcon
-                                style={{ fontSize: "30px", cursor: "pointer" }}
-                                className="home-header_icon_user_img"
-                                onClick={onclickItem}
-                            />
-                            <div
-                                style={{ right: "6%" }}
-                                className="home-header_icon_user_content"
-                            >
-                                <a href="#company">Company</a>
-                                <a href="#team">Team</a>
-                                <a href="#careers">Careers</a>
-                            </div>
-                        </div>
-
-                        <ShoppingCartIcon style={{ fontSize: "30px" }} />
-                    </div>
-                </nav>
+             <nav className="home-header">
+          <div className="header_container">
+          <div className="home-header_logo">
+            <img className="home-header-logo-image" src={logo} alt="" />
+            <p className="home-header-logo-title">logo</p>
+          </div>
+          <ul className="home-header_ul">
+            <li>
+              <NavLink className="home-header_ul_li_navlink" to="/Home">
+                Trang chủ
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="home-header_ul_li_navlink" to="/Introduce">
+                Giới thiệu
+              </NavLink>
+            </li>
+            <li className="home-header_ul_subnav">
+                <NavLink className="home-header_ul_li_navlink" to="/Product">
+                  Sản phẩm
+                </NavLink>
+              <div className="home-header_ul_subnav_content">
+                <a href="#company">Company</a>
+                <a href="#team">Team</a>
+                <a href="#careers">Careers</a>
+              </div>
+            </li>
+            <li>
+              <NavLink className="home-header_ul_li_navlink" to="/Navigate">
+                Ưu đãi
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="home-header_ul_li_navlink" to="/Introduce">
+                Liên hệ
+              </NavLink>
+            </li>
+          </ul>
+          <div className="home-header_icon">
+            <div className="font_icon_nav">
+              <div className="search" />
             </div>
+
+            <div className="home-header_icon_user">
+              <div className="home-header_icon_user_img"
+                onClick={onclickItem}>
+              <div className="user" />
+              </div>
+              <div className="home-header_icon_user_content">
+                <a href="#company">Company</a>
+                <a href="#team">Team</a>
+                <a href="#careers">Careers</a>
+              </div>
+            </div>
+            <div className="font_icon_nav">
+              <div className="cart" />
+            </div>
+          </div>
+          </div>
+        </nav>
+
             <div className="title">
                 <div className="title_header">
                     <h2>Tin tức & Ưu đãi</h2>
