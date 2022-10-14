@@ -15,8 +15,8 @@ function footer() {
     return (
         <div className="footer">
             <div className="footer_container">
-            
-            {/* -----------------logo vs namelogo------------------- */}
+
+                {/* -----------------logo vs namelogo------------------- */}
                 <div className="footer_Sort">
                     <div className="form_trademark">
                         <img className="logo_footer" src={logo} />
@@ -28,7 +28,7 @@ function footer() {
 
                 <div className="form_information_footer">
                     <div className="form_fanpage">
-                            <h3>FANPAGE</h3>
+                        <h3>FANPAGE</h3>
                         <div>
                             <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.
                             facebook.com%2Ffacebook&tabs=timeline&width=340&height=331&small_header=false&adapt_
@@ -39,24 +39,51 @@ function footer() {
                     <div className="form_contact">
                         <h3> Công ty TNHH SẢN XUẤT ĐẦU TƯ TM DV XNK VŨ GIA GROUP</h3>
                         <div className="location">
-     
-                                <PinDropIcon sx={{fontSize:"25px", marginRight:'20px'}}  /> 
+
+                            <PinDropIcon sx={{ fontSize: "25px", marginRight: '20px' }} />
 
                             <p> 840/20B Hương Lộ 2, Phường Bình Trị Đông A, Quận Bình Tân, Thành phố Hồ Chí Minh, Việt Nam</p>
                         </div>
                         <div className="location">
 
-                                <CallIcon sx={{fontSize:"25px", marginRight:'20px'}}  /> 
+                            <CallIcon sx={{ fontSize: "25px", marginRight: '20px' }} />
 
                             <p> (84+) 706 185 986</p>
                         </div>
                         <div className="location">
-                                <EmailIcon sx={{fontSize:"25px", marginRight:'20px'}}  /> 
+                            <EmailIcon sx={{ fontSize: "25px", marginRight: '20px' }} />
                             <p> vagabonds.2hand@gmail.comt</p>
                         </div>
+                        <div className="location_nework">
+                            <div className="nework_icon">
+                                <FacebookIcon sx={{ fontSize: "15px" }} />
+                            </div>
+                            <div className="nework_icon">
+                                <YouTubeIcon sx={{ fontSize: "15px" }} />
+                            </div>
+                            <div className="nework_icon">
+                                <InstagramIcon sx={{ fontSize: "15px" }} />
+                            </div>
+                        </div>
                     </div>
-                    <div></div>
-                    <div></div>
+                    <div className="form_people">
+                        <h3>Về chúng tôi</h3>
+                        <div className="form_people_p" >
+                            <p>Giới thiệu</p>
+                            <p>Sản phẩm</p>
+                            <p>Ưu đãi</p>
+                            <p>Liên hệ</p>
+                        </div>
+                    </div>
+                    <div className="form_people">
+                        <h3>Chính sách</h3>
+                        <div className="form_people_p" >
+                            <p>Chính sách bảo mật</p>
+                            <p>Chính sách đổi trả</p>
+                            <p>Chính sách bảo hành </p>
+                            <p>Chính sách giao hàng</p>
+                        </div>
+                    </div>
                 </div>
 
 
