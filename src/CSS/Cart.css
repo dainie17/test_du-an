@@ -4,7 +4,7 @@
     padding: 0;
 }
 
-.cart {
+.carrt {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@
 
 
 /* header */
-.cart-header {
+.carrt-header {
     width: 100%;
     padding-left: 50px;
     padding-top: 20px;

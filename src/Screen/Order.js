@@ -1,6 +1,7 @@
 import { DeleteOutlineSharp, FavoriteBorderSharp, VerifiedUserSharp } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import '../css/Order.css'
+import Footer from "./footer";
 
 const image1 = "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
 const image2 = "https://cdn.tgdd.vn/Files/2019/11/18/1220010/4-cach-ve-sinh-ben-trong-chai-lo-cuc-sach-ban-nen-thu-21-760x367.jpg";
@@ -49,7 +50,7 @@ const Order = () => {
 
     return (
         <div className="order">
-            <div className="cart-header">
+            <div className="carrt-header">
                 <div className="cart-header-logo">
                     <p>LOGO</p>
                 </div>
@@ -152,6 +153,7 @@ const Order = () => {
                     <button className="cart-main-right-button">Thanh toán</button>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }
