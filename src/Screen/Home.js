@@ -160,8 +160,8 @@ const Home = () => {
 
   return (
     <div className="home">
-      <div className="home_container">
         <nav className="home-header">
+          <div className="header_container">
           <div className="home-header_logo">
             <img className="home-header-logo-image" src={logo} alt="" />
             <p className="home-header-logo-title">logo</p>
@@ -203,7 +203,7 @@ const Home = () => {
               <div className="search" />
             </div>
 
-            <div className="font_icon_nav">
+            <div className="home-header_icon_user">
               <div className="home-header_icon_user_img"
                 onClick={onclickItem}>
               <div className="user" />
@@ -218,8 +218,8 @@ const Home = () => {
               <div className="cart" />
             </div>
           </div>
+          </div>
         </nav>
-      </div>
       
                 <div className="home-banner">
                     <Slider
