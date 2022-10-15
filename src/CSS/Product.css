@@ -88,6 +88,15 @@
     border-radius: 15px;
 }
 
+/* ---------------vị trí nút tiến------------- */
+.product-main-top-center-slide .slick-next {
+    right: 10px;
+  }
+  /*-------------- vị trí nút lùi----------- */
+  .product-main-top-center-slide .slick-prev {
+    left: 10px;
+  }
+
 /* ----------------------chỉnh hình ảnh cho slider----------------------- */
 .product-main-top-center-slide-img{
     width: 100%;
@@ -311,13 +320,10 @@
     font-size: 20px;
 }
 
-.product-main-list-content{
-    width: 100%;
-}
 
 /* --------------------------phần item list sản phẩm------------------------ */
 .product-main-list-content-card{
-    width: 30%;
+    width: 33.33%;
     display: flex;
     flex-direction: column;
     float: left;

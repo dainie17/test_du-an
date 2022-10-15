@@ -29,7 +29,7 @@
 /* tùy chỉnh kích thước line xanh */
 .order-header-stage-wrapper-container-line-process {
     content: "";
-    width: 52%;
+    width: 35%;
     height: 100%;
     background: deepskyblue;
     background: linear-gradient(to right, deepskyblue 0%, #2ea37b 100%);

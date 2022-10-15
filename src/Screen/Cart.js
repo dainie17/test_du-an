@@ -22,7 +22,16 @@ const Cart = () => {
         navgate("/Order");
     }
 
+    const onclickReduce =()=>{
+        if(tong > 1){
+            setTong(tong - 1);
+        }
+    }
+
+
     const [user, setUser] = useState([]);
+
+    const [tong, setTong] = useState(1);
 
     useEffect(() => {
         setUser(data);
@@ -35,6 +44,13 @@ const Cart = () => {
             Ship: "CN",
             price: "368.374",
             image: image1
+        },
+        {
+            name: "Kéo cắt tóc điện USB Sạc tóc Cắt tóc",
+            Loai: "B",
+            Ship: "CN",
+            price: "368.374",
+            image: image2
         },
         {
             name: "Kéo cắt tóc điện USB Sạc tóc Cắt tóc",
@@ -136,9 +152,9 @@ const Cart = () => {
                                     </div>
                                     <div className="cart-main-left-list-card-function">
                                         <div className="cart-main-left-list-card-function-button">
-                                            <button className="cart-main-left-list-card-function-button-reduce">-</button>
-                                            <p className="cart-main-left-list-card-function-button-num">1</p>
-                                            <button className="cart-main-left-list-card-function-button-more">+</button>
+                                            <button onClick={onclickReduce} className="cart-main-left-list-card-function-button-reduce">-</button>
+                                            <p className="cart-main-left-list-card-function-button-num">{tong}</p>
+                                            <button onClick={()=> setTong(tong + 1)} className="cart-main-left-list-card-function-button-more">+</button>
                                         </div>
                                         <div className="cart-main-left-list-card-function-icon">
                                             <FavoriteBorderSharp />
@@ -160,7 +176,7 @@ const Cart = () => {
                         <p className="cart-main-right-total-title">Tổng &#10088;1&#10089;</p>
                         <p className="cart-main-right-total-content">6.883.034&#8363;</p>
                     </div>
-                    <button className="cart-main-right-button" onClick={onclickItem}>Thanh toán</button>
+                    <button className="cart-main-right-button" onClick={onclickItem}>Đặt hàng</button>
                 </div>
                 </div>
             </div>
