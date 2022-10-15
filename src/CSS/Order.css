@@ -8,6 +8,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    background-color: #F6F6F6;
 }
 
 /* chỉnh cho phần ô tròn thứ hai trên slide tiến trình mua hàng  */
@@ -28,7 +29,7 @@
 /* tùy chỉnh kích thước line xanh */
 .order-header-stage-wrapper-container-line-process {
     content: "";
-    width: 50%;
+    width: 52%;
     height: 100%;
     background: deepskyblue;
     background: linear-gradient(to right, deepskyblue 0%, #2ea37b 100%);

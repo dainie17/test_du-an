@@ -50,24 +50,29 @@ const Order = () => {
 
     return (
         <div className="order">
-            <div className="carrt-header">
-                <div className="cart-header-logo">
+            <div className="cart-header">
+                <div className="cart_header_container">
+
+                    <div className="cart_header_left">
+                    <div className="cart-header-logo">
                     <p>LOGO</p>
                 </div>
                 <div className="cart-header-test">
                     <VerifiedUserSharp />
                     <p>Kiểm tra an toàn</p>
                 </div>
+                    </div>
+
                 <div className="cart-header-stage">
                     <div className="cart-header-stage-wrapper">
                         <div className="cart-header-stage-wrapper-container">
                             <ul>
                                 <li className="cart-header-stage-wrapper-container-step1">
-                                    <div className="cart-header-stage-wrapper-container-step-inner">Giỏ hàng</div>
+                                    <div className="cart-header-stage-wrapper-container-step-inner" style={{color: "rgb(72, 72, 72)"}}>Giỏ hàng</div>
                                 </li>
 
                                 <li className="order-header-stage-wrapper-container-step2">
-                                    <div className="cart-header-stage-wrapper-container-step-inner">Đặt hàng</div>
+                                    <div className="cart-header-stage-wrapper-container-step-inner" style={{color: "rgb(72, 72, 72)"}}>Đặt hàng</div>
                                 </li>
 
                                 <li className="cart-header-stage-wrapper-container-step3">
@@ -83,6 +88,7 @@ const Order = () => {
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
 

@@ -250,21 +250,21 @@ const Product = () => {
                         <div className="product-main-top-right-service">
                             <div className="product-main-top-right-service-top">
                                 <div className="product-main-top-right-service-top-left">
-                                    <GppGoodSharp />
+                                    <GppGoodSharp style={{fontSize: "15px", paddingRight: "1px"}}/>
                                     <p>Bảo mật thanh toán</p>
                                 </div>
                                 <div className="product-main-top-right-service-top-right">
-                                    <TokenSharp />
+                                    <TokenSharp  style={{fontSize: "15px", paddingRight: "1px"}}/>
                                     <p>Đảm bảo giao hàng</p>
                                 </div>
                             </div>
                             <div className="product-main-top-right-service-bottom">
                                 <div className="product-main-top-right-service-bottom-left">
-                                    <DiamondSharp />
+                                    <DiamondSharp  style={{fontSize: "15px", paddingRight: "1px"}}/>
                                     <p>Đảm bảo chất lượng</p>
                                 </div>
                                 <div className="product-main-top-right-service-bottom-right">
-                                    <AssignmentReturnSharp />
+                                    <AssignmentReturnSharp style={{fontSize: "15px", paddingRight: "1px"}}/>
                                     <p>Trả lại không lý do</p>
                                 </div>
                             </div>
