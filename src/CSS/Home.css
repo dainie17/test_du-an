@@ -1,166 +1,237 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
- /*-------------------căn lề-------------------*/
-.home_container{
-    width: 85% ;
-    padding: 0;
-    margin: 0 auto;
+/*-------------------căn lề-------------------*/
+.home_container {
+  width: 85%;
+  padding: 0;
+  margin: 0 auto;
 }
 
 /* ---------------------------------Banner--------------------------- */
 
 /* -------------căn lề cho banner----------- */
-.home-banner{
-    margin: 0;
-    padding: 0;
+.home-banner {
+  margin: 0;
+  padding: 0;
+}
+
+.home-banner .slick-dots {
+  bottom: 10px;
+}
+
+.home-banner .slick-dots li button:before {
+  font-family: "slick";
+  font-size: 15px;
+  line-height: 20px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 20px;
+  height: 20px;
+
+  content: "•";
+  text-align: center;
+  opacity: 0.5;
+  color: white;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.home-banner .slick-dots li.slick-active button:before {
+  opacity: 0.75;
+  color: #3498db;
+}
+
+.home-banner .slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+
+  display: block;
+
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+
+  cursor: pointer;
+
+  color: transparent;
+  outline: none;
+  background: transparent;
 }
 
 /* --------------chỉnh hình ảnh banner--------------- */
-.home-banner-img{
-    width: 100%;
-    height: 725px;
+.home-banner-img {
+  width: 100%;
+  height: 725px;
 }
 
 /* -----------------chỉnh kich thước nút tiến lùi banner--------------- */
 .slick-arrow.slick-prev,
-.slick-arrow.slick-next{
-    width: 47px;
-    height: 104px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
+.slick-arrow.slick-next {
+  width: 47px;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 
 /* ---------------vị trí nút tiến------------- */
-.slick-next{
-    right: 20px;
+.slick-next {
+  right: 20px;
 }
 /*-------------- vị trí nút lùi----------- */
-.slick-prev{
-    left: 35px;
+.slick-prev {
+  left: 35px;
 }
 
 .slick-next::before,
-.slick-prev::before{
-    display: none;
+.slick-prev::before {
+  display: none;
 }
 /* -----------------------------kết thúc banner----------------------- */
 
-
-
 /* -----------------------------------main---------------------------- */
 
-.home-main{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 30px;
+.home-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 /* --------------tùy chỉnh cho phần giới thiệu công ty-------------- */
-.home-main-introduce{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-top: 50px;
+.home-main-introduce {
+  margin: 0 auto;
+  width: 88.5%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 50px;
 }
 
 /* -------------tùy chỉnh phần thông tin giới thiệu công ty------------ */
-.home-main-introduce-content{
-    width: 47%;
-    display: flex;
-    flex-direction: column;
+.home-main-introduce-content {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
 }
 
 /* ------------tiêu đề của phần giới thiệu công ty-------------- */
-.home-main-introduce-content-frontpager{
-    width: 100%;
-    text-align: left;
-    left: 0;
-    font-size: 22px;
-    font-weight: 700;
-    border-left: #3498DB 10px solid;
-    padding-left: 10px;
+.home-main-introduce-content-frontpager {
+  width: 98%;
+  text-align: left;
+  left: 0;
+  font-size: 20px;
+  font-weight: 700;
+  border-left: #3498db 10px solid;
+  padding-left: 10px;
 }
 
 /* -------------nội dung giới thiệu về công ty----------------- */
-.home-main-introduce-content-title{
-    width: 100%;
-    margin-top: 10px;
-    text-align: left;
-    font-size: 15px;
-    font-weight: 500;
+.home-main-introduce-content-title {
+  width: 70%;
+  margin-top: 10px;
+  text-align: justify;
+  font-size: 15px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 20px;
+  -webkit-line-clamp: 8;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
 /* ------------chỉnh thẻ p cho phần nội dung----------------- */
-.home-main-introduce-content-title p{
-    line-height: 1.5;
+.home-main-introduce-content-title p {
+  line-height: 1.5;
+}
+.home-main-introduce-button {
+  padding: 3% 0 0 3%;
+  width: 100%;
+}
+.home-main-introduce-btn {
+  width: 15%;
+  padding: 1%;
+  float: left;
+  color: #8f8c8c;
+  background: white;
+  border: 1px solid #8f8c8c;
+  border-radius: 5px;
+}
+.home-main-introduce-btn:hover {
+  color: red;
+  cursor: pointer;
 }
 
 /* ------------phần hình ảnh công ty------------------------ */
-.home-main-introduce-image{
-    width: 47%;
+.home-main-introduce-image {
+  margin-top: 10px;
+  width: 40%;
 }
 
 /* ------------chỉnh thẻ img trong phần hình ảnh công ty--------- */
-.home-main-introduce-image-style{
-    width: 100%;
+.home-main-introduce-image-style {
+  width: 100%;
+  float: right;
 }
 
-
 /* ---------------------slide1---------------------- */
-.home-main-slide{
-    width: 100%;
-    background-color: #3498DB;
-    margin-top: 50px;
+.home-main-slide {
+  width: 100%;
+  background-color: #3498db;
+  margin-top: 50px;
 }
 
 /* ---------------chỉnh kích thước nút tiến lùi------------------ */
 .home-main-slide .slick-arrow.slick-prev,
-.home-main-slide .slick-arrow.slick-next{
-    background-color: white;
-    border-radius: 20px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
+.home-main-slide .slick-arrow.slick-next {
+  background-color: white;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 
 /* ------------------vị trí nút tiến--------------- */
-.home-main-slide .slick-next{
-    right: -3%;
+.home-main-slide .slick-next {
+  right: -3%;
 }
 
 /* ------------------vị trí nút lùi--------------- */
-.home-main-slide .slick-prev{
-    left: -3%;
-    padding-left: 10px;
-} 
+.home-main-slide .slick-prev {
+  left: -3%;
+  padding-left: 10px;
+}
 
 /* -----------------chỉnh pading tổng của slide----------- */
-.home-main-slide .slick-list{
-    width: 100%;
-    padding: 3% 0 2.5% 1%;
+.home-main-slide .slick-list {
+  width: 100%;
+  padding: 5% 0 5% 1%;
 }
 
 /* ----------------chỉnh phần chứa item của silde-------------- */
-.home-main-slide .slick-slider{
-    width: 94%;
-    padding: 0 1.5%;
-    margin: 0 auto;
+.home-main-slide .slick-slider {
+  width: 94%;
+  padding: 0 1.5%;
+  margin: 0 auto;
 }
 
 /* kích thước item slide */
@@ -169,116 +240,122 @@
 } */
 
 /* ------------------chỉnh kích thước hình ảnh silde------------- */
-.home-main-slide-item-image{
-    width: 90%;
-    height: 230px;
+.home-main-slide-item-image {
+  width: 90%;
+  height: 230px;
 }
 
 /* ------------------kết thúc slide1------------------ */
 
-
-
 /* -------------------quyền lợi khách hàng--------------- */
-.home-main-purview{
- width: 100%;
- display: flex;
- flex-direction: row;
- align-items: center;
- justify-content: center;
- text-align: center;
- margin-top: 50px;
+.home-main-purview {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 50px;
 }
 
-.home-main-purview-card{
-    width: 23%;
-    border-right: rgb(173, 173, 173) 1px solid;
+.home-main-purview-card {
+  width: 25%;
+  justify-content: center;
+  border-right: rgb(173, 173, 173) 1px solid;
+}
+.home-main-purview-card p {
+  font-size: 18px;
 }
 /* --------------kết thúc phần quyền lợi khách hàng-------------- */
 
 /* -------------------slide2 mainintroduce-news------------------- */
 
 /* ------------------căn chỉnh tin tức và sự kiện----------------- */
-.home-main-news{
-    width: 100%;
-    margin-top: 50px;
+.home-main-news {
+  width: 100%;
+  margin-top: 50px;
 }
 
 /* -------------------tùy chỉnh nút tiến lùi-------------------- */
 .home-main-news .slick-arrow.slick-prev,
-.home-main-news .slick-arrow.slick-next{
-    background-color: #555;
-    border-radius: 20px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
+.home-main-news .slick-arrow.slick-next {
+  background-color: #555;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 
 /* ------------------vị trí nút tiến -----------------------*/
-.home-main-news .slick-next{
-    right: -35px;
+.home-main-news .slick-next {
+  right: -35px;
 }
 
 /* ---------------vị trí của nút tiến-------------- */
-.home-main-news .slick-prev{
-    left: -25px;
-    padding-left: 10px;
-} 
+.home-main-news .slick-prev {
+  left: -25px;
+  padding-left: 10px;
+}
 
 /* ----------------chỉnh kích thước tổng của slider---------------- */
-.home-main-news .slick-list{
-    width: 100%;
-    padding: 0 0 0 3.5%;
+.home-main-news .slick-list {
+  width: 100%;
+  padding: 0 0 0 3.5%;
 }
 
 /* ----------------tùy chỉnh phần chứa item của slider---------------- */
-.home-main-news .slick-slider{
-    width: 96%;
-    padding: 0 0 0 1%;
-    margin: 0 auto;
+.home-main-news .slick-slider {
+  width: 96%;
+  padding: 0 0 0 1%;
+  margin: 0 auto;
 }
 
 /* ----------------------tùy chỉnh item của slide------------------ */
-.home-main-news-item{
-    width: 30%;
-    display: flex;
-    flex-direction: column;
+.home-main-news-item {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* --------------------kích thước hình ảnh------------- */
-.home-main-news-item-image{
-    width: 80%;
-    height: 250px;
+.home-main-news-item-image {
+  width: 80%;
+  height: 250px;
 }
 
 /* -------------------tiêu đề của slide--------------- */
-.home-main-news-item-title{
-    width: 80%;
-    font-size: 15px;
-    font-weight: bold;
-    text-align: left;
-    margin-top: 10px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.home-main-news-item-title {
+  width: 80%;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* ------------------------nội dung của item------------------ */
-.home-main-news-item-content{
-    width: 80%;
-    text-align: left;
-    font-size: 13px;
-    margin-top: 10px;
+.home-main-news-item-content {
+  width: 80%;
+  text-align: left;
+  font-size: 13px;
+  margin-top: 10px;
 }
 
 /* -------------------------tùy chỉnh button xem thêm--------------- */
-.home-main-news-item-button{
-   padding: 2% 3%;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    float: left;
-    background-color: #F4534E;
-    color: white;
-    border: none;
-    border-radius: 5px;
+.home-main-news-item-button {
+  padding: 2% 3%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  float: left;
+  background-color: #f4534e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.home-main-news-item-button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }

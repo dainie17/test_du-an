@@ -8,52 +8,67 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    background: #F6F6F6;
 }
 
 
 /* header */
-.carrt-header {
+.cart-header {
     width: 100%;
-    padding-left: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    height: 75px;
+    background-color: white;
+}
+
+.cart_header_container{
+    width: 85%;
+    height: 75px;
+    margin: 0 auto;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cart_header_left{
+    width: 30%;
+    height: 75px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 /* tùy chỉnh logo */
 .cart-header-logo {
-    width: 10%;
-    float: left;
+    width: 20%;
     text-align: center;
-    margin-top: 20px;
     border-right: solid 1px #777;
 }
 
 /* tiêu đề của header */
 .cart-header-test {
-    width: 20%;
+    width: 77%;
     padding-left: 1%;
-    margin-top: 20px;
-    float: left;
     display: flex;
     flex-direction: row;
+    color: #00A84F;
+    align-items: center;
 }
 
-.cart-header-test p {
-    margin-top: 5px;
+.cart-header-stage{
+    width: 40%;
 }
 
 /* tùy chỉnh slide tiến trình mua hàng */
 .cart-header-stage-wrapper {
-    width: 40%;
-    float: right;
+    width: 100%;
 }
 
 /* chỉnh kich thước của slide tiến trình mua hàng */
 .cart-header-stage-wrapper-container {
     position: relative;
-    width: 90%;
+    width: 100%;
     height: 100px;
-    float: right;
 }
 
 /* vị trí nội dung tiến trình mua hàng */
@@ -67,11 +82,12 @@
     margin-top: -40px;
 }
 
+
 /* tùy chỉnh chữ trong slide tiến trình mua hàng */
 .cart-header-stage-wrapper-container li {
     list-style: none;
     float: left;
-    width: 20%;
+    width: 25%;
     text-align: center;
     color: #aaa;
     text-transform: uppercase;
@@ -150,12 +166,12 @@
 
 /* tùy chỉnh line tiến trình mua hàng */
 .cart-header-stage-wrapper-container-line {
-    width: 60%;
+    width: 75%;
     margin: auto;
     background: #eee;
     height: 5px;
     position: absolute;
-    left: 10%;
+    left: 11%;
     top: 57px;
     z-index: 1;
     border-radius: 50px;
@@ -163,7 +179,7 @@
 }
 
 /* tùy chỉnh kích thước đường line xanh */
-.cart-header-stage-wrapper-container-line-process {
+/* .cart-header-stage-wrapper-container-line-process {
     content: "";
     width: 18%;
     height: 100%;
@@ -173,18 +189,22 @@
     z-index: 2;
     border-radius: 50px;
     transition: all ease 0.9s;
-}
+} */
 
 /* kết thúc header */
 
 .cart-main {
     width: 100%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.cart_container{
+    width: 85%;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
-    background: #F6F6F6;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 50px;
+    justify-content: space-between;
 }
 
 /* khối div bên trái */
@@ -192,7 +212,6 @@
     width: 60%;
     display: flex;
     flex-direction: column;
-    padding: 20px;
 }
 
 /* khối div tiêu đề */
@@ -200,7 +219,6 @@
     background: white;
     padding: 20px;
     width: 100%;
-    margin-top: 50px;
     border-radius: 15px;
 }
 
@@ -289,7 +307,7 @@
 .cart-main-left-list-card-content-price {
     font-size: 20px;
     font-weight: 600;
-    margin-top: 30px;
+    margin-top: 25px;
 }
 
 .cart-main-left-list-card-content-cod {

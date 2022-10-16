@@ -22,7 +22,16 @@ const Cart = () => {
         navgate("/Order");
     }
 
+    const onclickReduce =()=>{
+        if(tong > 1){
+            setTong(tong - 1);
+        }
+    }
+
+
     const [user, setUser] = useState([]);
+
+    const [tong, setTong] = useState(1);
 
     useEffect(() => {
         setUser(data);
@@ -35,6 +44,13 @@ const Cart = () => {
             Ship: "CN",
             price: "368.374",
             image: image1
+        },
+        {
+            name: "Kéo cắt tóc điện USB Sạc tóc Cắt tóc",
+            Loai: "B",
+            Ship: "CN",
+            price: "368.374",
+            image: image2
         },
         {
             name: "Kéo cắt tóc điện USB Sạc tóc Cắt tóc",
@@ -62,19 +78,24 @@ const Cart = () => {
     return (
         <div className="carrt">
             <div className="cart-header">
-                <div className="cart-header-logo">
+                <div className="cart_header_container">
+
+                    <div className="cart_header_left">
+                    <div className="cart-header-logo">
                     <p>LOGO</p>
                 </div>
                 <div className="cart-header-test">
                     <VerifiedUserSharp />
                     <p>Kiểm tra an toàn</p>
                 </div>
+                    </div>
+
                 <div className="cart-header-stage">
                     <div className="cart-header-stage-wrapper">
                         <div className="cart-header-stage-wrapper-container">
                             <ul>
                                 <li className="cart-header-stage-wrapper-container-step1">
-                                    <div className="cart-header-stage-wrapper-container-step-inner">Giỏ hàng</div>
+                                    <div className="cart-header-stage-wrapper-container-step-inner" style={{color: "rgb(72, 72, 72)"}}>Giỏ hàng</div>
                                 </li>
 
                                 <li className="cart-header-stage-wrapper-container-step2">
@@ -95,8 +116,11 @@ const Cart = () => {
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
+
             <div className="cart-main">
+                <div className="cart_container">
                 <div className="cart-main-left">
                     <div className="cart-main-left-title">
                         <p className="cart-main-left-title-content">Giỏ hàng &#10088;1&#10089;</p>
@@ -128,9 +152,9 @@ const Cart = () => {
                                     </div>
                                     <div className="cart-main-left-list-card-function">
                                         <div className="cart-main-left-list-card-function-button">
-                                            <button className="cart-main-left-list-card-function-button-reduce">-</button>
-                                            <p className="cart-main-left-list-card-function-button-num">1</p>
-                                            <button className="cart-main-left-list-card-function-button-more">+</button>
+                                            <button onClick={onclickReduce} className="cart-main-left-list-card-function-button-reduce">-</button>
+                                            <p className="cart-main-left-list-card-function-button-num">{tong}</p>
+                                            <button onClick={()=> setTong(tong + 1)} className="cart-main-left-list-card-function-button-more">+</button>
                                         </div>
                                         <div className="cart-main-left-list-card-function-icon">
                                             <FavoriteBorderSharp />
@@ -152,7 +176,8 @@ const Cart = () => {
                         <p className="cart-main-right-total-title">Tổng &#10088;1&#10089;</p>
                         <p className="cart-main-right-total-content">6.883.034&#8363;</p>
                     </div>
-                    <button className="cart-main-right-button" onClick={onclickItem}>Thanh toán</button>
+                    <button className="cart-main-right-button" onClick={onclickItem}>Đặt hàng</button>
+                </div>
                 </div>
             </div>
             

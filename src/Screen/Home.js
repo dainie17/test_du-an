@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../css/Navbar.css'
+import "../css/Navbar.css";
 
 import Footer from "./footer";
 import {
@@ -38,7 +38,7 @@ const PreviousBtn = (props) => {
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <ArrowBackIos style={{ color: "blue", fontSize: "50px" }} />
+      <ArrowBackIos style={{ color: "blue", fontSize: "20px" }} />
     </div>
   );
 };
@@ -47,7 +47,7 @@ const NextBtn = (props) => {
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <ArrowForwardIos style={{ color: "blue", fontSize: "50px" }} />
+      <ArrowForwardIos style={{ color: "blue", fontSize: "20px" }} />
     </div>
   );
 };
@@ -160,8 +160,8 @@ const Home = () => {
 
   return (
     <div className="home">
-        <nav className="home-header">
-          <div className="header_container">
+      <nav className="home-header">
+        <div className="header_container">
           <div className="home-header_logo">
             <img className="home-header-logo-image" src={logo} alt="" />
             <p className="home-header-logo-title">logo</p>
@@ -178,9 +178,9 @@ const Home = () => {
               </NavLink>
             </li>
             <li className="home-header_ul_subnav">
-                <NavLink className="home-header_ul_li_navlink" to="/Product">
-                  Sản phẩm
-                </NavLink>
+              <NavLink className="home-header_ul_li_navlink" to="/Product">
+                Sản phẩm
+              </NavLink>
               <div className="home-header_ul_subnav_content">
                 <a href="#company">Company</a>
                 <a href="#team">Team</a>
@@ -204,9 +204,8 @@ const Home = () => {
             </div>
 
             <div className="home-header_icon_user">
-              <div className="home-header_icon_user_img"
-                onClick={onclickItem}>
-              <div className="user" />
+              <div className="home-header_icon_user_img" onClick={onclickItem}>
+                <div className="user" />
               </div>
               <div className="home-header_icon_user_content">
                 <a href="#company">Company</a>
@@ -214,163 +213,181 @@ const Home = () => {
                 <a href="#careers">Careers</a>
               </div>
             </div>
+
             <div className="font_icon_nav">
               <div className="cart" />
             </div>
           </div>
-          </div>
-        </nav>
-      
-                <div className="home-banner">
-                    <Slider
-                        autoplay={true}
-                        autoplaySpeed={2000}
-                        prevArrow={<PreviousBtn />}
-                        nextArrow={<NextBtn />}
-                    >
-                        {
-                            data.map((item, index) => (
-                                <div key={index}>
-                                    <img src={item} alt="" className="home-banner-img" />
-                                </div>
-                            ))
-                        }
+        </div>
+      </nav>
 
-                    </Slider>
-                </div>
+      <div className="home-banner">
+        <Slider
+          autoplay={true}
+          autoplaySpeed={2000}
+          prevArrow={<PreviousBtn />}
+          nextArrow={<NextBtn />}
+          dots
+        >
+          {data.map((item, index) => (
+            <div key={index}>
+              <img src={item} alt="" className="home-banner-img" />
+            </div>
+          ))}
+        </Slider>
+      </div>
 
-            {/* Banner */}
+      {/* Banner */}
 
       <div className="home-main">
-
-                <div className="home_container">
-                    <div className="home-main-introduce">
-
-                        <div className="home-main-introduce-content">
-                            <div className="home-main-introduce-content-frontpager">
-                                CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ XUẤT NHẬP KHẨU VŨ GIA GROUP
-                            </div>
-                            <div className="home-main-introduce-content-title">
-                                <p>
-                                “CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ VÀ XUẤT NHẬP KHẨU thương hiệu bằng cái tâm, mang đến những sản phẩm xứng tầm”
-                                Hơn ai hết, Chúng tôi luôn đặt chất lượng lên hàng đầu và tuân thủ nghiêm ngặt các quy định kiểm định về chất lượng và
-                                an toàn về chất lượng. CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ VÀ XUẤT NHẬP KHẨU hoạt động trong lĩnh vực Sản xuất chai
-                                nhựa và thủy tinh.
-                                “CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ VÀ XUẤT NHẬP KHẨU thương hiệu bằng cái tâm, mang đến những sản phẩm xứng tầm”
-                                Hơn ai hết, Chúng tôi luôn đặt chất lượng lên hàng đầu và tuân thủ nghiêm ngặt các quy định kiểm định về chất lượng và
-                                an toàn về chất lượng. CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ VÀ XUẤT NHẬP KHẨU hoạt động trong lĩnh vực Sản xuất chai
-                                nhựa và thủy tinh.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="home-main-introduce-image">
-                            <img src={image1} alt="" className="home-main-introduce-image-style" />
-                        </div>
-                    </div>
-                </div>
-
-                <div className="home-main-slide">
-                    <div className="home_container">
-                    <Slider
-                        autoplay={true}
-                        autoplaySpeed={2000}
-                        prevArrow={<PreviousBtnList />}
-                        nextArrow={<NextBtnList />}
-                        slidesToShow={4}
-                        slidesToScroll={4}
-                        infinite={true}
-                    >
-                        {
-                            dataSlide.map((item, index) => (
-                                <div className="home-main-slide-item" key={index}>
-                                    {/* <div className="home-main-slide-item-title">
-                                        <p style={{ fontSize: "80px", color: "white" }}>{item.title}</p>
-                                    </div> */}
-                                    <img src={item.image} alt="" className="home-main-slide-item-image" />
-                                </div>
-                            ))
-                        }
-
-                    </Slider>
-                    </div>
-                </div>
-
-                <div className="home-main-purview">
-                    <div className="home-main-purview-card">
-                        <LocalShippingSharp style={{ fontSize: "70px" }} />
-                        <p>GIAO HÀNG TOÀN QUỐC</p>
-                    </div>
-                    <div className="home-main-purview-card">
-                        <HistorySharp style={{ fontSize: "70px" }} />
-                        <p>HOÀN TIỀN NẾU HÀNG LỖI</p>
-                    </div>
-                    <div className="home-main-purview-card">
-                        <Call style={{ fontSize: "70px" }} />
-                        <p>CHĂM SÓC KHÁCH HÀNG 24/7</p>
-                    </div>
-                    <div className="home-main-purview-card" style={{ border: "none" }}>
-                        <VerifiedUser style={{ fontSize: "70px" }} />
-                        <p>CAM KẾT 100% CHẤT LƯỢNG</p>
-                    </div>
-                </div>
-
-                <div className="home-main-slide">
-                    <div className="home_container">
-                    <Slider
-                        autoplay={true}
-                        autoplaySpeed={2000}
-                        prevArrow={<PreviousBtnList />}
-                        nextArrow={<NextBtnList />}
-                        slidesToShow={4}
-                        slidesToScroll={4}
-                        infinite={true}
-                    >
-                        {
-                            dataSlide.map((item, index) => (
-                                <div className="home-main-slide-item" key={index}>
-                                    {/* <div className="home-main-slide-item-title">
-                                        <p style={{ fontSize: "80px", color: "white" }}>{item.title}</p>
-                                    </div> */}
-                                    <img src={item.image} alt="" className="home-main-slide-item-image" />
-                                </div>
-                            ))
-                        }
-
-                    </Slider>
-                    </div>
-                </div>
-
-                <h1 style={{ marginTop: "50px" }}>TIN TỨC VÀ SỰ KIỆN</h1>
-
-                <div className="home-main-news">
-                    <div className="home_container">
-                    <Slider
-                        autoplay={true}
-                        autoplaySpeed={2000}
-                        prevArrow={<PreviousBtnR />}
-                        nextArrow={<NextBtnR />}
-                        slidesToShow={3}
-                        slidesToScroll={3}
-                        infinite={true}
-                    >
-                        {
-                            dataIntroduce.map((item, index) => (
-                                <div className="home-main-news-item" key={index}>
-                                    <img src={item.image} alt="" className="home-main-news-item-image" />
-                                    <p className="home-main-news-item-title">{item.title}</p>
-                                    <p className="home-main-news-item-content">{item.content.substring(0, 230) + " [...]"}</p>
-                                    <button className="home-main-news-item-button">Đọc thêm</button>
-                                </div>
-                            ))
-                        }
-
-                    </Slider>
-                    </div>
-                </div>
+        <div className="home_container">
+          <div className="home-main-introduce">
+            <div className="home-main-introduce-content">
+              <div className="home-main-introduce-content-frontpager">
+                CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ XUẤT NHẬP KHẨU
+                VŨ GIA GROUP
+              </div>
+              <div className="home-main-introduce-content-title">
+                <p>
+                  “CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ VÀ XUẤT NHẬP KHẨU
+                  thương hiệu bằng cái tâm, mang đến những sản phẩm xứng tầm”
+                  Hơn ai hết, Chúng tôi luôn đặt chất lượng lên hàng đầu và tuân
+                  thủ nghiêm ngặt các quy định kiểm định về chất lượng và an
+                  toàn về chất lượng. CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ VÀ
+                  XUẤT NHẬP KHẨU hoạt động trong lĩnh vực Sản xuất chai nhựa và
+                  thủy tinh. “CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ VÀ XUẤT
+                  NHẬP KHẨU thương hiệu bằng cái tâm, mang đến những sản phẩm
+                  xứng tầm” Hơn ai hết, Chúng tôi luôn đặt chất lượng lên hàng
+                  đầu và tuân thủ nghiêm ngặt các quy định kiểm định về chất
+                  lượng và an toàn về chất lượng. CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI
+                  DỊCH VỤ VÀ XUẤT NHẬP KHẨU hoạt động trong lĩnh vực Sản xuất
+                  chai nhựa và thủy tinh.
+                </p>
+              </div>
+              <div className="home-main-introduce-button">
+                <button className="home-main-introduce-btn">Đọc thêm</button>
+              </div>
             </div>
 
-        <Footer/>
+            <div className="home-main-introduce-image">
+              <img
+                src={image1}
+                alt=""
+                className="home-main-introduce-image-style"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="home-main-slide">
+          <div className="home_container">
+            <Slider
+              autoplay={true}
+              autoplaySpeed={2000}
+              prevArrow={<PreviousBtnList />}
+              nextArrow={<NextBtnList />}
+              slidesToShow={4}
+              slidesToScroll={4}
+              infinite={true}
+            >
+              {dataSlide.map((item, index) => (
+                <div className="home-main-slide-item" key={index}>
+                  {/* <div className="home-main-slide-item-title">
+                                        <p style={{ fontSize: "80px", color: "white" }}>{item.title}</p>
+                                    </div> */}
+                  <img
+                    src={item.image}
+                    alt=""
+                    className="home-main-slide-item-image"
+                  />
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </div>
+
+        <div className="home_container">
+          <div className="home-main-purview">
+            <div className="home-main-purview-card">
+              <LocalShippingSharp style={{ fontSize: "40px", margin:"6px" }} />
+              <p>GIAO HÀNG TOÀN QUỐC</p>
+            </div>
+            <div className="home-main-purview-card">
+              <HistorySharp style={{ fontSize: "40px", margin:"6px" }} />
+              <p>HOÀN TIỀN NẾU HÀNG LỖI</p>
+            </div>
+            <div className="home-main-purview-card">
+              <Call style={{ fontSize: "40px", margin:"6px" }} />
+              <p>CHĂM SÓC KHÁCH HÀNG 24/7</p>
+            </div>
+            <div className="home-main-purview-card" style={{ border: "none" }}>
+              <VerifiedUser style={{ fontSize: "40px", margin:"6px" }} />
+              <p>CAM KẾT 100% CHẤT LƯỢNG</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="home-main-slide">
+          <div className="home_container">
+            <Slider
+              autoplay={true}
+              autoplaySpeed={2000}
+              prevArrow={<PreviousBtnList />}
+              nextArrow={<NextBtnList />}
+              slidesToShow={4}
+              slidesToScroll={4}
+              infinite={true}
+            >
+              {dataSlide.map((item, index) => (
+                <div className="home-main-slide-item" key={index}>
+                  {/* <div className="home-main-slide-item-title">
+                                        <p style={{ fontSize: "80px", color: "white" }}>{item.title}</p>
+                                    </div> */}
+                  <img
+                    src={item.image}
+                    alt=""
+                    className="home-main-slide-item-image"
+                  />
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </div>
+
+        <div className="home-main-news">
+          <h1 style={{ marginBottom: "50px" }}>TIN TỨC VÀ SỰ KIỆN</h1>
+          <div className="home_container">
+            <Slider
+              autoplay={true}
+              autoplaySpeed={2000}
+              prevArrow={<PreviousBtnR />}
+              nextArrow={<NextBtnR />}
+              slidesToShow={3}
+              slidesToScroll={3}
+              infinite={true}
+            >
+              {dataIntroduce.map((item, index) => (
+                <div className="home-main-news-item" key={index}>
+                  <img
+                    src={item.image}
+                    alt=""
+                    className="home-main-news-item-image"
+                  />
+                  <p className="home-main-news-item-title">{item.title}</p>
+                  <p className="home-main-news-item-content">
+                    {item.content.substring(0, 230) + " [...]"}
+                  </p>
+                  <button className="home-main-news-item-button">
+                    Đọc thêm
+                  </button>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
     </div>
   );
 };
