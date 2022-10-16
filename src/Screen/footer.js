@@ -85,60 +85,9 @@ function footer() {
                         </div>
                     </div>
                 </div>
-
-
-                {/* <br />
-                <input></input>
-                <br />
-                <div className="footer_container--page">
-                    <div className="footer_container--page--page">
-                        <h3>FANPAGE</h3>
-                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"></iframe>
-                    </div>
-                    <div className="footer_container--page--company">
-                        <h3> Công ty TNHH SẢN XUẤT ĐẦU TƯ TM DV XNK VŨ GIA GROUP</h3>
-                        <p>
-                            <PinDropIcon sx={{ marginRight: "2%" }} /> 840/20B Hương Lộ 2,
-                            Phường Bình Trị Đông A, Quận Bình Tân, Thành phố Hồ Chí Minh,
-                            Việt Nam
-                        </p>
-                        <p>
-                            <CallIcon sx={{ marginRight: "2%" }} />
-                            (84+) 706 185 986
-                        </p>
-                        <p>
-                            <EmailIcon sx={{ marginRight: "2%" }} />
-                            vagabonds.2hand@gmail.comt
-                        </p>
-                        <div className="netword">
-                            <FacebookIcon
-                                sx={{ color: "#fff", float: "left", marginTop: "5%" }}
-                            />
-                            <YouTubeIcon
-                                sx={{ color: "#fff", float: "left", margin: "5%" }}
-                            />
-                            <InstagramIcon
-                                sx={{ color: "#fff", float: "left", marginTop: "5%" }}
-                            />
-                        </div>
-                    </div>
-                    <div className="footer_container--page--we">
-                        <h3>Về chúng tôi</h3>
-                        <br></br>
-                        <p>Giới thiệu</p>
-                        <p>Sản phẩm</p>
-                        <p>Ưu đãi</p>
-                        <p>Liên hệ</p>
-                    </div>
-                    <div className="footer_container--page--policy">
-                        <h3>Chính sách</h3>
-                        <br />
-                        <p>Chính sách bảo mật</p>
-                        <p>Chính sách đổi trả</p>
-                        <p>Chính sách bảo hành </p>
-                        <p>Chính sách giao hàng</p>
-                    </div>
-                </div> */}
+                <div className="form_banquyen">
+                    <p>©2022 Bản quyền thuộc về Công Ty TNHH Sản Xuất Đầu Tư TM DV XNK Vũ Gia Group.</p>
+                </div>
             </div>
         </div>
     )

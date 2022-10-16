@@ -1,23 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import SearchSharpIcon from '@mui/icons-material/SearchSharp';
-import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import LocalTaxiIcon from '@mui/icons-material/LocalTaxi';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import PinDropIcon from '@mui/icons-material/PinDrop';
-import CallIcon from '@mui/icons-material/Call';
-import EmailIcon from '@mui/icons-material/Email';
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import Shop2Icon from '@mui/icons-material/Shop2';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
@@ -25,6 +12,11 @@ import { DeleteOutlineSharp, FavoriteBorderSharp, VerifiedUserSharp } from "@mui
 import '../css/Personal.css'
 import { pink } from "@mui/material/colors";
 import Footer from "./footer";
+
+import icon_user from '../assets/icon_user.png'
+import camera from '../assets/camera.png'
+import truck from '../assets/truck.png'
+import love from '../assets/love.png'
 
 const logo = "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
 const img = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
@@ -59,6 +51,12 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     },
 }));
 
+const SmallAvatar = styled(Avatar)(({ theme }) => ({
+    width: 30,
+    height: 30,
+    border: `2px solid ${theme.palette.background.paper}`,
+}));
+
 function Person() {
     const [toggleState, setToggleState] = useState(1);
     const toogleTab = (index) => {
@@ -88,107 +86,117 @@ function Person() {
 
     return (
         <div className="fersonal">
- <nav className="home-header">
-          <div className="header_container">
-          <div className="home-header_logo">
-            <img className="home-header-logo-image" src={logo} alt="" />
-            <p className="home-header-logo-title">logo</p>
-          </div>
-          <ul className="home-header_ul">
-            <li>
-              <NavLink className="home-header_ul_li_navlink" to="/Home">
-                Trang chủ
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="home-header_ul_li_navlink" to="/Introduce">
-                Giới thiệu
-              </NavLink>
-            </li>
-            <li className="home-header_ul_subnav">
-                <NavLink className="home-header_ul_li_navlink" to="/Product">
-                  Sản phẩm
-                </NavLink>
-              <div className="home-header_ul_subnav_content">
-                <a href="#company">Company</a>
-                <a href="#team">Team</a>
-                <a href="#careers">Careers</a>
-              </div>
-            </li>
-            <li>
-              <NavLink className="home-header_ul_li_navlink" to="/Navigate">
-                Ưu đãi
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="home-header_ul_li_navlink" to="/Introduce">
-                Liên hệ
-              </NavLink>
-            </li>
-          </ul>
-          <div className="home-header_icon">
-            <div className="font_icon_nav">
-              <div className="search" />
-            </div>
+            <nav className="home-header">
+                <div className="header_container">
+                    <div className="home-header_logo">
+                        <img className="home-header-logo-image" src={logo} alt="" />
+                        <p className="home-header-logo-title">logo</p>
+                    </div>
+                    <ul className="home-header_ul">
+                        <li>
+                            <NavLink className="home-header_ul_li_navlink" to="/Home">
+                                Trang chủ
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">
+                                Giới thiệu
+                            </NavLink>
+                        </li>
+                        <li className="home-header_ul_subnav">
+                            <NavLink className="home-header_ul_li_navlink" to="/Product">
+                                Sản phẩm
+                            </NavLink>
+                            <div className="home-header_ul_subnav_content">
+                                <a href="#company">Company</a>
+                                <a href="#team">Team</a>
+                                <a href="#careers">Careers</a>
+                            </div>
+                        </li>
+                        <li>
+                            <NavLink className="home-header_ul_li_navlink" to="/Navigate">
+                                Ưu đãi
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="home-header_ul_li_navlink" to="/Introduce">
+                                Liên hệ
+                            </NavLink>
+                        </li>
+                    </ul>
+                    <div className="home-header_icon">
+                        <div className="font_icon_nav">
+                            <div className="search" />
+                        </div>
 
-            <div className="home-header_icon_user">
-              <div className="home-header_icon_user_img">
-              <div className="user" />
-              </div>
-              <div className="home-header_icon_user_content">
-                <a href="#company">Company</a>
-                <a href="#team">Team</a>
-                <a href="#careers">Careers</a>
-              </div>
-            </div>
-            <div className="font_icon_nav">
-              <div className="cart" />
-            </div>
-          </div>
-          </div>
-        </nav>
+                        <div className="home-header_icon_user">
+                            <div className="home-header_icon_user_img">
+                                <div className="user" />
+                            </div>
+                            <div className="home-header_icon_user_content">
+                                <a href="#company">Company</a>
+                                <a href="#team">Team</a>
+                                <a href="#careers">Careers</a>
+                            </div>
+                        </div>
+                        <div className="font_icon_nav">
+                            <div className="cart" />
+                        </div>
+                    </div>
+                </div>
+            </nav>
             <div className="fersonal_container">
-                <div className="fersonal_container-left">
-                    <h3>Tài khoản của tôi</h3>
-                    <div className="fersonal_container-left--info">
-                        <div className="fersonal_container-left--info--tabs" onClick={() => toogleTab(1)}>
-                            <PermContactCalendarIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Thông tin</div>
-                        <div className="fersonal_container-left--info--tabs" onClick={() => toogleTab(2)}>
-                            <LocalMallIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} /> Sản phẩm ưa thích</div>
-                        <div className="fersonal_container-left--info--tabs" onClick={() => toogleTab(3)}>
-                            <Shop2Icon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} /> Giỏ hàng</div>
-                        <div className="fersonal_container-left--info--tabs" onClick={() => toogleTab(4)}>
-                            <Shop2Icon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Đơn đặt hàng của tôi</div>
-                        <div className="fersonal_container-left--info--tabs" onClick={() => toogleTab(5)}>
-                            <AutorenewIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Tình trạng đơn hàng</div>
-                        <div className="fersonal_container-left--info--tabs" onClick={() => toogleTab(6)}>
-                            <LogoutIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Đăng xuất</div>
+                <div className="fersonal_container__left">
+                        <div className="fersonal_container__left__userName">
+                        
+                            <div className="fersonal_container_left__info">
+                            <h3>Tài khoản của tôi</h3>
+                                <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(1)}>
+                                    <PermContactCalendarIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Thông tin</div>
+                                <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(2)}>
+                                    <LocalMallIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} /> Sản phẩm ưa thích</div>
+                                <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(3)}>
+                                    <Shop2Icon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} /> Giỏ hàng</div>
+                                <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(4)}>
+                                    <Shop2Icon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Đơn đặt hàng của tôi</div>
+                                <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(5)}>
+                                    <AutorenewIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Tình trạng đơn hàng</div>
+                                <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(6)}>
+                                    <LogoutIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Đăng xuất</div>
+                            </div>
                     </div>
                 </div>
                 <div className="fersonal_container-right">
                     <div className="fersonal_container-right--header">
-                        <div className="fersonal_container-right--header--avatar">
-                            <div className="fersonal_container-right--header--avatar--user">
-                                <Avatar className="fersonal_container-right--header--avatar--user--icon1" src={img} sx={{ width: 100, height: 100, zIndex: 3 }} />
+                        <div className="backgroud_avatar">
+                            <div className="fersonal_container-right--header--avatar">
+                                <div className="fersonal_container-right--header--avatar--user">
 
-                            </div>
-
-
-                            <div className="fersonal_container-right--header--avatar--name">
-                                <h3>Đặng Quang Hùng</h3>
+                                    <img className="avatar_use" src={img}></img>
+                                    <img className="avatar_camera" src={camera}></img>
+                                </div>
+                                <div className="fersonal_container-right--header--avatar--name">
+                                    <h3>Đặng Quang Hùng</h3>
+                                </div>
                             </div>
                         </div>
                         <div className="fersonal_container-right--header--content">
                             <div className="content" onClick={() => toogleTab(4)}>
-                                <AccountCircleSharpIcon sx={{ fontSize: 60, color: '#ffa726' }} />
+                                <div className="content_icon">
+                                    <img src={icon_user} />
+                                </div>
                                 <p>Đơn hàng của tôi</p>
                             </div>
                             <div className="content" onClick={() => toogleTab(5)}>
-                                <LocalTaxiIcon sx={{ fontSize: 60, color: '#ffa726' }} />
+                                <div className="content_icon">
+                                    <img src={truck} />
+                                </div>
                                 <p>Tình trạng đơn hàng</p>
                             </div>
                             <div className="content" onClick={() => toogleTab(1)}>
-                                <FavoriteIcon sx={{ fontSize: 60, color: pink[500] }} />
+                                <div className="content_icon">
+                                    <img src={love} />
+                                </div>
                                 <p>Yêu thích</p>
                             </div>
                         </div>
@@ -196,9 +204,11 @@ function Person() {
 
                     </div>
                     <div className="fersonal_container-right--fooder--content">
+                        {/* -------------------Thông tin cá nhân------------------------ */}
                         <div className={toggleState === 1 ? "contentt active-content" : "ac"}>
                             <div className="fersonal_container-right--fooder--content--active">
-                                <div>
+                                <div >
+
                                     <StyledBadge
                                         overlap="circular"
                                         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
@@ -207,9 +217,8 @@ function Person() {
                                         <Avatar alt="Remy Sharp" src={img} />
 
                                     </StyledBadge>
-                                    <p>Dang Quang Hung</p>
-                                    <button className="fersonal_container-right--fooder--content--active--button">Chinh sau Thong tin</button>
-                                </div>
+                                    <p className="fersonal_right__content_name">Đặng Quang Hùng</p>
+                                    </div>
                                 <div className="fersonal_container-right--fooder--content--active--edit">
                                     <div className="fersonal_container-right--fooder--content--active--edit--name">
                                         <div className="fersonal_container-right--fooder--content--active--edit--name--p">
@@ -217,7 +226,7 @@ function Person() {
                                             <p className="name--people">Đặng Quang Hùng</p>
                                         </div>
                                         <div className="fersonal_container-right--fooder--content--active--edit--name--button">
-                                            <button>Chỉnh Sửa</button>
+                                            <button className="button-29">Chỉnh Sửa</button>
                                         </div>
                                     </div>
                                     <div className="fersonal_container-right--fooder--content--active--edit--name">
@@ -226,7 +235,7 @@ function Person() {
                                             <p className="name--people">**********@gmail.com <a href="#1">Hiển thị</a></p>
                                         </div>
                                         <div className="fersonal_container-right--fooder--content--active--edit--name--button">
-                                            <button>Chỉnh Sửa</button>
+                                            <button className="button-29">Chỉnh Sửa</button>
                                         </div>
                                     </div>
                                     <div className="fersonal_container-right--fooder--content--active--edit--name">
@@ -235,7 +244,7 @@ function Person() {
                                             <p className="name--people">Bạn chưa thêm số điện thoại nào cả</p>
                                         </div>
                                         <div className="fersonal_container-right--fooder--content--active--edit--name--button">
-                                            <button>Thêm</button>
+                                            <button className="button-29">Thêm</button>
                                         </div>
                                     </div>
                                 </div>
@@ -246,10 +255,12 @@ function Person() {
                                 </div>
                             </div>
                         </div>
+                        {/* ----------------------------sản phẩn ưa thích--------------------- */}
                         <div className={toggleState === 2 ? "contentt active-content" : "ac"}>
                             <p>Sản phẩm ưa thích</p>
                         </div>
-                        <div className={toggleState === 3 ? "contentt active-content" : "ac"}>
+                        {/* ----------------------------giỏ hàng----------------------------- */}
+                        <div className={toggleState === 3 ? "contentt active-content-cart" : "ac"}>
                             <div className="active-content-title">
                                 <p className="active-content-title-content">Giỏ hàng </p>
                             </div>
@@ -330,7 +341,7 @@ function Person() {
                     </div>
                 </div>
             </div>
-<Footer/>
+            <Footer />
         </div>
     )
 }

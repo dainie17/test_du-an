@@ -6,7 +6,7 @@
 }
 
 .title {
-    max-width: 87%;
+    max-width: 84%;
     margin: 0px auto;
     overflow: hidden;
     margin-top: 4%;
@@ -15,7 +15,6 @@
 .title_header {
     background-color: #63A3F7;
     border-radius: 20px 20px 0px 0px;
-    margin: 0% 2% 0% 2%;
     color: #fff;
 }
 

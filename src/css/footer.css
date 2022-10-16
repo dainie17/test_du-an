@@ -45,11 +45,12 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding-bottom: 10%;
+    padding-bottom: 6%;
 }
 
 .form_fanpage{
     width: 25%;
+    padding-left: 2%;
 }
 .form_fanpage h3{
     width: 100%;
@@ -63,6 +64,7 @@
     display: flex;
     flex-direction: column;
     width: 30%;
+    padding-left: 2%;
 }
 .form_contact h3{
     width: 100%;
@@ -104,6 +106,7 @@
 
 .form_people{
     width: 15%;
+    padding-left: 2%;
 }
 .form_people h3{
     width: 100%;
@@ -114,4 +117,16 @@
     color: white;
     padding-bottom: 8%;
     font-size: 13px;
+}
+
+/* -------------------banquen--------------------- */
+.form_banquyen{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 2%;
+}
+.form_banquyen p{
+    color: #AFAFAF;
+    font-size: 11px;
 }
