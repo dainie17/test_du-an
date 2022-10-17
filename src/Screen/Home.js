@@ -20,6 +20,15 @@ import {
   VerifiedUser,
 } from "@mui/icons-material";
 import "../css/Home.css";
+import imageItem from "../assets/blue.png";
+import imageItem2 from "../assets/cyan.png";
+import imageItem3 from "../assets/cam.png";
+import imageItem4 from "../assets/green.png";
+import carImg from "../assets/truck-icon.png"
+import moneyImg from "../assets/money-back-icon.png"
+import hoursImg from "../assets/24-hours.png"
+import shieldImg from "../assets/shield.png"
+
 const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
 const image2 =
@@ -305,27 +314,120 @@ const Home = () => {
             </Slider>
           </div>
         </div>
+        <div className="preview">
+            <div className="preview_title"><p>Dịch vụ của chúng tôi</p></div>
+            <div className="preview_content"><p>Công ty cổ phần Thang Máy Fujitech đơn vị uy tín chất lượng</p></div>
+          </div>                            
+        <div class="flex_container">
+                    <div class="col-1-nganh-hoc container-nganh-hoc" 
+                    >
+                        <div class="top">
+                            <img src={imageItem} />
+                            <div>
+                                <img style={{width: "30%"}} src={carImg} />
+                            </div>
+                        </div>
+                        <div class="mid" >
+                            <h3>
+                                Giao hàng toàn quốc
+                            </h3>
+                            <ul>
+                                <li>
+                                    Xử lí dữ liệu
+                                </li>
 
-        <div className="home_container">
-          <div className="home-main-purview">
-            <div className="home-main-purview-card">
-              <LocalShippingSharp style={{ fontSize: "40px", margin:"6px" }} />
-              <p>GIAO HÀNG TOÀN QUỐC</p>
-            </div>
-            <div className="home-main-purview-card">
-              <HistorySharp style={{ fontSize: "40px", margin:"6px" }} />
-              <p>HOÀN TIỀN NẾU HÀNG LỖI</p>
-            </div>
-            <div className="home-main-purview-card">
-              <Call style={{ fontSize: "40px", margin:"6px" }} />
-              <p>CHĂM SÓC KHÁCH HÀNG 24/7</p>
-            </div>
-            <div className="home-main-purview-card" style={{ border: "none" }}>
-              <VerifiedUser style={{ fontSize: "40px", margin:"6px" }} />
-              <p>CAM KẾT 100% CHẤT LƯỢNG</p>
-            </div>
-          </div>
-        </div>
+                                <li>
+                                    Ứng dụng phần mềm
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="bot">
+                            <button></button>
+                        </div>
+                    </div>
+
+                    <div class="col-2-nganh-hoc container-nganh-hoc">
+                        <div class="top">
+                            <img src={imageItem2} />
+                            <div>
+                                <img src={moneyImg} />
+                            </div>
+                        </div>
+                        <div class="mid">
+                            <h3>
+                               Cam kết đổi trả
+                            </h3>
+                            <ul>
+                                <li>
+                                    Digital Marketing
+                                </li>
+
+                                <li>
+                                    Quản trị khách sạn </li>
+                            </ul>
+
+                        </div>
+                        <div class="bot">
+                            <button></button>
+                        </div>
+                    </div>
+
+                    <div class="col-3-nganh-hoc container-nganh-hoc">
+                        <div class="top">
+                            <img src={imageItem3} />
+                            <div>
+                                <img src={hoursImg} />
+                            </div>
+                        </div>
+                        <div class="mid">
+                            <h3>
+                                Chăm sóc khách hàng
+                            </h3>
+                            <ul>
+                                <li>
+                                    Công nghe kỹ thuật điện
+                                </li>
+
+                                <li>
+                                    Điện công Nghiệp
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="bot">
+                            <button></button>
+                        </div>
+                    </div>
+
+                    <div class="col-4-nganh-hoc container-nganh-hoc">
+                        <div class="top">
+                            <img src={imageItem4} />
+                            <div>
+                                <img src={shieldImg} />
+                            </div>
+                        </div>
+                        <div class="mid">
+                            <h3>
+                                Cam kết chất lượng
+                            </h3>
+                            <ul>
+                                <li>
+                                    Thiết kế đồ họa
+                                </li>
+
+                                <li>
+                                    Hướng dẫn du lịch
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="bot">
+                            <button></button>
+                        </div>
+                    </div>
+
+                </div>
 
         <div className="home-main-slide">
           <div className="home_container">

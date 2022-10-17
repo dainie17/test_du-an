@@ -322,8 +322,12 @@
 
 
 /* --------------------------phần item list sản phẩm------------------------ */
+.product-main-list-content{
+    width: 103%;
+}
 .product-main-list-content-card{
-    width: 33.33%;
+    width: 31%;
+    margin: 2% 2% 0 0;
     display: flex;
     flex-direction: column;
     float: left;
