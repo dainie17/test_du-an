@@ -17,6 +17,7 @@ import icon_user from '../assets/icon_user.png'
 import camera from '../assets/camera.png'
 import truck from '../assets/truck.png'
 import love from '../assets/love.png'
+import Popup from "reactjs-popup";
 
 const logo = "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
 const img = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
@@ -51,11 +52,9 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     },
 }));
 
-const SmallAvatar = styled(Avatar)(({ theme }) => ({
-    width: 30,
-    height: 30,
-    border: `2px solid ${theme.palette.background.paper}`,
-}));
+function openForm() {
+    document.getElementById("openForm_pass").style.display = "block";
+}
 
 function Person() {
     const [toggleState, setToggleState] = useState(1);
@@ -147,23 +146,22 @@ function Person() {
             </nav>
             <div className="fersonal_container">
                 <div className="fersonal_container__left">
-                        <div className="fersonal_container__left__userName">
-                        
-                            <div className="fersonal_container_left__info">
+                    <div className="fersonal_container__left__userName">
+
+                        <div className="fersonal_container_left__info">
                             <h3>Tài khoản của tôi</h3>
-                                <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(1)}>
-                                    <PermContactCalendarIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Thông tin</div>
-                                <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(2)}>
-                                    <LocalMallIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} /> Sản phẩm ưa thích</div>
-                                <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(3)}>
-                                    <Shop2Icon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} /> Giỏ hàng</div>
-                                <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(4)}>
-                                    <Shop2Icon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Đơn đặt hàng của tôi</div>
-                                <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(5)}>
-                                    <AutorenewIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Tình trạng đơn hàng</div>
-                                <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(6)}>
-                                    <LogoutIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Đăng xuất</div>
-                            </div>
+                            <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(1)}>
+                                <PermContactCalendarIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Thông tin</div>
+                            <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(2)}>
+                                <LocalMallIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} /> Sản phẩm ưa thích</div>
+                            
+                            <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(4)}>
+                                <Shop2Icon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Đơn đặt hàng của tôi</div>
+                            <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(5)}>
+                                <AutorenewIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Tình trạng đơn hàng</div>
+                            <div className="fersonal_container__left__info__tabs" onClick={() => toogleTab(6)}>
+                                <LogoutIcon sx={{ marginRight: '2%', color: '#ffa726', fontSize: 20 }} />Đăng xuất</div>
+                        </div>
                     </div>
                 </div>
                 <div className="fersonal_container-right">
@@ -218,7 +216,7 @@ function Person() {
 
                                     </StyledBadge>
                                     <p className="fersonal_right__content_name">Đặng Quang Hùng</p>
-                                    </div>
+                                </div>
                                 <div className="fersonal_container-right--fooder--content--active--edit">
                                     <div className="fersonal_container-right--fooder--content--active--edit--name">
                                         <div className="fersonal_container-right--fooder--content--active--edit--name--p">
@@ -250,8 +248,12 @@ function Person() {
                                 </div>
                                 <div className="fersonal_container-right--fooder--content--active--password">
                                     <h3>Mật Khẩu</h3>
-                                    <button>Đổi mật khẩu</button>
-
+                                    
+                                    <Popup trigger={
+                                    <button onclick={openForm}>Đổi mật khẩu</button>
+                                    } position="right center">
+                                        <div>Popup content here !!</div>
+                                    </Popup>
                                 </div>
                             </div>
                         </div>
@@ -260,42 +262,6 @@ function Person() {
                             <p>Sản phẩm ưa thích</p>
                         </div>
                         {/* ----------------------------giỏ hàng----------------------------- */}
-                        <div className={toggleState === 3 ? "contentt active-content-cart" : "ac"}>
-                            <div className="active-content-title">
-                                <p className="active-content-title-content">Giỏ hàng </p>
-                            </div>
-                            <div className="active-content-list">
-                                {
-                                    user.map((item, index) => (
-                                        <div>
-                                            <div key={index} className="active-content-list-card">
-                                                <img className="active-content-list-card-image" src={item.image} alt="" />
-                                                <div className="active-content-list-card-content">
-                                                    <p className="active-content-list-card-content-name">{item.name}</p>
-                                                    <p className="active-content-list-card-content-type">Loại:{item.Loai}/Ship từ:{item.Ship}</p>
-                                                    <p className="active-content-list-card-content-price">{item.price}&#8363;</p>
-                                                    <p className="active-content-list-card-content-cod"><p>COD</p></p>
-                                                </div>
-                                                <div className="active-content-list-card-function">
-                                                    <div className="active-content-list-card-function-button">
-                                                        <button className="active-content-list-card-function-button-reduce">-</button>
-                                                        <p className="active-content-list-card-function-button-num">1</p>
-                                                        <button className="active-content-list-card-function-button-more">+</button>
-                                                    </div>
-                                                    <div className="active-content-list-card-function-icon">
-                                                        <FavoriteBorderSharp />
-                                                        <DeleteOutlineSharp />
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div className="personal-br"></div>
-                                        </div>
-                                    ))
-                                }
-
-                            </div>
-                        </div>
                         <div className={toggleState === 4 ? "contentt active-content" : "ac"}>
                             <div className="active-content-title">
                                 <p className="active-content-title-content">Giỏ hàng </p>
