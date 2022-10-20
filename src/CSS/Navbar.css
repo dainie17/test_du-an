@@ -4,7 +4,7 @@
     height: 70px;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 99999;
     transition: all 0.5s ease-in-out;
 }
 
@@ -108,7 +108,7 @@
     background-color: rgb(252, 252, 252);
     width: 100%;
     top: 71px;
-    z-index: 1;
+    z-index: 99999;
     border-radius: 10px;
     box-shadow: rgb(157, 157, 157) 1px 1px 1px 1px;
 }
@@ -190,7 +190,7 @@
     background-color: rgb(249, 249, 249);
     width: 10%;
     right: 6%;
-    z-index: 1;
+    z-index: 99999;
     border-radius: 10px;
     box-shadow: rgb(157, 157, 157) 1px 1px 1px 1px;
 }

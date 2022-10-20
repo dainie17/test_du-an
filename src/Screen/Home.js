@@ -9,25 +9,23 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../css/Navbar.css";
-
+import $ from "jquery";
 import Footer from "./footer";
 import {
   ArrowBackIos,
   ArrowForwardIos,
-  Call,
-  HistorySharp,
-  LocalShippingSharp,
-  VerifiedUser,
 } from "@mui/icons-material";
 import "../css/Home.css";
 import imageItem from "../assets/blue.png";
 import imageItem2 from "../assets/cyan.png";
 import imageItem3 from "../assets/cam.png";
 import imageItem4 from "../assets/green.png";
-import carImg from "../assets/truck-icon.png"
-import moneyImg from "../assets/money-back-icon.png"
-import hoursImg from "../assets/24-hours.png"
-import shieldImg from "../assets/shield.png"
+import carImg from "../assets/truck-icon.png";
+import moneyImg from "../assets/money-back-icon.png";
+import hoursImg from "../assets/24-hours.png";
+import shieldImg from "../assets/shield.png";
+import imgUser from "../assets/user.png";
+import { useState } from "react";
 
 const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
@@ -43,23 +41,13 @@ const image5 =
 const logo =
   "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
 
-const PreviousBtn = (props) => {
-  const { className, onClick } = props;
-  return (
-    <div className={className} onClick={onClick}>
-      <ArrowBackIos style={{ color: "blue", fontSize: "20px" }} />
-    </div>
-  );
-};
-
-const NextBtn = (props) => {
-  const { className, onClick } = props;
-  return (
-    <div className={className} onClick={onClick}>
-      <ArrowForwardIos style={{ color: "blue", fontSize: "20px" }} />
-    </div>
-  );
-};
+const imgBanner = "https://i.redd.it/dhjkl1p1y8dy.jpg";
+const imgBanner1 = "https://wallpaperaccess.com/full/333442.jpg";
+const imgBanner2 = "http://i.imgur.com/VUnpzvl.jpg";
+const imgBanner3 =
+  "https://img4.thuthuatphanmem.vn/uploads/2019/12/10/hinh-anh-thien-nhien-lam-hinh-nen-cho-dien-thoai_120849603.jpg";
+const imgBanner4 =
+  "https://i.pinimg.com/736x/cf/51/6a/cf516a55c15cab2557e7c0953c92995c.jpg";
 
 const PreviousBtnList = (props) => {
   const { className, onClick } = props;
@@ -98,6 +86,174 @@ const NextBtnR = (props) => {
 };
 
 const Home = () => {
+  useEffect(() => {
+
+    function runBanner(e) {
+      $(".slider__warpper")
+        .find(".flex__container[data-slide=" + e + "]")
+        .addClass("flex--preStart");
+      $(".flex--active").addClass("animate--end");
+      setTimeout(function () {
+        $(".flex--preStart")
+          .removeClass("animate--start flex--preStart")
+          .addClass("flex--active");
+        $(".animate--end")
+          .addClass("animate--start")
+          .removeClass("animate--end flex--active");
+      }, 800);
+    }
+
+    $(".slide-nav2").on("click", function (e) {
+      e.preventDefault();
+      // get current slide
+      var current = $(".flex--active").data("slide"),
+        // get button data-slide
+        next = $(this).data("slide");
+      if(dem == 1){
+        $(".slide-nav1").removeClass("active");
+        $('.slide-nav2').addClass('active');
+        if (current === next) {
+          return false;
+        } else {
+          setDem(2);
+          runBanner(next);
+        }
+      } else if (dem == 3){
+        $(".slide-nav3").removeClass("active");
+        $('.slide-nav2').addClass('active');
+        if (current === next) {
+          return false;
+        } else {
+          setDem(2);
+          runBanner(next);
+        }
+      }else if (dem == 4){
+        $(".slide-nav4").removeClass("active");
+        $('.slide-nav2').addClass('active');
+        if (current === next) {
+          return false;
+        } else {
+          setDem(2);
+          runBanner(next);
+        }
+      }else if (dem == 5){
+        $(".slide-nav5").removeClass("active");
+        $('.slide-nav2').addClass('active');
+        if (current === next) {
+          return false;
+        } else {
+          setDem(2);
+          runBanner(next);
+        }
+      }
+    });
+
+    $(".slide-nav3").on("click", function (e) {
+      e.preventDefault();
+      // get current slide
+      var current = $(".flex--active").data("slide"),
+        // get button data-slide
+        next = $(this).data("slide");
+
+        if (dem == 1){
+          $(".slide-nav1").removeClass("active");
+          $('.slide-nav3').addClass('active');
+          if (current === next) {
+            return false;
+          } else {
+            setDem(3);
+            runBanner(next);
+          }
+        } else if (dem == 2){
+          $(".slide-nav2").removeClass("active");
+          $('.slide-nav3').addClass('active');
+          if (current === next) {
+            return false;
+          } else {
+            setDem(3);
+            runBanner(next);
+          }
+        } else if (dem == 4){
+          $(".slide-nav4").removeClass("active");
+          $('.slide-nav3').addClass('active');
+          if (current === next) {
+            return false;
+          } else {
+            setDem(3);
+            runBanner(next);
+          }
+        } else if (dem == 5){
+          $(".slide-nav5").removeClass("active");
+          $('.slide-nav3').addClass('active');
+          if (current === next) {
+            return false;
+          } else {
+            setDem(3);
+            runBanner(next);
+          }
+        }
+    });
+  }, []);
+
+
+  const [dem,setDem] = useState(1);
+
+  // useEffect(() => {
+    
+  //   setTimeout(() => {
+      
+      
+  //     function runBanner(e) {
+  //       $(".slider__warpper")
+  //         .find(".flex__container[data-slide=" + e + "]")
+  //         .addClass("flex--preStart");
+  //       $(".flex--active").addClass("animate--end");
+  //       setTimeout(function () {
+  //         $(".flex--preStart")
+  //           .removeClass("animate--start flex--preStart")
+  //           .addClass("flex--active");
+  //         $(".animate--end")
+  //           .addClass("animate--start")
+  //           .removeClass("animate--end flex--active");
+  //       }, 800);
+  //     }
+  //     console.log(dem);
+  //     if (dem == 1) {
+  //       setDem(2);
+  //       runBanner(dem)
+  //       $('.slide-nav1').removeClass('active');
+  //       $('.slide-nav2').addClass('active');
+  //     } 
+  //      if (dem == 2) {
+  //       setDem(3);
+  //       runBanner(dem)
+  //       $('.slide-nav2').removeClass('active');
+  //       $('.slide-nav3').addClass('active');
+  //     } 
+  //      if (dem == 3) {
+  //       setDem(4);
+  //       runBanner(dem)
+  //       $('.slide-nav3').removeClass('active');
+  //       $('.slide-nav4').addClass('active');
+  //     } 
+  //      if (dem == 4) {
+  //       setDem(5);
+  //       runBanner(dem)
+  //       $('.slide-nav4').removeClass('active');
+  //       $('.slide-nav5').addClass('active');
+  //     } 
+  //      if (dem == 5) {
+  //       setDem(1);
+  //       runBanner(dem)
+  //       $('.slide-nav5').removeClass('active');
+  //       $('.slide-nav1').addClass('active');
+  //     }
+      
+
+  //   }, 6000);
+    
+  // },);
+
   useEffect(() => {
     const u = localStorage.getItem("uses");
     console.log(u);
@@ -167,6 +323,17 @@ const Home = () => {
     navgate("/Personal");
   };
 
+  var queries = [
+    {
+      columns: 2,
+      query: "min-width: 1000px",
+    },
+    {
+      columns: 3,
+      query: "min-width: 1500px",
+    },
+  ];
+
   return (
     <div className="home">
       <nav className="home-header">
@@ -230,20 +397,131 @@ const Home = () => {
         </div>
       </nav>
 
-      <div className="home-banner">
-        <Slider
-          autoplay={true}
-          autoplaySpeed={2000}
-          prevArrow={<PreviousBtn />}
-          nextArrow={<NextBtn />}
-          dots
-        >
-          {data.map((item, index) => (
-            <div key={index}>
-              <img src={item} alt="" className="home-banner-img" />
+      <div className="banner_container">
+        <div className="home-banner">
+          <div className="slider__warpper">
+            <div
+              className="flex__container flex--pikachu flex--active"
+              data-slide="1"
+            >
+              <div className="flex__item flex__item--left">
+                <div className="flex__content">
+                  <p className="text--sub">Pokemon Gen I</p>
+                  <h1 className="text--big">Pikachu</h1>
+                  <p className="text--normal">
+                    Pikachu is an Electric-type Pokémon introduced in Generation
+                    I. Pikachu are small, chubby, and incredibly cute mouse-like
+                    Pokémon. They are almost completely covered by yellow fur.
+                  </p>
+                </div>
+                <p className="text__background">Pikachu</p>
+              </div>
+              <div className="flex__item flex__item--right"></div>
+              <img className="pokemon__img" src={imgBanner} />
             </div>
-          ))}
-        </Slider>
+            <div
+              className="flex__container flex--piplup animate--start"
+              data-slide="2"
+            >
+              <div className="flex__item flex__item--left">
+                <div className="flex__content">
+                  <p className="text--sub">Pokemon Gen IV</p>
+                  <h1 className="text--big">Piplup</h1>
+                  <p className="text--normal">
+                    Piplup is the Water-type Starter Pokémon of the Sinnoh
+                    region. It was introduced in Generation IV. Piplup has a
+                    strong sense of self-esteem. It seldom accepts food that
+                    people give because of its pride.
+                  </p>
+                </div>
+                <p className="text__background">Piplup</p>
+              </div>
+              <div className="flex__item flex__item--right"></div>
+              <img className="pokemon__img" src={imgBanner1} />
+            </div>
+            <div
+              className="flex__container flex--blaziken animate--start"
+              data-slide="3"
+            >
+              <div className="flex__item flex__item--left">
+                <div className="flex__content">
+                  <p className="text--sub">Pokemon Gen III</p>
+                  <h1 className="text--big">Blaziken</h1>
+                  <p className="text--normal">
+                    Blaziken is the Fire/Fighting-type Starter Pokémon of the
+                    Hoenn region, introduced in Generation III. Blaziken is a
+                    large, bipedal, humanoid bird-like Pokémon that resembles a
+                    rooster.
+                  </p>
+                </div>
+                <p className="text__background">Blaziken</p>
+              </div>
+              <div className="flex__item flex__item--right"></div>
+              <img className="pokemon__img" src={imgBanner2} />
+            </div>
+            <div
+              className="flex__container flex--dialga animate--start"
+              data-slide="4"
+            >
+              <div className="flex__item flex__item--left">
+                <div className="flex__content">
+                  <p className="text--sub">Pokemon Gen IV</p>
+                  <h1 className="text--big">Dialga</h1>
+                  <p className="text--normal">
+                    Dialga is a Steel/Dragon-type Legendary Pokémon. Dialga is a
+                    sauropod-like Pokémon. It is mainly blue with some gray,
+                    metallic portions, such as its chest plate, which has a
+                    diamond in the center. It also has various, light blue lines
+                    all over its body.
+                  </p>
+                </div>
+                <p className="text__background">Dialga</p>
+              </div>
+              <div className="flex__item flex__item--right"></div>
+              <img className="pokemon__img" src={imgBanner3} />
+            </div>
+            <div
+              className="flex__container flex--zekrom animate--start"
+              data-slide="5"
+            >
+              <div className="flex__item flex__item--left">
+                <div className="flex__content">
+                  <p className="text--sub">Pokemon Gen V</p>
+                  <h1 className="text--big">Zekrom</h1>
+                  <p className="text--normal">
+                    Zekrom is a Dragon/Electric-type Legendary Pokémon. It is
+                    part of the Tao Trio, along with Reshiram and Kyurem. Zekrom
+                    is a large, black draconian Pokémon that seems to share its
+                    theme with its counterpart, Reshiram. It has piercing red
+                    eyes and dark gray to black skin that seems to be
+                    armor-like.
+                  </p>
+                </div>
+                <p className="text__background">Zekrom</p>
+              </div>
+              <div className="flex__item flex__item--right"></div>
+              <img className="pokemon__img" src={imgBanner4} />
+            </div>
+          </div>
+
+          <div className="slider__navi">
+            <a href="#" className="slide-nav1 active" data-slide="1">
+              pikachu
+            </a>
+            <a href="#" className="slide-nav2" data-slide="2">
+              piplup
+            </a>
+            <a href="#" className="slide-nav3" data-slide="3">
+              blaziken
+            </a>
+            <a href="#" className="slide-nav4" data-slide="4">
+              dialga
+            </a>
+            <a href="#" className="slide-nav5" data-slide="5">
+              zekrom
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Banner */}
@@ -315,119 +593,94 @@ const Home = () => {
           </div>
         </div>
         <div className="preview">
-            <div className="preview_title"><p>Dịch vụ của chúng tôi</p></div>
-            <div className="preview_content"><p>Công ty cổ phần Thang Máy Fujitech đơn vị uy tín chất lượng</p></div>
-          </div>                            
-        <div class="flex_container">
-                    <div class="col-1-nganh-hoc container-nganh-hoc" 
-                    >
-                        <div class="top">
-                            <img src={imageItem} />
-                            <div>
-                                <img style={{width: "30%"}} src={carImg} />
-                            </div>
-                        </div>
-                        <div class="mid" >
-                            <h3>
-                                Giao hàng toàn quốc
-                            </h3>
-                            <ul>
-                                <li>
-                                    Xử lí dữ liệu
-                                </li>
+          <div className="preview_title">
+            <p>Dịch vụ của chúng tôi</p>
+          </div>
+          <div className="preview_content">
+            <p>Công ty cổ phần Thang Máy Fujitech đơn vị uy tín chất lượng</p>
+          </div>
+        </div>
+        <div className="pre_container">
+          <div className="col-1-nganh-hoc container-nganh-hoc">
+            <div className="top">
+              <img src={imageItem} />
+              <div>
+                <img style={{ width: "30%" }} src={carImg} />
+              </div>
+            </div>
+            <div className="mid">
+              <h3>Giao hàng toàn quốc</h3>
+              <ul>
+                <li>Xử lí dữ liệu</li>
 
-                                <li>
-                                    Ứng dụng phần mềm
-                                </li>
-                            </ul>
+                <li>Ứng dụng phần mềm</li>
+              </ul>
+            </div>
+            <div className="bot">
+              <button></button>
+            </div>
+          </div>
 
-                        </div>
-                        <div class="bot">
-                            <button></button>
-                        </div>
-                    </div>
+          <div className="col-2-nganh-hoc container-nganh-hoc">
+            <div className="top">
+              <img src={imageItem2} />
+              <div>
+                <img src={moneyImg} />
+              </div>
+            </div>
+            <div className="mid">
+              <h3>Cam kết đổi trả</h3>
+              <ul>
+                <li>Digital Marketing</li>
 
-                    <div class="col-2-nganh-hoc container-nganh-hoc">
-                        <div class="top">
-                            <img src={imageItem2} />
-                            <div>
-                                <img src={moneyImg} />
-                            </div>
-                        </div>
-                        <div class="mid">
-                            <h3>
-                               Cam kết đổi trả
-                            </h3>
-                            <ul>
-                                <li>
-                                    Digital Marketing
-                                </li>
+                <li>Quản trị khách sạn </li>
+              </ul>
+            </div>
+            <div className="bot">
+              <button></button>
+            </div>
+          </div>
 
-                                <li>
-                                    Quản trị khách sạn </li>
-                            </ul>
+          <div className="col-3-nganh-hoc container-nganh-hoc">
+            <div className="top">
+              <img src={imageItem3} />
+              <div>
+                <img src={hoursImg} />
+              </div>
+            </div>
+            <div className="mid">
+              <h3>Chăm sóc khách hàng</h3>
+              <ul>
+                <li>Công nghe kỹ thuật điện</li>
 
-                        </div>
-                        <div class="bot">
-                            <button></button>
-                        </div>
-                    </div>
+                <li>Điện công Nghiệp</li>
+              </ul>
+            </div>
+            <div className="bot">
+              <button></button>
+            </div>
+          </div>
 
-                    <div class="col-3-nganh-hoc container-nganh-hoc">
-                        <div class="top">
-                            <img src={imageItem3} />
-                            <div>
-                                <img src={hoursImg} />
-                            </div>
-                        </div>
-                        <div class="mid">
-                            <h3>
-                                Chăm sóc khách hàng
-                            </h3>
-                            <ul>
-                                <li>
-                                    Công nghe kỹ thuật điện
-                                </li>
+          <div className="col-4-nganh-hoc container-nganh-hoc">
+            <div className="top">
+              <img src={imageItem4} />
+              <div>
+                <img src={shieldImg} />
+              </div>
+            </div>
+            <div className="mid">
+              <h3>Cam kết chất lượng</h3>
+              <ul>
+                <li>Thiết kế đồ họa</li>
 
-                                <li>
-                                    Điện công Nghiệp
-                                </li>
-                            </ul>
-
-                        </div>
-                        <div class="bot">
-                            <button></button>
-                        </div>
-                    </div>
-
-                    <div class="col-4-nganh-hoc container-nganh-hoc">
-                        <div class="top">
-                            <img src={imageItem4} />
-                            <div>
-                                <img src={shieldImg} />
-                            </div>
-                        </div>
-                        <div class="mid">
-                            <h3>
-                                Cam kết chất lượng
-                            </h3>
-                            <ul>
-                                <li>
-                                    Thiết kế đồ họa
-                                </li>
-
-                                <li>
-                                    Hướng dẫn du lịch
-                                </li>
-                            </ul>
-
-                        </div>
-                        <div class="bot">
-                            <button></button>
-                        </div>
-                    </div>
-
-                </div>
+                <li>Hướng dẫn du lịch</li>
+              </ul>
+            </div>
+            <div className="bot">
+              <button></button>
+            </div>
+          </div>
+        </div>
 
         <div className="home-main-slide">
           <div className="home_container">
@@ -458,38 +711,191 @@ const Home = () => {
 
         <div className="home-main-news">
           <h1 style={{ marginBottom: "50px" }}>TIN TỨC VÀ SỰ KIỆN</h1>
-          <div className="home_container">
-            <Slider
-              autoplay={true}
-              autoplaySpeed={2000}
-              prevArrow={<PreviousBtnR />}
-              nextArrow={<NextBtnR />}
-              slidesToShow={3}
-              slidesToScroll={3}
-              infinite={true}
-            >
-              {dataIntroduce.map((item, index) => (
-                <div className="home-main-news-item" key={index}>
-                  <img
-                    src={item.image}
-                    alt=""
-                    className="home-main-news-item-image"
-                  />
-                  <p className="home-main-news-item-title">{item.title}</p>
-                  <p className="home-main-news-item-content">
-                    {item.content.substring(0, 230) + " [...]"}
-                  </p>
-                  <button className="home-main-news-item-button">
-                    Đọc thêm
-                  </button>
+          <div className="home_news_container">
+            <div className="home_main_new_top">
+              <div className="main_new_top_big">
+                <div className="main_new_top_big_background">
+                  <img src={imgBanner} alt="" />
                 </div>
-              ))}
-            </Slider>
+                <div className="main_news_content">
+                  <div className="main_new_top_big_img"></div>
+                  <div className="main_new_top_big_card">
+                    <div className="main_new_top_big_time">22 january 2022</div>
+                    <div className="main_new_top_big_title">
+                      Tesla Cybertruck-inspired camper trailer for Tesla fans
+                      who can't just wait for the truck!
+                    </div>
+                    <div className="main_new_top_big_content">
+                      <div className="number_comment">
+                        <div className="number_comment_icon">
+                          <img src={imageItem} alt="" />
+                        </div>
+                        <div className="number_coment_content">71.8k</div>
+                      </div>
+                      <div className="number_comment">
+                        <div className="number_comment_icon">
+                          <img src={imageItem} alt="" />
+                        </div>
+                        <div className="number_coment_content">4.01k</div>
+                      </div>
+                      <div className="number_comment">
+                        <div className="number_comment_icon">
+                          <img src={imageItem} alt="" />
+                        </div>
+                        <div className="number_coment_content">67.05k</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="main_new_top_center">
+                <div className="main_new_top_center_background">
+                  <img src={imgBanner} alt="" />
+                </div>
+                <div className="main_new_top_center_content">
+                  <div className="main_new_top_center_big_img"></div>
+                  <div className="main_new_top_center_card">
+                    <div className="main_new_top_center_big_time">
+                      22 january 2022
+                    </div>
+                    <div className="main_new_top_center_title">
+                      Tesla Cybertruck-inspired camper trailer for Tesla fans
+                      who can't just wait for the truck!
+                    </div>
+                    <div className="main_new_top_center_big_content">
+                      <div className="main_new_top_center_number_comment">
+                        <div className="main_new_top_center_number_comment_icon">
+                          <img src={imageItem} alt="" />
+                        </div>
+                        <div className="main_new_top_center_coment_content">
+                          71.8k
+                        </div>
+                      </div>
+                      <div className="main_new_top_center_number_comment">
+                        <div className="main_new_top_center_number_comment_icon">
+                          <img src={imageItem} alt="" />
+                        </div>
+                        <div className="main_new_top_center_coment_content">
+                          4.01k
+                        </div>
+                      </div>
+                      <div className="main_new_top_center_number_comment">
+                        <div className="main_new_top_center_number_comment_icon">
+                          <img src={imageItem} alt="" />
+                        </div>
+                        <div className="main_new_top_center_coment_content">
+                          67.05k
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="main_new_top_small">
+                <div className="main_new_top_center_background">
+                  <img src={imgBanner} alt="" />
+                </div>
+                <div className="main_new_top_center_content">
+                  <div className="main_new_top_center_big_img"></div>
+                  <div className="main_new_top_small_card">
+                    <div className="main_new_top_center_big_time">
+                      22 january 2022
+                    </div>
+                    <div className="main_new_top_center_title">
+                      Tesla Cybertruck-inspired camper trailer for Tesla fans
+                      who can't just wait for the truck!
+                    </div>
+                    <div className="main_new_top_center_big_content">
+                      <div className="main_new_top_center_number_comment">
+                        <div className="main_new_top_center_number_comment_icon">
+                          <img src={imageItem} alt="" />
+                        </div>
+                        <div className="main_new_top_center_coment_content">
+                          71.8k
+                        </div>
+                      </div>
+                      <div className="main_new_top_center_number_comment">
+                        <div className="main_new_top_center_number_comment_icon">
+                          <img src={imageItem} alt="" />
+                        </div>
+                        <div className="main_new_top_center_coment_content">
+                          4.01k
+                        </div>
+                      </div>
+                      <div className="main_new_top_center_number_comment">
+                        <div className="main_new_top_center_number_comment_icon">
+                          <img src={imageItem} alt="" />
+                        </div>
+                        <div className="main_new_top_center_coment_content">
+                          67.05k
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="main_new_bottom">
+            <div className="main_new_bottom_card">
+              <div
+                className="main_new_bottom_card_image"
+                style={{
+                  backgroundImage: `url("${image2}")`,
+                  width: "100%",
+                  height: "28vh",
+                  borderRadius: "20px 20px 0px 0",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
+              <div className="main_new_bottom_card_image_img">
+                <div className="main_new_bottom_card_image_img_container">
+                  <img src={imgUser} alt="" />
+                </div>
+              </div>
+              <div className="mmain_new_bottom_card_content">
+                <div className="main_new_bottom_card_time">10 May 2022</div>
+                <div className="main_new_bottom_card_name">Fresh Princer</div>
+                <div className="main_new_bottom_card_cws">
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                      <img src={imgUser} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                      <img src={imgUser} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                      <img src={imgUser} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <Footer />
+      <script src="./slideScript.js"></script>
     </div>
   );
 };
