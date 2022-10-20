@@ -6,12 +6,10 @@ import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useEffect, useState } from "react";
-import PinDropIcon from '@mui/icons-material/PinDrop';
-import CallIcon from '@mui/icons-material/Call';
-import EmailIcon from '@mui/icons-material/Email';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import InstagramIcon from '@mui/icons-material/Instagram';
+
+import yeuthich from '../assets/favorite.png'
+import yeuthich1 from '../assets/favorite1.png'
+
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Call, FavoriteBorderSharp, HistorySharp, LocalShippingSharp, TokenSharp, VerifiedSharp, VerifiedUser } from "@mui/icons-material";
@@ -25,6 +23,8 @@ const image3 = "https://bizweb.dktcdn.net/100/154/029/files/san-xuat-chai-lo-nhu
 const image4 = "https://i-raovat.vnecdn.net/2020/05/22/51ade386733b048d7c00c29720e39c04.jpeg?w=1280&h=768&q=100&dpr=1&rt=fit&g=no&wmi=&wmg=ce&wmo=50&wms=30&wmx=0&wmy=0&s=irmRdkv5lf-nqmbP2V8WXg";
 const image5 = "https://thuytinhtadaco.com/wp-content/uploads/2021/08/chai-lo-thuy-tinh.jpg";
 const logo = "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
+
+
 
 const Detail = () => {
 
@@ -41,6 +41,10 @@ const Detail = () => {
 
     const data = [image1, image2, image3, image4, image5];
 
+    const [toggleState, setToggleState] = useState(1);
+    const toogleTab = (index) => {
+        setToggleState(index);
+    }
     return (
         <div className="detail">
  <nav className="home-header">
@@ -143,9 +147,21 @@ const Detail = () => {
                                 <p className="detail-main-top-right-button-picknb-num">1</p>
                                 <button className="detail-main-top-right-button-picknb-augment">+</button>
                             </div>
-                            <div className="detail-main-top-right-button-favorite">
-                                <FavoriteBorderSharp />
-                                <p>153</p>
+                            <div className={toggleState === 2 ? "favorite detail-main-top-right-button-favorite1" : "fv"} onClick={() => toogleTab(1)}>
+                              <div className="favorite_img">
+                                <img src={yeuthich}></img>
+                              </div>
+                              <div className="favorite_p">
+                                <p>Đã thích</p>
+                                </div>
+                            </div>
+                            <div className={toggleState === 1 ? "favorite detail-main-top-right-button-favorite " : "fv"} onClick={() => toogleTab(2)}>
+                            <div className="favorite_img">
+                                <img src={yeuthich1}></img>
+                              </div>
+                              <div className="favorite_p">
+                                <p>Yêu thích</p>
+                                </div>
                             </div>
                         </div>
                         <button onClick={onclickItem} className="detail-main-top-right-btngh">Thêm vào giỏ hàng</button>
