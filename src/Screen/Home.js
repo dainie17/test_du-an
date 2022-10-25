@@ -25,6 +25,7 @@ import moneyImg from "../assets/money-back-icon.png";
 import hoursImg from "../assets/24-hours.png";
 import shieldImg from "../assets/shield.png";
 import imgUser from "../assets/user.png";
+import SliderHome from "./home1";
 import { useState } from "react";
 
 const image1 =
@@ -109,7 +110,7 @@ const Home = () => {
       var current = $(".flex--active").data("slide"),
         // get button data-slide
         next = $(this).data("slide");
-      if(dem == 1){
+      if (dem == 1) {
         $(".slide-nav1").removeClass("active");
         $('.slide-nav2').addClass('active');
         if (current === next) {
@@ -118,7 +119,7 @@ const Home = () => {
           setDem(2);
           runBanner(next);
         }
-      } else if (dem == 3){
+      } else if (dem == 3) {
         $(".slide-nav3").removeClass("active");
         $('.slide-nav2').addClass('active');
         if (current === next) {
@@ -127,7 +128,7 @@ const Home = () => {
           setDem(2);
           runBanner(next);
         }
-      }else if (dem == 4){
+      } else if (dem == 4) {
         $(".slide-nav4").removeClass("active");
         $('.slide-nav2').addClass('active');
         if (current === next) {
@@ -136,7 +137,7 @@ const Home = () => {
           setDem(2);
           runBanner(next);
         }
-      }else if (dem == 5){
+      } else if (dem == 5) {
         $(".slide-nav5").removeClass("active");
         $('.slide-nav2').addClass('active');
         if (current === next) {
@@ -155,54 +156,54 @@ const Home = () => {
         // get button data-slide
         next = $(this).data("slide");
 
-        if (dem == 1){
-          $(".slide-nav1").removeClass("active");
-          $('.slide-nav3').addClass('active');
-          if (current === next) {
-            return false;
-          } else {
-            setDem(3);
-            runBanner(next);
-          }
-        } else if (dem == 2){
-          $(".slide-nav2").removeClass("active");
-          $('.slide-nav3').addClass('active');
-          if (current === next) {
-            return false;
-          } else {
-            setDem(3);
-            runBanner(next);
-          }
-        } else if (dem == 4){
-          $(".slide-nav4").removeClass("active");
-          $('.slide-nav3').addClass('active');
-          if (current === next) {
-            return false;
-          } else {
-            setDem(3);
-            runBanner(next);
-          }
-        } else if (dem == 5){
-          $(".slide-nav5").removeClass("active");
-          $('.slide-nav3').addClass('active');
-          if (current === next) {
-            return false;
-          } else {
-            setDem(3);
-            runBanner(next);
-          }
+      if (dem == 1) {
+        $(".slide-nav1").removeClass("active");
+        $('.slide-nav3').addClass('active');
+        if (current === next) {
+          return false;
+        } else {
+          setDem(3);
+          runBanner(next);
         }
+      } else if (dem == 2) {
+        $(".slide-nav2").removeClass("active");
+        $('.slide-nav3').addClass('active');
+        if (current === next) {
+          return false;
+        } else {
+          setDem(3);
+          runBanner(next);
+        }
+      } else if (dem == 4) {
+        $(".slide-nav4").removeClass("active");
+        $('.slide-nav3').addClass('active');
+        if (current === next) {
+          return false;
+        } else {
+          setDem(3);
+          runBanner(next);
+        }
+      } else if (dem == 5) {
+        $(".slide-nav5").removeClass("active");
+        $('.slide-nav3').addClass('active');
+        if (current === next) {
+          return false;
+        } else {
+          setDem(3);
+          runBanner(next);
+        }
+      }
     });
   }, []);
 
 
-  const [dem,setDem] = useState(1);
+  const [dem, setDem] = useState(1);
 
   // useEffect(() => {
-    
+
   //   setTimeout(() => {
-      
-      
+
+
   //     function runBanner(e) {
   //       $(".slider__warpper")
   //         .find(".flex__container[data-slide=" + e + "]")
@@ -248,10 +249,10 @@ const Home = () => {
   //       $('.slide-nav5').removeClass('active');
   //       $('.slide-nav1').addClass('active');
   //     }
-      
+
 
   //   }, 6000);
-    
+
   // },);
 
   useEffect(() => {
@@ -684,28 +685,7 @@ const Home = () => {
 
         <div className="home-main-slide">
           <div className="home_container">
-            <Slider
-              autoplay={true}
-              autoplaySpeed={2000}
-              prevArrow={<PreviousBtnList />}
-              nextArrow={<NextBtnList />}
-              slidesToShow={4}
-              slidesToScroll={4}
-              infinite={true}
-            >
-              {dataSlide.map((item, index) => (
-                <div className="home-main-slide-item" key={index}>
-                  {/* <div className="home-main-slide-item-title">
-                                        <p style={{ fontSize: "80px", color: "white" }}>{item.title}</p>
-                                    </div> */}
-                  <img
-                    src={item.image}
-                    alt=""
-                    className="home-main-slide-item-image"
-                  />
-                </div>
-              ))}
-            </Slider>
+            <SliderHome/>
           </div>
         </div>
 

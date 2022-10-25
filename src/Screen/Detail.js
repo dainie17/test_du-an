@@ -28,27 +28,27 @@ const logo = "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149
 
 const Detail = () => {
 
-    useEffect(() => {
-        const u = localStorage.getItem("uses");
-        console.log(u);
-    });
+  useEffect(() => {
+    const u = localStorage.getItem("uses");
+    console.log(u);
+  });
 
-    let navgate = useNavigate();
+  let navgate = useNavigate();
 
-    const onclickItem = () => {
-        navgate("/Cart");
-    }
+  const onclickItem = () => {
+    navgate("/Cart");
+  }
 
-    const data = [image1, image2, image3, image4, image5];
+  const data = [image1, image2, image3, image4, image5];
 
-    const [toggleState, setToggleState] = useState(1);
-    const toogleTab = (index) => {
-        setToggleState(index);
-    }
-    return (
-        <div className="detail">
- <nav className="home-header">
-          <div className="header_container">
+  const [toggleState, setToggleState] = useState(1);
+  const toogleTab = (index) => {
+    setToggleState(index);
+  }
+  return (
+    <div className="detail">
+      <nav className="home-header">
+        <div className="header_container">
           <div className="home-header_logo">
             <img className="home-header-logo-image" src={logo} alt="" />
             <p className="home-header-logo-title">logo</p>
@@ -60,14 +60,14 @@ const Detail = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className="home-header_ul_li_navlink" to="/Introduce">
+              <NavLink className="home-header_ul_li_navlink" to="/testHome">
                 Giới thiệu
               </NavLink>
             </li>
             <li className="home-header_ul_subnav">
-                <NavLink className="home-header_ul_li_navlink" to="/Product">
-                  Sản phẩm
-                </NavLink>
+              <NavLink className="home-header_ul_li_navlink" to="/Product">
+                Sản phẩm
+              </NavLink>
               <div className="home-header_ul_subnav_content">
                 <a href="#company">Company</a>
                 <a href="#team">Team</a>
@@ -93,7 +93,7 @@ const Detail = () => {
             <div className="home-header_icon_user">
               <div className="home-header_icon_user_img"
                 onClick={onclickItem}>
-              <div className="user" />
+                <div className="user" />
               </div>
               <div className="home-header_icon_user_content">
                 <a href="#company">Company</a>
@@ -105,107 +105,107 @@ const Detail = () => {
               <div className="cart" />
             </div>
           </div>
+        </div>
+      </nav>
+
+
+      <div className="detail_container">
+        <div className="detail-main">
+          <div className="detail-main-top">
+            <div className="detail-main-top-left">
+              <Slider
+                dots
+                customPaging={(i) => {
+                  return (
+                    <div>
+                      <img src={data[i]} className="detail-main-top-left-img" alt="" />
+                    </div>
+                  )
+                }}
+                dotsClass="slick-dots custom-indicator"
+              >
+                {
+                  data.map((item, index) => (
+                    <div className="detail-main-top-left-slideritem" key={index}>
+                      <img className="detail-main-top-left-image" src={item} alt="" />
+                    </div>
+                  ))
+                }
+              </Slider>
+            </div>
+            <div className="detail-main-top-right">
+              <p className="detail-main-top-right-name">Tai nghe chơi game EKSA E900Plus  Tai nghe Gamer cho PC máy tính xách tay PS4 </p>
+              <p className="detail-main-top-right-number">Số lượng: 30</p>
+              <p className="detail-main-top-right-price">1.234.000 &#8363;</p>
+              <p className="detail-main-top-right-title">Thông tin sản phẩm:</p>
+              <p className="detail-main-top-right-content">Về phần thiết kế, nhà Apple vẫn giữ nguyên kiểu dáng quen thuộc của những phiên bản tiền nhiệm trước đó như: Thiết kế gọn nhẹ, đường bo góc tinh tế, gam màu trắng trang nhã bao bọc trọn vẹn tai nghe và hộp sạc.Ở phiên bản này, hộp sạc được trang bị thêm phần khoen để móc dây treo tiện lợi. Nhờ đó, bạn có thể dễ dàng treo vào balo và mang đi bất kỳ đâu mà không cần dùng tới túi đựng AirPods chuyên dụng. Loa tích hợp trên hộp sạc có thể phát âm thanh giúp bạn dễ dàng xác định vị trí khi vô tình đánh rơi và phát ra âm cảnh báo khi pin yếu hoặc quá trình ghép nối hoàn tất.
+
+                Ngoài ra, trong mỗi hộp tai nghe Apple này sẽ có bốn cặp đệm tai với các kích cỡ XS, S, M, L cho người dùng thoải mái lựa chọn đệm tai phù hợp. Đệm tai làm từ chất liệu silicone cao cấp cũng sẽ cho bạn cảm giác mềm mại, vừa vặn khi đeo.</p>
+              <div className="detail-main-top-right-button">
+                <div className="detail-main-top-right-button-picknb">
+                  <button className="detail-main-top-right-button-picknb-reduce">-</button>
+                  <p className="detail-main-top-right-button-picknb-num">1</p>
+                  <button className="detail-main-top-right-button-picknb-augment">+</button>
+                </div>
+                <div className={toggleState === 2 ? "favorite detail-main-top-right-button-favorite1" : "fv"} onClick={() => toogleTab(1)}>
+                  <div className="favorite_img">
+                    <img src={yeuthich}></img>
+                  </div>
+                  <div className="favorite_p">
+                    <p>Đã thích</p>
+                  </div>
+                </div>
+                <div className={toggleState === 1 ? "favorite detail-main-top-right-button-favorite " : "fv"} onClick={() => toogleTab(2)}>
+                  <div className="favorite_img">
+                    <img src={yeuthich1}></img>
+                  </div>
+                  <div className="favorite_p">
+                    <p>Yêu thích</p>
+                  </div>
+                </div>
+              </div>
+              <button onClick={onclickItem} className="detail-main-top-right-btngh">Thêm vào giỏ hàng</button>
+              <p className="detail-main-top-right-titlepay">Thanh toán an toàn</p>
+              <p className="detail-main-top-right-option">Nhiều tùy chọn thanh toán</p>
+              <p className="detail-main-top-right-service">Đảm bảo dịch vụ khách hàng</p>
+              <div className="detail-main-top-right-itemsv">
+                <div className="detail-main-top-right-itemsv-left">
+                  <VerifiedSharp />
+                  <p>Đảm bảo DOA</p>
+                </div>
+                <div className="detail-main-top-right-itemsv-right">
+                  <TokenSharp />
+                  <p>Đảm bảo hàng bị thiếu / sai</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </nav>
 
-
-            <div className="detail_container">
-            <div className="detail-main">
-                <div className="detail-main-top">
-                    <div className="detail-main-top-left">
-                        <Slider
-                            dots
-                            customPaging={(i) => {
-                                return (
-                                    <div>
-                                        <img src={data[i]} className="detail-main-top-left-img" alt="" />
-                                    </div>
-                                )
-                            }}
-                            dotsClass="slick-dots custom-indicator"
-                        >
-                            {
-                                data.map((item, index) => (
-                                    <div className="detail-main-top-left-slideritem" key={index}>
-                                        <img className="detail-main-top-left-image" src={item} alt="" />
-                                    </div>
-                                ))
-                            }
-                        </Slider>
-                    </div>
-                    <div className="detail-main-top-right">
-                        <p className="detail-main-top-right-name">Tai nghe chơi game EKSA E900Plus  Tai nghe Gamer cho PC máy tính xách tay PS4 </p>
-                        <p className="detail-main-top-right-number">Số lượng: 30</p>
-                        <p className="detail-main-top-right-price">1.234.000 &#8363;</p>
-                        <p className="detail-main-top-right-title">Thông tin sản phẩm:</p>
-                        <p className="detail-main-top-right-content">Về phần thiết kế, nhà Apple vẫn giữ nguyên kiểu dáng quen thuộc của những phiên bản tiền nhiệm trước đó như: Thiết kế gọn nhẹ, đường bo góc tinh tế, gam màu trắng trang nhã bao bọc trọn vẹn tai nghe và hộp sạc.Ở phiên bản này, hộp sạc được trang bị thêm phần khoen để móc dây treo tiện lợi. Nhờ đó, bạn có thể dễ dàng treo vào balo và mang đi bất kỳ đâu mà không cần dùng tới túi đựng AirPods chuyên dụng. Loa tích hợp trên hộp sạc có thể phát âm thanh giúp bạn dễ dàng xác định vị trí khi vô tình đánh rơi và phát ra âm cảnh báo khi pin yếu hoặc quá trình ghép nối hoàn tất.
-
-                            Ngoài ra, trong mỗi hộp tai nghe Apple này sẽ có bốn cặp đệm tai với các kích cỡ XS, S, M, L cho người dùng thoải mái lựa chọn đệm tai phù hợp. Đệm tai làm từ chất liệu silicone cao cấp cũng sẽ cho bạn cảm giác mềm mại, vừa vặn khi đeo.</p>
-                        <div className="detail-main-top-right-button">
-                            <div className="detail-main-top-right-button-picknb">
-                                <button className="detail-main-top-right-button-picknb-reduce">-</button>
-                                <p className="detail-main-top-right-button-picknb-num">1</p>
-                                <button className="detail-main-top-right-button-picknb-augment">+</button>
-                            </div>
-                            <div className={toggleState === 2 ? "favorite detail-main-top-right-button-favorite1" : "fv"} onClick={() => toogleTab(1)}>
-                              <div className="favorite_img">
-                                <img src={yeuthich}></img>
-                              </div>
-                              <div className="favorite_p">
-                                <p>Đã thích</p>
-                                </div>
-                            </div>
-                            <div className={toggleState === 1 ? "favorite detail-main-top-right-button-favorite " : "fv"} onClick={() => toogleTab(2)}>
-                            <div className="favorite_img">
-                                <img src={yeuthich1}></img>
-                              </div>
-                              <div className="favorite_p">
-                                <p>Yêu thích</p>
-                                </div>
-                            </div>
-                        </div>
-                        <button onClick={onclickItem} className="detail-main-top-right-btngh">Thêm vào giỏ hàng</button>
-                        <p className="detail-main-top-right-titlepay">Thanh toán an toàn</p>
-                        <p className="detail-main-top-right-option">Nhiều tùy chọn thanh toán</p>
-                        <p className="detail-main-top-right-service">Đảm bảo dịch vụ khách hàng</p>
-                        <div className="detail-main-top-right-itemsv">
-                            <div className="detail-main-top-right-itemsv-left">
-                                <VerifiedSharp />
-                                <p>Đảm bảo DOA</p>
-                            </div>
-                            <div className="detail-main-top-right-itemsv-right">
-                                <TokenSharp />
-                                <p>Đảm bảo hàng bị thiếu / sai</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="home-main-purview">
-                    <div className="home-main-purview-card">
-                        <LocalShippingSharp style={{ fontSize: "70px" }} />
-                        <p>GIAO HÀNG TOÀN QUỐC</p>
-                    </div>
-                    <div className="home-main-purview-card">
-                        <HistorySharp style={{ fontSize: "70px" }} />
-                        <p>HOÀN TIỀN NẾU HÀNG LỖI</p>
-                    </div>
-                    <div className="home-main-purview-card">
-                        <Call style={{ fontSize: "70px" }} />
-                        <p>CHĂM SÓC KHÁCH HÀNG 24/7</p>
-                    </div>
-                    <div className="home-main-purview-card" style={{ border: "none" }}>
-                        <VerifiedUser style={{ fontSize: "70px" }} />
-                        <p>CAM KẾT 100% CHẤT LƯỢNG</p>
-                    </div>
-                </div>
+          <div className="home-main-purview">
+            <div className="home-main-purview-card">
+              <LocalShippingSharp style={{ fontSize: "70px" }} />
+              <p>GIAO HÀNG TOÀN QUỐC</p>
             </div>
+            <div className="home-main-purview-card">
+              <HistorySharp style={{ fontSize: "70px" }} />
+              <p>HOÀN TIỀN NẾU HÀNG LỖI</p>
             </div>
+            <div className="home-main-purview-card">
+              <Call style={{ fontSize: "70px" }} />
+              <p>CHĂM SÓC KHÁCH HÀNG 24/7</p>
+            </div>
+            <div className="home-main-purview-card" style={{ border: "none" }}>
+              <VerifiedUser style={{ fontSize: "70px" }} />
+              <p>CAM KẾT 100% CHẤT LƯỢNG</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-            
-<Footer/>
-        </div >
-    )
+
+      <Footer />
+    </div >
+  )
 }
 
 export default Detail;

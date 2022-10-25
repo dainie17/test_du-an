@@ -13,13 +13,13 @@ import Cart from './Screen/Cart';
 import Personal from './Screen/Personal'
 import Order from './Screen/Order';
 import Login_1 from './Screen/Login_1.js';
-
+import Bao1 from './Screen/home1';
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Login_1 />} />
+        <Route path='/' element={<Bao1 />} />
         <Route path='/Signup' element={<Signup />} />
         <Route path='/Navigate' element={<Navigate />} />
         <Route path='/Navbar' element={<Navbar />} />
