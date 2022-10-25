@@ -11,10 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "../css/Navbar.css";
 import $ from "jquery";
 import Footer from "./footer";
-import {
-  ArrowBackIos,
-  ArrowForwardIos,
-} from "@mui/icons-material";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import "../css/Home.css";
 import imageItem from "../assets/blue.png";
 import imageItem2 from "../assets/cyan.png";
@@ -25,6 +22,13 @@ import moneyImg from "../assets/money-back-icon.png";
 import hoursImg from "../assets/24-hours.png";
 import shieldImg from "../assets/shield.png";
 import imgUser from "../assets/user.png";
+import imgLine from "../assets/line_silde_product.png";
+import imgSpice from "../assets/spice.png";
+import imgFoundation from "../assets/foundation.png";
+import imgCosmetics from "../assets/cosmetics.png";
+import imgBottle from "../assets/bottle.png";
+import imgPlasticBott from "../assets/plastic-bottle.png";
+import imgCup from "../assets/cup.png";
 import { useState } from "react";
 
 const image1 =
@@ -49,45 +53,10 @@ const imgBanner3 =
 const imgBanner4 =
   "https://i.pinimg.com/736x/cf/51/6a/cf516a55c15cab2557e7c0953c92995c.jpg";
 
-const PreviousBtnList = (props) => {
-  const { className, onClick } = props;
-  return (
-    <div className={className} onClick={onClick}>
-      <ArrowBackIos style={{ color: "blue" }} />
-    </div>
-  );
-};
-
-const NextBtnList = (props) => {
-  const { className, onClick } = props;
-  return (
-    <div className={className} onClick={onClick}>
-      <ArrowForwardIos style={{ color: "blue" }} />
-    </div>
-  );
-};
-
-const PreviousBtnR = (props) => {
-  const { className, onClick } = props;
-  return (
-    <div className={className} onClick={onClick}>
-      <ArrowBackIos style={{ color: "white" }} />
-    </div>
-  );
-};
-
-const NextBtnR = (props) => {
-  const { className, onClick } = props;
-  return (
-    <div className={className} onClick={onClick}>
-      <ArrowForwardIos style={{ color: "white" }} />
-    </div>
-  );
-};
-
 const Home = () => {
-  useEffect(() => {
+  const [dem, setDem] = useState(1);
 
+  useEffect(() => {
     function runBanner(e) {
       $(".slider__warpper")
         .find(".flex__container[data-slide=" + e + "]")
@@ -103,156 +72,138 @@ const Home = () => {
       }, 800);
     }
 
-    $(".slide-nav2").on("click", function (e) {
+    $(".slide-nav1").on("click", function (e) {
       e.preventDefault();
       // get current slide
+      setDem(1);
       var current = $(".flex--active").data("slide"),
         // get button data-slide
         next = $(this).data("slide");
-      if(dem == 1){
-        $(".slide-nav1").removeClass("active");
-        $('.slide-nav2').addClass('active');
-        if (current === next) {
-          return false;
-        } else {
-          setDem(2);
-          runBanner(next);
-        }
-      } else if (dem == 3){
-        $(".slide-nav3").removeClass("active");
-        $('.slide-nav2').addClass('active');
-        if (current === next) {
-          return false;
-        } else {
-          setDem(2);
-          runBanner(next);
-        }
-      }else if (dem == 4){
-        $(".slide-nav4").removeClass("active");
-        $('.slide-nav2').addClass('active');
-        if (current === next) {
-          return false;
-        } else {
-          setDem(2);
-          runBanner(next);
-        }
-      }else if (dem == 5){
-        $(".slide-nav5").removeClass("active");
-        $('.slide-nav2').addClass('active');
-        if (current === next) {
-          return false;
-        } else {
-          setDem(2);
-          runBanner(next);
-        }
-      }
+      console.log(dem);
+      $(".slide-nav2").removeClass("active");
+      $(".slide-nav3").removeClass("active");
+      $(".slide-nav4").removeClass("active");
+      $(".slide-nav5").removeClass("active");
+      $(".slide-nav1").addClass("active");
+
+      runBanner(next);
+    });
+
+    $(".slide-nav2").on("click", function (e) {
+      e.preventDefault();
+      // get current slide
+      setDem(2);
+      var current = $(".flex--active").data("slide"),
+        // get button data-slide
+        next = $(this).data("slide");
+      console.log(dem);
+      $(".slide-nav1").removeClass("active");
+      $(".slide-nav3").removeClass("active");
+      $(".slide-nav4").removeClass("active");
+      $(".slide-nav5").removeClass("active");
+      $(".slide-nav2").addClass("active");
+
+      runBanner(next);
     });
 
     $(".slide-nav3").on("click", function (e) {
       e.preventDefault();
       // get current slide
+      setDem(3);
       var current = $(".flex--active").data("slide"),
         // get button data-slide
         next = $(this).data("slide");
+      console.log(dem);
+      $(".slide-nav1").removeClass("active");
+      $(".slide-nav2").removeClass("active");
+      $(".slide-nav4").removeClass("active");
+      $(".slide-nav5").removeClass("active");
+      $(".slide-nav3").addClass("active");
 
-        if (dem == 1){
-          $(".slide-nav1").removeClass("active");
-          $('.slide-nav3').addClass('active');
-          if (current === next) {
-            return false;
-          } else {
-            setDem(3);
-            runBanner(next);
-          }
-        } else if (dem == 2){
-          $(".slide-nav2").removeClass("active");
-          $('.slide-nav3').addClass('active');
-          if (current === next) {
-            return false;
-          } else {
-            setDem(3);
-            runBanner(next);
-          }
-        } else if (dem == 4){
-          $(".slide-nav4").removeClass("active");
-          $('.slide-nav3').addClass('active');
-          if (current === next) {
-            return false;
-          } else {
-            setDem(3);
-            runBanner(next);
-          }
-        } else if (dem == 5){
-          $(".slide-nav5").removeClass("active");
-          $('.slide-nav3').addClass('active');
-          if (current === next) {
-            return false;
-          } else {
-            setDem(3);
-            runBanner(next);
-          }
-        }
+      runBanner(next);
     });
-  }, []);
 
+    $(".slide-nav4").on("click", function (e) {
+      e.preventDefault();
+      // get current slide
+      setDem(4);
+      var current = $(".flex--active").data("slide"),
+        // get button data-slide
+        next = $(this).data("slide");
+      console.log(dem);
+      $(".slide-nav1").removeClass("active");
+      $(".slide-nav2").removeClass("active");
+      $(".slide-nav3").removeClass("active");
+      $(".slide-nav5").removeClass("active");
+      $(".slide-nav4").addClass("active");
 
-  const [dem,setDem] = useState(1);
+      runBanner(next);
+    });
 
-  // useEffect(() => {
-    
-  //   setTimeout(() => {
-      
-      
-  //     function runBanner(e) {
-  //       $(".slider__warpper")
-  //         .find(".flex__container[data-slide=" + e + "]")
-  //         .addClass("flex--preStart");
-  //       $(".flex--active").addClass("animate--end");
-  //       setTimeout(function () {
-  //         $(".flex--preStart")
-  //           .removeClass("animate--start flex--preStart")
-  //           .addClass("flex--active");
-  //         $(".animate--end")
-  //           .addClass("animate--start")
-  //           .removeClass("animate--end flex--active");
-  //       }, 800);
-  //     }
-  //     console.log(dem);
-  //     if (dem == 1) {
-  //       setDem(2);
-  //       runBanner(dem)
-  //       $('.slide-nav1').removeClass('active');
-  //       $('.slide-nav2').addClass('active');
-  //     } 
-  //      if (dem == 2) {
-  //       setDem(3);
-  //       runBanner(dem)
-  //       $('.slide-nav2').removeClass('active');
-  //       $('.slide-nav3').addClass('active');
-  //     } 
-  //      if (dem == 3) {
-  //       setDem(4);
-  //       runBanner(dem)
-  //       $('.slide-nav3').removeClass('active');
-  //       $('.slide-nav4').addClass('active');
-  //     } 
-  //      if (dem == 4) {
-  //       setDem(5);
-  //       runBanner(dem)
-  //       $('.slide-nav4').removeClass('active');
-  //       $('.slide-nav5').addClass('active');
-  //     } 
-  //      if (dem == 5) {
-  //       setDem(1);
-  //       runBanner(dem)
-  //       $('.slide-nav5').removeClass('active');
-  //       $('.slide-nav1').addClass('active');
-  //     }
-      
+    $(".slide-nav5").on("click", function (e) {
+      e.preventDefault();
+      // get current slide
+      setDem(5);
+      var current = $(".flex--active").data("slide"),
+        // get button data-slide
+        next = $(this).data("slide");
+      $(".slide-nav1").removeClass("active");
+      $(".slide-nav2").removeClass("active");
+      $(".slide-nav3").removeClass("active");
+      $(".slide-nav4").removeClass("active");
+      $(".slide-nav5").addClass("active");
+      runBanner(next);
+    });
 
-  //   }, 6000);
-    
-  // },);
+    const myTimeOut = setTimeout(() => {
+      console.log(dem);
+      if (dem == 1) {
+        setDem(2);
+        runBanner(dem);
+        $(".slide-nav2").removeClass("active");
+        $(".slide-nav3").removeClass("active");
+        $(".slide-nav4").removeClass("active");
+        $(".slide-nav5").removeClass("active");
+        $(".slide-nav1").addClass("active");
+      }
+      if (dem == 2) {
+        setDem(3);
+        runBanner(dem);
+        $(".slide-nav1").removeClass("active");
+        $(".slide-nav3").removeClass("active");
+        $(".slide-nav4").removeClass("active");
+        $(".slide-nav5").removeClass("active");
+        $(".slide-nav2").addClass("active");
+      }
+      if (dem == 3) {
+        setDem(4);
+        runBanner(dem);
+        $(".slide-nav1").removeClass("active");
+        $(".slide-nav2").removeClass("active");
+        $(".slide-nav4").removeClass("active");
+        $(".slide-nav5").removeClass("active");
+        $(".slide-nav3").addClass("active");
+      }
+      if (dem == 4) {
+        setDem(5);
+        runBanner(dem);
+        $(".slide-nav1").removeClass("active");
+        $(".slide-nav2").removeClass("active");
+        $(".slide-nav3").removeClass("active");
+        $(".slide-nav5").removeClass("active");
+        $(".slide-nav4").addClass("active");
+      }
+      if (dem == 5) {
+        setDem(1);
+        runBanner(dem);
+        $(".slide-nav1").removeClass("active");
+        $(".slide-nav2").removeClass("active");
+        $(".slide-nav3").removeClass("active");
+        $(".slide-nav4").removeClass("active");
+        $(".slide-nav5").addClass("active");
+      }
+    }, 6000);
+  });
 
   useEffect(() => {
     const u = localStorage.getItem("uses");
@@ -263,24 +214,28 @@ const Home = () => {
 
   const dataSlide = [
     {
-      title: "1",
-      image: image1,
+      title: "Chai lọ đựng gia vị",
+      image: imgSpice,
     },
     {
-      title: "2",
-      image: image2,
+      title: "Chai lọ đựng dầu gội và sữa tắm",
+      image: imgFoundation,
     },
     {
-      title: "3",
-      image: image3,
+      title: "Chai lọ đựng mĩ phẩm",
+      image: imgCosmetics,
     },
     {
-      title: "4",
-      image: image4,
+      title: "Chai lọ PET trà sữa",
+      image: imgBottle,
     },
     {
-      title: "5",
-      image: image5,
+      title: "Hũ nhựa",
+      image: imgPlasticBott,
+    },
+    {
+      title: "Ly nhựa",
+      image: imgCup,
     },
   ];
 
@@ -322,17 +277,6 @@ const Home = () => {
   const onclickItem = () => {
     navgate("/Personal");
   };
-
-  var queries = [
-    {
-      columns: 2,
-      query: "min-width: 1000px",
-    },
-    {
-      columns: 3,
-      query: "min-width: 1500px",
-    },
-  ];
 
   return (
     <div className="home">
@@ -567,29 +511,39 @@ const Home = () => {
         </div>
 
         <div className="home-main-slide">
-          <div className="home_container">
-            <Slider
-              autoplay={true}
-              autoplaySpeed={2000}
-              prevArrow={<PreviousBtnList />}
-              nextArrow={<NextBtnList />}
-              slidesToShow={4}
-              slidesToScroll={4}
-              infinite={true}
-            >
-              {dataSlide.map((item, index) => (
-                <div className="home-main-slide-item" key={index}>
-                  {/* <div className="home-main-slide-item-title">
-                                        <p style={{ fontSize: "80px", color: "white" }}>{item.title}</p>
-                                    </div> */}
-                  <img
-                    src={item.image}
-                    alt=""
-                    className="home-main-slide-item-image"
-                  />
-                </div>
-              ))}
-            </Slider>
+          <div className="slider_fill">
+            <p className="slider_product_title">Các loại sản phẩm</p>
+            <div className="line_slider_product">
+              <img src={imgLine} alt="" />
+            </div>
+            <div className="home_container">
+              <Slider
+                autoplay={true}
+                autoplaySpeed={2000}
+                slidesToShow={4}
+                slidesToScroll={1}
+                infinite={true}
+              >
+                {dataSlide.map((item, index) => (
+                  <div className="home-main-slide-item" key={index}>
+                    <div className="slider_card">
+                      <div className="home_main_slide_item_imgbg">
+                        <img
+                          src={item.image}
+                          alt=""
+                          className="home-main-slide-item-image"
+                        />
+                      </div>
+                      <p className="slider_card_title">{item.title}</p>
+                      <p className="slider_card_content">
+                        thông tin chi tiết loại sản phẩm: hình dạng, kích thước,
+                        màu
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+            </div>
           </div>
         </div>
         <div className="preview">
@@ -687,8 +641,6 @@ const Home = () => {
             <Slider
               autoplay={true}
               autoplaySpeed={2000}
-              prevArrow={<PreviousBtnList />}
-              nextArrow={<NextBtnList />}
               slidesToShow={4}
               slidesToScroll={4}
               infinite={true}
@@ -710,7 +662,7 @@ const Home = () => {
         </div>
 
         <div className="home-main-news">
-          <h1 style={{ marginBottom: "50px" }}>TIN TỨC VÀ SỰ KIỆN</h1>
+          <p className="home_main_new_title">TIN TỨC VÀ SỰ KIỆN</p>
           <div className="home_news_container">
             <div className="home_main_new_top">
               <div className="main_new_top_big">
@@ -840,6 +792,159 @@ const Home = () => {
           </div>
 
           <div className="main_new_bottom">
+            <div className="main_new_bottom_card">
+              <div
+                className="main_new_bottom_card_image"
+                style={{
+                  backgroundImage: `url("${image2}")`,
+                  width: "100%",
+                  height: "28vh",
+                  borderRadius: "20px 20px 0px 0",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
+              <div className="main_new_bottom_card_image_img">
+                <div className="main_new_bottom_card_image_img_container">
+                  <img src={imgUser} alt="" />
+                </div>
+              </div>
+              <div className="mmain_new_bottom_card_content">
+                <div className="main_new_bottom_card_time">10 May 2022</div>
+                <div className="main_new_bottom_card_name">Fresh Princer</div>
+                <div className="main_new_bottom_card_cws">
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                      <img src={imgUser} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                      <img src={imgUser} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                      <img src={imgUser} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="main_new_bottom_card">
+              <div
+                className="main_new_bottom_card_image"
+                style={{
+                  backgroundImage: `url("${image2}")`,
+                  width: "100%",
+                  height: "28vh",
+                  borderRadius: "20px 20px 0px 0",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
+              <div className="main_new_bottom_card_image_img">
+                <div className="main_new_bottom_card_image_img_container">
+                  <img src={imgUser} alt="" />
+                </div>
+              </div>
+              <div className="mmain_new_bottom_card_content">
+                <div className="main_new_bottom_card_time">10 May 2022</div>
+                <div className="main_new_bottom_card_name">Fresh Princer</div>
+                <div className="main_new_bottom_card_cws">
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                      <img src={imgUser} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                      <img src={imgUser} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                      <img src={imgUser} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="main_new_bottom_card">
+              <div
+                className="main_new_bottom_card_image"
+                style={{
+                  backgroundImage: `url("${image2}")`,
+                  width: "100%",
+                  height: "28vh",
+                  borderRadius: "20px 20px 0px 0",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
+              <div className="main_new_bottom_card_image_img">
+                <div className="main_new_bottom_card_image_img_container">
+                  <img src={imgUser} alt="" />
+                </div>
+              </div>
+              <div className="mmain_new_bottom_card_content">
+                <div className="main_new_bottom_card_time">10 May 2022</div>
+                <div className="main_new_bottom_card_name">Fresh Princer</div>
+                <div className="main_new_bottom_card_cws">
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                      <img src={imgUser} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                      <img src={imgUser} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                      <img src={imgUser} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="main_new_bottom_card">
               <div
                 className="main_new_bottom_card_image"
