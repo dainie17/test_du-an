@@ -23,7 +23,7 @@ import hoursImg from "../assets/24-hours.png";
 import shieldImg from "../assets/shield.png";
 import imgUser from "../assets/user.png";
 
-
+import SliderHome from "./home1";
 
 import imgLine from "../assets/line_silde_product.png";
 import imgSpice from "../assets/spice.png";
@@ -219,63 +219,63 @@ const Home = () => {
       $(".slide-nav4").addClass("active");
 
 
-  const [dem, setDem] = useState(1);
-
-  // useEffect(() => {
-
-  //   setTimeout(() => {
 
 
-  //     function runBanner(e) {
-  //       $(".slider__warpper")
-  //         .find(".flex__container[data-slide=" + e + "]")
-  //         .addClass("flex--preStart");
-  //       $(".flex--active").addClass("animate--end");
-  //       setTimeout(function () {
-  //         $(".flex--preStart")
-  //           .removeClass("animate--start flex--preStart")
-  //           .addClass("flex--active");
-  //         $(".animate--end")
-  //           .addClass("animate--start")
-  //           .removeClass("animate--end flex--active");
-  //       }, 800);
-  //     }
-  //     console.log(dem);
-  //     if (dem == 1) {
-  //       setDem(2);
-  //       runBanner(dem)
-  //       $('.slide-nav1').removeClass('active');
-  //       $('.slide-nav2').addClass('active');
-  //     } 
-  //      if (dem == 2) {
-  //       setDem(3);
-  //       runBanner(dem)
-  //       $('.slide-nav2').removeClass('active');
-  //       $('.slide-nav3').addClass('active');
-  //     } 
-  //      if (dem == 3) {
-  //       setDem(4);
-  //       runBanner(dem)
-  //       $('.slide-nav3').removeClass('active');
-  //       $('.slide-nav4').addClass('active');
-  //     } 
-  //      if (dem == 4) {
-  //       setDem(5);
-  //       runBanner(dem)
-  //       $('.slide-nav4').removeClass('active');
-  //       $('.slide-nav5').addClass('active');
-  //     } 
-  //      if (dem == 5) {
-  //       setDem(1);
-  //       runBanner(dem)
-  //       $('.slide-nav5').removeClass('active');
-  //       $('.slide-nav1').addClass('active');
-  //     }
+      // useEffect(() => {
+
+      //   setTimeout(() => {
 
 
-  //   }, 6000);
+      //     function runBanner(e) {
+      //       $(".slider__warpper")
+      //         .find(".flex__container[data-slide=" + e + "]")
+      //         .addClass("flex--preStart");
+      //       $(".flex--active").addClass("animate--end");
+      //       setTimeout(function () {
+      //         $(".flex--preStart")
+      //           .removeClass("animate--start flex--preStart")
+      //           .addClass("flex--active");
+      //         $(".animate--end")
+      //           .addClass("animate--start")
+      //           .removeClass("animate--end flex--active");
+      //       }, 800);
+      //     }
+      //     console.log(dem);
+      //     if (dem == 1) {
+      //       setDem(2);
+      //       runBanner(dem)
+      //       $('.slide-nav1').removeClass('active');
+      //       $('.slide-nav2').addClass('active');
+      //     } 
+      //      if (dem == 2) {
+      //       setDem(3);
+      //       runBanner(dem)
+      //       $('.slide-nav2').removeClass('active');
+      //       $('.slide-nav3').addClass('active');
+      //     } 
+      //      if (dem == 3) {
+      //       setDem(4);
+      //       runBanner(dem)
+      //       $('.slide-nav3').removeClass('active');
+      //       $('.slide-nav4').addClass('active');
+      //     } 
+      //      if (dem == 4) {
+      //       setDem(5);
+      //       runBanner(dem)
+      //       $('.slide-nav4').removeClass('active');
+      //       $('.slide-nav5').addClass('active');
+      //     } 
+      //      if (dem == 5) {
+      //       setDem(1);
+      //       runBanner(dem)
+      //       $('.slide-nav5').removeClass('active');
+      //       $('.slide-nav1').addClass('active');
+      //     }
 
-  // },);
+
+      //   }, 6000);
+
+      // },);
 
       runBanner(next);
     });
@@ -778,29 +778,12 @@ const Home = () => {
         </div>
 
         <div className="home-main-slide">
-          <div className="home_container">
+          <div  className="home_backgroud">
+            <div className="home_container">
 
-            <Slider
-              autoplay={true}
-              autoplaySpeed={2000}
-              slidesToShow={4}
-              slidesToScroll={4}
-              infinite={true}
-            >
-              {dataSlide.map((item, index) => (
-                <div className="home-main-slide-item" key={index}>
-                  {/* <div className="home-main-slide-item-title">
-                                        <p style={{ fontSize: "80px", color: "white" }}>{item.title}</p>
-                                    </div> */}
-                  <img
-                    src={item.image}
-                    alt=""
-                    className="home-main-slide-item-image"
-                  />
-                </div>
-              ))}
-            </Slider>
+              <SliderHome />
 
+            </div>
           </div>
         </div>
 
