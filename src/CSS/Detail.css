@@ -33,7 +33,9 @@
 }
 
 /* vị trí list ảnh nhỏ */
-
+.detail-main-top-left .slick-dots{
+    bottom: -50px;
+}
 
 /* kích thước list ảnh nhỏ chỉnh css của slide slick*/
 .detail-main-top-left .custom-indicator li{
@@ -287,4 +289,48 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 400;
     margin-left: 10px;
+}
+
+
+.pre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.home-purview{
+    width: 100%;
+    background-color: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.home-main-purview{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+
+    justify-content: space-between;
+}
+.home-main-purview-card{
+    width: 23%;
+    text-align: center;
+    border: 1px solid ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5% 0;
+}
+.home-main-purview :hover{
+    border: 2px solid rgb(17, 113, 19);
+    color: rgb(17, 113, 19); 
+}
+.home-main-purview-card :hover{
+    border: none;
+    
+}
+.home-main-purview-card img{
+    width: 20%;
+    margin: 10px;
 }

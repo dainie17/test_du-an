@@ -14,12 +14,13 @@ import Personal from './Screen/Personal'
 import Order from './Screen/Order';
 import Login_1 from './Screen/Login_1.js';
 import Bao1 from './Screen/home1';
+import New1 from './Screen/News1'
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Bao1 />} />
+        <Route path='/' element={<Login_1 />} />
         <Route path='/Signup' element={<Signup />} />
         <Route path='/Navigate' element={<Navigate />} />
         <Route path='/Navbar' element={<Navbar />} />
@@ -31,6 +32,8 @@ function App() {
         <Route path='/Cart' element={<Cart />} />
         <Route path='/Personal' element={<Personal />} />
         <Route path='/Order' element={<Order />} />
+        <Route path='/News' element={<Bao1 />} />
+        <Route path="/ItemNews/:id" element={<New1 />} />
       </Routes>
     </div>
   );

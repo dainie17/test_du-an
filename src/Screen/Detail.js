@@ -10,6 +10,11 @@ import { useEffect, useState } from "react";
 import yeuthich from '../assets/favorite.png'
 import yeuthich1 from '../assets/favorite1.png'
 
+import truck from '../assets/delivery-truck.png'
+import money from '../assets/salary.png'
+import hour from '../assets/hour.png'
+import shieldImg from "../assets/shields.png";
+
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Call, FavoriteBorderSharp, HistorySharp, LocalShippingSharp, TokenSharp, VerifiedSharp, VerifiedUser } from "@mui/icons-material";
@@ -181,27 +186,38 @@ const Detail = () => {
             </div>
           </div>
 
-          <div className="home-main-purview">
+          
+        </div>
+        
+      </div>
+      <div className="home-purview">
+      <div className="preview">
+          <div className="preview_title">
+            <p>Dịch vụ của chúng tôi</p>
+          </div>
+          <div className="preview_content">
+            <p>Công ty cổ phần Thang Máy Fujitech đơn vị uy tín chất lượng</p>
+          </div>
+        </div>
+        <div className="home-main-purview">
             <div className="home-main-purview-card">
-              <LocalShippingSharp style={{ fontSize: "70px" }} />
+              <img src={truck} className="img"></img>
               <p>GIAO HÀNG TOÀN QUỐC</p>
             </div>
             <div className="home-main-purview-card">
-              <HistorySharp style={{ fontSize: "70px" }} />
+            <img src={money}></img>
               <p>HOÀN TIỀN NẾU HÀNG LỖI</p>
             </div>
             <div className="home-main-purview-card">
-              <Call style={{ fontSize: "70px" }} />
+            <img src={hour}></img>
               <p>CHĂM SÓC KHÁCH HÀNG 24/7</p>
             </div>
-            <div className="home-main-purview-card" style={{ border: "none" }}>
-              <VerifiedUser style={{ fontSize: "70px" }} />
+            <div className="home-main-purview-card" >
+            <img src={shieldImg}></img>
               <p>CAM KẾT 100% CHẤT LƯỢNG</p>
             </div>
+            </div>
           </div>
-        </div>
-      </div>
-
 
       <Footer />
     </div >
