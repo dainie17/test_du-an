@@ -56,7 +56,7 @@ function Navigate() {
               </NavLink>
             </li>
             <li>
-              <NavLink className="home-header_ul_li_navlink" to="/Introduce">
+              <NavLink className="home-header_ul_li_navlink" to="/testHome">
                 Giới thiệu
               </NavLink>
             </li>

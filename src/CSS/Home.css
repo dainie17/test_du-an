@@ -6,6 +6,8 @@
 
 /*-------------------căn lề-------------------*/
 .home_container {
+  display: flex;
+  justify-content: center;
   width: 85%;
   padding: 0;
   margin: 0 auto;
@@ -934,4 +936,15 @@
 
 .main_new_bottom_card_comment_content{
   font-size: 11px;
+}
+
+
+
+
+
+
+
+/*  */
+.home_backgroud{
+  background-color: rgba(12, 145, 89, 0.6);
 }
