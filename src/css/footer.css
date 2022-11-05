@@ -118,7 +118,13 @@
     padding-bottom: 8%;
     font-size: 13px;
 }
-
+.form_link{
+    display: flex;
+    color: white;
+    padding-bottom: 10%;
+    font-size: 13px;
+    text-decoration: none;
+}
 /* -------------------banquen--------------------- */
 .form_banquyen{
     display: flex;

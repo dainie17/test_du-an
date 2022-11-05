@@ -1,9 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import '../css/News1.css'
 import '../item/ItemNavigate'
+import ItemNavi from "../item/ItemNavi"
+import Footer from "./footer";
 
 
 
@@ -12,16 +14,11 @@ const image5 = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018
 
 
 
-const News1 = prompt =>{
+class News1 extends Component{
     
-    console.log(prompt)
-    let { id } = useParams();
 
-    let navgate = useNavigate();
-
-    const onclickItem = () => {
-        navgate("/Cart");
-    }
+   
+    render(){
     return (
         <div>
             <nav className="home-header">
@@ -69,7 +66,7 @@ const News1 = prompt =>{
 
                         <div className="home-header_icon_user">
                             <div className="home-header_icon_user_img"
-                                onClick={onclickItem}>
+                                >
                                 <div className="user" />
                             </div>
                             <div className="home-header_icon_user_content">
@@ -93,7 +90,7 @@ const News1 = prompt =>{
                     <div className="news_table_text">
                         <div className="news_table_left">
                             {/* <h2>{uudai.name}</h2> */}
-                            <h1>Quy trình sản xuất chai nhựa pet đạt tiêu chuẩn ISO</h1>
+                            <h1>Quy trình sản xuất chai nhựa pet đạt tiêu chuẩn ISO </h1>
                             <img src="https://chainhuahuynhat.com/wp-content/uploads/2020/12/nhua-pet-la-gi.jpg"></img>
                             <p className="news_table_left_p">Lời đầu tiên, PAVICO xin chân thành cảm ơn Quý khách hàng và toàn thể CBCNV đã đồng hành với công ty trong suốt 1 năm vừa qua. Năm 2021 quả thực là một năm đáng nhớ đối với tất cả chúng ta. Khi đại dịch Covid đã khiến mọi hoạt động sản xuất bị đảo lộn. Nhưng hơn hết, với sự cố gắng và quyết tâm chiến thắng đại dịch, PAVICO đã và đang nỗ lực khắc phục các khó khăn, đồng hành cùng Quý khách hàng vượt qua khoảng thời gian thử thách này. Để rồi chúng ta cùng đón nhận những thành quả tốt đẹp trong năm vừa qua và hướng tới những mục tiêu lớn trong năm 2022 sắp tới.</p>
                             <div className="news_table_left__content">
@@ -139,8 +136,10 @@ const News1 = prompt =>{
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
-}
+}}
+
 
 export default News1;

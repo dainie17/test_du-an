@@ -7,6 +7,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 
 
 import '../css/footer.css'
+import { NavLink } from "react-router-dom";
 const logo =
     "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
 
@@ -78,10 +79,19 @@ function footer() {
                     <div className="form_people">
                         <h3>Chính sách</h3>
                         <div className="form_people_p" >
-                            <p>Chính sách bảo mật</p>
-                            <p>Chính sách đổi trả</p>
-                            <p>Chính sách bảo hành </p>
-                            <p>Chính sách giao hàng</p>
+
+                            <NavLink className="form_link" to="/baomat">
+                                Chính sách bảo mật
+                            </NavLink>
+                            <NavLink className="form_link" to="/doitra">
+                                Chính sách đổi trả
+                            </NavLink>
+                            <NavLink className="form_link" to="/thanhtoan">
+                                Chính sách thanh toán
+                            </NavLink>
+                            <NavLink className="form_link" to="/vanchuyen">
+                                Chính sách vận chuyển
+                            </NavLink>
                         </div>
                     </div>
                 </div>

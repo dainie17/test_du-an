@@ -15,6 +15,10 @@ import Order from './Screen/Order';
 import Login_1 from './Screen/Login_1.js';
 import Bao1 from './Screen/home1';
 import New1 from './Screen/News1'
+import Confifential from './Policy/Confidential';
+import Lie from './Policy/Lie';
+import Pay from './Policy/Pay'
+import Transport from './Policy/Transport'
 
 function App() {
   return (
@@ -34,6 +38,11 @@ function App() {
         <Route path='/Order' element={<Order />} />
         <Route path='/News' element={<Bao1 />} />
         <Route path="/ItemNews/:id" element={<New1 />} />
+
+        <Route path='/baomat' element={<Confifential />} />
+        <Route path='/doitra' element={<Lie />} />
+        <Route path='/thanhtoan' element={<Pay />} />
+        <Route path='/vanchuyen' element={<Pay />} />
       </Routes>
     </div>
   );
