@@ -19,10 +19,23 @@ import {
   TokenSharp,
   ViewListSharp,
 } from "@mui/icons-material";
+import $ from "jquery";
+import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import Divider from "@mui/material/Divider";
+import Tooltip from "@mui/material/Tooltip";
+import PersonAdd from "@mui/icons-material/PersonAdd";
+import Settings from "@mui/icons-material/Settings";
+import Logout from "@mui/icons-material/Logout";
+
 import Slider from "react-slick";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import "../css/Product.css";
 import Footer from "./footer";
+import { useEffect } from "react";
 
 const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
@@ -125,6 +138,28 @@ const Product = () => {
   const onclickItem = () => {
     navgate("/Personal");
   };
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  useEffect(() => {
+    $(document).ready(function () {
+      $(window).scroll(function() {
+        if($(this).scrollTop()){
+          $('.home-header').addClass('sticky');
+        } else {
+          $('.home-header').removeClass('sticky');
+        }
+      })
+    })
+  })
+
   return (
     <div className="product">
       <nav className="home-header">
@@ -171,14 +206,90 @@ const Product = () => {
             </div>
 
             <div className="home-header_icon_user">
-              <div className="home-header_icon_user_img" onClick={onclickItem}>
-                <div className="user" />
-              </div>
-              <div className="home-header_icon_user_content">
-                <a href="#company">Company</a>
-                <a href="#team">Team</a>
-                <a href="#careers">Careers</a>
-              </div>
+              <React.Fragment>
+                <Box
+                  sx={{                   
+                    display: "flex",
+                    alignItems: "center",
+                    textAlign: "center",
+                  }}
+                >
+                  <Tooltip title="Account settings">
+                    <div
+                      className="home-header_icon_user_img"
+                      onClick={handleClick}
+                      size="small"
+                      sx={{ ml: 2 }}
+                      aria-controls={open ? "account-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                    >
+                      <div className="user" />
+                    </div>
+                  </Tooltip>
+                </Box>
+                <Menu
+                  anchorEl={anchorEl}
+                  id="account-menu"
+                  open={open}
+                  onClose={handleClose}
+                  onClick={handleClose}
+                  PaperProps={{
+                    elevation: 0,
+                    sx: {
+                      overflow: "visible",
+                      filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                      mt: 1.5,
+                      "& .MuiAvatar-root": {
+                        width: 32,
+                        height: 32,
+                        ml: -0.5,
+                        mr: 1,
+                      },
+                      "&:before": {
+                        content: '""',
+                        display: "block",
+                        position: "absolute",
+                        top: 0,
+                        left: 15,
+                        width: 10,
+                        height: 10,
+                        bgcolor: "background.paper",
+                        transform: "translateY(-50%) rotate(45deg)",
+                        zIndex: 0,
+                      },
+                    },
+                  }}
+                  transformOrigin={{ horizontal: "left", vertical: "top" }}
+                  anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
+                >
+                  <MenuItem onClick={onclickItem}>
+                    <Avatar/> Profile
+                  </MenuItem>
+                  <MenuItem>
+                    <Avatar /> My account
+                  </MenuItem>
+                  <Divider />
+                  <MenuItem>
+                    <ListItemIcon>
+                      <PersonAdd fontSize="small" />
+                    </ListItemIcon>
+                    Add another account
+                  </MenuItem>
+                  <MenuItem>
+                    <ListItemIcon>
+                      <Settings fontSize="small" />
+                    </ListItemIcon>
+                    Settings
+                  </MenuItem>
+                  <MenuItem>
+                    <ListItemIcon>
+                      <Logout fontSize="small" />
+                    </ListItemIcon>
+                    Logout
+                  </MenuItem>
+                </Menu>
+              </React.Fragment>
             </div>
             <div className="font_icon_nav">
               <div className="cart" />
@@ -297,43 +408,12 @@ const Product = () => {
           </div>
         </div>
 
-        {/* <div className="product-main-list product_container">
-                    <div className="product-main-list-title">
-                        <p>Tên loại sản phẩm</p>
-                    </div>
-                    <div><div className="product-main-list-content">
-                        {
-                            dataProduct.map((item, index) => (
-                                <div onClick={onClick} key={index} className="product-main-list-content-card">
-                                <img src={item.image} alt="" className="product-main-list-content-card-img" />
-                                <p className="product-main-list-content-card-name">{item.name}</p>
-                                <p className="product-main-list-content-card-price">{item.price} Đ</p>
-                                <p className="product-main-list-content-card-number">Số lượng: {item.number}</p>
-                            </div>
-                            ))
-                        }
-                    </div><div className="product-main-list-content">
-                        {
-                            dataProduct.map((item, index) => (
-                                <div onClick={onClick} key={index} className="product-main-list-content-card">
-                                <img src={item.image} alt="" className="product-main-list-content-card-img" />
-                                <p className="product-main-list-content-card-name">{item.name}</p>
-                                <p className="product-main-list-content-card-price">{item.price} Đ</p>
-                                <p className="product-main-list-content-card-number">Số lượng: {item.number}</p>
-                            </div>
-                            ))
-                        }
-                    </div>
-                    </div>
-                </div> */}
-
         <div className="product-main-list">
           <div className="product_container">
             <div className="product-main-list-title">
               <p>Tên loại sản phẩm</p>
             </div>
             <div className="product-main-list-content">
-              {/* <div className="product-main-list-content-1"> */}
               {dataProduct.map((item, index) => (
                 <div
                   onClick={onClick}
@@ -345,15 +425,17 @@ const Product = () => {
                     alt=""
                     className="product-main-list-content-card-img"
                   />
-                  <p className="product-main-list-content-card-name">
-                    {item.name}
-                  </p>
-                  <p className="product-main-list-content-card-price">
-                    {item.price} Đ
-                  </p>
-                  <p className="product-main-list-content-card-number">
-                    Số lượng: {item.number}
-                  </p>
+                  <div className="content_card">
+                    <p className="product-main-list-content-card-name">
+                      {item.name}
+                    </p>
+                    <p className="product-main-list-content-card-price">
+                      {item.price} Đ
+                    </p>
+                    <p className="product-main-list-content-card-number">
+                      Số lượng: {item.number}
+                    </p>
+                  </div>
                 </div>
               ))}
               {/* </div> */}

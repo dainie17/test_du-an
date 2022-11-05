@@ -12,6 +12,7 @@
 
 
 .detail-main{
+    margin-top: 130px;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -36,6 +37,13 @@
 .detail-main-top-left .slick-dots{
     bottom: -50px;
 }
+
+
+/* -------------------------chỉnh boder cho silder-------------------- */
+.detail-main-top-left .slick-list{
+    border-radius: 15px;
+}
+
 
 /* kích thước list ảnh nhỏ chỉnh css của slide slick*/
 .detail-main-top-left .custom-indicator li{

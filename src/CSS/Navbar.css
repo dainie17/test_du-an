@@ -2,10 +2,20 @@
 .home-header {
     width: 100%;
     height: 70px;
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 99999;
+    z-index: 999;
+    background-color: white;
     transition: all 0.5s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.sticky {
+    position: fixed;
+    transition: all 0.5s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.81);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .header_container{
@@ -53,6 +63,7 @@
 .home-header_ul li{
     width: 19.8%;
     padding: 26px 0;
+    cursor: pointer;
 }
 
 
@@ -177,6 +188,7 @@
 
 .home-header_icon_user{
     width: 30%;
+    cursor: pointer;
 }
 
 .home-header_icon_user_img{

@@ -5,6 +5,10 @@
     font-family: sans-serif;
 }
 
+.title{
+    margin-top: 130px;
+}
+
 .title_container {
     margin: 0 auto;
     width: 92%;
