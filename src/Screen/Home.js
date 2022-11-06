@@ -1,5 +1,9 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+// import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+// import SearchSharpIcon from "@mui/icons-material/SearchSharp";
+// import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
+// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -7,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "../css/Navbar.css";
 import $ from "jquery";
 import Footer from "./footer";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import "../css/Home.css";
 import imageItem from "../assets/blue.png";
 import imageItem2 from "../assets/cyan.png";
@@ -17,16 +22,7 @@ import moneyImg from "../assets/money-back-icon.png";
 import hoursImg from "../assets/24-hours.png";
 import shieldImg from "../assets/shield.png";
 import imgUser from "../assets/user.png";
-import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Divider from "@mui/material/Divider";
-import Tooltip from "@mui/material/Tooltip";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
-import Logout from "@mui/icons-material/Logout";
+
 import SliderHome from "./home1";
 
 import imgLine from "../assets/line_silde_product.png";
@@ -61,16 +57,6 @@ const imgBanner4 =
   "https://i.pinimg.com/736x/cf/51/6a/cf516a55c15cab2557e7c0953c92995c.jpg";
 
 const Home = () => {
-
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   const [dem, setDem] = useState(1);
 
   useEffect(() => {
@@ -231,6 +217,65 @@ const Home = () => {
       $(".slide-nav3").removeClass("active");
       $(".slide-nav5").removeClass("active");
       $(".slide-nav4").addClass("active");
+
+
+
+
+      // useEffect(() => {
+
+      //   setTimeout(() => {
+
+
+      //     function runBanner(e) {
+      //       $(".slider__warpper")
+      //         .find(".flex__container[data-slide=" + e + "]")
+      //         .addClass("flex--preStart");
+      //       $(".flex--active").addClass("animate--end");
+      //       setTimeout(function () {
+      //         $(".flex--preStart")
+      //           .removeClass("animate--start flex--preStart")
+      //           .addClass("flex--active");
+      //         $(".animate--end")
+      //           .addClass("animate--start")
+      //           .removeClass("animate--end flex--active");
+      //       }, 800);
+      //     }
+      //     console.log(dem);
+      //     if (dem == 1) {
+      //       setDem(2);
+      //       runBanner(dem)
+      //       $('.slide-nav1').removeClass('active');
+      //       $('.slide-nav2').addClass('active');
+      //     } 
+      //      if (dem == 2) {
+      //       setDem(3);
+      //       runBanner(dem)
+      //       $('.slide-nav2').removeClass('active');
+      //       $('.slide-nav3').addClass('active');
+      //     } 
+      //      if (dem == 3) {
+      //       setDem(4);
+      //       runBanner(dem)
+      //       $('.slide-nav3').removeClass('active');
+      //       $('.slide-nav4').addClass('active');
+      //     } 
+      //      if (dem == 4) {
+      //       setDem(5);
+      //       runBanner(dem)
+      //       $('.slide-nav4').removeClass('active');
+      //       $('.slide-nav5').addClass('active');
+      //     } 
+      //      if (dem == 5) {
+      //       setDem(1);
+      //       runBanner(dem)
+      //       $('.slide-nav5').removeClass('active');
+      //       $('.slide-nav1').addClass('active');
+      //     }
+
+
+      //   }, 6000);
+
+      // },);
 
       runBanner(next);
     });
@@ -420,90 +465,14 @@ const Home = () => {
             </div>
 
             <div className="home-header_icon_user">
-            <React.Fragment>
-                <Box
-                  sx={{                   
-                    display: "flex",
-                    alignItems: "center",
-                    textAlign: "center",
-                  }}
-                >
-                  <Tooltip title="Account settings">
-                    <div
-                      className="home-header_icon_user_img"
-                      onClick={handleClick}
-                      size="small"
-                      sx={{ ml: 2 }}
-                      aria-controls={open ? "account-menu" : undefined}
-                      aria-haspopup="true"
-                      aria-expanded={open ? "true" : undefined}
-                    >
-                      <div className="user" />
-                    </div>
-                  </Tooltip>
-                </Box>
-                <Menu
-                  anchorEl={anchorEl}
-                  id="account-menu"
-                  open={open}
-                  onClose={handleClose}
-                  onClick={handleClose}
-                  PaperProps={{
-                    elevation: 0,
-                    sx: {
-                      overflow: "visible",
-                      filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                      mt: 1.5,
-                      "& .MuiAvatar-root": {
-                        width: 32,
-                        height: 32,
-                        ml: -0.5,
-                        mr: 1,
-                      },
-                      "&:before": {
-                        content: '""',
-                        display: "block",
-                        position: "absolute",
-                        top: 0,
-                        left: 15,
-                        width: 10,
-                        height: 10,
-                        bgcolor: "background.paper",
-                        transform: "translateY(-50%) rotate(45deg)",
-                        zIndex: 0,
-                      },
-                    },
-                  }}
-                  transformOrigin={{ horizontal: "left", vertical: "top" }}
-                  anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
-                >
-                  <MenuItem onClick={onclickItem}>
-                    <Avatar/> Profile
-                  </MenuItem>
-                  <MenuItem>
-                    <Avatar /> My account
-                  </MenuItem>
-                  <Divider />
-                  <MenuItem>
-                    <ListItemIcon>
-                      <PersonAdd fontSize="small" />
-                    </ListItemIcon>
-                    Add another account
-                  </MenuItem>
-                  <MenuItem>
-                    <ListItemIcon>
-                      <Settings fontSize="small" />
-                    </ListItemIcon>
-                    Settings
-                  </MenuItem>
-                  <MenuItem>
-                    <ListItemIcon>
-                      <Logout fontSize="small" />
-                    </ListItemIcon>
-                    Logout
-                  </MenuItem>
-                </Menu>
-              </React.Fragment>
+              <div className="home-header_icon_user_img" onClick={onclickItem}>
+                <div className="user" />
+              </div>
+              <div className="home-header_icon_user_content">
+                <a href="#company">Company</a>
+                <a href="#team">Team</a>
+                <a href="#careers">Careers</a>
+              </div>
             </div>
 
             <div className="font_icon_nav">

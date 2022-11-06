@@ -3,7 +3,7 @@
 .policy{
     width: 84%;
     margin: 0 auto;
-    margin-top: 2%;
+    margin-top:7%;
 }
 .policy_contai{
     width: 100%;
@@ -34,11 +34,10 @@
     
 }
 .policy_right_list{
-    border-style: solid;
-    border-width: 1px;
+   border-radius: 10px;
     padding: 3%;
     margin-top: 4%;
-    border-radius: 2%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .policy_list{
     display: flex;
@@ -53,3 +52,16 @@
     font-size: 14px;
 }
 
+
+.policy_right_facebook{
+    margin-top: 10%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.policy_right_facebook h3{
+    background-color: aqua;
+    padding: 15px;
+}
+.policy_right_facebook_iframe{
+    width: 100%;
+    display: flex;
+}

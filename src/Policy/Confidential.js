@@ -131,17 +131,23 @@ export default function Confifential() {
                     </div>
                     <div className="policy_right">
                         <div className="policy_right_list">
-                        <h3>Tin tức mới nhất</h3>
-                        <div>
-                            {ItemNavi.map((uudai, index) =>
-                                <div key={index} className="policy_list" >
-                                    <img src={uudai.image} />
-                                    
+                            <h3>Tin tức mới nhất</h3>
+                            <div>
+                                {ItemNavi.map((uudai, index) =>
+                                    <div key={index} className="policy_list" >
+                                        <img src={uudai.image} />
+
                                         <h2>{uudai.name}</h2>
-                                    
-                                </div>
-                            )}
+
+                                    </div>
+                                )}
+                            </div>
                         </div>
+                        <div className="policy_right_facebook">
+                            <h3>Facebook</h3>
+                            <div className="policy_right_facebook_iframe">
+                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="331" ></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
