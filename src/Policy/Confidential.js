@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+
 import '../css/Policy.css'
 import Footer from "../Screen/footer";
 import ItemNavi from "../item/ItemNavi"
+import Loading from "../item/Loading";
+
 const logo =
     "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
 
 export default function Confifential() {
+
+    const [loading, setLoading] = useState(false);
+
+
     let navgate = useNavigate();
 
     const onclickItem = () => {
         navgate("/Personal");
     }
     console.log(ItemNavi)
-    return (
+    return loading  ? (
+        <Loading/>
+    ) : (
         <div>
             <nav className="home-header">
                 <div className="header_container">

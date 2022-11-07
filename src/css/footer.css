@@ -113,10 +113,12 @@
     height: 90px;
     color: white;
 }
-.form_people_p p{
+.form_people_p_me{
+    display: flex;
     color: white;
-    padding-bottom: 8%;
+    padding-bottom: 10%;
     font-size: 13px;
+    text-decoration: none;
 }
 .form_link{
     display: flex;

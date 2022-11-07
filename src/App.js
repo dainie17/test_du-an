@@ -18,7 +18,7 @@ import New1 from './Screen/News1'
 import Confifential from './Policy/Confidential';
 import Lie from './Policy/Lie';
 import Pay from './Policy/Pay'
-import Transport from './Policy/Transport'
+import Introduce1 from './Screen/Introduce1';
 
 function App() {
   return (
@@ -37,6 +37,7 @@ function App() {
         <Route path='/Personal' element={<Personal />} />
         <Route path='/Order' element={<Order />} />
         <Route path='/News' element={<Bao1 />} />
+        <Route path='/Contact' element={<Introduce1 />} />
         <Route path="/ItemNews/:id" element={<New1 />} />
 
         <Route path='/baomat' element={<Confifential />} />

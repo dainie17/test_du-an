@@ -20,7 +20,7 @@ function ItemNavigate() {
                     <p>{uudai.mota.substring(0, 230) + " [...]"}</p>
                     
                         
-                        <Link to={{pathname:`/ItemNews/${uudai.id}`, state:uudai}}>docthem</Link>
+                        <Link className="title_list_cottom_button" to={{pathname:`/ItemNews/${uudai.id}`, state:uudai}}>Đọc Thêm</Link>
                 </div>
             </div>
             )}

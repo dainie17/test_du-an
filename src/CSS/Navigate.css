@@ -51,13 +51,14 @@
     padding: 5% 0;
 }
 
-.title_list_cottom button {
+.title_list_cottom_button {
     width: 30%;
     background-color: #F4534E;
     border: 0ch;
     border-radius: 10px 10px 10px 10px;
     color: rgb(255, 255, 255);
     padding: 4%;
+    text-decoration: none;
 }
 
 .hashtag {

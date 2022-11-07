@@ -70,10 +70,10 @@ function footer() {
                     <div className="form_people">
                         <h3>Về chúng tôi</h3>
                         <div className="form_people_p" >
-                            <p>Giới thiệu</p>
-                            <p>Sản phẩm</p>
-                            <p>Ưu đãi</p>
-                            <p>Liên hệ</p>
+                            <NavLink to='/Contact' className="form_people_p_me">Giới thiệu</NavLink>
+                            <NavLink to='/Product' className="form_people_p_me">Sản phẩm</NavLink>
+                            <NavLink to='/Navigate' className="form_people_p_me">Ưu đãi</NavLink>
+                            <NavLink to='/Introduce' className="form_people_p_me">Liên hệ</NavLink>
                         </div>
                     </div>
                     <div className="form_people">
