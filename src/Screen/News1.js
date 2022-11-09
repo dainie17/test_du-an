@@ -16,9 +16,18 @@ const image5 = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018
 
 class News1 extends Component{
     
-
-   
+    constructor(props){
+        super(props)
+        this.state={
+            uudai:{
+                id:'',
+                mota:''
+            }
+        }
+    }
+    
     render(){
+        console.log(this.props);
     return (
         <div>
             <nav className="home-header">

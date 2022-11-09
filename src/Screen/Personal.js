@@ -21,6 +21,8 @@ import { DeleteOutlineSharp, FavoriteBorderSharp, VerifiedUserSharp } from "@mui
 import '../css/Personal.css'
 import { pink } from "@mui/material/colors";
 import Footer from "./footer";
+import BeatLoader from "react-spinners/BeatLoader";
+import ScrollToTop from "react-scroll-to-top";
 
 import icon_user from '../assets/icon_user.png'
 import camera from '../assets/camera.png'
@@ -107,8 +109,28 @@ function Person() {
           setAnchorEl(null);
         };
 
+        const [loading, setLoading] = useState(false);
+        useEffect(() => {
+            setLoading(true)
+            setTimeout(() => {
+                setLoading(false)
+            }, 500);
+        }, []);
     return (
+        
         <div className="fersonal">
+            <ScrollToTop smooth  ></ScrollToTop>
+            {
+                loading ? <div className='loading'>
+                    <BeatLoader
+                        color={'#36d7b7'}
+                        loading={loading}
+                        size={15}
+                        margin={5}
+                        speedMultiplier={1}
+                    /></div>
+                    :
+                    <div>
             <nav className="home-header">
                 <div className="header_container">
                     <div className="home-header_logo">
@@ -409,6 +431,8 @@ function Person() {
                 </div>
             </div>
             <Footer />
+            </div>
+}
         </div>
     )
 }

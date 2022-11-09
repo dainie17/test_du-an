@@ -1,11 +1,22 @@
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import '../css/Policy.css'
 import Footer from "../Screen/footer";
+import BeatLoader from "react-spinners/BeatLoader";
+import ScrollToTop from "react-scroll-to-top";
 const logo =
     "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
 
 export default function Lie() {
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+        }, 500);
+    }, []);
     let navgate = useNavigate();
 
     const onclickItem = () => {
@@ -13,6 +24,18 @@ export default function Lie() {
     }
     return (
         <div>
+            <ScrollToTop smooth  ></ScrollToTop>
+             {
+                loading ? <div className='loading'>
+                    <BeatLoader
+                        color={'#36d7b7'}
+                        loading={loading}
+                        size={15}
+                        margin={5}
+                        speedMultiplier={1}
+                    /></div>
+                    :
+                    <div>
             <nav className="home-header">
                 <div className="header_container">
                     <div className="home-header_logo">
@@ -116,11 +139,24 @@ export default function Lie() {
                         <p style={{marginBottom:'10%'}}>Quý khách vui lòng liên hệ tới nhân viên tư vấn của CÔNG TY để có hướng giải quyết tốt nhất.</p>
                     </div>
                     <div className="policy_right">
-                        <h3>Bình luận</h3>
+                    <div className="policy_right_facebook">
+                            <h3>Facebook</h3>
+                            <div className="policy_right_facebook_iframe">
+                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="331" ></iframe>
+                            </div>
+                        </div>
+                        <div className="policy_right_facebook">
+                            <h3>Youtobe</h3>
+                            <div className="policy_right_facebook_iframe">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Vueib12RkKY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <Footer />
+            </div>
+}
         </div>
     );
 }

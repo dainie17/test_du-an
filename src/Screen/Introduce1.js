@@ -14,39 +14,20 @@ import Logout from "@mui/icons-material/Logout";
 import Footer from "./footer";
 import BeatLoader from "react-spinners/BeatLoader";
 import quotation from '../assets/quotation.png'
+import bar_icon from '../assets/bar-chart.png'
+import teame from '../assets/team.png'
+import shop from '../assets/shop.png'
+import colla from '../assets/collaboration.png'
+import ScrollToTop from "react-scroll-to-top";
+<ScrollToTop smooth  ></ScrollToTop>
+
 
 
 const logo = "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
 const image5 = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
-function animateNumber(finalNumber, delay, startNumber = 0, callback) {
-    let currentNumber = startNumber
-    const interval = window.setInterval(updateNumber, delay)
-    function updateNumber() {
-        if (currentNumber >= finalNumber) {
-            clearInterval(interval)
-        } else {
-            currentNumber++
-            callback(currentNumber)
-        }
-    }
-}
 
-document.addEventListener('DOMContentLoaded', function () {
-    animateNumber(5, 300, 0, function (number) {
-        const formattedNumber = number.toLocaleString()
-        document.getElementById('transaction-count').innerText = formattedNumber
-    })
 
-    animateNumber(28, 50, 0, function (number) {
-        const formattedNumber = number.toLocaleString()
-        document.getElementById('city-count').innerText = formattedNumber
-    })
 
-    animateNumber(85, 20, 0, function (number) {
-        const formattedNumber = number.toLocaleString()
-        document.getElementById('customer-count').innerText = formattedNumber
-    })
-})
 
 function Navigate() {
     const [loading, setLoading] = useState(false);
@@ -74,7 +55,8 @@ function Navigate() {
 
     return (
         <div className="home">
-
+            <ScrollToTop smooth  ></ScrollToTop>
+            
             {
                 loading ? <div className='loading'>
                     <BeatLoader
@@ -235,19 +217,19 @@ function Navigate() {
                             </div>
                             <div className="contact_info">
                                 <div className="contact_info_left">
-                                    <h1>NHỰA ĐÔNG SÀI GÒN</h1>
+                                    <h1> CÔNG TY VŨ GIA GROUP</h1>
                                     <div className="contact_info_left__before">
                                         <div className="contact_info_left__before__img">
                                             <img src={quotation}></img>
                                         </div>
-                                        <p>Tiền thân là Công ty cổ phần FOUR-H Việt Nam. Sự ra đời của công ty nhằm đáp ứng nhu cầu kinh doanh ngành bao bì của các đại lý trên toàn quốc, nhất là bao bì nhựa sử dụng 1 lần như hộp xốp, túi xốp....vvv</p>
+                                        <p>CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ XUẤT NHẬP KHẨU VŨ GIA GROUP. Sự ra đời của công ty nhằm đáp ứng nhu cầu kinh doanh ngành chai nhựa của các đại lý trên toàn quốc, nhất là chai nhựa sử dụng nhiều như chai lọ....vvv</p>
 
                                     </div>
                                     <div className="contact_info_left__note">
 
                                         <div className="contact_info_left__note_italic">
                                             <i className="italic_color">Chúng tôi chuyên:</i>
-                                            <i className="italic_bold">Sản xuất và phân phối các loại bao bì nhựa dùng 1 lần như hộp xốp, khay xốp, thố xốp, túi xốp, ly nhựa và các mặt hàng thông dụng khác.</i>
+                                            <i className="italic_bold">Sản xuất và phân phối các loại chai nhựa trong cuộc sống hàng ngày như chai đựng nước, ly nhựa và các mặt hàng thông dụng khác.</i>
                                         </div>
                                     </div>
                                 </div>
@@ -262,24 +244,90 @@ function Navigate() {
                                     <div id="transaction-count" className="number">
                                         5
                                     </div>
-                                    <div class="text-xl text-blue-200"> NĂM XÂY DỰNG VÀ PHÁT TRIỂN </div>
+                                    <div className="text-xl text-blue-200"> NĂM XÂY DỰNG VÀ PHÁT TRIỂN </div>
                                 </div>
 
                                 <div className="contact_number_auto">
                                     <div id="city-count" className="number" >
                                         98
                                     </div>
-                                    <div class="text-xl text-blue-200">ĐẠI LÝ PHÂN PHỐI TOÀN QUỐC</div>
+                                    <div className="text-xl text-blue-200">ĐẠI LÝ PHÂN PHỐI TOÀN QUỐC</div>
                                 </div>
 
                                 <div className="contact_number_auto">
                                     <div id="customer-count" className="number">
                                         1,500
                                     </div>
-                                    <div class="text-xl text-blue-200"> SẢN PHẨM ĐA DẠNG, CHẤT LƯỢNG</div>
+                                    <div className="text-xl text-blue-200"> SẢN PHẨM ĐA DẠNG, CHẤT LƯỢNG</div>
                                 </div>
                             </div>
+                            <div className="contact_benefit">
+                                <div className="contact_benefit_img">
+                                    <img src="https://dongsaigonplas.com/vnt_upload/about/about.png" />
+                                </div>
+                                <div className="contact_benefit_whybenefit">
+                                    <p className="benefit">LỢI ÍCH TỪ CHÚNG TÔI</p>
+                                    <h1>TẠI SAO CHỌN NHỰA ĐÔNG SÀI GÒN</h1>
+                                    <div className="line"></div>
+                                    <p className="benefit1">NHỰA ĐÔNG SÀI GÒN là một trong những công ty sản xuất và thương mại lớn trên thị trường bao bì. Với 4 ưu điểm:</p>
 
+                                    <div className="contact_benefit_whybenefit_four">
+                                        <div className="contact_benefit_whybenefit_four_experience">
+
+                                            <div className="image">
+                                                <div className="image_border">
+                                                    <img src={bar_icon}></img>
+                                                </div>
+                                            </div>
+                                            <div className="be">
+                                                <h2>KINH NGHIỆM HOẠT ĐỘNG LÂU NĂM</h2>
+                                                <p>Với kinh nghiệm 4 năm hoạt động, chúng tôi luôn thấu hiểu và đáp ứng những nhu cầu của từng khách hàng, từng thị trường.</p>
+                                            </div>
+
+                                        </div>
+                                       
+                                        <div className="contact_benefit_whybenefit_four_experience">
+
+                                            <div className="image">
+                                                <div className="image_border">
+                                                    <img src={teame}></img>
+                                                </div>
+                                            </div>
+                                            <div className="be">
+                                                <h2>HỢP TÁC VỚI NHIỀU THƯƠNG HIỆU NỔI TIẾNG</h2>
+                                                <p>Hiện nay chúng tôi là đối tác phân phối cấp 1 của nhiều nhà sản xuất bao bì nổi tiếng</p>
+                                            </div>
+
+                                        </div>
+                                        <div className="contact_benefit_whybenefit_four_experience">
+
+                                            <div className="image">
+                                                <div className="image_border">
+                                                    <img src={shop}></img>
+                                                </div>
+                                            </div>
+                                            <div className="be">
+                                                <h2>HỆ THỐNG MỞ RỘNG</h2>
+                                                <p>Chúng tôi luôn luôn muốn mở rộng để đáp ứng nhu cầu của mọi khách hàng, dủ chỉ là nhu cầu nhỏ nhất.</p>
+                                            </div>
+
+                                        </div>
+                                        <div className="contact_benefit_whybenefit_four_experience">
+
+                                            <div className="image">
+                                                <div className="image_border">
+                                                    <img src={colla}></img>
+                                                </div>
+                                            </div>
+                                            <div className="be">
+                                                <h2>NHIỆT TÂM - TẬN TÌNH</h2>
+                                                <p>Chúng tôi luôn nỗ lực để cung cấp sản phẩm và dịch vụ tốt nhất và giải đáp tận tâm các thắc mắc cho khách hàng.</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <Footer />
