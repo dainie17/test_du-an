@@ -1,14 +1,4 @@
 import React from "react";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import SearchSharpIcon from "@mui/icons-material/SearchSharp";
-import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import PinDropIcon from "@mui/icons-material/PinDrop";
-import CallIcon from "@mui/icons-material/Call";
-import EmailIcon from "@mui/icons-material/Email";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import InstagramIcon from "@mui/icons-material/Instagram";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import {
@@ -36,6 +26,7 @@ import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import "../css/Product.css";
 import Footer from "./footer";
 import { useEffect } from "react";
+import ItemProductType from "../item/ItemProductType";
 
 const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
@@ -54,7 +45,7 @@ const PreviousBtn = (props) => {
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <ArrowBackIos style={{ color: "#63A3F7" }} />
+      <ArrowBackIos style={{ color: "#63A3F7", zIndex: "999" }} />
     </div>
   );
 };
@@ -71,68 +62,19 @@ const NextBtn = (props) => {
 const Product = () => {
   const data = [image1, image2, image3, image4, image5];
   const dataList = [image1, image2, image3];
+
   const dataProduct = [
     {
-      image: image1,
-      name: "Tên sản phẩm",
-      price: "305.000",
-      number: 30,
+      name: "Loại sản phẩm 1",
     },
     {
-      image: image1,
-      name: "Tên sản phẩm",
-      price: "305.000",
-      number: 30,
+      name: "Loại sản phẩm 2",
     },
     {
-      image: image1,
-      name: "Tên sản phẩm",
-      price: "305.000",
-      number: 30,
-    },
-    {
-      image: image1,
-      name: "Tên sản phẩm",
-      price: "305.000",
-      number: 30,
-    },
-    {
-      image: image1,
-      name: "Tên sản phẩm",
-      price: "305.000",
-      number: 30,
-    },
-    {
-      image: image1,
-      name: "Tên sản phẩm",
-      price: "305.000",
-      number: 30,
-    },
-    {
-      image: image1,
-      name: "Tên sản phẩm",
-      price: "305.000",
-      number: 30,
-    },
-    {
-      image: image1,
-      name: "Tên sản phẩm",
-      price: "305.000",
-      number: 30,
-    },
-    {
-      image: image1,
-      name: "Tên sản phẩm",
-      price: "305.000",
-      number: 30,
+      name: "Loại sản phẩm 3",
     },
   ];
 
-  let navga = useNavigate();
-
-  const onClick = () => {
-    navga("/Detail");
-  };
   let navgate = useNavigate();
 
   const onclickItem = () => {
@@ -148,17 +90,19 @@ const Product = () => {
     setAnchorEl(null);
   };
 
+  let name = dataProduct[0];
+
   useEffect(() => {
     $(document).ready(function () {
-      $(window).scroll(function() {
-        if($(this).scrollTop()){
-          $('.home-header').addClass('sticky');
+      $(window).scroll(function () {
+        if ($(this).scrollTop()) {
+          $(".home-header").addClass("sticky");
         } else {
-          $('.home-header').removeClass('sticky');
+          $(".home-header").removeClass("sticky");
         }
-      })
-    })
-  })
+      });
+    });
+  });
 
   return (
     <div className="product">
@@ -208,7 +152,7 @@ const Product = () => {
             <div className="home-header_icon_user">
               <React.Fragment>
                 <Box
-                  sx={{                   
+                  sx={{
                     display: "flex",
                     alignItems: "center",
                     textAlign: "center",
@@ -264,7 +208,7 @@ const Product = () => {
                   anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
                 >
                   <MenuItem onClick={onclickItem}>
-                    <Avatar/> Profile
+                    <Avatar /> Profile
                   </MenuItem>
                   <MenuItem>
                     <Avatar /> My account
@@ -329,23 +273,6 @@ const Product = () => {
                   ))}
                 </Slider>
               </div>
-              <div className="product-main-top-center-content">
-                <p>Sản phẩm mới</p>
-                <div className="product-main-top-center-content-list">
-                  {dataList.map((item, index) => (
-                    <div
-                      className="product-main-top-center-content-list-item"
-                      key={index}
-                    >
-                      <img
-                        src={item}
-                        className="product-main-top-center-content-list-item-img"
-                        alt=""
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
 
             <div className="product-main-top-right">
@@ -409,38 +336,12 @@ const Product = () => {
         </div>
 
         <div className="product-main-list">
-          <div className="product_container">
-            <div className="product-main-list-title">
-              <p>Tên loại sản phẩm</p>
-            </div>
-            <div className="product-main-list-content">
-              {dataProduct.map((item, index) => (
-                <div
-                  onClick={onClick}
-                  key={index}
-                  className="product-main-list-content-card"
-                >
-                  <img
-                    src={item.image}
-                    alt=""
-                    className="product-main-list-content-card-img"
-                  />
-                  <div className="content_card">
-                    <p className="product-main-list-content-card-name">
-                      {item.name}
-                    </p>
-                    <p className="product-main-list-content-card-price">
-                      {item.price} Đ
-                    </p>
-                    <p className="product-main-list-content-card-number">
-                      Số lượng: {item.number}
-                    </p>
-                  </div>
-                </div>
-              ))}
-              {/* </div> */}
-            </div>
-          </div>
+        {/* {name.map((item, index) => ( */}
+                <ItemProductType
+                  key={name.name}
+                  nameType={dataProduct[2].name}
+                />
+              {/* ))}  */}
         </div>
       </div>
 
