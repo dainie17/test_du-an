@@ -18,7 +18,9 @@ import New1 from './Screen/News1'
 import Confifential from './Policy/Confidential';
 import Lie from './Policy/Lie';
 import Pay from './Policy/Pay'
+import Paycp from './Policy/Pay copy'
 import Introduce1 from './Screen/Introduce1';
+import SliderHome from './Screen/slideHome';
 
 function App() {
   return (
@@ -39,11 +41,12 @@ function App() {
         <Route path='/News' element={<Bao1 />} />
         <Route path='/Contact' element={<Introduce1 />} />
         <Route path="/ItemNews/:id" element={<New1 />} />
+        <Route path='/slide' element={<SliderHome />} />
 
         <Route path='/baomat' element={<Confifential />} />
         <Route path='/doitra' element={<Lie />} />
         <Route path='/thanhtoan' element={<Pay />} />
-        <Route path='/vanchuyen' element={<Pay />} />
+        <Route path='/vanchuyen' element={<Paycp />} />
       </Routes>
     </div>
   );

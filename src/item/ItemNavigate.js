@@ -3,15 +3,16 @@ import { Link, Route, useParams } from "react-router-dom";
 import NewsItem from "./NewsItem";
 import News1 from "../Screen/News1";
 import ItemNavi from "./ItemNavi"
+import Uudai from "./ItemNavi";
 
 
 
 
 function ItemNavigate() {
     
-    console.log(ItemNavi)
     return (
         <>
+            
             {ItemNavi.map((uudai, index) =>
                 <div key={index}  className="title_list_cottom">
                 <img src={uudai.image} />
@@ -21,8 +22,10 @@ function ItemNavigate() {
                     
                         
                         <Link className="title_list_cottom_button" to={{pathname:`/ItemNews/${uudai.id}`, state:uudai}}>Đọc Thêm</Link>
+                        
                 </div>
             </div>
+            
             )}
             
         </>

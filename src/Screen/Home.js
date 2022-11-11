@@ -23,6 +23,8 @@ import hoursImg from "../assets/24-hours.png";
 import shieldImg from "../assets/shield.png";
 import imgUser from "../assets/user.png";
 
+import ScrollToTop from "react-scroll-to-top";
+
 import SliderHome from "./home1";
 
 import imgLine from "../assets/line_silde_product.png";
@@ -421,6 +423,7 @@ const Home = () => {
 
   return (
     <div className="home">
+      <ScrollToTop className="scroll" smooth  ></ScrollToTop>
       <nav className="home-header">
         <div className="header_container">
           <div className="home-header_logo">
@@ -621,19 +624,7 @@ const Home = () => {
               </div>
               <div className="home-main-introduce-content-title">
                 <p>
-                  “CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ VÀ XUẤT NHẬP KHẨU
-                  thương hiệu bằng cái tâm, mang đến những sản phẩm xứng tầm”
-                  Hơn ai hết, Chúng tôi luôn đặt chất lượng lên hàng đầu và tuân
-                  thủ nghiêm ngặt các quy định kiểm định về chất lượng và an
-                  toàn về chất lượng. CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ VÀ
-                  XUẤT NHẬP KHẨU hoạt động trong lĩnh vực Sản xuất chai nhựa và
-                  thủy tinh. “CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ VÀ XUẤT
-                  NHẬP KHẨU thương hiệu bằng cái tâm, mang đến những sản phẩm
-                  xứng tầm” Hơn ai hết, Chúng tôi luôn đặt chất lượng lên hàng
-                  đầu và tuân thủ nghiêm ngặt các quy định kiểm định về chất
-                  lượng và an toàn về chất lượng. CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI
-                  DỊCH VỤ VÀ XUẤT NHẬP KHẨU hoạt động trong lĩnh vực Sản xuất
-                  chai nhựa và thủy tinh.
+                  “CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ XUẤT NHẬP KHẨU VŨ GIA GROUP. Sự ra đời của công ty nhằm đáp ứng nhu cầu kinh doanh ngành chai nhựa của các đại lý trên toàn quốc, nhất là chai nhựa sử dụng nhiều như chai lọ.
                 </p>
               </div>
               <div className="home-main-introduce-button">

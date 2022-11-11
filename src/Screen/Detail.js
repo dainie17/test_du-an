@@ -24,6 +24,8 @@ import money from '../assets/salary.png'
 import hour from '../assets/hour.png'
 import shieldImg from "../assets/shields.png";
 
+import ScrollToTop from "react-scroll-to-top";
+
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Call, FavoriteBorderSharp, HistorySharp, LocalShippingSharp, TokenSharp, VerifiedSharp, VerifiedUser } from "@mui/icons-material";
@@ -70,6 +72,7 @@ const Detail = () => {
   }
   return (
     <div className="detail">
+      <ScrollToTop smooth  ></ScrollToTop>
       <nav className="home-header">
         <div className="header_container">
           <div className="home-header_logo">

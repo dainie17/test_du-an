@@ -20,13 +20,14 @@ import Tooltip from "@mui/material/Tooltip";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
+import BeatLoader from "react-spinners/BeatLoader";
+import ScrollToTop from "react-scroll-to-top";
 
 import Slider from "react-slick";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import "../css/Product.css";
 import Footer from "./footer";
 import { useEffect } from "react";
-import ItemProductType from "../item/ItemProductType";
 
 const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
@@ -104,8 +105,28 @@ const Product = () => {
     });
   });
 
+  const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+        }, 500);
+    }, []);
+
   return (
     <div className="product">
+      <ScrollToTop smooth  ></ScrollToTop>
+      {
+                loading ? <div className='loading'>
+                    <BeatLoader
+                        color={'#36d7b7'}
+                        loading={loading}
+                        size={15}
+                        margin={5}
+                        speedMultiplier={1}
+                    /></div>
+                    :
+                    <div>
       <nav className="home-header">
         <div className="header_container">
           <div className="home-header_logo">
@@ -346,6 +367,8 @@ const Product = () => {
       </div>
 
       <Footer />
+      </div>
+}
     </div>
   );
 };

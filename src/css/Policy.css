@@ -58,8 +58,9 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .policy_right_facebook h3{
-    background-color: aqua;
+    background-color: #63A3F7;
     padding: 15px;
+    border-radius: 10px 10px 0px 0;
 }
 .policy_right_facebook_iframe{
     width: 100%;
