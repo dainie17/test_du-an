@@ -14,20 +14,8 @@ const image5 = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018
 
 
 
-class News1 extends Component{
-    
-    constructor(props){
-        super(props)
-        this.state={
-            uudai:{
-                id:'',
-                mota:''
-            }
-        }
-    }
-    
-    render(){
-        console.log(this.props);
+function News1 (){
+
     return (
         <div>
             <nav className="home-header">
@@ -90,12 +78,12 @@ class News1 extends Component{
                     </div>
                 </div>
             </nav>
-            <div className="news">
+            <div className="news" style={{marginTop: "70px"}}>
+                
                 <div className="news_table">
                     <div className="title_header">
                         <h2>Tin tức & Ưu đãi</h2>
                     </div>
-
                     <div className="news_table_text">
                         <div className="news_table_left">
                             {/* <h2>{uudai.name}</h2> */}
@@ -148,7 +136,7 @@ class News1 extends Component{
             <Footer />
         </div>
     )
-}}
+}
 
 
 export default News1;

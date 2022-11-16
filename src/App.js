@@ -33,14 +33,14 @@ function App() {
         <Route path='/Home' element={<Home />} />
         <Route path='/Introduce' element={<Introduce />} />
         <Route path='/Product' element={<Product />} />
-        <Route path='/Detail' element={<Detail />} />
+        <Route path='/Detail/:id/:name/:price/:num' element={<Detail />} />
         <Route path='/Personal' element={<Person/>}/>
         <Route path='/Cart' element={<Cart />} />
         <Route path='/Personal' element={<Personal />} />
         <Route path='/Order' element={<Order />} />
         <Route path='/News' element={<Bao1 />} />
         <Route path='/Contact' element={<Introduce1 />} />
-        <Route path="/ItemNews/:id" element={<New1 />} />
+        <Route path="/ItemNews" element={<New1 />} />
         <Route path='/slide' element={<SliderHome />} />
 
         <Route path='/baomat' element={<Confifential />} />

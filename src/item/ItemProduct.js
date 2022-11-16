@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 function ItemProduct(props) {
     let navga = useNavigate();
     const onClick = () => {
-        navga("/Detail");
+        navga(`/Detail/${props.id}/${props.name}/${props.price}/${props.number}`);
       };
   return (
     <>

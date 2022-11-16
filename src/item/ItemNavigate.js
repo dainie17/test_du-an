@@ -7,7 +7,8 @@ import Uudai from "./ItemNavi";
 
 
 
-
+// /:image/:name/:mota
+// /${uudai.image}/${uudai.name}/${uudai.mota}
 function ItemNavigate() {
     
     return (
@@ -21,7 +22,7 @@ function ItemNavigate() {
                     <p>{uudai.mota.substring(0, 230) + " [...]"}</p>
                     
                         
-                        <Link className="title_list_cottom_button" to={{pathname:`/ItemNews/${uudai.id}`, state:uudai}}>Đọc Thêm</Link>
+                        <Link className="title_list_cottom_button" to={{pathname:`/ItemNews`}}>Đọc Thêm</Link>
                         
                 </div>
             </div>

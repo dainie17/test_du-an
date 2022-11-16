@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { Link, useNavigate } from 'react-router-dom';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
@@ -44,6 +44,14 @@ const logo = "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149
 
 const Detail = () => {
 
+  const [tong, setTong] = useState(1);
+
+  const onclickReduce =()=>{
+    if(tong > 1){
+        setTong(tong - 1);
+    }
+}
+
   useEffect(() => {
     const u = localStorage.getItem("uses");
     console.log(u);
@@ -70,6 +78,29 @@ const Detail = () => {
   const toogleTab = (index) => {
     setToggleState(index);
   }
+
+  let {id, name, price, num} = useParams();
+
+  let cart = [];
+  const addTocart = async () =>{
+    let storage = localStorage.getItem('cart');
+    if(storage){
+      cart = JSON.parse(storage);
+    }
+
+
+    let item = cart.find( c => c.id === id);
+
+    if(item){
+      item.num += tong
+    } else {
+      cart.push({id: id,name: name,price: price,num: tong});
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    console.log(cart);
+  }
+
   return (
     <div className="detail">
       <ScrollToTop smooth  ></ScrollToTop>
@@ -202,7 +233,7 @@ const Detail = () => {
                 </Menu>
               </React.Fragment>
             </div>
-            <div className="font_icon_nav">
+            <div onClick={onclickItem} className="font_icon_nav">
               <div className="cart" />
             </div>
           </div>
@@ -235,18 +266,18 @@ const Detail = () => {
               </Slider>
             </div>
             <div className="detail-main-top-right">
-              <p className="detail-main-top-right-name">Tai nghe chơi game EKSA E900Plus  Tai nghe Gamer cho PC máy tính xách tay PS4 </p>
-              <p className="detail-main-top-right-number">Số lượng: 30</p>
-              <p className="detail-main-top-right-price">1.234.000 &#8363;</p>
+              <p className="detail-main-top-right-name">{name}</p>
+              <p className="detail-main-top-right-number">Số lượng: {num}</p>
+              <p className="detail-main-top-right-price">{price} &#8363;</p>
               <p className="detail-main-top-right-title">Thông tin sản phẩm:</p>
               <p className="detail-main-top-right-content">Về phần thiết kế, nhà Apple vẫn giữ nguyên kiểu dáng quen thuộc của những phiên bản tiền nhiệm trước đó như: Thiết kế gọn nhẹ, đường bo góc tinh tế, gam màu trắng trang nhã bao bọc trọn vẹn tai nghe và hộp sạc.Ở phiên bản này, hộp sạc được trang bị thêm phần khoen để móc dây treo tiện lợi. Nhờ đó, bạn có thể dễ dàng treo vào balo và mang đi bất kỳ đâu mà không cần dùng tới túi đựng AirPods chuyên dụng. Loa tích hợp trên hộp sạc có thể phát âm thanh giúp bạn dễ dàng xác định vị trí khi vô tình đánh rơi và phát ra âm cảnh báo khi pin yếu hoặc quá trình ghép nối hoàn tất.
 
                 Ngoài ra, trong mỗi hộp tai nghe Apple này sẽ có bốn cặp đệm tai với các kích cỡ XS, S, M, L cho người dùng thoải mái lựa chọn đệm tai phù hợp. Đệm tai làm từ chất liệu silicone cao cấp cũng sẽ cho bạn cảm giác mềm mại, vừa vặn khi đeo.</p>
               <div className="detail-main-top-right-button">
                 <div className="detail-main-top-right-button-picknb">
-                  <button className="detail-main-top-right-button-picknb-reduce">-</button>
-                  <p className="detail-main-top-right-button-picknb-num">1</p>
-                  <button className="detail-main-top-right-button-picknb-augment">+</button>
+                  <button onClick={onclickReduce} className="detail-main-top-right-button-picknb-reduce">-</button>
+                  <p className="detail-main-top-right-button-picknb-num">{tong}</p>
+                  <button onClick={()=> setTong(tong + 1)} className="detail-main-top-right-button-picknb-augment">+</button>
                 </div>
                 <div className={toggleState === 2 ? "favorite detail-main-top-right-button-favorite1" : "fv"} onClick={() => toogleTab(1)}>
                   <div className="favorite_img">
@@ -265,7 +296,7 @@ const Detail = () => {
                   </div>
                 </div>
               </div>
-              <button onClick={onclickItem} className="detail-main-top-right-btngh">Thêm vào giỏ hàng</button>
+              <button onClick={addTocart} className="detail-main-top-right-btngh">Thêm vào giỏ hàng</button>
               <p className="detail-main-top-right-titlepay">Thanh toán an toàn</p>
               <p className="detail-main-top-right-option">Nhiều tùy chọn thanh toán</p>
               <p className="detail-main-top-right-service">Đảm bảo dịch vụ khách hàng</p>

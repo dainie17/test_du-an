@@ -27,7 +27,9 @@ import Slider from "react-slick";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import "../css/Product.css";
 import Footer from "./footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+import ItemProductType from "../item/ItemProductType"
 
 const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
