@@ -256,7 +256,7 @@ export default function SignUp() {
                   placeholder=" "
                   name="Nhập lại mật khẩu"
                   onChange={(e) => setPassAg(e.target.value)}
-                  onConClick={useKey("Enter", onSubmit)}
+                  onClick={useKey("Enter", onSubmit)}
                   onBlur={(e) => validatePassAgain(e.target.value)}
                   required
                 />
@@ -271,7 +271,7 @@ export default function SignUp() {
             <button
               className="form_login_btn"
               type="submit"
-              loading={isSubmitting}
+              onClick={onSubmit}
             >
               Đăng Ký
             </button>

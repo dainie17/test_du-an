@@ -56,6 +56,7 @@ function Login_1() {
   const {
     handleSubmit,
     formState: { isSubmitting },
+    
   } = methods;
 
   const onSubmit = async () => {
@@ -173,7 +174,7 @@ function Login_1() {
                   placeholder=" "
                   name="Tên đăng nhập"
                   onChange={(e) => setTK(e.target.value)}
-                  onClick={useKey("Enter", onSubmit)}
+                  onClick={useKey("Enter", handleSubmit)}
                   onBlur={(e) => validateTK(e.target.value)}
                   required
                 />
@@ -190,8 +191,7 @@ function Login_1() {
                   placeholder=" "
                   name="Tên đăng nhập"
                   onChange={(e) => setPass(e.target.value)}
-                  onC
-                  lick={useKey("Enter", onSubmit)}
+                  onClick={useKey("Enter", handleSubmit)}
                   onBlur={(e) => validatePass(e.target.value)}
                   required
                 />
@@ -213,7 +213,8 @@ function Login_1() {
             <button
               className="form_login_btn"
               type="submit"
-              loading={isSubmitting}
+              onClick={onSubmit}
+              
             >
               Đăng nhập
             </button>

@@ -1,9 +1,5 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-// import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-// import SearchSharpIcon from "@mui/icons-material/SearchSharp";
-// import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
-// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -11,7 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 import "../css/Navbar.css";
 import $ from "jquery";
 import Footer from "./footer";
-import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import "../css/Home.css";
 import imageItem from "../assets/blue.png";
 import imageItem2 from "../assets/cyan.png";
@@ -34,7 +29,7 @@ import imgCosmetics from "../assets/cosmetics.png";
 import imgBottle from "../assets/bottle.png";
 import imgPlasticBott from "../assets/plastic-bottle.png";
 import imgCup from "../assets/cup.png";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
 
 import { useState } from "react";
 
@@ -49,7 +44,6 @@ const image4 =
 const image5 =
   "https://thuytinhtadaco.com/wp-content/uploads/2021/08/chai-lo-thuy-tinh.jpg";
 
-
 const imgBanner = "https://i.redd.it/dhjkl1p1y8dy.jpg";
 const imgBanner1 = "https://wallpaperaccess.com/full/333442.jpg";
 const imgBanner2 = "http://i.imgur.com/VUnpzvl.jpg";
@@ -60,6 +54,21 @@ const imgBanner4 =
 
 const Home = () => {
   const [dem, setDem] = useState(1);
+
+  useEffect(() => {
+    $(".input").focus(function() {
+      $("#search").addClass("move");
+    });
+    $(".input").focusout(function() {
+      $("#search").removeClass("move");
+      $(".input").val("");
+    });
+  });
+
+  const onClickSearch = () => {
+    $(".input").toggleClass("active");
+    $("#search").toggleClass("active");
+  };
 
   useEffect(() => {
     function runBanner(e) {
@@ -86,7 +95,7 @@ const Home = () => {
         next = $(this).data("slide");
       if (dem == 1) {
         $(".slide-nav1").removeClass("active");
-        $('.slide-nav2').addClass('active');
+        $(".slide-nav2").addClass("active");
         if (current === next) {
           return false;
         } else {
@@ -95,7 +104,7 @@ const Home = () => {
         }
       } else if (dem == 3) {
         $(".slide-nav3").removeClass("active");
-        $('.slide-nav2').addClass('active');
+        $(".slide-nav2").addClass("active");
         if (current === next) {
           return false;
         } else {
@@ -104,7 +113,7 @@ const Home = () => {
         }
       } else if (dem == 4) {
         $(".slide-nav4").removeClass("active");
-        $('.slide-nav2').addClass('active');
+        $(".slide-nav2").addClass("active");
         if (current === next) {
           return false;
         } else {
@@ -113,7 +122,7 @@ const Home = () => {
         }
       } else if (dem == 5) {
         $(".slide-nav5").removeClass("active");
-        $('.slide-nav2').addClass('active');
+        $(".slide-nav2").addClass("active");
         if (current === next) {
           return false;
         } else {
@@ -122,7 +131,6 @@ const Home = () => {
         }
       }
 
-      console.log(dem);
       $(".slide-nav2").removeClass("active");
       $(".slide-nav3").removeClass("active");
       $(".slide-nav4").removeClass("active");
@@ -139,7 +147,6 @@ const Home = () => {
       var current = $(".flex--active").data("slide"),
         // get button data-slide
         next = $(this).data("slide");
-      console.log(dem);
       $(".slide-nav1").removeClass("active");
       $(".slide-nav3").removeClass("active");
       $(".slide-nav4").removeClass("active");
@@ -156,17 +163,15 @@ const Home = () => {
       var current = $(".flex--active").data("slide"),
         // get button data-slide
         next = $(this).data("slide");
-      console.log(dem);
       $(".slide-nav1").removeClass("active");
       $(".slide-nav2").removeClass("active");
       $(".slide-nav4").removeClass("active");
       $(".slide-nav5").removeClass("active");
       $(".slide-nav3").addClass("active");
 
-
       if (dem == 1) {
         $(".slide-nav1").removeClass("active");
-        $('.slide-nav3').addClass('active');
+        $(".slide-nav3").addClass("active");
         if (current === next) {
           return false;
         } else {
@@ -175,7 +180,7 @@ const Home = () => {
         }
       } else if (dem == 2) {
         $(".slide-nav2").removeClass("active");
-        $('.slide-nav3').addClass('active');
+        $(".slide-nav3").addClass("active");
         if (current === next) {
           return false;
         } else {
@@ -184,7 +189,7 @@ const Home = () => {
         }
       } else if (dem == 4) {
         $(".slide-nav4").removeClass("active");
-        $('.slide-nav3').addClass('active');
+        $(".slide-nav3").addClass("active");
         if (current === next) {
           return false;
         } else {
@@ -193,7 +198,7 @@ const Home = () => {
         }
       } else if (dem == 5) {
         $(".slide-nav5").removeClass("active");
-        $('.slide-nav3').addClass('active');
+        $(".slide-nav3").addClass("active");
         if (current === next) {
           return false;
         } else {
@@ -203,7 +208,6 @@ const Home = () => {
       }
 
       runBanner(next);
-
     });
 
     $(".slide-nav4").on("click", function (e) {
@@ -213,20 +217,15 @@ const Home = () => {
       var current = $(".flex--active").data("slide"),
         // get button data-slide
         next = $(this).data("slide");
-      console.log(dem);
       $(".slide-nav1").removeClass("active");
       $(".slide-nav2").removeClass("active");
       $(".slide-nav3").removeClass("active");
       $(".slide-nav5").removeClass("active");
       $(".slide-nav4").addClass("active");
 
-
-
-
       // useEffect(() => {
 
       //   setTimeout(() => {
-
 
       //     function runBanner(e) {
       //       $(".slider__warpper")
@@ -248,32 +247,31 @@ const Home = () => {
       //       runBanner(dem)
       //       $('.slide-nav1').removeClass('active');
       //       $('.slide-nav2').addClass('active');
-      //     } 
+      //     }
       //      if (dem == 2) {
       //       setDem(3);
       //       runBanner(dem)
       //       $('.slide-nav2').removeClass('active');
       //       $('.slide-nav3').addClass('active');
-      //     } 
+      //     }
       //      if (dem == 3) {
       //       setDem(4);
       //       runBanner(dem)
       //       $('.slide-nav3').removeClass('active');
       //       $('.slide-nav4').addClass('active');
-      //     } 
+      //     }
       //      if (dem == 4) {
       //       setDem(5);
       //       runBanner(dem)
       //       $('.slide-nav4').removeClass('active');
       //       $('.slide-nav5').addClass('active');
-      //     } 
+      //     }
       //      if (dem == 5) {
       //       setDem(1);
       //       runBanner(dem)
       //       $('.slide-nav5').removeClass('active');
       //       $('.slide-nav1').addClass('active');
       //     }
-
 
       //   }, 6000);
 
@@ -298,7 +296,6 @@ const Home = () => {
     });
 
     const myTimeOut = setTimeout(() => {
-      console.log(dem);
       if (dem == 1) {
         setDem(2);
         runBanner(dem);
@@ -347,14 +344,6 @@ const Home = () => {
     }, 6000);
   });
 
-
-  useEffect(() => {
-    const u = localStorage.getItem("uses");
-    console.log(u);
-  });
-
-  const data = [image1, image2, image3, image4, image5];
-
   const dataSlide = [
     {
       title: "Chai lọ đựng gia vị",
@@ -382,39 +371,6 @@ const Home = () => {
     },
   ];
 
-  const dataIntroduce = [
-    {
-      image: image1,
-      title: "Top 6 món đồ nhựa tốt nhất hiện nay",
-      content:
-        "Với những ưu điểm vượt trội hoàn toàn, sàn nhựa đang vượt mặt các loại vật liệu truyền thống như sàn gỗ, gạch men để trở thành loại vật liệu lát sàn được ưa dùng nhất hiện nay. Trong đó nổi bật nhất là các loại sàn nhựa giả gỗ. Chính vì nhu cầu cao mà hiện nay trên thị trường xuất hiện rất nhiều các dòng sàn nhựa giả gỗ đến từ nhiều thương hiệu và quốc gia khác nhau. Gây khó khăn cho người tiêu dùng trong việc lựa chọn loại sàn nhựa giả gỗ nào cho đảm bảo chất lượng cũng như giá cả phải chăng. Ở bài viết này, hãy cùng santot.vn đi tìm hiểu ưu nhược điểm và đặc tính của những loại sàn nhựa giả gỗ phổ biến và đáng sử dụng nhất hiện nay nhé.",
-    },
-    {
-      image: image2,
-      title: "Top 6 món đồ nhựa tốt nhất hiện nay",
-      content:
-        "Với những ưu điểm vượt trội hoàn toàn, sàn nhựa đang vượt mặt các loại vật liệu truyền thống như sàn gỗ, gạch men để trở thành loại vật liệu lát sàn được ưa dùng nhất hiện nay. Trong đó nổi bật nhất là các loại sàn nhựa giả gỗ. Chính vì nhu cầu cao mà hiện nay trên thị trường xuất hiện rất nhiều các dòng sàn nhựa giả gỗ đến từ nhiều thương hiệu và quốc gia khác nhau. Gây khó khăn cho người tiêu dùng trong việc lựa chọn loại sàn nhựa giả gỗ nào cho đảm bảo chất lượng cũng như giá cả phải chăng. Ở bài viết này, hãy cùng santot.vn đi tìm hiểu ưu nhược điểm và đặc tính của những loại sàn nhựa giả gỗ phổ biến và đáng sử dụng nhất hiện nay nhé.",
-    },
-    {
-      image: image3,
-      title: "Top 6 món đồ nhựa tốt nhất hiện nay",
-      content:
-        "Với những ưu điểm vượt trội hoàn toàn, sàn nhựa đang vượt mặt các loại vật liệu truyền thống như sàn gỗ, gạch men để trở thành loại vật liệu lát sàn được ưa dùng nhất hiện nay. Trong đó nổi bật nhất là các loại sàn nhựa giả gỗ. Chính vì nhu cầu cao mà hiện nay trên thị trường xuất hiện rất nhiều các dòng sàn nhựa giả gỗ đến từ nhiều thương hiệu và quốc gia khác nhau. Gây khó khăn cho người tiêu dùng trong việc lựa chọn loại sàn nhựa giả gỗ nào cho đảm bảo chất lượng cũng như giá cả phải chăng. Ở bài viết này, hãy cùng santot.vn đi tìm hiểu ưu nhược điểm và đặc tính của những loại sàn nhựa giả gỗ phổ biến và đáng sử dụng nhất hiện nay nhé.",
-    },
-    {
-      image: image4,
-      title: "Top 6 món đồ nhựa tốt nhất hiện nay",
-      content:
-        "Với những ưu điểm vượt trội hoàn toàn, sàn nhựa đang vượt mặt các loại vật liệu truyền thống như sàn gỗ, gạch men để trở thành loại vật liệu lát sàn được ưa dùng nhất hiện nay. Trong đó nổi bật nhất là các loại sàn nhựa giả gỗ. Chính vì nhu cầu cao mà hiện nay trên thị trường xuất hiện rất nhiều các dòng sàn nhựa giả gỗ đến từ nhiều thương hiệu và quốc gia khác nhau. Gây khó khăn cho người tiêu dùng trong việc lựa chọn loại sàn nhựa giả gỗ nào cho đảm bảo chất lượng cũng như giá cả phải chăng. Ở bài viết này, hãy cùng santot.vn đi tìm hiểu ưu nhược điểm và đặc tính của những loại sàn nhựa giả gỗ phổ biến và đáng sử dụng nhất hiện nay nhé.",
-    },
-    {
-      image: image5,
-      title: "Top 6 món đồ nhựa tốt nhất hiện nay",
-      content:
-        "Với những ưu điểm vượt trội hoàn toàn, sàn nhựa đang vượt mặt các loại vật liệu truyền thống như sàn gỗ, gạch men để trở thành loại vật liệu lát sàn được ưa dùng nhất hiện nay. Trong đó nổi bật nhất là các loại sàn nhựa giả gỗ. Chính vì nhu cầu cao mà hiện nay trên thị trường xuất hiện rất nhiều các dòng sàn nhựa giả gỗ đến từ nhiều thương hiệu và quốc gia khác nhau. Gây khó khăn cho người tiêu dùng trong việc lựa chọn loại sàn nhựa giả gỗ nào cho đảm bảo chất lượng cũng như giá cả phải chăng. Ở bài viết này, hãy cùng santot.vn đi tìm hiểu ưu nhược điểm và đặc tính của những loại sàn nhựa giả gỗ phổ biến và đáng sử dụng nhất hiện nay nhé.",
-    },
-  ];
-
   let navgate = useNavigate();
 
   const onclickItem = () => {
@@ -423,12 +379,11 @@ const Home = () => {
 
   return (
     <div className="home">
-      <ScrollToTop className="scroll" smooth={true}  ></ScrollToTop>
+      <ScrollToTop className="scroll" smooth={true}></ScrollToTop>
       <nav className="home-header">
         <div className="header_container">
           <div className="home-header_logo">
             <img className="home-header-logo-image" src={logo} alt="" />
-            
           </div>
           <ul className="home-header_ul">
             <li>
@@ -464,7 +419,7 @@ const Home = () => {
           </ul>
           <div className="home-header_icon">
             <div className="font_icon_nav">
-              <div className="search" />
+              <div className="search" onClick={onClickSearch}></div>
             </div>
 
             <div className="home-header_icon_user">
@@ -483,6 +438,11 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <div className="form">
+        <label id="search">Enter Your Email address</label>
+        <br />
+        <input type="text" className="input" />
+      </div>
       </nav>
 
       <div className="banner_container">
@@ -616,32 +576,34 @@ const Home = () => {
 
       <div className="home-main">
         <div className="home_container">
-        <div>
-          <div className="home-main-introduce">
-            
-            <div className="home-main-introduce-content">
-              <div className="home-main-introduce-content-frontpager">
-                CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ XUẤT NHẬP KHẨU
-                VŨ GIA GROUP
+          <div>
+            <div className="home-main-introduce">
+              <div className="home-main-introduce-content">
+                <div className="home-main-introduce-content-frontpager">
+                  CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ XUẤT NHẬP KHẨU
+                  VŨ GIA GROUP
+                </div>
+                <div className="home-main-introduce-content-title">
+                  <p>
+                    “CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ XUẤT NHẬP
+                    KHẨU VŨ GIA GROUP. Sự ra đời của công ty nhằm đáp ứng nhu
+                    cầu kinh doanh ngành chai nhựa của các đại lý trên toàn
+                    quốc, nhất là chai nhựa sử dụng nhiều như chai lọ.
+                  </p>
+                </div>
+                <div className="home-main-introduce-button">
+                  <button className="home-main-introduce-btn">Đọc thêm</button>
+                </div>
               </div>
-              <div className="home-main-introduce-content-title">
-                <p>
-                  “CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ XUẤT NHẬP KHẨU VŨ GIA GROUP. Sự ra đời của công ty nhằm đáp ứng nhu cầu kinh doanh ngành chai nhựa của các đại lý trên toàn quốc, nhất là chai nhựa sử dụng nhiều như chai lọ.
-                </p>
-              </div>
-              <div className="home-main-introduce-button">
-                <button className="home-main-introduce-btn">Đọc thêm</button>
-              </div>
-            </div>
 
-            <div className="home-main-introduce-image">
-              <img
-                src={image1}
-                alt=""
-                className="home-main-introduce-image-style"
-              />
+              <div className="home-main-introduce-image">
+                <img
+                  src={image1}
+                  alt=""
+                  className="home-main-introduce-image-style"
+                />
+              </div>
             </div>
-          </div>
           </div>
         </div>
 
@@ -772,11 +734,9 @@ const Home = () => {
         </div>
 
         <div className="home-main-slide">
-          <div  className="home_backgroud">
+          <div className="home_backgroud">
             <div className="home_container">
-
               <SliderHome />
-
             </div>
           </div>
         </div>
@@ -1120,7 +1080,6 @@ const Home = () => {
       </div>
 
       <Footer />
-      <script src="./slideScript.js"></script>
     </div>
   );
 };
