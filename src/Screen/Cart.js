@@ -35,7 +35,6 @@ const Cart = () => {
     } else if ((item.num = 1)) {
       reduce = reduce.filter((remove) => remove.id != id);
       localStorage.setItem("cart", JSON.stringify(reduce));
-      console.log(reduce);
     }
     getCart();
   };
@@ -55,7 +54,6 @@ const Cart = () => {
       item.num += 1;
     }
     localStorage.setItem("cart", JSON.stringify(addNum));
-    console.log(addNum);
     getCart();
   };
 

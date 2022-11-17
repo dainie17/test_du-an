@@ -30,7 +30,7 @@ import truck from '../assets/truck.png'
 import love from '../assets/love.png'
 import Popup from "reactjs-popup";
 
-const logo = "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
+const logo = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
 const img = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
 
 // online
@@ -373,7 +373,7 @@ function Person() {
                                     <h3>Mật Khẩu</h3>
                                     
                                     <Popup trigger={
-                                    <button onclick={openForm}>Đổi mật khẩu</button>
+                                    <button onClick={openForm}>Đổi mật khẩu</button>
                                     } position="right center">
                                         <div>Popup content here !!</div>
                                     </Popup>
@@ -392,14 +392,14 @@ function Person() {
                             <div className="active-content-list">
                                 {
                                     user.map((item, index) => (
-                                        <div>
-                                            <div key={index} className="active-content-list-card">
+                                        <div key={index}>
+                                            <div className="active-content-list-card">
                                                 <img className="active-content-list-card-image" src={item.image} alt="" />
                                                 <div className="active-content-list-card-content">
                                                     <p className="active-content-list-card-content-name">{item.name}</p>
                                                     <p className="active-content-list-card-content-type">Loại:{item.Loai}/Ship từ:{item.Ship}</p>
                                                     <p className="active-content-list-card-content-price">{item.price}&#8363;</p>
-                                                    <p className="active-content-list-card-content-cod"><p>COD</p></p>
+                                                    <p className="active-content-list-card-content-cod">COD</p>
                                                 </div>
                                                 <div className="active-content-list-card-function">
                                                     <div className="active-content-list-card-function-button">
