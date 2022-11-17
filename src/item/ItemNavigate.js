@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 import { Link, Route, useParams } from "react-router-dom";
-import NewsItem from "./NewsItem";
-import News1 from "../Screen/News1";
+
 import ItemNavi from "./ItemNavi"
-import Uudai from "./ItemNavi";
 
 
 
 // /:image/:name/:mota
 // /${uudai.image}/${uudai.name}/${uudai.mota}
+
 function ItemNavigate() {
     
     return (
@@ -22,7 +21,7 @@ function ItemNavigate() {
                     <p>{uudai.mota.substring(0, 230) + " [...]"}</p>
                     
                         
-                        <Link className="title_list_cottom_button" to={{pathname:`/ItemNews`}}>Đọc Thêm</Link>
+                        <Link className="title_list_cottom_button" to={{pathname:`/ItemNews/${uudai.id} ` }} state = {uudai}  >Đọc Thêm</Link>
                         
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import '../css/News1.css'
@@ -14,8 +14,11 @@ const image5 = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018
 
 
 
-function News1 (){
-
+function News1(props) {
+    let location = useLocation();
+    let { id } = useParams();
+    const data = location.state;
+    console.log(data);
     return (
         <div>
             <nav className="home-header">
@@ -63,7 +66,7 @@ function News1 (){
 
                         <div className="home-header_icon_user">
                             <div className="home-header_icon_user_img"
-                                >
+                            >
                                 <div className="user" />
                             </div>
                             <div className="home-header_icon_user_content">
@@ -78,8 +81,8 @@ function News1 (){
                     </div>
                 </div>
             </nav>
-            <div className="news" style={{marginTop: "70px"}}>
-                
+            <div className="news" style={{ marginTop: "70px" }}>
+
                 <div className="news_table">
                     <div className="title_header">
                         <h2>Tin tức & Ưu đãi</h2>
@@ -87,49 +90,47 @@ function News1 (){
                     <div className="news_table_text">
                         <div className="news_table_left">
                             {/* <h2>{uudai.name}</h2> */}
-                            <h1>Quy trình sản xuất chai nhựa pet đạt tiêu chuẩn ISO </h1>
-                            <img src="https://chainhuahuynhat.com/wp-content/uploads/2020/12/nhua-pet-la-gi.jpg"></img>
+                            <h1>{data.name} </h1>
+                            <img src={data.image}></img>
                             <p className="news_table_left_p">Lời đầu tiên, PAVICO xin chân thành cảm ơn Quý khách hàng và toàn thể CBCNV đã đồng hành với công ty trong suốt 1 năm vừa qua. Năm 2021 quả thực là một năm đáng nhớ đối với tất cả chúng ta. Khi đại dịch Covid đã khiến mọi hoạt động sản xuất bị đảo lộn. Nhưng hơn hết, với sự cố gắng và quyết tâm chiến thắng đại dịch, PAVICO đã và đang nỗ lực khắc phục các khó khăn, đồng hành cùng Quý khách hàng vượt qua khoảng thời gian thử thách này. Để rồi chúng ta cùng đón nhận những thành quả tốt đẹp trong năm vừa qua và hướng tới những mục tiêu lớn trong năm 2022 sắp tới.</p>
-                            <div className="news_table_left__content">
-                                <h2>Hoạt động sản xuất của PAVICO trong năm 2021</h2>
-                                <p>Trong năm 2021, PAVICO vẫn tiếp tục duy trì ổn định các hoạt động sản xuất. Với việc sở hữu 8 công nghệ hiện đại, công ty đã cung cấp số lượng lớn các sản phẩm bao bì cho các doanh nghiệp trong nước và quốc tế. </p>
+                            {data.container.map((container, index) =>
+                            <div key={index} className="news_table_left__content">
+                                <h2>{container.title}</h2>
+                                <p> {container.content} </p>
                                 <p>Tính đến thời điểm hiện tại, PAVICO đã và đang trở thành đối tác chiến lược thương mại quan trọng của nhiều doanh nghiệp. Không chỉ hướng tới thị trường trong nước, trong năm 2021, công ty đã xuất khẩu thành công các sản phẩm bao bì sang thị trường quốc tế như: Nhật Bản, Hàn Quốc, Trung Quốc và Mỹ. Với tổng sản lượng hàng hóa vượt qua mục tiêu đề ra trong năm 2021. Điều đó chứng tỏ được sự nỗ lực và cố gắng không ngừng nghỉ của toàn thể Cán bộ CNV công ty. </p>
                                 <p>Mặc dù đại dịch Covid đã ảnh hưởng đến hoạt động sản xuất của công ty vào nửa đầu năm 2021, nó khiến các hoạt động sản xuất bị trì hoãn. Nhưng với sự cố gắng và tinh thần đoàn kết, PAVICO vẫn luôn đảm bảo tốt nguồn cung ổn định cho tất cả các đối tác trong nước và quốc tế.</p>
                             </div>
-                            <div className="news_table_left__content">
-                                <h2>Hoạt động sản xuất của PAVICO trong năm 2021</h2>
-                                <p>Trong năm 2021, PAVICO vẫn tiếp tục duy trì ổn định các hoạt động sản xuất. Với việc sở hữu 8 công nghệ hiện đại, công ty đã cung cấp số lượng lớn các sản phẩm bao bì cho các doanh nghiệp trong nước và quốc tế. </p>
-                                <p>Tính đến thời điểm hiện tại, PAVICO đã và đang trở thành đối tác chiến lược thương mại quan trọng của nhiều doanh nghiệp. Không chỉ hướng tới thị trường trong nước, trong năm 2021, công ty đã xuất khẩu thành công các sản phẩm bao bì sang thị trường quốc tế như: Nhật Bản, Hàn Quốc, Trung Quốc và Mỹ. Với tổng sản lượng hàng hóa vượt qua mục tiêu đề ra trong năm 2021. Điều đó chứng tỏ được sự nỗ lực và cố gắng không ngừng nghỉ của toàn thể Cán bộ CNV công ty. </p>
-                                <p>Mặc dù đại dịch Covid đã ảnh hưởng đến hoạt động sản xuất của công ty vào nửa đầu năm 2021, nó khiến các hoạt động sản xuất bị trì hoãn. Nhưng với sự cố gắng và tinh thần đoàn kết, PAVICO vẫn luôn đảm bảo tốt nguồn cung ổn định cho tất cả các đối tác trong nước và quốc tế.</p>
-                            </div>
-                            <div className="news_table_left__content">
-                                <h2>Hoạt động sản xuất của PAVICO trong năm 2021</h2>
-                                <p>Trong năm 2021, PAVICO vẫn tiếp tục duy trì ổn định các hoạt động sản xuất. Với việc sở hữu 8 công nghệ hiện đại, công ty đã cung cấp số lượng lớn các sản phẩm bao bì cho các doanh nghiệp trong nước và quốc tế. </p>
-                                <p>Tính đến thời điểm hiện tại, PAVICO đã và đang trở thành đối tác chiến lược thương mại quan trọng của nhiều doanh nghiệp. Không chỉ hướng tới thị trường trong nước, trong năm 2021, công ty đã xuất khẩu thành công các sản phẩm bao bì sang thị trường quốc tế như: Nhật Bản, Hàn Quốc, Trung Quốc và Mỹ. Với tổng sản lượng hàng hóa vượt qua mục tiêu đề ra trong năm 2021. Điều đó chứng tỏ được sự nỗ lực và cố gắng không ngừng nghỉ của toàn thể Cán bộ CNV công ty. </p>
-                                <p>Mặc dù đại dịch Covid đã ảnh hưởng đến hoạt động sản xuất của công ty vào nửa đầu năm 2021, nó khiến các hoạt động sản xuất bị trì hoãn. Nhưng với sự cố gắng và tinh thần đoàn kết, PAVICO vẫn luôn đảm bảo tốt nguồn cung ổn định cho tất cả các đối tác trong nước và quốc tế.</p>
-                            </div>
-                            <div className="news_table_left__content">
-                                <h2>Hoạt động sản xuất của PAVICO trong năm 2021</h2>
-                                <p>Trong năm 2021, PAVICO vẫn tiếp tục duy trì ổn định các hoạt động sản xuất. Với việc sở hữu 8 công nghệ hiện đại, công ty đã cung cấp số lượng lớn các sản phẩm bao bì cho các doanh nghiệp trong nước và quốc tế. </p>
-                                <p>Tính đến thời điểm hiện tại, PAVICO đã và đang trở thành đối tác chiến lược thương mại quan trọng của nhiều doanh nghiệp. Không chỉ hướng tới thị trường trong nước, trong năm 2021, công ty đã xuất khẩu thành công các sản phẩm bao bì sang thị trường quốc tế như: Nhật Bản, Hàn Quốc, Trung Quốc và Mỹ. Với tổng sản lượng hàng hóa vượt qua mục tiêu đề ra trong năm 2021. Điều đó chứng tỏ được sự nỗ lực và cố gắng không ngừng nghỉ của toàn thể Cán bộ CNV công ty. </p>
-                                <p>Mặc dù đại dịch Covid đã ảnh hưởng đến hoạt động sản xuất của công ty vào nửa đầu năm 2021, nó khiến các hoạt động sản xuất bị trì hoãn. Nhưng với sự cố gắng và tinh thần đoàn kết, PAVICO vẫn luôn đảm bảo tốt nguồn cung ổn định cho tất cả các đối tác trong nước và quốc tế.</p>
+                            )}
+
+                            
+                        </div>
+                        <div className="policy_right">
+                        <div className="policy_right_list">
+                            <h3>Tin tức mới nhất</h3>
+                            <div>
+                                {ItemNavi.map((uudai, index) =>
+                                    <div key={index} className="policy_list" >
+                                        <img src={uudai.image} />
+
+                                        <h2>{uudai.name}</h2>
+
+                                    </div>
+                                )}
                             </div>
                         </div>
-                        <div className="news_table_right">
-                            <h3>Có thể quan tâm</h3>
-                            <div className="news_table_right_latest">
-                                <img src="https://chainhuahuynhat.com/wp-content/uploads/2020/12/nhua-pet-la-gi.jpg"></img>
-                                <p>Quy trình sản xuất chai nhựa pet đạt tiêu chuẩn ISO</p>
-                            </div>
-                            <div className="news_table_right_latest">
-                                <img src="https://chainhuahuynhat.com/wp-content/uploads/2020/12/nhua-pet-la-gi.jpg"></img>
-                                <p>Quy trình sản xuất chai nhựa pet đạt tiêu chuẩn ISO</p>
-                            </div>
-                            <div className="news_table_right_latest">
-                                <img src="https://chainhuahuynhat.com/wp-content/uploads/2020/12/nhua-pet-la-gi.jpg"></img>
-                                <p>Quy trình sản xuất chai nhựa pet đạt tiêu chuẩn ISO</p>
+                        <div className="policy_right_facebook">
+                            <h3>Facebook</h3>
+                            <div className="policy_right_facebook_iframe">
+                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="331" ></iframe>
                             </div>
                         </div>
+                        <div className="policy_right_facebook">
+                            <h3>Youtobe</h3>
+                            <div className="policy_right_facebook_iframe">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Vueib12RkKY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>

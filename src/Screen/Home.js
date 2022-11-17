@@ -34,6 +34,8 @@ import imgCosmetics from "../assets/cosmetics.png";
 import imgBottle from "../assets/bottle.png";
 import imgPlasticBott from "../assets/plastic-bottle.png";
 import imgCup from "../assets/cup.png";
+import logo from "../assets/logo.png"
+
 import { useState } from "react";
 
 const image1 =
@@ -47,8 +49,6 @@ const image4 =
 const image5 =
   "https://thuytinhtadaco.com/wp-content/uploads/2021/08/chai-lo-thuy-tinh.jpg";
 
-const logo =
-  "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
 
 const imgBanner = "https://i.redd.it/dhjkl1p1y8dy.jpg";
 const imgBanner1 = "https://wallpaperaccess.com/full/333442.jpg";
@@ -423,12 +423,12 @@ const Home = () => {
 
   return (
     <div className="home">
-      <ScrollToTop className="scroll" smooth  ></ScrollToTop>
+      <ScrollToTop className="scroll" smooth={true}  ></ScrollToTop>
       <nav className="home-header">
         <div className="header_container">
           <div className="home-header_logo">
             <img className="home-header-logo-image" src={logo} alt="" />
-            <p className="home-header-logo-title">logo</p>
+            
           </div>
           <ul className="home-header_ul">
             <li>
@@ -616,7 +616,9 @@ const Home = () => {
 
       <div className="home-main">
         <div className="home_container">
+        <div>
           <div className="home-main-introduce">
+            
             <div className="home-main-introduce-content">
               <div className="home-main-introduce-content-frontpager">
                 CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ XUẤT NHẬP KHẨU
@@ -639,6 +641,7 @@ const Home = () => {
                 className="home-main-introduce-image-style"
               />
             </div>
+          </div>
           </div>
         </div>
 

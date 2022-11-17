@@ -4,12 +4,11 @@ import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import logo from "../assets/logo.png"
 
 
 import '../css/footer.css'
 import { NavLink } from "react-router-dom";
-const logo =
-    "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
 
 
 function footer() {
@@ -31,9 +30,7 @@ function footer() {
                     <div className="form_fanpage">
                         <h3>FANPAGE</h3>
                         <div>
-                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.
-                            facebook.com%2Ffacebook&tabs=timeline&width=340&height=331&small_header=false&adapt_
-                            container_width=true&hide_cover=false&show_facepile=true&appId"></iframe>
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FL-A-studio-464549147733598%2F&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"  ></iframe>
                         </div>
                     </div>
 
