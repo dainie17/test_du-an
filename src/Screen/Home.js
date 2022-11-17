@@ -616,9 +616,7 @@ const Home = () => {
 
       <div className="home-main">
         <div className="home_container">
-        <div>
           <div className="home-main-introduce">
-            
             <div className="home-main-introduce-content">
               <div className="home-main-introduce-content-frontpager">
                 CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ XUẤT NHẬP KHẨU
@@ -641,7 +639,6 @@ const Home = () => {
                 className="home-main-introduce-image-style"
               />
             </div>
-          </div>
           </div>
         </div>
 
