@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Stack, Checkbox } from "@mui/material";
 import { useForm } from "react-hook-form";
 import FormProvider from "../bo_sung/FormProvider";
@@ -160,7 +160,7 @@ function Login_1() {
       <div className="login">
         <div className="form_login_title">
           <p className="title_content">Đăng nhập</p>
-          <p className="nouser">Không có tài khoản ?</p>
+          <Link  className="nouser" to={'/Signup'}><p>Không có tài khoản ?</p></Link>
         </div>
         <div className="form_login_input">
           <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
