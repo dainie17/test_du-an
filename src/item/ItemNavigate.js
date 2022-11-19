@@ -5,8 +5,8 @@ import ItemNavi from "./ItemNavi"
 
 
 
-// /:image/:name/:mota
-// /${uudai.image}/${uudai.name}/${uudai.mota}
+// /:image/:name/:synopsis
+// /${uudai.image}/${uudai.name}/${uudai.synopsis}
 
 function ItemNavigate() {
     
@@ -17,8 +17,8 @@ function ItemNavigate() {
                 <div key={index}  className="title_list_cottom">
                 <img src={uudai.image} />
                 <div className="title_list_cottom--content">
-                    <h2>{uudai.name}</h2>
-                    <p>{uudai.mota.substring(0, 230) + " [...]"}</p>
+                    <h2>{uudai.title}</h2>
+                    <p>{uudai.synopsis.substring(0, 230) + " [...]"}</p>
                     
                         
                         <Link className="title_list_cottom_button" to={{pathname:`/ItemNews/${uudai.id} ` }} state = {uudai}  >Đọc Thêm</Link>
