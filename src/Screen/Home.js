@@ -17,9 +17,18 @@ import moneyImg from "../assets/money-back-icon.png";
 import hoursImg from "../assets/24-hours.png";
 import shieldImg from "../assets/shield.png";
 import imgUser from "../assets/user.png";
-
+import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import Divider from "@mui/material/Divider";
+import Tooltip from "@mui/material/Tooltip";
+import PersonAdd from "@mui/icons-material/PersonAdd";
+import Settings from "@mui/icons-material/Settings";
+import Logout from "@mui/icons-material/Logout";
 import ScrollToTop from "react-scroll-to-top";
-
+import { Fragment } from "react";
 import SliderHome from "./home1";
 
 import imgLine from "../assets/line_silde_product.png";
@@ -30,7 +39,7 @@ import imgBottle from "../assets/bottle.png";
 import imgPlasticBott from "../assets/plastic-bottle.png";
 import imgCup from "../assets/cup.png";
 import logo from "../assets/logo_cty.png";
-
+import image_duce from "../assets/image_duce.jpg";
 import { useState } from "react";
 
 const image1 =
@@ -56,10 +65,10 @@ const Home = () => {
   const [dem, setDem] = useState(1);
 
   useEffect(() => {
-    $(".input").focus(function() {
+    $(".input").focus(function () {
       $("#search").addClass("move");
     });
-    $(".input").focusout(function() {
+    $(".input").focusout(function () {
       $("#search").removeClass("move");
       $(".input").val("");
     });
@@ -377,6 +386,19 @@ const Home = () => {
     navgate("/Personal");
   };
 
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const onclickCart = () => {
+    navgate("/Cart");
+  };
+
   return (
     <div className="home">
       <ScrollToTop className="scroll" smooth={true}></ScrollToTop>
@@ -423,26 +445,102 @@ const Home = () => {
             </div>
 
             <div className="home-header_icon_user">
-              <div className="home-header_icon_user_img" onClick={onclickItem}>
-                <div className="user" />
-              </div>
-              <div className="home-header_icon_user_content">
-                <a href="#company">Company</a>
-                <a href="#team">Team</a>
-                <a href="#careers">Careers</a>
-              </div>
+              <Fragment>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    textAlign: "center",
+                  }}
+                >
+                  <Tooltip title="Account settings">
+                    <div
+                      className="home-header_icon_user_img"
+                      onClick={handleClick}
+                      size="small"
+                      sx={{ ml: 2 }}
+                      aria-controls={open ? "account-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                    >
+                      <div className="user" />
+                    </div>
+                  </Tooltip>
+                </Box>
+                <Menu
+                  anchorEl={anchorEl}
+                  id="account-menu"
+                  open={open}
+                  onClose={handleClose}
+                  onClick={handleClose}
+                  PaperProps={{
+                    elevation: 0,
+                    sx: {
+                      overflow: "visible",
+                      filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                      mt: 1.5,
+                      "& .MuiAvatar-root": {
+                        width: 32,
+                        height: 32,
+                        ml: -0.5,
+                        mr: 1,
+                      },
+                      "&:before": {
+                        content: '""',
+                        display: "block",
+                        position: "absolute",
+                        top: 0,
+                        left: 15,
+                        width: 10,
+                        height: 10,
+                        bgcolor: "background.paper",
+                        transform: "translateY(-50%) rotate(45deg)",
+                        zIndex: 0,
+                      },
+                    },
+                  }}
+                  transformOrigin={{ horizontal: "left", vertical: "top" }}
+                  anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
+                >
+                  <MenuItem onClick={onclickItem}>
+                    <Avatar /> Profile
+                  </MenuItem>
+                  <MenuItem>
+                    <Avatar /> My account
+                  </MenuItem>
+                  <Divider />
+                  <MenuItem>
+                    <ListItemIcon>
+                      <PersonAdd fontSize="small" />
+                    </ListItemIcon>
+                    Add another account
+                  </MenuItem>
+                  <MenuItem>
+                    <ListItemIcon>
+                      <Settings fontSize="small" />
+                    </ListItemIcon>
+                    Settings
+                  </MenuItem>
+                  <MenuItem>
+                    <ListItemIcon>
+                      <Logout fontSize="small" />
+                    </ListItemIcon>
+                    Logout
+                  </MenuItem>
+                </Menu>
+              </Fragment>
             </div>
 
             <div className="font_icon_nav">
-              <div className="cart" />
+              <div onClick={onclickCart} className="cart" />
             </div>
           </div>
         </div>
         <div className="form">
-        <label id="search">Enter Your Email address</label>
-        <br />
-        <input type="text" className="input" />
-      </div>
+          <label id="search">Enter Your Email address</label>
+          <br />
+          <input type="text" className="input" />
+        </div>
       </nav>
 
       <div className="banner_container">
@@ -592,13 +690,15 @@ const Home = () => {
                   </p>
                 </div>
                 <div className="home-main-introduce-button">
-                  <button className="home-main-introduce-btn">Đọc thêm</button>
+                  <button className="btn_introduce">
+                    <span className="span_introduce">Xem Thêm</span>
+                  </button>
                 </div>
               </div>
 
               <div className="home-main-introduce-image">
                 <img
-                  src={image1}
+                  src={image_duce}
                   alt=""
                   className="home-main-introduce-image-style"
                 />
@@ -648,7 +748,7 @@ const Home = () => {
             <p>Dịch vụ của chúng tôi</p>
           </div>
           <div className="preview_content">
-            <p>Công ty cổ phần Thang Máy Fujitech đơn vị uy tín chất lượng</p>
+            <p>CÔNG TY TNHH SẢN XUẤT ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ XUẤT NHẬP KHẨU VŨ GIA GROUP</p>
           </div>
         </div>
         <div className="pre_container">
@@ -662,9 +762,9 @@ const Home = () => {
             <div className="mid">
               <h3>Giao hàng toàn quốc</h3>
               <ul>
-                <li>Xử lí dữ liệu</li>
+                <li>Giao hàng nhanh chóng</li>
 
-                <li>Ứng dụng phần mềm</li>
+                <li>Đảm bảo hàng hóa nguyên vẹn đến tay khách hàng</li>
               </ul>
             </div>
             <div className="bot">
@@ -682,9 +782,9 @@ const Home = () => {
             <div className="mid">
               <h3>Cam kết đổi trả</h3>
               <ul>
-                <li>Digital Marketing</li>
+                <li>Hoàn tiền khi đổi trả</li>
 
-                <li>Quản trị khách sạn </li>
+                <li>Chính sách bảo hàng DOA trong 7 ngày</li>
               </ul>
             </div>
             <div className="bot">
@@ -702,9 +802,9 @@ const Home = () => {
             <div className="mid">
               <h3>Chăm sóc khách hàng</h3>
               <ul>
-                <li>Công nghe kỹ thuật điện</li>
+                <li>Hoạt đông 24/7</li>
 
-                <li>Điện công Nghiệp</li>
+                <li>Lắng nghe nhu cầu của khách hàng</li>
               </ul>
             </div>
             <div className="bot">
@@ -722,9 +822,7 @@ const Home = () => {
             <div className="mid">
               <h3>Cam kết chất lượng</h3>
               <ul>
-                <li>Thiết kế đồ họa</li>
-
-                <li>Hướng dẫn du lịch</li>
+                <li>Chúng tôi cam kết đưa đến cho khách hàng những sản phẩm tốt nhất</li>
               </ul>
             </div>
             <div className="bot">

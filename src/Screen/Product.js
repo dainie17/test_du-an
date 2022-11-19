@@ -30,6 +30,7 @@ import Footer from "./footer";
 import { useEffect, useState } from "react";
 
 import ItemProductType from "../item/ItemProductType"
+import { Fragment } from "react";
 
 const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
@@ -81,7 +82,7 @@ const Product = () => {
     navgate("/Personal");
   };
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -170,7 +171,7 @@ const Product = () => {
             </div>
 
             <div className="home-header_icon_user">
-              <React.Fragment>
+              <Fragment>
                 <Box
                   sx={{
                     display: "flex",
@@ -253,7 +254,7 @@ const Product = () => {
                     Logout
                   </MenuItem>
                 </Menu>
-              </React.Fragment>
+              </Fragment>
             </div>
             <div className="font_icon_nav">
               <div className="cart" />

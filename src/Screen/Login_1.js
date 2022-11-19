@@ -60,12 +60,14 @@ function Login_1() {
   } = methods;
 
   const onSubmit = async () => {
-    navigate("/Home", { replace: true });
+    if( TKCheck == true && passwordCheck == true){
+      navigate("/Home", { replace: true });
+    }
   };
 
   const [taikhoan, setTK] = useState("");
   const [pass, setPass] = useState("");
-  const [TKCheck, setTKCheck] = useState(true);
+  const [TKCheck, setTKCheck] = useState(false);
   const [errorTK, setErrorTK] = useState("");
   const [chxSave, setChxSave] = useState(false);
   const validateTK = (se) => {
@@ -109,7 +111,7 @@ function Login_1() {
   }
 
 
-  const [passwordCheck, setPasswordCheck] = useState(true);
+  const [passwordCheck, setPasswordCheck] = useState(false);
   const [errorPassword, setErrorPassword] = useState("");
   const validatePass = (se) => {
     const pass = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;

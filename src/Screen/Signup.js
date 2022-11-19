@@ -59,13 +59,15 @@ export default function SignUp() {
   } = methods;
 
   const onSubmit = async () => {
-    navigate("/Home", { replace: true });
+    if(TKCheck == true && passwordCheck == true && passwordCheckAgain == true){
+      navigate("/Home", { replace: true });
+    }
   };
 
   const [taikhoan, setTK] = useState("");
   const [pass, setPass] = useState("");
   const [passAg, setPassAg] = useState("");
-  const [TKCheck, setTKCheck] = useState(true);
+  const [TKCheck, setTKCheck] = useState(false);
   const [errorTK, setErrorTK] = useState("");
   const [chxSave, setChxSave] = useState(false);
   const validateTK = (se) => {
@@ -109,7 +111,7 @@ export default function SignUp() {
   }
 
 
-  const [passwordCheck, setPasswordCheck] = useState(true);
+  const [passwordCheck, setPasswordCheck] = useState(false);
   const [errorPassword, setErrorPassword] = useState("");
   const validatePass = (se) => {
     const pass = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
@@ -148,7 +150,7 @@ export default function SignUp() {
     )
   }
 
-  const [passwordCheckAgain, setPasswordCheckAgian] = useState(true);
+  const [passwordCheckAgain, setPasswordCheckAgian] = useState(false);
   const [errorPasswordAgain, setErrorPasswordAgain] = useState("");
   const validatePassAgain = (se) => {
     const passAg = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
