@@ -27,6 +27,8 @@ import Tooltip from "@mui/material/Tooltip";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
+import Chat from "./slideHome";
+
 import ScrollToTop from "react-scroll-to-top";
 import { Fragment } from "react";
 import SliderHome from "./home1";
@@ -401,6 +403,7 @@ const Home = () => {
 
   return (
     <div className="home">
+      <Chat/>
       <ScrollToTop className="scroll" smooth={true}></ScrollToTop>
       <nav className="home-header">
         <div className="header_container">

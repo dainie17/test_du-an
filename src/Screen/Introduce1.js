@@ -20,10 +20,11 @@ import shop from '../assets/shop.png'
 import colla from '../assets/collaboration.png'
 import ScrollToTop from "react-scroll-to-top";
 
+import logo from "../assets/logo_cty.png";
 
 
 
-const logo = "https://scontent.xx.fbcdn.net/v/t1.15752-9/305305021_5469725353149061_8412010419326309420_n.png?stp=dst-png_p228x119&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=7Zi8f3uJ7LcAX-Ahk9V&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKEfUaHtXLeMZOTR6YHO_vyTHkbIJMJf_X2Mc2tGwmG7g&oe=6359FA2E";
+
 const image5 = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
 
 
@@ -78,7 +79,6 @@ function Navigate() {
                             <div className="header_container">
                                 <div className="home-header_logo">
                                     <img className="home-header-logo-image" src={logo} alt="" />
-                                    <p className="home-header-logo-title">logo</p>
                                 </div>
                                 <ul className="home-header_ul">
                                     <li>
@@ -234,7 +234,7 @@ function Navigate() {
                                     </div>
                                 </div>
                                 <div className="contact_info_right">
-                                    <img src={image5}></img>
+                                    <img src='https://scontent.fdad2-1.fna.fbcdn.net/v/t1.6435-9/69033220_452408942283605_5045431321086656512_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=19026a&_nc_ohc=M1DYAn5vleQAX_f5vU5&_nc_ht=scontent.fdad2-1.fna&oh=00_AfCMrCiE_6wZlWPdrZEGHg7FXtkmNLNnkuw7YpDblv1Kag&oe=63A032A9'></img>
                                 </div>
 
                             </div>

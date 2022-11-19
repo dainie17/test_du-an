@@ -19,8 +19,9 @@ import BeatLoader from "react-spinners/BeatLoader";
 import { useState } from "react";
 import { useEffect } from "react";
 import ScrollToTop from "react-scroll-to-top";
+import logo from "../assets/logo_cty.png";
 
-const logo = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
+
 const image5 = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
 function Navigate() {
 
@@ -65,7 +66,6 @@ function Navigate() {
               <div className="header_container">
                 <div className="home-header_logo">
                   <img className="home-header-logo-image" src={logo} alt="" />
-                  <p className="home-header-logo-title">logo</p>
                 </div>
                 <ul className="home-header_ul">
                   <li>
@@ -214,17 +214,17 @@ function Navigate() {
                 <div className="hashtag_header--list">
                   <p>HAGHTAG #VAGABONSHOP ĐỂ CÓ CƠ HỘI XUẤT HIỆN TRÊN TRANG CỦA CHÚNG TÔI</p>
                   <div className="hashtag_header--list--img">
-                    <img src={image5}></img>
-                    <img src={image5}></img>
-                    <img src={image5}></img>
-                    <img src={image5}></img>
-                    <img src={image5}></img>
-                    <img src={image5}></img>
+                    <img src='https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/290060769_743780313625287_2293101306042313153_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=tYrMvqDgsQYAX-0Bjd3&_nc_ht=scontent.fdad1-2.fna&oh=00_AfBy5erLepMsW8zrN7W_QsexkOCq6OfP2kGFdo-3I0wNcA&oe=637D3C08'></img>
+                    <img src='https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/310136594_1035166573829540_3918464502746871543_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=sgn2Oa0iDukAX_GUxUS&tn=2d74ycQPf4r_-KTe&_nc_ht=scontent.fdad2-1.fna&oh=00_AfD2sjme_v2e0eE-K_dF7kihEPk8oHsnJUvkvyNHlEJxDA&oe=637DA226'></img>
+                    <img src='https://scontent.fdad1-3.fna.fbcdn.net/v/t1.15752-9/306350223_1073132380263026_6017393335028069161_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_ohc=E3Ldh13Di0wAX8WAyvf&_nc_ht=scontent.fdad1-3.fna&oh=03_AdSNlUorkb4Ki2eC22LcssyodY0Ul_ZjJvoij8HJ01kYpw&oe=63A00C32'></img>
+                    <img src='https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/313436383_1054364801909717_5531588728767177661_n.jpg?stp=cp6_dst-jpg&_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=itqcY7_jBxAAX9Nndaf&_nc_ht=scontent.fdad1-3.fna&oh=00_AfCdarQH_rY33KIdp7SVfqH9JQHI7_gSo5aAaZGc2rCNaQ&oe=637E65A7'></img>
+                    <img src='https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/309048127_398207755850260_9159603089225647497_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=UHbTidQox-UAX-On2_H&_nc_ht=scontent.fdad2-1.fna&oh=00_AfA-UAQcCexSfJFb6Wl7nMViCPiEmmlfNvJwW8qdDFk-pw&oe=637DE96E'></img>
+                    <img src='https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/285689662_112104391524564_4606494619394419740_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=2BNJvEeMXFYAX--w8SK&_nc_ht=scontent.fdad1-4.fna&oh=00_AfC1hfG63rTLE_IAKffXf4yZ4Of8bb0BaCsLQHU7jSU55g&oe=637CC8A2'></img>
                   </div>
                 </div>
               </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
           </div>
       }
     </div>

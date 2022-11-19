@@ -23,14 +23,13 @@ import BeatLoader from "react-spinners/BeatLoader";
 import ScrollToTop from "react-scroll-to-top";
 import arrow from '../assets/arrow.png'
 
+import logo from "../assets/logo_cty.png";
+
 import '../css/Introduce.css'
-import SliderHome from "./slideHome";
+
 import Footer from "./footer";
 import { useEffect } from "react";
 import { useState } from "react";
-
-const logo = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
-
 
 
 
@@ -59,7 +58,7 @@ const Introduce = () => {
   return (
     <div>
         <ScrollToTop className="scroll" smooth ></ScrollToTop>
-        <SliderHome />
+        
       
       {
         loading ? <div className='loading'>
@@ -77,7 +76,6 @@ const Introduce = () => {
               <div className="header_container">
                 <div className="home-header_logo">
                   <img className="home-header-logo-image" src={logo} alt="" />
-                  <p className="home-header-logo-title">logo</p>
                 </div>
                 <ul className="home-header_ul">
                   <li>
