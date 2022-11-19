@@ -947,7 +947,8 @@
 
 /*  */
 .home_backgroud{
-  background-color: rgba(12, 145, 89, 0.6);
+  display: block;
+    background: repeat fixed 100% url("https://img5.thuthuatphanmem.vn/uploads/2021/09/19/anh-nen-toi-4k_100313800.jpg");
 }
 
 .scroll{

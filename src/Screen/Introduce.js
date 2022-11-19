@@ -58,7 +58,7 @@ const Introduce = () => {
   }, []);
   return (
     <div>
-        <ScrollToTop className="scroll" ></ScrollToTop>
+        <ScrollToTop className="scroll" smooth ></ScrollToTop>
         <SliderHome />
       
       {

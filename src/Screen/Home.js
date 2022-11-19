@@ -29,7 +29,7 @@ import imgCosmetics from "../assets/cosmetics.png";
 import imgBottle from "../assets/bottle.png";
 import imgPlasticBott from "../assets/plastic-bottle.png";
 import imgCup from "../assets/cup.png";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo_cty.png";
 
 import { useState } from "react";
 

@@ -27,11 +27,11 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 5% 0;
+    padding: 1% 0;
 }
 
 .logo_footer{
-    width: 80%;
+    width: 150%;
 }
 .nameLogo_footer{
     width: 50%;

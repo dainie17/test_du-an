@@ -114,7 +114,7 @@ const Product = () => {
 
   return (
     <div className="product">
-      <ScrollToTop smooth  ></ScrollToTop>
+      <ScrollToTop className="scroll" smooth ></ScrollToTop>
       {
                 loading ? <div className='loading'>
                     <BeatLoader

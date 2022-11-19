@@ -49,7 +49,7 @@ function Navigate() {
 
   return (
     <div className="home">
-      <ScrollToTop smooth  ></ScrollToTop>
+      <ScrollToTop className="scroll" smooth ></ScrollToTop>
       {
         loading ? <div className='loading'>
           <BeatLoader

@@ -19,7 +19,7 @@ import teame from '../assets/team.png'
 import shop from '../assets/shop.png'
 import colla from '../assets/collaboration.png'
 import ScrollToTop from "react-scroll-to-top";
-<ScrollToTop smooth  ></ScrollToTop>
+
 
 
 
@@ -55,7 +55,7 @@ function Navigate() {
 
     return (
         <div className="home">
-            <ScrollToTop smooth  ></ScrollToTop>
+            <ScrollToTop className="scroll" smooth ></ScrollToTop>
             
             {
                 loading ? <div className='loading'>

@@ -4,7 +4,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo_cty.png"
 
 
 import '../css/footer.css'
@@ -21,7 +21,6 @@ function footer() {
                 <div className="footer_Sort">
                     <div className="form_trademark">
                         <img className="logo_footer" src={logo} />
-                        <img className="nameLogo_footer" src={"#"} />
                     </div>
                 </div>
 
