@@ -24,7 +24,7 @@ import ScrollToTop from "react-scroll-to-top";
 import arrow from '../assets/arrow.png'
 
 import '../css/Introduce.css'
-import SliderHome from "./slideHome";
+
 import Footer from "./footer";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -59,7 +59,7 @@ const Introduce = () => {
   return (
     <div>
         <ScrollToTop className="scroll" smooth ></ScrollToTop>
-        <SliderHome />
+        
       
       {
         loading ? <div className='loading'>

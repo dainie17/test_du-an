@@ -18,6 +18,8 @@ import hoursImg from "../assets/24-hours.png";
 import shieldImg from "../assets/shield.png";
 import imgUser from "../assets/user.png";
 
+import Chat from "./slideHome";
+
 import ScrollToTop from "react-scroll-to-top";
 
 import SliderHome from "./home1";
@@ -379,6 +381,7 @@ const Home = () => {
 
   return (
     <div className="home">
+      <Chat/>
       <ScrollToTop className="scroll" smooth={true}></ScrollToTop>
       <nav className="home-header">
         <div className="header_container">
