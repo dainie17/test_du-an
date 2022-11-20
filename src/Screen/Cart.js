@@ -5,7 +5,7 @@ import {
 } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-
+import $ from "jquery";
 import "../css/Cart.css";
 import Footer from "./footer";
 import ScrollToTop from "react-scroll-to-top";
@@ -18,6 +18,17 @@ const Cart = () => {
 
   const onclickItem = () => {
     navgate("/Order");
+  };
+
+  let remove = [];
+  const onclickRemove = (id) => {
+    let storage = localStorage.getItem("cart");
+    if (storage) {
+      remove = JSON.parse(storage);
+    }
+      remove = remove.filter((remove) => remove.id != id);
+      localStorage.setItem("cart", JSON.stringify(remove));
+    getCart();
   };
 
   let reduce = [];
@@ -69,6 +80,7 @@ const Cart = () => {
     getCart();
   }, []);
 
+
   const handleChange = (e) => {
     const { name, checked } = e.target;
     if (name === "allSelect") {
@@ -76,7 +88,8 @@ const Cart = () => {
         return { ...cart, isChecked: checked };
       });
       setCart(tempUser);
-    } else {
+    } 
+    else {
       let tempUser = cart.map((cart) =>
         cart.name === name ? { ...cart, isChecked: checked } : cart
       );
@@ -195,9 +208,9 @@ const Cart = () => {
                       >
                         -
                       </button>
-                      <p className="cart-main-left-list-card-function-button-num">
-                        {item.num}
-                      </p>
+                      <div className="cart-main-left-list-card-function-button-num">
+                        <p>{item.num}</p>
+                      </div>
                       <button
                         onClick={() => {
                           addNumToCart(item.id);
@@ -208,8 +221,10 @@ const Cart = () => {
                       </button>
                     </div>
                     <div className="cart-main-left-list-card-function-icon">
-                      <FavoriteBorderSharp />
-                      <DeleteOutlineSharp />
+                      <FavoriteBorderSharp style={{fontSize: "20px"}} />
+                      <DeleteOutlineSharp onClick={() => {
+                        onclickRemove(item.id)
+                      }} style={{fontSize: "20px"}}/>
                     </div>
                   </div>
                 </div>
@@ -237,7 +252,7 @@ const Cart = () => {
         </div>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

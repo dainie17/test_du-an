@@ -66,13 +66,22 @@ const Product = () => {
 
   const dataProduct = [
     {
-      name: "Loại sản phẩm 1",
+      name: "Chai lọ mĩ phẩm",
     },
     {
-      name: "Loại sản phẩm 2",
+      name: "Chai lọ đựng gia vị",
     },
     {
-      name: "Loại sản phẩm 3",
+      name: "Chai lọ trà sữa",
+    },
+    {
+      name: "Chai lọ dầu gội và sữa tắm",
+    },
+    {
+      name: "Hũ nhựa",
+    },
+    {
+      name: "Ly nhựa",
     },
   ];
 
@@ -388,12 +397,12 @@ const Product = () => {
         </div>
 
         <div className="product-main-list">
-        {/* {name.map((item, index) => ( */}
+        {dataProduct.map((item, index) => (
                 <ItemProductType
-                  key={name.name}
-                  nameType={dataProduct[2].name}
+                  key={index}
+                  nameType={item.name}
                 />
-              {/* ))}  */}
+              ))} 
         </div>
       </div>
 

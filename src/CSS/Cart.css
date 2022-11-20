@@ -257,7 +257,7 @@
     margin-top: 30px;
     padding-left: 30px;
     padding-right: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     border-radius: 15px;
 }
 
@@ -265,18 +265,21 @@
     display: flex;
     width: 100%;
     flex-direction: row;
-    margin-top: 40px;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgb(238, 238, 238);
 }
 
 .cart-main-left-list-card-checkbox {
     width: 20px;
     height: 20px;
-    margin-top: 60px;
+    margin-top: 50px;
 }
 
 .cart-main-left-list-card-image {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     margin-left: 10px;
 }
 
@@ -289,7 +292,7 @@
 }
 
 .cart-main-left-list-card-content-name {
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 300;
 }
 
@@ -305,9 +308,9 @@
 }
 
 .cart-main-left-list-card-content-price {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 600;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 .cart-main-left-list-card-content-cod {
@@ -321,7 +324,9 @@
 
 .cart-main-left-list-card-function {
     width: 200px;
+    position: relative;
     right: 0;
+    padding-top: 10px;
     display: flex;
     flex-direction: column;
 }
@@ -330,38 +335,49 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .cart-main-left-list-card-function-button-reduce {
     width: 30px;
     height: 20px;
     font-size: 40px;
-    margin-top: -4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 6px;
     border: none;
-    background: white;
+    background: rgba(255, 255, 255, 0);
 }
 
 .cart-main-left-list-card-function-button-num {
-    font-size: 30px;
+    font-size: 20px;
     background: rgb(217, 217, 217);
     padding: 5px;
     border-radius: 5px;
+    border: #777 1px solid;
 }
 
 .cart-main-left-list-card-function-button-more {
     width: 30px;
     height: 20px;
     font-size: 30px;
-    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
-    background: white;
+    background: rgba(255, 255, 255, 0);
 }
 
 .cart-main-left-list-card-function-icon {
-    margin-top: 50px;
+    width: 50px;
+    position: absolute;
+    bottom: 10px;
+    right: 17px;
     display: flex;
     flex-direction: row;
-    margin-left: 20px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 
