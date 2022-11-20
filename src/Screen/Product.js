@@ -32,6 +32,7 @@ import { useEffect, useState } from "react";
 import ItemProductType from "../item/ItemProductType"
 import { Fragment } from "react";
 
+import logo from "../assets/logo_cty.png";
 const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
 const image2 =
@@ -167,8 +168,7 @@ const Product = () => {
       <nav className="home-header">
         <div className="header_container">
           <div className="home-header_logo">
-            <img className="home-header-logo-image"  alt="" />
-            <p className="home-header-logo-title">logo</p>
+            <img className="home-header-logo-image" src={logo}  alt="" />
           </div>
           <ul className="home-header_ul">
             <li onClick={onclickHome}>
@@ -294,7 +294,7 @@ const Product = () => {
               </Fragment>
             </div>
             <div className="font_icon_nav">
-              <div className="cart" />
+              <div className="cart" onClick={onclickCart} />
             </div>
           </div>
         </div>

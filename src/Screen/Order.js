@@ -1,8 +1,12 @@
 import { DeleteOutlineSharp, FavoriteBorderSharp, VerifiedUserSharp } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import '../css/Order.css'
 import Footer from "./footer";
 import ScrollToTop from "react-scroll-to-top";
+
+
+import logo from "../assets/logo_cty.png";
 
 const image1 = "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
 const image2 = "https://cdn.tgdd.vn/Files/2019/11/18/1220010/4-cach-ve-sinh-ben-trong-chai-lo-cuc-sach-ban-nen-thu-21-760x367.jpg";
@@ -49,6 +53,12 @@ const Order = () => {
 
     }
 
+    let navgate = useNavigate();
+
+    const onclickHome = () => {
+        navgate("/Home");
+      };
+
     return (
         <div className="order">
             <ScrollToTop smooth  ></ScrollToTop>
@@ -56,8 +66,8 @@ const Order = () => {
                 <div className="cart_header_container">
 
                     <div className="cart_header_left">
-                    <div className="cart-header-logo">
-                    <p>LOGO</p>
+                    <div className="cart-header-logo" onClick={onclickHome}>
+                    <img src={logo} alt="" />
                 </div>
                 <div className="cart-header-test">
                     <VerifiedUserSharp />

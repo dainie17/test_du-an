@@ -42,7 +42,10 @@
 .cart-header-logo {
     width: 20%;
     text-align: center;
-    border-right: solid 1px #777;
+}
+
+.cart-header-logo img{
+    width: 100%;
 }
 
 /* tiêu đề của header */

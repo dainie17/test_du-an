@@ -9,6 +9,7 @@ import $ from "jquery";
 import "../css/Cart.css";
 import Footer from "./footer";
 import ScrollToTop from "react-scroll-to-top";
+import logo from "../assets/logo_cty.png";
 
 const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
@@ -97,14 +98,18 @@ const Cart = () => {
     }
   };
 
+  const onclickHome = () => {
+    navgate("/Home");
+  };
+
   return (
     <div className="carrt">
       <ScrollToTop smooth></ScrollToTop>
       <div className="cart-header">
         <div className="cart_header_container">
           <div className="cart_header_left">
-            <div className="cart-header-logo">
-              <p>LOGO</p>
+            <div className="cart-header-logo" onClick={onclickHome}>
+              <img src={logo} alt="" />
             </div>
             <div className="cart-header-test">
               <VerifiedUserSharp />

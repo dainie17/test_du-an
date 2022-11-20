@@ -20,7 +20,7 @@ import truck from '../assets/delivery-truck.png'
 import money from '../assets/salary.png'
 import hour from '../assets/hour.png'
 import shieldImg from "../assets/shields.png";
-
+import logo from "../assets/logo_cty.png";
 import ScrollToTop from "react-scroll-to-top";
 
 import 'slick-carousel/slick/slick.css'
@@ -35,7 +35,6 @@ const image2 = "https://cdn.tgdd.vn/Files/2019/11/18/1220010/4-cach-ve-sinh-ben-
 const image3 = "https://bizweb.dktcdn.net/100/154/029/files/san-xuat-chai-lo-nhua-2-941c40bb-0124-4086-8aab-ad24dc55c0b8.jpg?v=1501056541035";
 const image4 = "https://i-raovat.vnecdn.net/2020/05/22/51ade386733b048d7c00c29720e39c04.jpeg?w=1280&h=768&q=100&dpr=1&rt=fit&g=no&wmi=&wmg=ce&wmo=50&wms=30&wmx=0&wmy=0&s=irmRdkv5lf-nqmbP2V8WXg";
 const image5 = "https://thuytinhtadaco.com/wp-content/uploads/2021/08/chai-lo-thuy-tinh.jpg";
-const logo = "https://thuytinhtadaco.com/wp-content/uploads/2021/08/chai-lo-thuy-tinh.jpg";
 
 
 
@@ -128,7 +127,6 @@ const Detail = () => {
         <div className="header_container">
           <div className="home-header_logo">
             <img className="home-header-logo-image" src={logo} alt="" />
-            <p className="home-header-logo-title">logo</p>
           </div>
           <ul className="home-header_ul">
                 <li onClick={onclickHome}>

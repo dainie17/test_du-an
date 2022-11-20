@@ -4,6 +4,7 @@ import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import Shop2Icon from "@mui/icons-material/Shop2";
 import $ from "jquery";
+import logo from "../assets/logo_cty.png";
 import LogoutIcon from "@mui/icons-material/Logout";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
 import Badge from "@mui/material/Badge";
@@ -35,8 +36,6 @@ import truck from "../assets/truck.png";
 import love from "../assets/love.png";
 import Popup from "reactjs-popup";
 
-const logo =
-  "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
 const img =
   "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
 
