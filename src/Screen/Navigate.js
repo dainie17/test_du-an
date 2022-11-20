@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import $ from "jquery";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
@@ -32,6 +33,30 @@ function Navigate() {
     navgate("/Personal");
   }
 
+  const onclickCart = () => {
+    navgate("/Cart");
+  };
+
+  const onclickHome = () => {
+    navgate("/Home");
+  };
+
+  const onclickContact = () => {
+    navgate("/Contact");
+  };
+
+  const onclickProduct = () => {
+    navgate("/Product");
+  };
+
+  const onclickNavigate = () => {
+    navgate("/Navigate");
+  };
+
+  const onclickIntroduce = () => {
+    navgate("/Introduce");
+  };
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -47,6 +72,10 @@ function Navigate() {
       setLoading(false)
     }, 500);
   }, []);
+
+  const onClickSearch = () => {
+    $(".input_search").toggleClass("active");
+  };
 
   return (
     <div className="home">
@@ -68,41 +97,41 @@ function Navigate() {
                   <img className="home-header-logo-image" src={logo} alt="" />
                 </div>
                 <ul className="home-header_ul">
-                  <li>
-                    <NavLink className="home-header_ul_li_navlink" to="/Home">
-                      Trang chủ
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink className="home-header_ul_li_navlink" to="/Introduce">
-                      Giới thiệu
-                    </NavLink>
-                  </li>
-                  <li className="home-header_ul_subnav">
-                    <NavLink className="home-header_ul_li_navlink" to="/Product">
-                      Sản phẩm
-                    </NavLink>
-                    <div className="home-header_ul_subnav_content">
-                      <a href="#company">Company</a>
-                      <a href="#team">Team</a>
-                      <a href="#careers">Careers</a>
-                    </div>
-                  </li>
-                  <li>
-                    <NavLink className="home-header_ul_li_navlink" to="/Navigate">
-                      Ưu đãi
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink className="home-header_ul_li_navlink" to="/Introduce">
-                      Liên hệ
-                    </NavLink>
-                  </li>
-                </ul>
+            <li onClick={onclickHome}>
+              <NavLink className="home-header_ul_li_navlink" to="/Home">
+                Trang chủ
+              </NavLink>
+            </li>
+            <li onClick={onclickContact}>
+              <NavLink className="home-header_ul_li_navlink" to="/Contact">
+                Giới thiệu
+              </NavLink>
+            </li>
+            <li className="home-header_ul_subnav" onClick={onclickProduct}>
+              <NavLink className="home-header_ul_li_navlink" to="/Product">
+                Sản phẩm
+              </NavLink>
+              <div className="home-header_ul_subnav_content">
+                <a href="#company">Company</a>
+                <a href="#team">Team</a>
+                <a href="#careers">Careers</a>
+              </div>
+            </li>
+            <li onClick={onclickNavigate}>
+              <NavLink className="home-header_ul_li_navlink" to="/Navigate">
+                Ưu đãi
+              </NavLink>
+            </li>
+            <li onClick={onclickIntroduce}>
+              <NavLink className="home-header_ul_li_navlink" to="/Introduce">
+                Liên hệ
+              </NavLink>
+            </li>
+          </ul>
                 <div className="home-header_icon">
-                  <div className="font_icon_nav">
-                    <div className="search" />
-                  </div>
+                <div className="font_icon_nav">
+              <div className="search" onClick={onClickSearch}></div>
+            </div>
 
                   <div className="home-header_icon_user">
                     <React.Fragment>
@@ -190,11 +219,14 @@ function Navigate() {
                       </Menu>
                     </React.Fragment>
                   </div>
-                  <div className="font_icon_nav">
+                  <div onClick={onclickCart} className="font_icon_nav">
                     <div className="cart" />
                   </div>
                 </div>
               </div>
+              <div className="form">
+          <input type="text" className="input_search" placeholder="Search..." />
+        </div>
             </nav>
 
             <div className="title">
@@ -224,7 +256,7 @@ function Navigate() {
                 </div>
               </div>
             </div>
-            {/* <Footer /> */}
+            <Footer />
           </div>
       }
     </div>

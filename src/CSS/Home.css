@@ -764,23 +764,23 @@
 }
 
 .main_new_top_big_content {
-  width: 40%;
+  width: 30%;
   display: flex;
   justify-content: space-between;
-  font-size: 13px;
+  font-size: 10px;
   align-items: center;
   float: right;
   color: white;
 }
 
 .number_comment {
-  width: 25%;
+  width: 30%;
   display: flex;
   align-items: center;
 }
 
 .number_comment_icon {
-  width: 30%;
+  width: 25%;
 }
 
 .number_comment_icon img {
@@ -832,6 +832,14 @@
   border-radius: 50%;
 }
 
+.main_new_top_big_img img{
+  width: 100%;
+}
+
+.main_new_top_center_big_img img{
+  width: 100%;
+}
+
 .main_new_top_center_card {
   width: 100%;
   opacity: 0;
@@ -861,23 +869,23 @@
 }
 
 .main_new_top_center_big_content {
-  width: 70%;
+  width: 60%;
   display: flex;
   justify-content: space-between;
-  font-size: 13px;
+  font-size: 10px;
   align-items: center;
   float: right;
   color: white;
 }
 
 .main_new_top_center_number_comment {
-  width: 30%;
+  width: 32%;
   display: flex;
   align-items: center;
 }
 
 .main_new_top_center_number_comment_icon {
-  width: 30%;
+  width: 20%;
 }
 
 .main_new_top_center_number_comment_icon img {
@@ -985,7 +993,7 @@
   text-align: right;
   font-size: 15px;
   color: #9b9b9b;
-  width: 90%;
+  width: 70%;
   padding-top: 43px;
   padding-bottom: 20px;
   display: flex;
@@ -1001,7 +1009,7 @@
 }
 
 .main_new_bottom_card_comment_image{
-  width: 33%;
+  width: 25%;
 }
 
 .main_new_bottom_card_comment_image img{
@@ -1009,7 +1017,7 @@
 }
 
 .main_new_bottom_card_comment_content{
-  font-size: 11px;
+  font-size: 9px;
 }
 
 

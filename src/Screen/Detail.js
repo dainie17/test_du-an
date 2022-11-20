@@ -1,10 +1,7 @@
 import React from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { Link, useNavigate } from 'react-router-dom';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import SearchSharpIcon from '@mui/icons-material/SearchSharp';
-import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import $ from "jquery";
 import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
@@ -100,6 +97,30 @@ const Detail = () => {
     console.log(cart);
   }
 
+  const onclickHome = () => {
+    navgate("/Home");
+  };
+
+  const onclickContact = () => {
+    navgate("/Contact");
+  };
+
+  const onclickProduct = () => {
+    navgate("/Product");
+  };
+
+  const onclickNavigate = () => {
+    navgate("/Navigate");
+  };
+
+  const onclickIntroduce = () => {
+    navgate("/Introduce");
+  };
+
+  const onClickSearch = () => {
+    $(".input_search").toggleClass("active");
+  };
+
   return (
     <div className="detail">
       <ScrollToTop smooth  ></ScrollToTop>
@@ -110,41 +131,44 @@ const Detail = () => {
             <p className="home-header-logo-title">logo</p>
           </div>
           <ul className="home-header_ul">
-            <li>
-              <NavLink className="home-header_ul_li_navlink" to="/Home">
-                Trang chủ
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="home-header_ul_li_navlink" to="/testHome">
-                Giới thiệu
-              </NavLink>
-            </li>
-            <li className="home-header_ul_subnav">
-              <NavLink className="home-header_ul_li_navlink" to="/Product">
-                Sản phẩm
-              </NavLink>
-              <div className="home-header_ul_subnav_content">
-                <a href="#company">Company</a>
-                <a href="#team">Team</a>
-                <a href="#careers">Careers</a>
-              </div>
-            </li>
-            <li>
-              <NavLink className="home-header_ul_li_navlink" to="/Navigate">
-                Ưu đãi
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="home-header_ul_li_navlink" to="/Introduce">
-                Liên hệ
-              </NavLink>
-            </li>
-          </ul>
+                <li onClick={onclickHome}>
+                  <NavLink className="home-header_ul_li_navlink" to="/Home">
+                    Trang chủ
+                  </NavLink>
+                </li>
+                <li onClick={onclickContact}>
+                  <NavLink className="home-header_ul_li_navlink" to="/Contact">
+                    Giới thiệu
+                  </NavLink>
+                </li>
+                <li className="home-header_ul_subnav" onClick={onclickProduct}>
+                  <NavLink className="home-header_ul_li_navlink" to="/Product">
+                    Sản phẩm
+                  </NavLink>
+                  <div className="home-header_ul_subnav_content">
+                    <a href="#company">Company</a>
+                    <a href="#team">Team</a>
+                    <a href="#careers">Careers</a>
+                  </div>
+                </li>
+                <li onClick={onclickNavigate}>
+                  <NavLink className="home-header_ul_li_navlink" to="/Navigate">
+                    Ưu đãi
+                  </NavLink>
+                </li>
+                <li onClick={onclickIntroduce}>
+                  <NavLink
+                    className="home-header_ul_li_navlink"
+                    to="/Introduce"
+                  >
+                    Liên hệ
+                  </NavLink>
+                </li>
+              </ul>
           <div className="home-header_icon">
-            <div className="font_icon_nav">
-              <div className="search" />
-            </div>
+          <div className="font_icon_nav">
+                  <div className="search" onClick={onClickSearch}></div>
+                </div>
 
             <div className="home-header_icon_user">
             <React.Fragment>
@@ -237,6 +261,13 @@ const Detail = () => {
             </div>
           </div>
         </div>
+        <div className="form">
+              <input
+                type="text"
+                className="input_search"
+                placeholder="Search..."
+              />
+            </div>
       </nav>
 
 

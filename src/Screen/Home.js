@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Slider from "react-slick";
+import { useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../css/Navbar.css";
@@ -42,7 +43,10 @@ import imgPlasticBott from "../assets/plastic-bottle.png";
 import imgCup from "../assets/cup.png";
 import logo from "../assets/logo_cty.png";
 import image_duce from "../assets/image_duce.jpg";
-import { useState } from "react";
+import image_u from "../assets/profile.png"
+import image_thumb_up from "../assets/thumb-up.png"
+import image_share from "../assets/share.png"
+import image_comments from "../assets/comments.png"
 
 const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
@@ -66,19 +70,8 @@ const imgBanner4 =
 const Home = () => {
   const [dem, setDem] = useState(1);
 
-  useEffect(() => {
-    $(".input").focus(function () {
-      $("#search").addClass("move");
-    });
-    $(".input").focusout(function () {
-      $("#search").removeClass("move");
-      $(".input").val("");
-    });
-  });
-
   const onClickSearch = () => {
-    $(".input").toggleClass("active");
-    $("#search").toggleClass("active");
+    $(".input_search").toggleClass("active");
   };
 
   useEffect(() => {
@@ -234,60 +227,6 @@ const Home = () => {
       $(".slide-nav5").removeClass("active");
       $(".slide-nav4").addClass("active");
 
-      // useEffect(() => {
-
-      //   setTimeout(() => {
-
-      //     function runBanner(e) {
-      //       $(".slider__warpper")
-      //         .find(".flex__container[data-slide=" + e + "]")
-      //         .addClass("flex--preStart");
-      //       $(".flex--active").addClass("animate--end");
-      //       setTimeout(function () {
-      //         $(".flex--preStart")
-      //           .removeClass("animate--start flex--preStart")
-      //           .addClass("flex--active");
-      //         $(".animate--end")
-      //           .addClass("animate--start")
-      //           .removeClass("animate--end flex--active");
-      //       }, 800);
-      //     }
-      //     console.log(dem);
-      //     if (dem == 1) {
-      //       setDem(2);
-      //       runBanner(dem)
-      //       $('.slide-nav1').removeClass('active');
-      //       $('.slide-nav2').addClass('active');
-      //     }
-      //      if (dem == 2) {
-      //       setDem(3);
-      //       runBanner(dem)
-      //       $('.slide-nav2').removeClass('active');
-      //       $('.slide-nav3').addClass('active');
-      //     }
-      //      if (dem == 3) {
-      //       setDem(4);
-      //       runBanner(dem)
-      //       $('.slide-nav3').removeClass('active');
-      //       $('.slide-nav4').addClass('active');
-      //     }
-      //      if (dem == 4) {
-      //       setDem(5);
-      //       runBanner(dem)
-      //       $('.slide-nav4').removeClass('active');
-      //       $('.slide-nav5').addClass('active');
-      //     }
-      //      if (dem == 5) {
-      //       setDem(1);
-      //       runBanner(dem)
-      //       $('.slide-nav5').removeClass('active');
-      //       $('.slide-nav1').addClass('active');
-      //     }
-
-      //   }, 6000);
-
-      // },);
-
       runBanner(next);
     });
 
@@ -401,6 +340,26 @@ const Home = () => {
     navgate("/Cart");
   };
 
+  const onclickHome = () => {
+    navgate("/Home");
+  };
+
+  const onclickContact = () => {
+    navgate("/Contact");
+  };
+
+  const onclickProduct = () => {
+    navgate("/Product");
+  };
+
+  const onclickNavigate = () => {
+    navgate("/Navigate");
+  };
+
+  const onclickIntroduce = () => {
+    navgate("/Introduce");
+  };
+
   return (
     <div className="home">
       <Chat/>
@@ -411,17 +370,17 @@ const Home = () => {
             <img className="home-header-logo-image" src={logo} alt="" />
           </div>
           <ul className="home-header_ul">
-            <li>
+            <li onClick={onclickHome}>
               <NavLink className="home-header_ul_li_navlink" to="/Home">
                 Trang chủ
               </NavLink>
             </li>
-            <li>
+            <li onClick={onclickContact}>
               <NavLink className="home-header_ul_li_navlink" to="/Contact">
                 Giới thiệu
               </NavLink>
             </li>
-            <li className="home-header_ul_subnav">
+            <li className="home-header_ul_subnav" onClick={onclickProduct}>
               <NavLink className="home-header_ul_li_navlink" to="/Product">
                 Sản phẩm
               </NavLink>
@@ -431,12 +390,12 @@ const Home = () => {
                 <a href="#careers">Careers</a>
               </div>
             </li>
-            <li>
+            <li onClick={onclickNavigate}>
               <NavLink className="home-header_ul_li_navlink" to="/Navigate">
                 Ưu đãi
               </NavLink>
             </li>
-            <li>
+            <li onClick={onclickIntroduce}>
               <NavLink className="home-header_ul_li_navlink" to="/Introduce">
                 Liên hệ
               </NavLink>
@@ -540,9 +499,7 @@ const Home = () => {
           </div>
         </div>
         <div className="form">
-          <label id="search">Enter Your Email address</label>
-          <br />
-          <input type="text" className="input" />
+          <input type="text" className="input_search" placeholder="Search..." />
         </div>
       </nav>
 
@@ -851,7 +808,9 @@ const Home = () => {
                   <img src={imgBanner} alt="" />
                 </div>
                 <div className="main_news_content">
-                  <div className="main_new_top_big_img"></div>
+                  <div className="main_new_top_big_img">
+                  <img src={image_u} alt="" />
+                  </div>
                   <div className="main_new_top_big_card">
                     <div className="main_new_top_big_time">22 january 2022</div>
                     <div className="main_new_top_big_title">
@@ -861,19 +820,19 @@ const Home = () => {
                     <div className="main_new_top_big_content">
                       <div className="number_comment">
                         <div className="number_comment_icon">
-                          <img src={imageItem} alt="" />
+                        <img src={image_thumb_up} alt="" />
                         </div>
                         <div className="number_coment_content">71.8k</div>
                       </div>
                       <div className="number_comment">
                         <div className="number_comment_icon">
-                          <img src={imageItem} alt="" />
+                        <img src={image_comments} alt="" />
                         </div>
                         <div className="number_coment_content">4.01k</div>
                       </div>
                       <div className="number_comment">
                         <div className="number_comment_icon">
-                          <img src={imageItem} alt="" />
+                        <img src={image_share} alt="" />
                         </div>
                         <div className="number_coment_content">67.05k</div>
                       </div>
@@ -887,7 +846,9 @@ const Home = () => {
                   <img src={imgBanner} alt="" />
                 </div>
                 <div className="main_new_top_center_content">
-                  <div className="main_new_top_center_big_img"></div>
+                  <div className="main_new_top_center_big_img">
+                  <img src={image_u} alt="" />
+                  </div>
                   <div className="main_new_top_center_card">
                     <div className="main_new_top_center_big_time">
                       22 january 2022
@@ -899,7 +860,7 @@ const Home = () => {
                     <div className="main_new_top_center_big_content">
                       <div className="main_new_top_center_number_comment">
                         <div className="main_new_top_center_number_comment_icon">
-                          <img src={imageItem} alt="" />
+                          <img src={image_thumb_up} alt="" />
                         </div>
                         <div className="main_new_top_center_coment_content">
                           71.8k
@@ -907,7 +868,7 @@ const Home = () => {
                       </div>
                       <div className="main_new_top_center_number_comment">
                         <div className="main_new_top_center_number_comment_icon">
-                          <img src={imageItem} alt="" />
+                          <img src={image_comments} alt="" />
                         </div>
                         <div className="main_new_top_center_coment_content">
                           4.01k
@@ -915,7 +876,7 @@ const Home = () => {
                       </div>
                       <div className="main_new_top_center_number_comment">
                         <div className="main_new_top_center_number_comment_icon">
-                          <img src={imageItem} alt="" />
+                          <img src={image_share} alt="" />
                         </div>
                         <div className="main_new_top_center_coment_content">
                           67.05k
@@ -931,7 +892,9 @@ const Home = () => {
                   <img src={imgBanner} alt="" />
                 </div>
                 <div className="main_new_top_center_content">
-                  <div className="main_new_top_center_big_img"></div>
+                  <div className="main_new_top_center_big_img">
+                    <img src={image_u} alt="" />
+                  </div>
                   <div className="main_new_top_small_card">
                     <div className="main_new_top_center_big_time">
                       22 january 2022
@@ -943,7 +906,7 @@ const Home = () => {
                     <div className="main_new_top_center_big_content">
                       <div className="main_new_top_center_number_comment">
                         <div className="main_new_top_center_number_comment_icon">
-                          <img src={imageItem} alt="" />
+                        <img src={image_thumb_up} alt="" />
                         </div>
                         <div className="main_new_top_center_coment_content">
                           71.8k
@@ -951,7 +914,7 @@ const Home = () => {
                       </div>
                       <div className="main_new_top_center_number_comment">
                         <div className="main_new_top_center_number_comment_icon">
-                          <img src={imageItem} alt="" />
+                        <img src={image_comments} alt="" />
                         </div>
                         <div className="main_new_top_center_coment_content">
                           4.01k
@@ -959,7 +922,7 @@ const Home = () => {
                       </div>
                       <div className="main_new_top_center_number_comment">
                         <div className="main_new_top_center_number_comment_icon">
-                          <img src={imageItem} alt="" />
+                        <img src={image_share} alt="" />
                         </div>
                         <div className="main_new_top_center_coment_content">
                           67.05k
@@ -996,7 +959,7 @@ const Home = () => {
                 <div className="main_new_bottom_card_cws">
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                      <img src={imgUser} alt="" />
+                    <img src={image_thumb_up} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -1005,7 +968,7 @@ const Home = () => {
 
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                      <img src={imgUser} alt="" />
+                    <img src={image_comments} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -1014,58 +977,7 @@ const Home = () => {
 
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                      <img src={imgUser} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="main_new_bottom_card">
-              <div
-                className="main_new_bottom_card_image"
-                style={{
-                  backgroundImage: `url("${image2}")`,
-                  width: "100%",
-                  height: "28vh",
-                  borderRadius: "20px 20px 0px 0",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></div>
-              <div className="main_new_bottom_card_image_img">
-                <div className="main_new_bottom_card_image_img_container">
-                  <img src={imgUser} alt="" />
-                </div>
-              </div>
-              <div className="mmain_new_bottom_card_content">
-                <div className="main_new_bottom_card_time">10 May 2022</div>
-                <div className="main_new_bottom_card_name">Fresh Princer</div>
-                <div className="main_new_bottom_card_cws">
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                      <img src={imgUser} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                      <img src={imgUser} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                      <img src={imgUser} alt="" />
+                    <img src={image_share} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -1098,7 +1010,7 @@ const Home = () => {
                 <div className="main_new_bottom_card_cws">
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                      <img src={imgUser} alt="" />
+                    <img src={image_thumb_up} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -1107,7 +1019,7 @@ const Home = () => {
 
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                      <img src={imgUser} alt="" />
+                    <img src={image_comments} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -1116,7 +1028,7 @@ const Home = () => {
 
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                      <img src={imgUser} alt="" />
+                    <img src={image_share} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -1149,7 +1061,7 @@ const Home = () => {
                 <div className="main_new_bottom_card_cws">
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                      <img src={imgUser} alt="" />
+                    <img src={image_thumb_up} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -1158,7 +1070,7 @@ const Home = () => {
 
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                      <img src={imgUser} alt="" />
+                    <img src={image_comments} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -1167,7 +1079,58 @@ const Home = () => {
 
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                      <img src={imgUser} alt="" />
+                    <img src={image_share} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="main_new_bottom_card">
+              <div
+                className="main_new_bottom_card_image"
+                style={{
+                  backgroundImage: `url("${image2}")`,
+                  width: "100%",
+                  height: "28vh",
+                  borderRadius: "20px 20px 0px 0",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
+              <div className="main_new_bottom_card_image_img">
+                <div className="main_new_bottom_card_image_img_container">
+                  <img src={imgUser} alt="" />
+                </div>
+              </div>
+              <div className="mmain_new_bottom_card_content">
+                <div className="main_new_bottom_card_time">10 May 2022</div>
+                <div className="main_new_bottom_card_name">Fresh Princer</div>
+                <div className="main_new_bottom_card_cws">
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                    <img src={image_thumb_up} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                    <img src={image_comments} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                    <img src={image_share} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k

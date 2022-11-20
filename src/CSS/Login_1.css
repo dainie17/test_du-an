@@ -69,10 +69,10 @@
   align-items: center;
   justify-content: center;
 }
-.user {
+.userr {
   position: relative;
   width: 100%;
-  margin: 0 0 17% 0;
+  margin: 0 0 9% 0;
 }
 .form__input {
   width: 100%;
@@ -85,7 +85,7 @@
   left: 0.8rem;
 }
 
-.user input {
+.userr input {
   width: 100%;
   border-width: 1px;
   border-style: solid;
@@ -97,30 +97,30 @@
   padding: 17px 16px;
 }
 
-.user input:hover {
+.userr input:hover {
   border-color: #797b7c;
 }
 
-.user input:focus {
+.userr input:focus {
   border-color: #2065d1;
 }
 
-.user label {
+.userr label {
   position: absolute;
   left: 0.9rem;
   top: 14px;
   padding: 3px 5px;
   color: #797b7c;
-  font-size: 18px;
+  font-size: 16px;
   cursor: text;
   transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
-  background-color: #f9fafb;
+  background-color: white;
 }
 
 .form__input:focus ~ .form__label,
 .form__input:not(:placeholder-shown).form__input:not(:focus) ~ .form__label {
-  top: -0.4rem;
-  font-size: 0.8rem;
+  top: -0.7rem;
+  font-size: 1rem;
   left: 0.8rem;
 }
 
@@ -155,6 +155,7 @@
 
 
 .form_warning {
+  position: absolute;
   padding: 0 16px;
   width: 100%;
   color: red;
@@ -193,7 +194,6 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 5%;
-  margin-top: 14%;
 }
 
 .form_login_forgetmenot_left {

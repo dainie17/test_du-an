@@ -153,37 +153,32 @@ export default function SignUp() {
   const [passwordCheckAgain, setPasswordCheckAgian] = useState(false);
   const [errorPasswordAgain, setErrorPasswordAgain] = useState("");
   const validatePassAgain = (se) => {
-    const passAg = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    if (passAg.test(se) == false) {
+    const passAg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (passAg.test(se) == true) {
       setPasswordCheckAgian(true);
       setColor4("#d8dde1");
       setErrorPasswordAgain("");
     } else {
       setPasswordCheckAgian(false);
       setColor4("red");
-      setErrorPasswordAgain("Vui lòng không điền kí tự đặt biệt");
+      setErrorPasswordAgain("Email không đúng định dạng");
     }
 
     if(se.length > 50){ 
       setPasswordCheckAgian(false);
       setColor4("red");
-      setErrorPasswordAgain("Mật khẩu dài quá 50 kí tự");
+      setErrorPasswordAgain("Email dài quá 50 kí tự");
     } 
     if(se.length < 5 && se.length > 0){ 
       setPasswordCheckAgian(false);
       setColor4("red");
-      setErrorPasswordAgain("Độ dài Mật khẩu lớn hơn 5 kí tự");
+      setErrorPasswordAgain("Độ dài email phải lớn hơn 5 kí tự");
     } 
     if(se.length == 0){ 
       setPasswordCheckAgian(false);
       setColor4("red");
-      setErrorPasswordAgain("Vui lòng nhập lại mật khẩu");
+      setErrorPasswordAgain("Vui lòng nhập email");
     } 
-    if(se !== pass){
-      setPasswordCheckAgian(false);
-      setColor4("red");
-      setErrorPasswordAgain("Vui lòng nhập lại chính xác mật khẩu");
-    }
   }
   function ErrolPasswordAgain(props) {
     if (props.isHidden) { return null; }
@@ -213,7 +208,7 @@ export default function SignUp() {
         <div className="form_login_input">
           <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
 
-              <div className="user">
+              <div className="userr">
                 <input
                   type="text"
                   className="form__input"
@@ -230,7 +225,27 @@ export default function SignUp() {
                 </label>
                 <ErrorTK isHidden={TKCheck} errorTK={errorTK} />
               </div>
-              <div className="user">
+              <div className="userr">
+                <input
+                  type="text"
+                  className="form__input"
+                  style={{ borderColor: color4 }}
+                  placeholder=" "
+                  name="Nhập email"
+                  onChange={(e) => setPassAg(e.target.value)}
+                  onClick={useKey("Enter", onSubmit)}
+                  onBlur={(e) => validatePassAgain(e.target.value)}
+                  required
+                />
+                <label htmlFor="email" className="form__label">
+                  Nhập email
+                </label>
+                <ErrolPasswordAgain
+                  isHidden={passwordCheckAgain}
+                  errorPasswordAgain={errorPasswordAgain}
+                />
+              </div>
+              <div className="userr">
                 <input
                   type="password"
                   className="form__input"
@@ -248,26 +263,6 @@ export default function SignUp() {
                 <ErrolPassword
                   isHidden={passwordCheck}
                   errorPassword={errorPassword}
-                />
-              </div>
-              <div className="user">
-                <input
-                  type="password"
-                  className="form__input"
-                  style={{ borderColor: color4 }}
-                  placeholder=" "
-                  name="Nhập lại mật khẩu"
-                  onChange={(e) => setPassAg(e.target.value)}
-                  onClick={useKey("Enter", onSubmit)}
-                  onBlur={(e) => validatePassAgain(e.target.value)}
-                  required
-                />
-                <label htmlFor="email" className="form__label">
-                  Nhập lại mật khẩu
-                </label>
-                <ErrolPasswordAgain
-                  isHidden={passwordCheckAgain}
-                  errorPasswordAgain={errorPasswordAgain}
                 />
               </div>
             <button

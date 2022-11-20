@@ -35,29 +35,6 @@ function Login_1() {
   const navigate = useNavigate();
   const [color2, setColor2] = useState("#d8dde1");
   const [color3, setColor3] = useState("#d8dde1");
-  const LoginSchema = Yup.object().shape({
-    email: Yup.string()
-      .email("Email must be a valid email address")
-      .required("Email is required"),
-    password: Yup.string().required("Password is required"),
-  });
-
-  const defaultValues = {
-    email: "",
-    password: "",
-    remember: true,
-  };
-
-  const methods = useForm({
-    resolver: yupResolver(LoginSchema),
-    defaultValues,
-  });
-
-  const {
-    handleSubmit,
-    formState: { isSubmitting },
-    
-  } = methods;
 
   const onSubmit = async () => {
     if( TKCheck == true && passwordCheck == true){
@@ -166,9 +143,7 @@ function Login_1() {
           <Link  className="nouser" to={'/Signup'}><p>Không có tài khoản ?</p></Link>
         </div>
         <div className="form_login_input">
-          <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-
-              <div className="user">
+              <div className="userr">
                 <input
                   type="text"
                   className="form__input"
@@ -176,7 +151,6 @@ function Login_1() {
                   placeholder=" "
                   name="Tên đăng nhập"
                   onChange={(e) => setTK(e.target.value)}
-                  onClick={useKey("Enter", handleSubmit)}
                   onBlur={(e) => validateTK(e.target.value)}
                   required
                 />
@@ -185,7 +159,7 @@ function Login_1() {
                 </label>
                 <ErrorTK isHidden={TKCheck} errorTK={errorTK} />
               </div>
-              <div className="user">
+              <div className="userr">
                 <input
                   type="password"
                   className="form__input"
@@ -193,7 +167,6 @@ function Login_1() {
                   placeholder=" "
                   name="Tên đăng nhập"
                   onChange={(e) => setPass(e.target.value)}
-                  onClick={useKey("Enter", handleSubmit)}
                   onBlur={(e) => validatePass(e.target.value)}
                   required
                 />
@@ -220,7 +193,6 @@ function Login_1() {
             >
               Đăng nhập
             </button>
-          </FormProvider>
         </div>
 
         <div className="login_or">Hoặc</div>
