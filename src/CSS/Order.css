@@ -180,3 +180,51 @@ khối div địa chỉ giao hàng */
     margin-left: 3%;
     background-color: white;
 }
+
+.order-main-left-list{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.order-main-left-list-card{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+    border-bottom: 1px solid rgb(121, 121, 121);
+}
+
+.order_main_card_imgtitle{
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.order-main-left-list-card-image{
+    width: 90px;
+    height: 90px;
+    border-radius: 15px;
+}
+
+.order-main-left-list-card-content-name{
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+.oder-main-left-list-card-function-button-num{
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.order_main_card_tt{
+    font-weight: bold;
+}
