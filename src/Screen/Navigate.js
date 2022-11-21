@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import $ from "jquery";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
@@ -14,8 +14,7 @@ import Logout from "@mui/icons-material/Logout";
 import Footer from "./footer";
 import Grid from "@mui/material/Unstable_Grid2";
 import '../css/Navigate.css'
-import { Girl } from "@mui/icons-material";
-import Item from '../item/ItemNavigate'
+import ItemNavi from '../item/ItemNavi'
 import BeatLoader from "react-spinners/BeatLoader";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -97,41 +96,41 @@ function Navigate() {
                   <img className="home-header-logo-image" src={logo} alt="" />
                 </div>
                 <ul className="home-header_ul">
-            <li onClick={onclickHome}>
-              <NavLink className="home-header_ul_li_navlink" to="/Home">
-                Trang chủ
-              </NavLink>
-            </li>
-            <li onClick={onclickContact}>
-              <NavLink className="home-header_ul_li_navlink" to="/Contact">
-                Giới thiệu
-              </NavLink>
-            </li>
-            <li className="home-header_ul_subnav" onClick={onclickProduct}>
-              <NavLink className="home-header_ul_li_navlink" to="/Product">
-                Sản phẩm
-              </NavLink>
-              <div className="home-header_ul_subnav_content">
-                <a href="#company">Company</a>
-                <a href="#team">Team</a>
-                <a href="#careers">Careers</a>
-              </div>
-            </li>
-            <li onClick={onclickNavigate}>
-              <NavLink className="home-header_ul_li_navlink" to="/Navigate">
-                Ưu đãi
-              </NavLink>
-            </li>
-            <li onClick={onclickIntroduce}>
-              <NavLink className="home-header_ul_li_navlink" to="/Introduce">
-                Liên hệ
-              </NavLink>
-            </li>
-          </ul>
+                  <li onClick={onclickHome}>
+                    <NavLink className="home-header_ul_li_navlink" to="/Home">
+                      Trang chủ
+                    </NavLink>
+                  </li>
+                  <li onClick={onclickContact}>
+                    <NavLink className="home-header_ul_li_navlink" to="/Contact">
+                      Giới thiệu
+                    </NavLink>
+                  </li>
+                  <li className="home-header_ul_subnav" onClick={onclickProduct}>
+                    <NavLink className="home-header_ul_li_navlink" to="/Product">
+                      Sản phẩm
+                    </NavLink>
+                    <div className="home-header_ul_subnav_content">
+                      <a href="#company">Company</a>
+                      <a href="#team">Team</a>
+                      <a href="#careers">Careers</a>
+                    </div>
+                  </li>
+                  <li onClick={onclickNavigate}>
+                    <NavLink className="home-header_ul_li_navlink" to="/Navigate">
+                      Ưu đãi
+                    </NavLink>
+                  </li>
+                  <li onClick={onclickIntroduce}>
+                    <NavLink className="home-header_ul_li_navlink" to="/Introduce">
+                      Liên hệ
+                    </NavLink>
+                  </li>
+                </ul>
                 <div className="home-header_icon">
-                <div className="font_icon_nav">
-              <div className="search" onClick={onClickSearch}></div>
-            </div>
+                  <div className="font_icon_nav">
+                    <div className="search" onClick={onClickSearch}></div>
+                  </div>
 
                   <div className="home-header_icon_user">
                     <React.Fragment>
@@ -225,8 +224,8 @@ function Navigate() {
                 </div>
               </div>
               <div className="form">
-          <input type="text" className="input_search" placeholder="Search..." />
-        </div>
+                <input type="text" className="input_search" placeholder="Search..." />
+              </div>
             </nav>
 
             <div className="title">
@@ -235,7 +234,20 @@ function Navigate() {
               </div>
               <div className="title_list">
                 <Grid container spacing={0} className="title_list_view">
-                  <Item />
+                  {ItemNavi.map((uudai, index) =>
+                    <div key={index} className="title_list_cottom">
+                      <img src={uudai.image} />
+                      <div className="title_list_cottom--content">
+                        <h2>{uudai.title}</h2>
+                        <p>{uudai.synopsis.substring(0, 230) + " [...]"}</p>
+
+
+                        <Link className="title_list_cottom_button" to={{ pathname: `/ItemNews/${uudai.id} ` }} state={uudai}  >Đọc Thêm</Link>
+
+                      </div>
+                    </div>
+
+                  )}
                 </Grid>
 
               </div>

@@ -3,7 +3,7 @@ import { NavLink, useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import '../css/News1.css'
-import '../item/ItemNavigate'
+
 import ItemNavi from "../item/ItemNavi"
 import Footer from "./footer";
 
@@ -14,7 +14,6 @@ import logo from "../assets/logo_cty.png";
 
 function News1(props) {
     let location = useLocation();
-    let { id } = useParams();
     const data = location.state;
     console.log(data);
     return (
@@ -111,7 +110,7 @@ function News1(props) {
                                         <div key={index} className="policy_list" >
                                             <img src={uudai.image} />
 
-                                            <h2>{uudai.name}</h2>
+                                            <h2>{uudai.title}</h2>
 
                                         </div>
                                     )}
