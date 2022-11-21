@@ -32,7 +32,7 @@ import Chat from "./slideHome";
 
 import ScrollToTop from "react-scroll-to-top";
 import { Fragment } from "react";
-import SliderHome from "./home1";
+import SliderHome from "./Slide_Home";
 
 import imgLine from "../assets/line_silde_product.png";
 import imgSpice from "../assets/spice.png";

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NavLink, useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
-import '../css/News1.css'
+import '../css/News.css'
 
 import ItemNavi from "../item/ItemNavi"
 import Footer from "./footer";

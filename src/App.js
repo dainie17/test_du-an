@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom'
-import Login from './Screen/Login'
 import Signup from './Screen/Signup'
 import Navigate from './Screen/Navigate';
 import Navbar from './Screen/Navbar';
@@ -12,21 +11,21 @@ import Person from './Screen/Personal';
 import Cart from './Screen/Cart';
 import Personal from './Screen/Personal'
 import Order from './Screen/Order';
-import Login_1 from './Screen/Login_1.js';
-import Bao1 from './Screen/home1';
-import New1 from './Screen/News1'
+import Login from './Screen/Login.js';
+import Bao1 from './Screen/Slide_Home';
+import New1 from './Screen/News'
 import Confifential from './Policy/Confidential';
 import Lie from './Policy/Lie';
 import Pay from './Policy/Pay'
-import Paycp from './Policy/Pay copy'
-import Introduce1 from './Screen/Introduce1';
+import Paycp from './Policy/Transport'
+import Introduce1 from './Screen/Contact';
 import SliderHome from './Screen/slideHome';
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Login_1 />} />
+        <Route path='/' element={<Login />} />
         <Route path='/Signup' element={<Signup />} />
         <Route path='/Navigate' element={<Navigate />} />
         <Route path='/Navbar' element={<Navbar />} />

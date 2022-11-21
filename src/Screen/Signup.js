@@ -5,7 +5,6 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Stack, Checkbox } from "@mui/material";
 import { useForm } from "react-hook-form";
-import FormProvider from "../bo_sung/FormProvider";
 
 
 function useKey(key, cb) {
@@ -206,8 +205,6 @@ export default function SignUp() {
           <Link  className="nouser" to={'/'}><p>Đã có tài khoản ?</p></Link>
         </div>
         <div className="form_login_input">
-          <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-
               <div className="userr">
                 <input
                   type="text"
@@ -272,7 +269,6 @@ export default function SignUp() {
             >
               Đăng Ký
             </button>
-          </FormProvider>
         </div>
 
         <div className="login_or">Hoặc</div>
