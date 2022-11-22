@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import '../css/testHome.css'
 
 import movies from "../item/ItemNavi"
-console.log(movies);
+
 
 
 const $ = (selector) => {

@@ -28,7 +28,6 @@ export default function Confifential() {
     const onclickItem = () => {
         navgate("/Personal");
     }
-    console.log(ItemNavi)
     return (
        
   

@@ -42,11 +42,11 @@ const Detail = () => {
 
   const [tong, setTong] = useState(1);
 
-  const onclickReduce =()=>{
-    if(tong > 1){
-        setTong(tong - 1);
+  const onclickReduce = () => {
+    if (tong > 1) {
+      setTong(tong - 1);
     }
-}
+  }
 
   useEffect(() => {
     const u = localStorage.getItem("uses");
@@ -74,22 +74,22 @@ const Detail = () => {
     setToggleState(index);
   }
 
-  let {id, name, price, num} = useParams();
+  let { id, name, price, num } = useParams();
 
   let cart = [];
-  const addTocart = async () =>{
+  const addTocart = async () => {
     let storage = localStorage.getItem('cart');
-    if(storage){
+    if (storage) {
       cart = JSON.parse(storage);
     }
 
 
-    let item = cart.find( c => c.id === id);
+    let item = cart.find(c => c.id === id);
 
-    if(item){
+    if (item) {
       item.num += tong
     } else {
-      cart.push({id: id,name: name,price: price,num: tong});
+      cart.push({ id: id, name: name, price: price, num: tong });
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -129,49 +129,49 @@ const Detail = () => {
             <img className="home-header-logo-image" src={logo} alt="" />
           </div>
           <ul className="home-header_ul">
-                <li onClick={onclickHome}>
-                  <NavLink className="home-header_ul_li_navlink" to="/Home">
-                    Trang chủ
-                  </NavLink>
-                </li>
-                <li onClick={onclickContact}>
-                  <NavLink className="home-header_ul_li_navlink" to="/Contact">
-                    Giới thiệu
-                  </NavLink>
-                </li>
-                <li className="home-header_ul_subnav" onClick={onclickProduct}>
-                  <NavLink className="home-header_ul_li_navlink" to="/Product">
-                    Sản phẩm
-                  </NavLink>
-                  <div className="home-header_ul_subnav_content">
-                    <a href="#company">Company</a>
-                    <a href="#team">Team</a>
-                    <a href="#careers">Careers</a>
-                  </div>
-                </li>
-                <li onClick={onclickNavigate}>
-                  <NavLink className="home-header_ul_li_navlink" to="/Navigate">
-                    Ưu đãi
-                  </NavLink>
-                </li>
-                <li onClick={onclickIntroduce}>
-                  <NavLink
-                    className="home-header_ul_li_navlink"
-                    to="/Introduce"
-                  >
-                    Liên hệ
-                  </NavLink>
-                </li>
-              </ul>
+            <li onClick={onclickHome}>
+              <NavLink className="home-header_ul_li_navlink" to="/Home">
+                Trang chủ
+              </NavLink>
+            </li>
+            <li onClick={onclickContact}>
+              <NavLink className="home-header_ul_li_navlink" to="/Contact">
+                Giới thiệu
+              </NavLink>
+            </li>
+            <li className="home-header_ul_subnav" onClick={onclickProduct}>
+              <NavLink className="home-header_ul_li_navlink" to="/Product">
+                Sản phẩm
+              </NavLink>
+              <div className="home-header_ul_subnav_content">
+                <a href="#company">Company</a>
+                <a href="#team">Team</a>
+                <a href="#careers">Careers</a>
+              </div>
+            </li>
+            <li onClick={onclickNavigate}>
+              <NavLink className="home-header_ul_li_navlink" to="/Navigate">
+                Ưu đãi
+              </NavLink>
+            </li>
+            <li onClick={onclickIntroduce}>
+              <NavLink
+                className="home-header_ul_li_navlink"
+                to="/Introduce"
+              >
+                Liên hệ
+              </NavLink>
+            </li>
+          </ul>
           <div className="home-header_icon">
-          <div className="font_icon_nav">
-                  <div className="search" onClick={onClickSearch}></div>
-                </div>
+            <div className="font_icon_nav">
+              <div className="search" onClick={onClickSearch}></div>
+            </div>
 
             <div className="home-header_icon_user">
-            <React.Fragment>
+              <React.Fragment>
                 <Box
-                  sx={{                   
+                  sx={{
                     display: "flex",
                     alignItems: "center",
                     textAlign: "center",
@@ -227,7 +227,7 @@ const Detail = () => {
                   anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
                 >
                   <MenuItem onClick={onclickItem}>
-                    <Avatar/> Profile
+                    <Avatar /> Profile
                   </MenuItem>
                   <MenuItem>
                     <Avatar /> My account
@@ -260,12 +260,12 @@ const Detail = () => {
           </div>
         </div>
         <div className="form">
-              <input
-                type="text"
-                className="input_search"
-                placeholder="Search..."
-              />
-            </div>
+          <input
+            type="text"
+            className="input_search"
+            placeholder="Search..."
+          />
+        </div>
       </nav>
 
 
@@ -305,7 +305,7 @@ const Detail = () => {
                 <div className="detail-main-top-right-button-picknb">
                   <button onClick={onclickReduce} className="detail-main-top-right-button-picknb-reduce">-</button>
                   <p className="detail-main-top-right-button-picknb-num">{tong}</p>
-                  <button onClick={()=> setTong(tong + 1)} className="detail-main-top-right-button-picknb-augment">+</button>
+                  <button onClick={() => setTong(tong + 1)} className="detail-main-top-right-button-picknb-augment">+</button>
                 </div>
                 <div className={toggleState === 2 ? "favorite detail-main-top-right-button-favorite1" : "fv"} onClick={() => toogleTab(1)}>
                   <div className="favorite_img">
@@ -341,12 +341,12 @@ const Detail = () => {
             </div>
           </div>
 
-          
+
         </div>
-        
+
       </div>
       <div className="home-purview">
-      <div className="preview">
+        <div className="preview">
           <div className="preview_title">
             <p>Dịch vụ của chúng tôi</p>
           </div>
@@ -354,25 +354,28 @@ const Detail = () => {
             <p>Công ty cổ phần Thang Máy Fujitech đơn vị uy tín chất lượng</p>
           </div>
         </div>
-        <div className="home-main-purview">
-            <div className="home-main-purview-card">
-              <img src={truck} className="img"></img>
-              <p>GIAO HÀNG TOÀN QUỐC</p>
-            </div>
-            <div className="home-main-purview-card">
-            <img src={money}></img>
-              <p>HOÀN TIỀN NẾU HÀNG LỖI</p>
-            </div>
-            <div className="home-main-purview-card">
-            <img src={hour}></img>
-              <p>CHĂM SÓC KHÁCH HÀNG 24/7</p>
-            </div>
-            <div className="home-main-purview-card" >
-            <img src={shieldImg}></img>
-              <p>CAM KẾT 100% CHẤT LƯỢNG</p>
-            </div>
-            </div>
+        <div className="home-main-purview-card">
+          <div className="home-main-purview">
+            <img src={truck}></img>
+            <p>GIAO DỊCH TOÀN QUỐC</p>
           </div>
+          <div className="home-main-purview">
+            <img src={money}></img>
+            <p>HOÀN TIỀN NẾU HÀNG LỖI </p>
+          </div>
+          <div className="home-main-purview">
+            <img src={hour}></img>
+            <p>CHĂM SÓC KHÁCH HÀNG 24/7</p>
+          </div>
+          <div className="home-main-purview">
+          <img src={shieldImg}></img>
+            <p>CAM KẾT 100% CHẤT LƯỢNG</p>
+          </div>
+          
+            
+          
+        </div>
+      </div>
 
       <Footer />
     </div >

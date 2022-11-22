@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import "../css/Introduce.css";
+import "../css/Contact.css";
 import $ from "jquery";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
