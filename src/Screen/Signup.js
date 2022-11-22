@@ -263,6 +263,7 @@ export default function SignUp() {
                 />
               </div>
             <button
+            style={{marginTop: "6%"}}
               className="form_login_btn"
               type="submit"
               onClick={onSubmit}

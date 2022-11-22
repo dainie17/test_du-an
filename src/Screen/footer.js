@@ -10,7 +10,7 @@ import logo from "../assets/logo_cty.png"
 import '../css/footer.css'
 import { NavLink } from "react-router-dom";
 
-const link = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FL-A-studio-464549147733598%2F&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"  
+const link = "http://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FL-A-studio-464549147733598%2F&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"  
 
 function footer() {
     return (
@@ -30,7 +30,7 @@ function footer() {
                     <div className="form_fanpage">
                         <h3>FANPAGE</h3>
                         <div>
-                        <iframe src={link} ></iframe>
+                        <iframe src={link}></iframe>
                         </div>
                     </div>
 

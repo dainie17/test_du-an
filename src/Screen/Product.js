@@ -9,6 +9,8 @@ import {
   TokenSharp,
   ViewListSharp,
 } from "@mui/icons-material";
+import Badge from "@mui/material/Badge";
+import { styled } from "@mui/material/styles";
 import $ from "jquery";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
@@ -44,6 +46,9 @@ const image4 =
 const image5 =
   "https://thuytinhtadaco.com/wp-content/uploads/2021/08/chai-lo-thuy-tinh.jpg";
 
+  const img =
+  "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
+
 const PreviousBtn = (props) => {
   const { className, onClick } = props;
   return (
@@ -63,6 +68,36 @@ const NextBtn = (props) => {
 };
 
 const Product = () => {
+
+  const StyledBadge = styled(Badge)(({ theme }) => ({
+    "& .MuiBadge-badge": {
+      backgroundColor: "#44b700",
+      color: "#44b700",
+      boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+      "&::after": {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        borderRadius: "50%",
+        animation: "ripple 1.2s infinite ease-in-out",
+        border: "1px solid currentColor",
+        content: '""',
+      },
+    },
+    "@keyframes ripple": {
+      "0%": {
+        transform: "scale(.8)",
+        opacity: 1,
+      },
+      "100%": {
+        transform: "scale(2.4)",
+        opacity: 0,
+      },
+    },
+  }));
+
   const data = [image1, image2, image3, image4, image5];
 
   const dataProduct = [
@@ -103,17 +138,6 @@ const Product = () => {
 
   let name = dataProduct[0];
 
-  useEffect(() => {
-    $(document).ready(function () {
-      $(window).scroll(function () {
-        if ($(this).scrollTop()) {
-          $(".home-header").addClass("sticky");
-        } else {
-          $(".home-header").removeClass("sticky");
-        }
-      });
-    });
-  });
 
   const [loading, setLoading] = useState(false);
     useEffect(() => {
@@ -338,9 +362,18 @@ const Product = () => {
 
             <div className="product-main-top-right">
               <div className="product-main-top-right-user">
-                <div className="product-main-top-right-user-icon">
-                  <SupportAgentSharp style={{ fontSize: "60px" }} />
-                </div>
+              <div>
+                      <StyledBadge
+                        overlap="circular"
+                        anchorOrigin={{
+                          vertical: "bottom",
+                          horizontal: "right",
+                        }}
+                        variant="dot"
+                      >
+                        <Avatar alt="Remy Sharp" src={img} />
+                      </StyledBadge>
+                    </div>
                 <div className="product-main-top-right-user-information">
                   <div className="product-main-top-right-user-information-title">
                     <p>Xin chào! Punpun</p>
@@ -388,9 +421,6 @@ const Product = () => {
                     <p>Trả lại không lý do</p>
                   </div>
                 </div>
-              </div>
-              <div className="product-main-top-right-image">
-                <img src={image1} alt="" />
               </div>
             </div>
           </div>

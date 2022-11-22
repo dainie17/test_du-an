@@ -43,7 +43,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  margin-bottom: 10%;
+  margin-bottom: 12%;
   align-items: center;
 }
 
@@ -72,7 +72,7 @@
 .userr {
   position: relative;
   width: 100%;
-  margin: 0 0 9% 0;
+  margin: 0 0 6% 0;
 }
 .form__input {
   width: 100%;
@@ -157,6 +157,7 @@
 .form_warning {
   position: absolute;
   padding: 0 16px;
+  font-size: 12px;
   width: 100%;
   color: red;
 }
@@ -184,6 +185,7 @@
 .form_login_input {
   width: 100%;
   margin-bottom: 5%;
+  position: relative;
 }
 
 .form_login_forgetmenot {
@@ -193,7 +195,8 @@
   color: #707070;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 5%;
+  margin-bottom: 12%;
+  margin-top: -3%;
 }
 
 .form_login_forgetmenot_left {

@@ -50,7 +50,7 @@ const Detail = () => {
 
   useEffect(() => {
     const u = localStorage.getItem("uses");
-  });
+  },);
 
   let navgate = useNavigate();
 
