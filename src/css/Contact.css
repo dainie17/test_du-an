@@ -30,6 +30,7 @@
     width: 100%;
     object-fit: cover;
 }
+
 .contact_info_left__before{
     display: flex;
     flex-direction: row;
