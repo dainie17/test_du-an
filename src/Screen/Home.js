@@ -360,6 +360,12 @@ const Home = () => {
     navgate("/Introduce");
   };
 
+  const onClickLogout = () => {
+    localStorage.removeItem("UserUser");
+    window.location.href = "/login";
+    navgate("/login");
+  };
+
   return (
     <div className="home">
       <Chat/>
@@ -483,7 +489,7 @@ const Home = () => {
                     </ListItemIcon>
                     Settings
                   </MenuItem>
-                  <MenuItem>
+                  <MenuItem onClick={onClickLogout}>
                     <ListItemIcon>
                       <Logout fontSize="small" />
                     </ListItemIcon>

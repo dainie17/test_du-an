@@ -25,11 +25,11 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Login />} />
+         <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/Signup' element={<Signup />} />
         <Route path='/Navigate' element={<Navigate />} />
         <Route path='/Navbar' element={<Navbar />} />
-        <Route path='/Home' element={<Home />} />
         <Route path='/Introduce' element={<Introduce />} />
         <Route path='/Product' element={<Product />} />
         <Route path='/Contact' element={<Introduce1 />} />
@@ -41,7 +41,6 @@ function App() {
         <Route path='/News' element={<Bao1 />} />
         <Route path="/ItemNews/:id" element={<New1 />} />
         <Route path='/slide' element={<SliderHome />} />
-
         <Route path='/baomat' element={<Confifential />} />
         <Route path='/doitra' element={<Lie />} />
         <Route path='/thanhtoan' element={<Pay />} />
