@@ -10,9 +10,7 @@ import "../css/Cart.css";
 import Footer from "./footer";
 import ScrollToTop from "react-scroll-to-top";
 import logo from "../assets/logo_cty.png";
-
-const image1 =
-  "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
+import ItemCart from "../item/ItemCart";
 
 const Cart = () => {
   let navgate = useNavigate();
@@ -21,53 +19,9 @@ const Cart = () => {
     navgate("/Order");
   };
 
-  let remove = [];
-  const onclickRemove = (id) => {
-    let storage = localStorage.getItem("cart");
-    if (storage) {
-      remove = JSON.parse(storage);
-    }
-      remove = remove.filter((remove) => remove.id != id);
-      localStorage.setItem("cart", JSON.stringify(remove));
-    getCart();
-  };
-
-  let reduce = [];
-  const onclickReduce = (id) => {
-    let storage = localStorage.getItem("cart");
-    if (storage) {
-      reduce = JSON.parse(storage);
-    }
-
-    let item = reduce.find((c) => c.id === id);
-
-    if (item.num > 1) {
-      item.num -= 1;
-      localStorage.setItem("cart", JSON.stringify(reduce));
-    } else if ((item.num = 1)) {
-      reduce = reduce.filter((remove) => remove.id != id);
-      localStorage.setItem("cart", JSON.stringify(reduce));
-    }
-    getCart();
-  };
-
+  
   const [cart, setCart] = useState([]);
-
-  let addNum = [];
-  const addNumToCart = async (id) => {
-    let storage = localStorage.getItem("cart");
-    if (storage) {
-      addNum = JSON.parse(storage);
-    }
-
-    let item = addNum.find((c) => c.id === id);
-
-    if (item) {
-      item.num += 1;
-    }
-    localStorage.setItem("cart", JSON.stringify(addNum));
-    getCart();
-  };
+  const [chk, setChk] = useState(false);
 
   const getCart = async () => {
     let storage = JSON.parse(localStorage.getItem("cart"));
@@ -81,28 +35,13 @@ const Cart = () => {
     getCart();
   }, []);
 
-  const selectItem =()=>{
-    for (let index = 0; index < cart.length; index++) {
-     
 
-      
-    }
-  }
 
   const handleChange = (e) => {
     const { name, checked } = e.target;
-    if (name === "allSelect") {
-      let tempUser = cart.map((cart) => {
-        return { ...cart, isChecked: checked };
-      });
-      setCart(tempUser);
+    if (name === "allSelect" && checked === checked) {
+      setChk(true)
     } 
-    else {
-      let tempUser = cart.map((cart) =>
-        cart.name === name ? { ...cart, isChecked: checked } : cart
-      );
-      setCart(tempUser);
-    }
   };
 
   const onclickHome = () => {
@@ -167,7 +106,33 @@ const Cart = () => {
       <div className="cart-main">
         <div className="cart_container">
           <div className="cart-main-left">
-
+            <div className="cart-main-left-title">
+              <p className="cart-main-left-title-content">
+                Giỏ hàng &#10088;1&#10089;
+              </p>
+              <div className="cart-main-left-title-check">
+                <input
+                  type="checkbox"
+                  name="allSelect"
+                  onChange={handleChange}
+                />
+                <p>Chọn tất cả</p>
+              </div>
+            </div>
+            <div className="cart-main-left-list">
+              {cart.map((item, index) => (
+                <ItemCart
+                  key={index}
+                  id={item.id}
+                  name={item.name}
+                  price={item.price}
+                  num={item.num}
+                  onhange={handleChange}
+                  getCart={getCart}
+                  check={chk}
+                />
+              ))}
+            </div>
           </div>
           <div className="cart-main-right">
             <p className="cart-main-right-title">Tóm tắt theo thứ tự</p>
@@ -190,7 +155,7 @@ const Cart = () => {
         </div>
       </div>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
