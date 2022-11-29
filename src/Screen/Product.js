@@ -31,7 +31,7 @@ import "../css/Product.css";
 import Footer from "./footer";
 import { useEffect, useState } from "react";
 
-import ItemProductType from "../item/ItemProductType"
+import ItemProductType from "../item/ItemProductType";
 import { Fragment } from "react";
 
 import logo from "../assets/logo_cty.png";
@@ -46,7 +46,7 @@ const image4 =
 const image5 =
   "https://thuytinhtadaco.com/wp-content/uploads/2021/08/chai-lo-thuy-tinh.jpg";
 
-  const img =
+const img =
   "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
 
 const PreviousBtn = (props) => {
@@ -68,7 +68,6 @@ const NextBtn = (props) => {
 };
 
 const Product = () => {
-
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
       backgroundColor: "#44b700",
@@ -138,231 +137,238 @@ const Product = () => {
 
   let name = dataProduct[0];
 
-
   const [loading, setLoading] = useState(false);
-    useEffect(() => {
-        setLoading(true)
-        setTimeout(() => {
-            setLoading(false)
-        }, 500);
-    }, []);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
 
-    const onclickCart = () => {
-      navgate("/Cart");
-    };
-  
-    const onclickHome = () => {
-      navgate("/Home");
-    };
-  
-    const onclickContact = () => {
-      navgate("/Contact");
-    };
-  
-    const onclickProduct = () => {
-      navgate("/Product");
-    };
-  
-    const onclickNavigate = () => {
-      navgate("/Navigate");
-    };
-  
-    const onclickIntroduce = () => {
-      navgate("/Introduce");
-    };
+  const onclickCart = () => {
+    navgate("/Cart");
+  };
 
-    const onClickSearch = () => {
-      $(".input_search").toggleClass("active");
-    };
+  const onclickHome = () => {
+    navgate("/Home");
+  };
+
+  const onclickContact = () => {
+    navgate("/Contact");
+  };
+
+  const onclickProduct = () => {
+    navgate("/Product");
+  };
+
+  const onclickNavigate = () => {
+    navgate("/Navigate");
+  };
+
+  const onclickIntroduce = () => {
+    navgate("/Introduce");
+  };
+
+  const onClickSearch = () => {
+    $(".input_search").toggleClass("active");
+  };
 
   return (
     <div className="product">
-      <ScrollToTop className="scroll" smooth ></ScrollToTop>
-      {
-                loading ? <div className='loading'>
-                    <BeatLoader
-                        color={'#36d7b7'}
-                        loading={loading}
-                        size={15}
-                        margin={5}
-                        speedMultiplier={1}
-                    /></div>
-                    :
-                    <div>
-      <nav className="home-header">
-        <div className="header_container">
-          <div className="home-header_logo">
-            <img className="home-header-logo-image" src={logo}  alt="" />
-          </div>
-          <ul className="home-header_ul">
-            <li onClick={onclickHome}>
-              <NavLink className="home-header_ul_li_navlink" to="/Home">
-                Trang chủ
-              </NavLink>
-            </li>
-            <li onClick={onclickContact}>
-              <NavLink className="home-header_ul_li_navlink" to="/Contact">
-                Giới thiệu
-              </NavLink>
-            </li>
-            <li className="home-header_ul_subnav" onClick={onclickProduct}>
-              <NavLink className="home-header_ul_li_navlink" to="/Product">
-                Sản phẩm
-              </NavLink>
-              <div className="home-header_ul_subnav_content">
-                <a href="#company">Company</a>
-                <a href="#team">Team</a>
-                <a href="#careers">Careers</a>
+      <ScrollToTop className="scroll" smooth></ScrollToTop>
+      {loading ? (
+        <div className="loading">
+          <BeatLoader
+            color={"#36d7b7"}
+            loading={loading}
+            size={15}
+            margin={5}
+            speedMultiplier={1}
+          />
+        </div>
+      ) : (
+        <div>
+          <nav className="home-header">
+            <div className="header_container">
+              <div className="home-header_logo">
+                <img className="home-header-logo-image" src={logo} alt="" />
               </div>
-            </li>
-            <li onClick={onclickNavigate}>
-              <NavLink className="home-header_ul_li_navlink" to="/Navigate">
-                Ưu đãi
-              </NavLink>
-            </li>
-            <li onClick={onclickIntroduce}>
-              <NavLink className="home-header_ul_li_navlink" to="/Introduce">
-                Liên hệ
-              </NavLink>
-            </li>
-          </ul>
-          <div className="home-header_icon">
-          <div className="font_icon_nav">
-              <div className="search" onClick={onClickSearch}></div>
-            </div>
+              <ul className="home-header_ul">
+                <li onClick={onclickHome}>
+                  <NavLink className="home-header_ul_li_navlink" to="/Home">
+                    Trang chủ
+                  </NavLink>
+                </li>
+                <li onClick={onclickContact}>
+                  <NavLink className="home-header_ul_li_navlink" to="/Contact">
+                    Giới thiệu
+                  </NavLink>
+                </li>
+                <li className="home-header_ul_subnav" onClick={onclickProduct}>
+                  <NavLink className="home-header_ul_li_navlink" to="/Product">
+                    Sản phẩm
+                  </NavLink>
+                  <div className="home-header_ul_subnav_content">
+                    <a href="#company">Company</a>
+                    <a href="#team">Team</a>
+                    <a href="#careers">Careers</a>
+                  </div>
+                </li>
+                <li onClick={onclickNavigate}>
+                  <NavLink className="home-header_ul_li_navlink" to="/Navigate">
+                    Ưu đãi
+                  </NavLink>
+                </li>
+                <li onClick={onclickIntroduce}>
+                  <NavLink
+                    className="home-header_ul_li_navlink"
+                    to="/Introduce"
+                  >
+                    Liên hệ
+                  </NavLink>
+                </li>
+              </ul>
+              <div className="home-header_icon">
+                <div className="font_icon_nav">
+                  <div className="search" onClick={onClickSearch}></div>
+                </div>
 
-            <div className="home-header_icon_user">
-              <Fragment>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    textAlign: "center",
-                  }}
-                >
-                  <Tooltip title="Account settings">
-                    <div
-                      className="home-header_icon_user_img"
-                      onClick={handleClick}
-                      size="small"
-                      sx={{ ml: 2 }}
-                      aria-controls={open ? "account-menu" : undefined}
-                      aria-haspopup="true"
-                      aria-expanded={open ? "true" : undefined}
+                <div className="home-header_icon_user">
+                  <Fragment>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        textAlign: "center",
+                      }}
                     >
-                      <div className="user" />
-                    </div>
-                  </Tooltip>
-                </Box>
-                <Menu
-                  anchorEl={anchorEl}
-                  id="account-menu"
-                  open={open}
-                  onClose={handleClose}
-                  onClick={handleClose}
-                  PaperProps={{
-                    elevation: 0,
-                    sx: {
-                      overflow: "visible",
-                      filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                      mt: 1.5,
-                      "& .MuiAvatar-root": {
-                        width: 32,
-                        height: 32,
-                        ml: -0.5,
-                        mr: 1,
-                      },
-                      "&:before": {
-                        content: '""',
-                        display: "block",
-                        position: "absolute",
-                        top: 0,
-                        left: 15,
-                        width: 10,
-                        height: 10,
-                        bgcolor: "background.paper",
-                        transform: "translateY(-50%) rotate(45deg)",
-                        zIndex: 0,
-                      },
-                    },
-                  }}
-                  transformOrigin={{ horizontal: "left", vertical: "top" }}
-                  anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
-                >
-                  <MenuItem onClick={onclickItem}>
-                    <Avatar /> Profile
-                  </MenuItem>
-                  <MenuItem>
-                    <Avatar /> My account
-                  </MenuItem>
-                  <Divider />
-                  <MenuItem>
-                    <ListItemIcon>
-                      <PersonAdd fontSize="small" />
-                    </ListItemIcon>
-                    Add another account
-                  </MenuItem>
-                  <MenuItem>
-                    <ListItemIcon>
-                      <Settings fontSize="small" />
-                    </ListItemIcon>
-                    Settings
-                  </MenuItem>
-                  <MenuItem>
-                    <ListItemIcon>
-                      <Logout fontSize="small" />
-                    </ListItemIcon>
-                    Logout
-                  </MenuItem>
-                </Menu>
-              </Fragment>
-            </div>
-            <div className="font_icon_nav">
-              <div className="cart" onClick={onclickCart} />
-            </div>
-          </div>
-        </div>
-        <div className="form">
-          <input type="text" className="input_search" placeholder="Search..." />
-        </div>
-      </nav>
-
-      {/* main */}
-      <div className="product-main">
-        <div className="product_container">
-          <div className="product-main-top">
-            <div className="product-main-top-left">
-              <div className="product-main-top-left-title">
-                <ViewListSharp />
-                <p>Danh sách sản phẩm</p>
-              </div>
-              <div className="product-main-top-left-content"></div>
-            </div>
-
-            <div className="product-main-top-center">
-              <div className="product-main-top-center-slide">
-                <Slider
-                  autoplay={true}
-                  autoplaySpeed={2000}
-                  prevArrow={<PreviousBtn />}
-                  nextArrow={<NextBtn />}
-                >
-                  {data.map((item, index) => (
-                    <div key={index}>
-                      <img
-                        src={item}
-                        alt=""
-                        className="product-main-top-center-slide-img"
-                      />
-                    </div>
-                  ))}
-                </Slider>
+                      <Tooltip title="Account settings">
+                        <div
+                          className="home-header_icon_user_img"
+                          onClick={handleClick}
+                          size="small"
+                          sx={{ ml: 2 }}
+                          aria-controls={open ? "account-menu" : undefined}
+                          aria-haspopup="true"
+                          aria-expanded={open ? "true" : undefined}
+                        >
+                          <div className="user" />
+                        </div>
+                      </Tooltip>
+                    </Box>
+                    <Menu
+                      anchorEl={anchorEl}
+                      id="account-menu"
+                      open={open}
+                      onClose={handleClose}
+                      onClick={handleClose}
+                      PaperProps={{
+                        elevation: 0,
+                        sx: {
+                          overflow: "visible",
+                          filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                          mt: 1.5,
+                          "& .MuiAvatar-root": {
+                            width: 32,
+                            height: 32,
+                            ml: -0.5,
+                            mr: 1,
+                          },
+                          "&:before": {
+                            content: '""',
+                            display: "block",
+                            position: "absolute",
+                            top: 0,
+                            left: 15,
+                            width: 10,
+                            height: 10,
+                            bgcolor: "background.paper",
+                            transform: "translateY(-50%) rotate(45deg)",
+                            zIndex: 0,
+                          },
+                        },
+                      }}
+                      transformOrigin={{ horizontal: "left", vertical: "top" }}
+                      anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
+                    >
+                      <MenuItem onClick={onclickItem}>
+                        <Avatar /> Profile
+                      </MenuItem>
+                      <MenuItem>
+                        <Avatar /> My account
+                      </MenuItem>
+                      <Divider />
+                      <MenuItem>
+                        <ListItemIcon>
+                          <PersonAdd fontSize="small" />
+                        </ListItemIcon>
+                        Add another account
+                      </MenuItem>
+                      <MenuItem>
+                        <ListItemIcon>
+                          <Settings fontSize="small" />
+                        </ListItemIcon>
+                        Settings
+                      </MenuItem>
+                      <MenuItem>
+                        <ListItemIcon>
+                          <Logout fontSize="small" />
+                        </ListItemIcon>
+                        Logout
+                      </MenuItem>
+                    </Menu>
+                  </Fragment>
+                </div>
+                <div className="font_icon_nav">
+                  <div className="cart" onClick={onclickCart} />
+                </div>
               </div>
             </div>
+            <div className="form">
+              <input
+                type="text"
+                className="input_search"
+                placeholder="Search..."
+              />
+            </div>
+          </nav>
 
-            <div className="product-main-top-right">
-              <div className="product-main-top-right-user">
-              <div>
+          {/* main */}
+          <div className="product-main">
+            <div className="product_container">
+              <div className="product-main-top">
+                <div className="product-main-top-left">
+                  <div className="product-main-top-left-title">
+                    <ViewListSharp />
+                    <p>Danh sách sản phẩm</p>
+                  </div>
+                  <div className="product-main-top-left-content"></div>
+                </div>
+
+                <div className="product-main-top-center">
+                  <div className="product-main-top-center-slide">
+                    <Slider
+                      autoplay={true}
+                      autoplaySpeed={2000}
+                      prevArrow={<PreviousBtn />}
+                      nextArrow={<NextBtn />}
+                    >
+                      {data.map((item, index) => (
+                        <div key={index}>
+                          <img
+                            src={item}
+                            alt=""
+                            className="product-main-top-center-slide-img"
+                          />
+                        </div>
+                      ))}
+                    </Slider>
+                  </div>
+                </div>
+
+                <div className="product-main-top-right">
+                  <div className="product-main-top-right-user">
+                    <div className="img_user_product">
                       <StyledBadge
                         overlap="circular"
                         anchorOrigin={{
@@ -371,74 +377,76 @@ const Product = () => {
                         }}
                         variant="dot"
                       >
-                        <Avatar alt="Remy Sharp" src={img} />
+                        <Avatar
+                          sx={{ width: 60, height: 60 }}
+                          alt="Remy Sharp"
+                          src={img}
+                        />
                       </StyledBadge>
                     </div>
-                <div className="product-main-top-right-user-information">
-                  <div className="product-main-top-right-user-information-title">
-                    <p>Xin chào! Punpun</p>
+                    <div className="product-main-top-right-user-information">
+                      <div className="product-main-top-right-user-information-title">
+                        <p>Xin chào! Punpun</p>
+                      </div>
+                      <div className="product-main-top-right-user-information-button">
+                        <button className="product-main-top-right-user-information-button-left">
+                          Tài khoản
+                        </button>
+                        <button className="product-main-top-right-user-information-button-right">
+                          Đơn hàng
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div className="product-main-top-right-user-information-button">
-                    <button className="product-main-top-right-user-information-button-left">
-                      Tài khoản
-                    </button>
-                    <button className="product-main-top-right-user-information-button-right">
-                      Đơn hàng
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="product-main-top-right-title">
-                <p>Chính sách dịch vụ khách hàng</p>
-              </div>
-              <div className="product-main-top-right-service">
-                <div className="product-main-top-right-service-top">
-                  <div className="product-main-top-right-service-top-left">
-                    <GppGoodSharp
-                      style={{ fontSize: "15px", paddingRight: "1px" }}
-                    />
-                    <p>Bảo mật thanh toán</p>
-                  </div>
-                  <div className="product-main-top-right-service-top-right">
-                    <TokenSharp
-                      style={{ fontSize: "15px", paddingRight: "1px" }}
-                    />
-                    <p>Đảm bảo giao hàng</p>
-                  </div>
-                </div>
-                <div className="product-main-top-right-service-bottom">
-                  <div className="product-main-top-right-service-bottom-left">
-                    <DiamondSharp
-                      style={{ fontSize: "15px", paddingRight: "1px" }}
-                    />
-                    <p>Đảm bảo chất lượng</p>
-                  </div>
-                  <div className="product-main-top-right-service-bottom-right">
-                    <AssignmentReturnSharp
-                      style={{ fontSize: "15px", paddingRight: "1px" }}
-                    />
-                    <p>Trả lại không lý do</p>
+                  <div className="product_service">
+                    <div className="product-main-top-right-title">
+                      <p>Chính sách dịch vụ khách hàng</p>
+                    </div>
+                    <div className="product-main-top-right-service">
+                      <div className="product-main-top-right-service-top">
+                        <div className="product-main-top-right-service-top-left">
+                          <GppGoodSharp
+                            style={{ fontSize: "15px", paddingRight: "1px" }}
+                          />
+                          <p>Bảo mật thanh toán</p>
+                        </div>
+                        <div className="product-main-top-right-service-top-right">
+                          <TokenSharp
+                            style={{ fontSize: "15px", paddingRight: "1px" }}
+                          />
+                          <p>Đảm bảo giao hàng</p>
+                        </div>
+                      </div>
+                      <div className="product-main-top-right-service-bottom">
+                        <div className="product-main-top-right-service-bottom-left">
+                          <DiamondSharp
+                            style={{ fontSize: "15px", paddingRight: "1px" }}
+                          />
+                          <p>Đảm bảo chất lượng</p>
+                        </div>
+                        <div className="product-main-top-right-service-bottom-right">
+                          <AssignmentReturnSharp
+                            style={{ fontSize: "15px", paddingRight: "1px" }}
+                          />
+                          <p>Trả lại không lý do</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            <div className="product-main-list">
+              {dataProduct.map((item, index) => (
+                <ItemProductType key={index} nameType={item.name} />
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className="product-main-list">
-        {dataProduct.map((item, index) => (
-                <ItemProductType
-                  key={index}
-                  nameType={item.name}
-                />
-              ))} 
+          <Footer />
         </div>
-      </div>
-
-      <Footer />
-      </div>
-}
+      )}
     </div>
   );
 };

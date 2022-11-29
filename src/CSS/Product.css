@@ -61,7 +61,7 @@
 /* ----------------phần nội dung của phần bên trái của main_top------------- */
 .product-main-top-left-content {
   width: 100%;
-  height: 370px;
+  height: 210px;
   background-color: white;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -71,9 +71,8 @@
 /* ----------------------------------phần giữa của main_top------------------- */
 .product-main-top-center {
   width: 47%;
-  display: flex;
   border-radius: 15px;
-  flex-direction: column;
+  height: 250px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -102,7 +101,7 @@
 /* ----------------------chỉnh hình ảnh cho slider----------------------- */
 .product-main-top-center-slide-img {
   width: 100%;
-  height: 54vh;
+  height: 251px;
   border-radius: 15px;
 }
 
@@ -151,23 +150,23 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #ffede3;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* ----------------------------phần người dùng--------------------------------- */
 .product-main-top-right-user {
   width: 100%;
-  padding-top: 20px;
+  padding: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  background-color: #fff6f0;
+  justify-content: space-between;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* ---------------------icon-------------------- */
-.product-main-top-right-user-icon {
-  width: 20%;
+.img_user_product {
+  width: 30%;
 }
 
 /* --------------nội dung của phần người dùng------ */
@@ -175,60 +174,82 @@
   width: 70%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: right;
 }
 
 /* ------tiêu đề của nội dung người dùng------ */
 .product-main-top-right-user-information-title {
   width: 100%;
+  font-size: 20px;
 }
 
 /* -----phần button của nội dung người dùng------ */
 .product-main-top-right-user-information-button {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 10px;
 }
 
 /* ---chỉnh button bên trái--- */
 .product-main-top-right-user-information-button-left {
   background-color: white;
-  border: none;
+  border: 1px solid rgb(224, 224, 224);
+  font-size: 12px;
   border-radius: 15px;
-  padding: 5px;
+  padding: 8px;
 }
 
 /* ---chỉnh button bên phải--- */
 .product-main-top-right-user-information-button-right {
   background-color: white;
-  border: none;
+  border: 1px solid rgb(224, 224, 224);
+  font-size: 12px;
   border-radius: 15px;
-  padding: 5px;
-  margin-left: 5%;
+  padding: 8px;
+}
+
+.product_service{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 25px;
+  color: #2065b1;
+  background-color: #e9f2ff;
+  padding: 10px 0;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* --------------tiêu đề của chính sách dịch vụ khách hàng------------ */
 .product-main-top-right-title {
   width: 90%;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  text-align: left;
+  margin-top: 10px;
+  font-size: 16px;
+  margin-bottom: 7px;
+  text-align: center;
 }
 
 /* -----------------nội dung dịch vụ khách hàng--------------------- */
 .product-main-top-right-service {
-  width: 90%;
-  margin-top: 1px;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
 }
 
 .product-main-top-right-service-top {
-  width: 100%;
+  width: 90%;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   display: flex;
   flex-direction: row;
 }
@@ -239,6 +260,7 @@
   flex-direction: row;
   font-size: 10px;
   align-items: center;
+  justify-content: space-between;
   padding: 6px;
 }
 
@@ -249,13 +271,14 @@
   flex-direction: row;
   font-size: 10px;
   padding: 6px;
+  justify-content: space-between;
   align-items: center;
 }
 
 .product-main-top-right-service-bottom {
-  width: 100%;
+  width: 90%;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   display: flex;
   flex-direction: row;
 }
@@ -266,6 +289,7 @@
   flex-direction: row;
   font-size: 10px;
   padding: 6px;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -276,6 +300,7 @@
   flex-direction: row;
   font-size: 10px;
   padding: 6px;
+  justify-content: space-between;
   align-items: center;
 }
 
