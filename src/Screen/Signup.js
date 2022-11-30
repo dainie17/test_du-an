@@ -11,93 +11,139 @@ function useKey(key, cb) {
 
   const callbackRef = useRef(cb);
 
-  useEffect(()=> {
+  useEffect(() => {
     callbackRef.current = cb;
   })
 
-  useEffect(()=>{
+  useEffect(() => {
 
-    function handle(event){
-      if(event.code === key){
+    function handle(event) {
+      if (event.code === key) {
         callbackRef.current(event);
       }
     }
 
     document.addEventListener("keypress", handle);
-    return()=> document.removeEventListener("keypress", handle);
+    return () => document.removeEventListener("keypress", handle);
   }, [key])
 }
 
-
 export default function SignUp() {
+
+  const ip = "http://localhost:8080"
+
   const navigate = useNavigate();
+
+  const [TKUser, setTKUser] = useState();
+  const [EmailUser, setEmailUser] = useState();
+  const [passUser, setPassUser] = useState();
+  const [TrangThaiUser, setTrangThaiUser] = useState("Không hoạt động");
+
+
+
+  const btnSignup = () => {
+    if (TKCheck == false && passwordCheck == false && EmailCheck == false) {
+      validateTK(TKUser)
+      validateEmailCheck(EmailUser)
+      validatePass(passUser)
+      return
+    }
+    if(TKCheck == false && passwordCheck == true && EmailCheck == true){
+      validateTK(TKUser)
+      return
+    }
+    if (TKCheck == true && passwordCheck == true && EmailCheck == false) {
+      validateEmailCheck(EmailUser)
+      return
+    }
+    if (TKCheck == true && passwordCheck == false && EmailCheck == true) {
+      validatePass(passUser)
+      return
+    }
+    if (TKCheck == false && passwordCheck == false && EmailCheck == true) {
+      validateTK(TKUser)
+      validatePass(passUser)
+      return
+    }
+    if (TKCheck == false && passwordCheck == true && EmailCheck == false) {
+      validateTK(TKUser)
+      validateEmailCheck(EmailUser)
+      return
+    }
+    if (TKCheck == true && passwordCheck == false && EmailCheck == false) {
+      validatePass(passUser)
+      validateEmailCheck(EmailUser)
+      return
+    }
+    if (TKCheck == true && passwordCheck == true && EmailCheck == true) {
+      fetch(ip + "/register_User", {
+        method: "POST",
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({
+          TKUser: TKUser,
+          EmailUser: EmailUser,
+          passUser: passUser,
+          TrangThaiUser:TrangThaiUser,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data, "userResgister");
+          if (data.error == "Trùng tài khoản") {
+            validateTK(data.error)
+            setTKUser("Trùng tài khoản")
+          }else{
+            setTKUser(TKUser)
+          }
+           if (data.error == "Trùng Email") {
+            validateEmailCheck(data.error)  
+            setEmailUser("Trùng Email")
+          } else{
+            setEmailUser(EmailUser)
+          }
+          if(data.status == "Ok"){
+            navigate("/login", { replace: true });
+          }
+        })
+    }
+    }
+
+
+  // ===================================== validate ================================================================
   const [color2, setColor2] = useState("#d8dde1");
   const [color3, setColor3] = useState("#d8dde1");
   const [color4, setColor4] = useState("#d8dde1");
-  const LoginSchema = Yup.object().shape({
-    email: Yup.string()
-      .email("Email must be a valid email address")
-      .required("Email is required"),
-    password: Yup.string().required("Password is required"),
-  });
 
-  const defaultValues = {
-    email: "",
-    password: "",
-    remember: true,
-  };
-
-  const methods = useForm({
-    resolver: yupResolver(LoginSchema),
-    defaultValues,
-  });
-
-  const {
-    handleSubmit,
-    formState: { isSubmitting },
-  } = methods;
-
-  const onSubmit = async () => {
-    if(TKCheck == true && passwordCheck == true && passwordCheckAgain == true){
-      navigate("/Home", { replace: true });
-    }
-  };
-
-  const [taikhoan, setTK] = useState("");
-  const [pass, setPass] = useState("");
-  const [passAg, setPassAg] = useState("");
   const [TKCheck, setTKCheck] = useState(false);
   const [errorTK, setErrorTK] = useState("");
-  const [chxSave, setChxSave] = useState(false);
   const validateTK = (se) => {
     const format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
-    if (format.test(se) == false) {
-      setTKCheck(true);
-      setColor2("#d8dde1");
-      setErrorTK("");
-
-    } else {
+    if (se == null) {
+      setTKCheck(false);
+      setColor2("red");
+      setErrorTK("Tài khoản không được để trống");
+    }
+    if (se == "Trùng tài khoản" && se != null) {
+      setTKCheck(false);
+      setColor2("red");
+      setErrorTK("Tài khoản đã tồn tại");
+    }
+    if (se != "Trùng tài khoản" && se != null && format.test(se) == true){
       setTKCheck(false);
       setColor2("red");
       setErrorTK("Vui lòng không điền kí tự đặt biệt");
     }
-
-    if(se.length > 50){ 
-      setTKCheck(false);
-      setColor2("red");
-      setErrorTK("Tài khoản dài quá 50 kí tự");
-    } 
-    if(se.length < 5 && se.length > 0){ 
-      setTKCheck(false);
-      setColor2("red");
-      setErrorTK("Độ dài tài khoản lớn hơn 5 kí tự");
-    } 
-    if(se.length == 0){ 
-      setTKCheck(false);
-      setColor2("red");
-      setErrorTK("Tài khoản không được để trống");
-    } 
+    if (se != "Trùng tài khoản" && se != null && format.test(se) == false){
+      setTKCheck(true);
+      setColor2("#d8dde1");
+      setErrorTK("");
+    }
   }
 
   function ErrorTK(props) {
@@ -109,81 +155,71 @@ export default function SignUp() {
     )
   }
 
+  const [EmailCheck, setEmailCheck] = useState(false);
+  const [errorEmailCheck, setErrorEmailCheck] = useState("");
+  const validateEmailCheck = (se) => {
+    const formatEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+
+    if (se == null) {
+      setEmailCheck(false);
+      setColor4("red");
+      setErrorEmailCheck("Email không được để trống");
+    }
+    if (se == "Trùng Email" && se != null) {
+      setEmailCheck(false);
+      setColor4("red");
+      setErrorEmailCheck("Email đã tồn tại");
+    }
+    if (se != "Trùng Email" && se != null && formatEmail.test(se) == false){
+      setEmailCheck(false);
+      setColor4("red");
+      setErrorEmailCheck("Email không đúng định dạng");
+    }
+    if (se != "Trùng Email" && se != null && formatEmail.test(se) == true){
+      setEmailCheck(true);
+      setColor4("#d8dde1");
+      setErrorEmailCheck("");
+    }
+  }
+  function ErrorEmailCheck(props) {
+    if (props.isHidden) { return null; }
+    return (
+      <div className="form_warning">
+        {props.errorEmailCheck}
+      </div>
+    )
+  }
+
 
   const [passwordCheck, setPasswordCheck] = useState(false);
   const [errorPassword, setErrorPassword] = useState("");
   const validatePass = (se) => {
     const pass = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+
     if (pass.test(se) == false) {
-      setPasswordCheck(true);
-      setColor3("#d8dde1");
-      setErrorPassword("");
-    } else {
       setPasswordCheck(false);
       setColor3("red");
       setErrorPassword("Vui lòng không điền kí tự đặt biệt");
     }
+    if (se == null) {
+      setPasswordCheck(false);
+      setColor3("red");
+      setErrorPassword("Password không được để trống");
+    }
 
-    if(se.length > 50){ 
-      setPasswordCheck(false);
-      setColor3("red");
-      setErrorPassword("Mật khẩu dài quá 50 kí tự");
-    } 
-    if(se.length < 5 && se.length > 0){ 
-      setPasswordCheck(false);
-      setColor3("red");
-      setErrorPassword("Độ dài Mật khẩu lớn hơn 5 kí tự");
-    } 
-    if(se.length == 0){ 
-      setPasswordCheck(false);
-      setColor3("red");
-      setErrorPassword("Mật khẩu không được để trống");
-    } 
+    if (se != null && se.length > 0 ) {
+      setPasswordCheck(true);
+      setColor3("#d8dde1");
+      setErrorPassword("");
+    }
+
   }
   function ErrolPassword(props) {
     if (props.isHidden) { return null; }
     return (
       <div className="form_warning">
         {props.errorPassword}
-      </div>
-    )
-  }
-
-  const [passwordCheckAgain, setPasswordCheckAgian] = useState(false);
-  const [errorPasswordAgain, setErrorPasswordAgain] = useState("");
-  const validatePassAgain = (se) => {
-    const passAg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (passAg.test(se) == true) {
-      setPasswordCheckAgian(true);
-      setColor4("#d8dde1");
-      setErrorPasswordAgain("");
-    } else {
-      setPasswordCheckAgian(false);
-      setColor4("red");
-      setErrorPasswordAgain("Email không đúng định dạng");
-    }
-
-    if(se.length > 50){ 
-      setPasswordCheckAgian(false);
-      setColor4("red");
-      setErrorPasswordAgain("Email dài quá 50 kí tự");
-    } 
-    if(se.length < 5 && se.length > 0){ 
-      setPasswordCheckAgian(false);
-      setColor4("red");
-      setErrorPasswordAgain("Độ dài email phải lớn hơn 5 kí tự");
-    } 
-    if(se.length == 0){ 
-      setPasswordCheckAgian(false);
-      setColor4("red");
-      setErrorPasswordAgain("Vui lòng nhập email");
-    } 
-  }
-  function ErrolPasswordAgain(props) {
-    if (props.isHidden) { return null; }
-    return (
-      <div className="form_warning">
-        {props.errorPasswordAgain}
       </div>
     )
   }
@@ -202,74 +238,74 @@ export default function SignUp() {
       <div className="login">
         <div className="form_login_title">
           <p className="title_content">Đăng ký</p>
-          <Link  className="nouser" to={'/'}><p>Đã có tài khoản ?</p></Link>
+          <Link className="nouser" to={'/login'}><p>Đã có tài khoản ?</p></Link>
         </div>
         <div className="form_login_input">
-              <div className="userr">
-                <input
-                  type="text"
-                  className="form__input"
-                  style={{ borderColor: color2 }}
-                  placeholder=" "
-                  name="Tên đăng nhập"
-                  onChange={(e) => setTK(e.target.value)}
-                  onClick={useKey("Enter", onSubmit)}
-                  onBlur={(e) => validateTK(e.target.value)}
-                  required
-                />
-                <label htmlFor="text" className="form__label">
-                  Tên đăng nhập
-                </label>
-                <ErrorTK isHidden={TKCheck} errorTK={errorTK} />
-              </div>
-              <div className="userr">
-                <input
-                  type="text"
-                  className="form__input"
-                  style={{ borderColor: color4 }}
-                  placeholder=" "
-                  name="Nhập email"
-                  onChange={(e) => setPassAg(e.target.value)}
-                  onClick={useKey("Enter", onSubmit)}
-                  onBlur={(e) => validatePassAgain(e.target.value)}
-                  required
-                />
-                <label htmlFor="email" className="form__label">
-                  Nhập email
-                </label>
-                <ErrolPasswordAgain
-                  isHidden={passwordCheckAgain}
-                  errorPasswordAgain={errorPasswordAgain}
-                />
-              </div>
-              <div className="userr">
-                <input
-                  type="password"
-                  className="form__input"
-                  style={{ borderColor: color3 }}
-                  placeholder=" "
-                  name="Tên đăng nhập"
-                  onChange={(e) => setPass(e.target.value)}
-                  onClick={useKey("Enter", onSubmit)}
-                  onBlur={(e) => validatePass(e.target.value)}
-                  required
-                />
-                <label htmlFor="email" className="form__label">
-                  Mật khẩu
-                </label>
-                <ErrolPassword
-                  isHidden={passwordCheck}
-                  errorPassword={errorPassword}
-                />
-              </div>
-            <button
-            style={{marginTop: "6%"}}
-              className="form_login_btn"
-              type="submit"
-              onClick={onSubmit}
-            >
-              Đăng Ký
-            </button>
+          <div className="userr">
+            <input
+              type="text"
+              className="form__input"
+              style={{ borderColor: color2 }}
+              placeholder=" "
+              name="Tên đăng nhập"
+              onChange={(e) => setTKUser(e.target.value)}
+              onClick={useKey("Enter", btnSignup)}
+              onBlur={(e) => validateTK(e.target.value)}
+              required
+            />
+            <label htmlFor="text" className="form__label">
+              Tên đăng nhập
+            </label>
+            <ErrorTK isHidden={TKCheck} errorTK={errorTK} />
+          </div>
+          <div className="userr">
+            <input
+              type="text"
+              className="form__input"
+              style={{ borderColor: color4 }}
+              placeholder=" "
+              name="Nhập email"
+              onChange={(e) => setEmailUser(e.target.value)}
+              onClick={useKey("Enter", btnSignup)}
+              onBlur={(e) => validateEmailCheck(e.target.value)}
+              required
+            />
+            <label htmlFor="email" className="form__label">
+              Nhập email
+            </label>
+            <ErrorEmailCheck
+              isHidden={EmailCheck}
+              errorEmailCheck={errorEmailCheck}
+            />
+          </div>
+          <div className="userr">
+            <input
+              type="password"
+              className="form__input"
+              style={{ borderColor: color3 }}
+              placeholder=" "
+              name="Tên đăng nhập"
+              onChange={(e) => setPassUser(e.target.value)}
+              onClick={useKey("Enter", btnSignup)}
+              onBlur={(e) => validatePass(e.target.value)}
+              required
+            />
+            <label htmlFor="email" className="form__label">
+              Mật khẩu
+            </label>
+            <ErrolPassword
+              isHidden={passwordCheck}
+              errorPassword={errorPassword}
+            />
+          </div>
+          <button
+            style={{ marginTop: "6%" }}
+            className="form_login_btn"
+            type="submit"
+            onClick={btnSignup}
+          >
+            Đăng Ký
+          </button>
         </div>
 
         <div className="login_or">Hoặc</div>

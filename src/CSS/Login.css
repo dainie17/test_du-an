@@ -141,7 +141,7 @@
 .cbx_ipt {
   color: #797b7c;
   display: flex;
-  width: 10%;
+  width: 13%;
   padding: 20px;
   height: 20px;
 }
@@ -200,21 +200,20 @@
 }
 
 .form_login_forgetmenot_left {
-  width: 50%;
+  width: 40%;
   display: flex;
   align-items: center;
-  margin-left: -10px;
   justify-content: space-between;
 }
 
 .title_chb {
-  width: 80%;
+  width: 82%;
   font-size: 14px;
 }
 
 .form_login_forgetmenot p {
-  width: 35%;
-  text-align: right;
+  width: 33%;
+  text-align: left;
   cursor: pointer;
   font-size: 14px;
 }

@@ -316,6 +316,12 @@ const Home = () => {
     navgate("/login");
   };
 
+  const onClickLogout = () => {
+    localStorage.removeItem("UserUser");
+    window.location.href = "/login";
+    navgate("/login");
+  };
+
   return (
     <div className="home">
       <Chat/>
