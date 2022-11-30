@@ -15,10 +15,12 @@ import Logout from "@mui/icons-material/Logout";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo_cty.png";
 import { Fragment } from "react";
+
 const onClickSearch = () => {
     $(".input_search").toggleClass("active");
   };
-function Navbar() {
+  
+function NavbarIn() {
 
     let navgate = useNavigate();
 
@@ -40,7 +42,7 @@ function Navbar() {
     };
   
     const onclickHome = () => {
-      navgate("/");
+      navgate("/Home");
     };
   
     const onclickContact = () => {
@@ -59,12 +61,10 @@ function Navbar() {
       navgate("/Introduce");
     };
 
-    const onClickLogin = () => {
+    const onClickLogout = () => {
+      localStorage.removeItem("UserUser");
+      window.location.href = "/login";
       navgate("/login");
-    };
-
-    const onClickSignup = () => {
-      navgate("/Signup");
     };
 
     return (
@@ -168,11 +168,30 @@ function Navbar() {
                   transformOrigin={{ horizontal: "left", vertical: "top" }}
                   anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
                 >
-                  <MenuItem onClick={onClickLogin}>
-                    <Avatar /> Login
+                  <MenuItem onClick={onclickItem}>
+                    <Avatar /> Profile
                   </MenuItem>
-                  <MenuItem onClick={onClickSignup}>
-                    <Avatar /> Signup
+                  <MenuItem>
+                    <Avatar /> My account
+                  </MenuItem>
+                  <Divider />
+                  <MenuItem>
+                    <ListItemIcon>
+                      <PersonAdd fontSize="small" />
+                    </ListItemIcon>
+                    Add another account
+                  </MenuItem>
+                  <MenuItem>
+                    <ListItemIcon>
+                      <Settings fontSize="small" />
+                    </ListItemIcon>
+                    Settings
+                  </MenuItem>
+                  <MenuItem onClick={onClickLogout}>
+                    <ListItemIcon>
+                      <Logout fontSize="small" />
+                    </ListItemIcon>
+                    Logout
                   </MenuItem>
                 </Menu>
               </Fragment>
@@ -190,4 +209,4 @@ function Navbar() {
     )
 }
 
-export default Navbar;
+export default NavbarIn;

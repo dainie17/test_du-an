@@ -20,6 +20,7 @@ import Pay from './Policy/Pay'
 import Paycp from './Policy/Transport'
 import Introduce1 from './Screen/Contact';
 import SliderHome from './Screen/slideHome';
+import Error from './Screen/Error';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path='/doitra' element={<Lie />} />
         <Route path='/thanhtoan' element={<Pay />} />
         <Route path='/vanchuyen' element={<Paycp />} />
+        <Route path="/:somestring" element={<Error/>}/>
       </Routes>
     </div>
   );
