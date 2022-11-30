@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Slider from "react-slick";
 import { useState } from "react";
@@ -18,22 +17,12 @@ import moneyImg from "../assets/money-back-icon.png";
 import hoursImg from "../assets/24-hours.png";
 import shieldImg from "../assets/shield.png";
 import imgUser from "../assets/user.png";
-import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Divider from "@mui/material/Divider";
-import Tooltip from "@mui/material/Tooltip";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
-import Logout from "@mui/icons-material/Logout";
 import Chat from "./slideHome";
 
 import ScrollToTop from "react-scroll-to-top";
-import { Fragment } from "react";
-import SliderHome from "./Slide_Home";
 
+import SliderHome from "./Slide_Home";
+import Navbar from "./Navbar";
 import imgLine from "../assets/line_silde_product.png";
 import imgSpice from "../assets/spice.png";
 import imgFoundation from "../assets/foundation.png";
@@ -41,7 +30,7 @@ import imgCosmetics from "../assets/cosmetics.png";
 import imgBottle from "../assets/bottle.png";
 import imgPlasticBott from "../assets/plastic-bottle.png";
 import imgCup from "../assets/cup.png";
-import logo from "../assets/logo_cty.png";
+
 import image_duce from "../assets/image_duce.jpg";
 import image_u from "../assets/profile.png"
 import image_thumb_up from "../assets/thumb-up.png"
@@ -70,9 +59,7 @@ const imgBanner4 =
 const Home = () => {
   const [dem, setDem] = useState(1);
 
-  const onClickSearch = () => {
-    $(".input_search").toggleClass("active");
-  };
+  
 
   useEffect(() => {
     function runBanner(e) {
@@ -321,49 +308,21 @@ const Home = () => {
     },
   ];
 
-  let navgate = useNavigate();
 
-  const onclickItem = () => {
-    navgate("/Personal");
-  };
 
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const onclickCart = () => {
-    navgate("/Cart");
-  };
-
-  const onclickHome = () => {
-    navgate("/Home");
-  };
-
-  const onclickContact = () => {
-    navgate("/Contact");
-  };
-
-  const onclickProduct = () => {
-    navgate("/Product");
-  };
-
-  const onclickNavigate = () => {
-    navgate("/Navigate");
-  };
-
-  const onclickIntroduce = () => {
-    navgate("/Introduce");
+  const onClickLogout = () => {
+    localStorage.removeItem("UserUser");
+    window.location.href = "/login";
+    navgate("/login");
   };
 
   return (
     <div className="home">
       <Chat/>
       <ScrollToTop className="scroll" smooth={true}></ScrollToTop>
+<<<<<<< HEAD
+      <Navbar/>
+=======
       <nav className="home-header">
         <div className="header_container">
           <div className="home-header_logo">
@@ -483,7 +442,7 @@ const Home = () => {
                     </ListItemIcon>
                     Settings
                   </MenuItem>
-                  <MenuItem>
+                  <MenuItem onClick={onClickLogout}>
                     <ListItemIcon>
                       <Logout fontSize="small" />
                     </ListItemIcon>
@@ -502,6 +461,7 @@ const Home = () => {
           <input type="text" className="input_search" placeholder="Search..." />
         </div>
       </nav>
+>>>>>>> 11a905a2a1ba9c5b8ba92deb84812a13f867d351
 
       <div className="banner_container">
         <div className="home-banner">
