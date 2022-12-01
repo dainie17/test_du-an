@@ -100,21 +100,6 @@ function Login() {
 
   // ============================================== validate ===================================================
 
-  // const validateChxTK = (vl) => {
-  //   if (vl == "Tài khoản không tồn tại") {
-  //     setTKCheck(false);
-  //     setColor2("red");
-  //     setErrorTK("Tài khoản không tồn tại");
-  //   }
-  // }
-
-  // const validateChxMK = (vl) => {
-  //   if (vl == "Mật khẩu sai") {
-  //     setPasswordCheck(false);
-  //     setColor3("red");
-  //     setErrorPassword("Mật khẩu sai");
-  //   }
-  // }
 
   const [color2, setColor2] = useState("#d8dde1");
   const [color3, setColor3] = useState("#d8dde1");
@@ -124,11 +109,7 @@ function Login() {
   const validateTK = (se) => {
     const format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
-    // if (format.test(se) == false) {
-    //   setTKCheck(true);
-    //   setColor2("#d8dde1");
-    //   setErrorTK("");
-    // }
+
     if (format.test(se) == true) {
       setTKCheck(false);
       setColor2("red");
@@ -166,11 +147,7 @@ function Login() {
   const [errorPassword, setErrorPassword] = useState("");
   const validatePass = (se) => {
     const pass = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    // if (pass.test(se) == false) {
-    //   setPasswordCheck(true);
-    //   setColor3("#d8dde1");
-    //   setErrorPassword("");
-    // } 
+
     if (pass.test(se) == true) {
       setPasswordCheck(false);
       setColor3("red");

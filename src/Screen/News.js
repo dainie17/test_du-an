@@ -8,7 +8,7 @@ import ItemNavi from "../item/ItemNavi"
 import Footer from "./footer";
 
 import logo from "../assets/logo_cty.png";
-
+import NavbarIn from "./NavbarIn";
 
 
 
@@ -16,9 +16,22 @@ function News1(props) {
     let location = useLocation();
     const data = location.state;
     console.log(data);
+
+    const [chxNab, setChxNab] = useState(false);
+    useEffect(()=>{
+      var getUser = localStorage.getItem("UserUser")
+      var data = JSON.parse(getUser)
+      
+      if (getUser == null) {
+      }
+    
+      if(getUser != null){
+        setChxNab(true)
+      }
+    },)
     return (
         <div>
-          <Navbar/>
+            {chxNab ? <NavbarIn /> : <Navbar />}
             <div className="news" style={{ marginTop: "70px" }}>
 
                 <div className="news_table">

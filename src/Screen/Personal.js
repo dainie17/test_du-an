@@ -24,6 +24,7 @@ import truck from "../assets/truck.png";
 import love from "../assets/love.png";
 import Popup from "reactjs-popup";
 import Navbar from "./Navbar"
+import NavbarIn from "./NavbarIn";
 
 const img =
   "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
@@ -62,7 +63,7 @@ function openForm() {
   document.getElementById("openForm_pass").style.display = "block";
 }
 
-function Person() {
+function Personal() {
   const [toggleState, setToggleState] = useState(1);
   const toogleTab = (index) => {
     setToggleState(index);
@@ -100,6 +101,19 @@ function Person() {
     }, 500);
   }, []);
 
+  const [chxNab, setChxNab] = useState(false);
+  useEffect(()=>{
+    var getUser = localStorage.getItem("UserUser")
+    var data = JSON.parse(getUser)
+    
+    if (getUser == null) {
+    }
+  
+    if(getUser != null){
+      setChxNab(true)
+    }
+  },)
+
   return (
     <div className="fersonal">
       <ScrollToTop smooth></ScrollToTop>
@@ -115,7 +129,7 @@ function Person() {
         </div>
       ) : (
         <div>
-          <Navbar/>
+          {chxNab ? <NavbarIn /> : <Navbar />}
           <div style={{ marginTop: "70px" }}></div>
           <div className="fersonal_container">
             <div className="fersonal_container__left">
@@ -362,4 +376,4 @@ function Person() {
   );
 }
 
-export default Person;
+export default Personal;

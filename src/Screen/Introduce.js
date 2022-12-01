@@ -16,6 +16,7 @@ import "../css/Introduce.css";
 import Footer from "./footer";
 import { useEffect } from "react";
 import { useState } from "react";
+import NavbarIn from "./NavbarIn";
 
 const Introduce = () => {
   let navgate = useNavigate();
@@ -26,6 +27,19 @@ const Introduce = () => {
       setLoading(false);
     }, 500);
   }, []);
+
+  const [chxNab, setChxNab] = useState(false);
+  useEffect(() => {
+    var getUser = localStorage.getItem("UserUser")
+    var data = JSON.parse(getUser)
+
+    if (getUser == null) {
+    }
+
+    if (getUser != null) {
+      setChxNab(true)
+    }
+  },)
 
   return (
     <div>
@@ -43,7 +57,7 @@ const Introduce = () => {
         </div>
       ) : (
         <div>
-          <Navbar />
+          {chxNab ? <NavbarIn /> : <Navbar />}
           <div className="title">
             <div className="title_header">
               <h2>Liên hệ</h2>
@@ -137,7 +151,7 @@ const Introduce = () => {
                   </div>
                 </div>
                 <div className="title_container__input__Textfield__name">
-                <div className="input_intro">
+                  <div className="input_intro">
                     <input
                       type="email"
                       className="intro__input"
@@ -151,7 +165,7 @@ const Introduce = () => {
                   </div>
                 </div>
                 <div className="title_container__input__Textfield__name">
-                <div className="input_intro">
+                  <div className="input_intro">
                     <input
                       type="number"
                       className="intro__input"
@@ -165,7 +179,7 @@ const Introduce = () => {
                   </div>
                 </div>
                 <div className="title_container__input__Textfield__name">
-                <div className="input_intro">
+                  <div className="input_intro">
                     <input
                       type="text"
                       className="intro__input"
@@ -179,7 +193,7 @@ const Introduce = () => {
                   </div>
                 </div>
                 <div className="title_container__input__Textfield__name">
-                <div className="input_intro">
+                  <div className="input_intro">
                     <input
                       type="tel"
                       className="intro__input"

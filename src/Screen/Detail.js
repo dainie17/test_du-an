@@ -18,6 +18,7 @@ import Slider from "react-slick";
 import '../css/Detail.css'
 import Footer from "./footer";
 import Navbar from "./Navbar";
+import NavbarIn from "./NavbarIn";
 
 const image1 = "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
 const image2 = "https://cdn.tgdd.vn/Files/2019/11/18/1220010/4-cach-ve-sinh-ben-trong-chai-lo-cuc-sach-ban-nen-thu-21-760x367.jpg";
@@ -28,6 +29,19 @@ const image5 = "https://thuytinhtadaco.com/wp-content/uploads/2021/08/chai-lo-th
 
 
 const Detail = () => {
+
+  const [chxNab, setChxNab] = useState(false);
+  useEffect(()=>{
+    var getUser = localStorage.getItem("UserUser")
+    var data = JSON.parse(getUser)
+    
+    if (getUser == null) {
+    }
+  
+    if(getUser != null){
+      setChxNab(true)
+    }
+  },)
 
   const [tong, setTong] = useState(1);
 
@@ -75,7 +89,7 @@ const Detail = () => {
   return (
     <div className="detail">
       <ScrollToTop />
-      <Navbar/>
+      {chxNab ? <NavbarIn /> : <Navbar />}
       <div className="detail_container">
         <div className="detail-main">
           <div className="detail-main-top">

@@ -42,7 +42,7 @@ function NavbarIn() {
     };
   
     const onclickHome = () => {
-      navgate("/Home");
+      navgate("/");
     };
   
     const onclickContact = () => {

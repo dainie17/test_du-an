@@ -9,12 +9,26 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ScrollToTop from "./ScrollToTopbtn";
 import Navbar from "./Navbar";
+import NavbarIn from "./NavbarIn";
 
 const image5 = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
 function Navigate() {
 
 
   let navgate = useNavigate();
+
+  const [chxNab, setChxNab] = useState(false);
+  useEffect(()=>{
+    var getUser = localStorage.getItem("UserUser")
+    var data = JSON.parse(getUser)
+    
+    if (getUser == null) {
+    }
+  
+    if(getUser != null){
+      setChxNab(true)
+    }
+  },)
 
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -38,8 +52,8 @@ function Navigate() {
           /></div>
           :
           <div>
-  
-            <Navbar/>
+
+            {chxNab ? <NavbarIn /> : <Navbar />}
             <div className="title">
               <div className="title_header">
                 <h2>Tin tức & Ưu đãi</h2>

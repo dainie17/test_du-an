@@ -23,6 +23,8 @@ import ScrollToTopbtn from "./ScrollToTopbtn";
 
 import SliderHome from "./Slide_Home";
 import Navbar from "./Navbar";
+
+import NavbarIn from "./NavbarIn"
 import imgLine from "../assets/line_silde_product.png";
 import imgSpice from "../assets/spice.png";
 import imgFoundation from "../assets/foundation.png";
@@ -60,9 +62,22 @@ const imgBanner4 =
 const Home = () => {
   const [dem, setDem] = useState(1);
 
+  const [chxNab, setChxNab] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
+
+  var getUser = localStorage.getItem("UserUser")
+  var data = JSON.parse(getUser)
+  
+  if (getUser == null) {
+  }
+
+  if(getUser != null){
+    setChxNab(true)
+  }
+
     function runBanner(e) {
       $(".slider__warpper")
         .find(".flex__container[data-slide=" + e + "]")
@@ -315,7 +330,7 @@ const Home = () => {
       <Chat />
       </div>
       <ScrollToTopbtn/>
-      <Navbar/>
+      {chxNab ? <NavbarIn/> : <Navbar/> }
       <div className="banner_container">
         <div className="home-banner">
           <div className="slider__warpper">

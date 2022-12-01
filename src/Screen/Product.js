@@ -22,6 +22,7 @@ import Footer from "./footer";
 import { useEffect, useState } from "react";
 
 import ItemProductType from "../item/ItemProductType";
+import NavbarIn from "./NavbarIn";
 
 const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
@@ -120,6 +121,19 @@ const Product = () => {
     }, 500);
   }, []);
 
+  const [chxNab, setChxNab] = useState(false);
+  useEffect(()=>{
+    var getUser = localStorage.getItem("UserUser")
+    var data = JSON.parse(getUser)
+    
+    if (getUser == null) {
+    }
+  
+    if(getUser != null){
+      setChxNab(true)
+    }
+  },)
+
   return (
     <div className="product">
       <ScrollToTop />
@@ -135,7 +149,7 @@ const Product = () => {
         </div>
       ) : (
         <div>
-          <Navbar />
+          {chxNab ? <NavbarIn /> : <Navbar />}
 
           {/* main */}
           <div className="product-main">
