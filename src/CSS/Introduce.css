@@ -58,6 +58,61 @@
 
 
 
+.input_intro {
+  position: relative;
+  width: 100%;
+  margin: 0 0 0.5% 0;
+}
+.intro__input {
+  width: 100%;
+}
+.intro__input:focus ~ .intro__label,
+.intro__input:not(:placeholder-shown).intro__input:not(:focus) ~ .intro__label {
+  top: -0.2rem;
+  font-size: 0.8rem;
+  left: 0.8rem;
+}
+
+.input_intro input {
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: inherit;
+  color: black;
+  outline: none;
+  padding: 17px 16px;
+}
+
+.input_intro input:hover {
+  border-color: #797b7c;
+}
+
+.input_intro input:focus {
+  border-color: #2065d1;
+}
+
+.input_intro label {
+  position: absolute;
+  left: 0.9rem;
+  top: 14px;
+  padding: 3px 5px;
+  color: #797b7c;
+  font-size: 16px;
+  cursor: text;
+  transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+  background-color: white;
+}
+
+.intro__input:focus ~ .intro__label,
+.intro__input:not(:placeholder-shown).intro__input:not(:focus) ~ .intro__label {
+  top: -0.7rem;
+  font-size: 1rem;
+  left: 0.8rem;
+}
+
+
 .title_container__input {
     display: flex;
     
@@ -79,7 +134,7 @@
 }
 
 .title_container__input__buttom button {
-    width: 95%;
+    width: 100%;
     padding: 3% 0;
     background-color: #63A3F7;
     border: none;

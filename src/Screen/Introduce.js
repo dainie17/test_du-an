@@ -43,8 +43,7 @@ const Introduce = () => {
         </div>
       ) : (
         <div>
-
-          <Navbar/>
+          <Navbar />
           <div className="title">
             <div className="title_header">
               <h2>Liên hệ</h2>
@@ -124,41 +123,74 @@ const Introduce = () => {
               </div>
               <div className="title_container__input">
                 <div className="title_container__input__Textfield__name">
-                  <TextField
-                    id="outlined_name_input"
-                    label="Họ và Tên"
-                    type="text"
-                    size="medium"
-                  />
+                  <div className="input_intro">
+                    <input
+                      type="text"
+                      className="intro__input"
+                      placeholder=" "
+                      name="Họ và tên"
+                      required
+                    />
+                    <label htmlFor="email" className="intro__label">
+                      Họ và tên
+                    </label>
+                  </div>
                 </div>
                 <div className="title_container__input__Textfield__name">
-                  <TextField
-                    id="outlined_name_input"
-                    label="Emai"
-                    type="email"
-                  />
+                <div className="input_intro">
+                    <input
+                      type="email"
+                      className="intro__input"
+                      placeholder=" "
+                      name="email"
+                      required
+                    />
+                    <label htmlFor="email" className="intro__label">
+                      Email
+                    </label>
+                  </div>
                 </div>
                 <div className="title_container__input__Textfield__name">
-                  <TextField
-                    id="outlined_name_input"
-                    label="Điện thoại"
-                    type=""
-                  />
+                <div className="input_intro">
+                    <input
+                      type="number"
+                      className="intro__input"
+                      placeholder=" "
+                      name="Số điện thoại"
+                      required
+                    />
+                    <label htmlFor="email" className="intro__label">
+                      Số điện thoại
+                    </label>
+                  </div>
                 </div>
                 <div className="title_container__input__Textfield__name">
-                  <TextField
-                    id="outlined_name_input"
-                    label="Địa chỉ"
-                    type="text"
-                  />
+                <div className="input_intro">
+                    <input
+                      type="text"
+                      className="intro__input"
+                      placeholder=" "
+                      name="Địa chỉ"
+                      required
+                    />
+                    <label htmlFor="email" className="intro__label">
+                      Địa chỉ
+                    </label>
+                  </div>
                 </div>
                 <div className="title_container__input__Textfield__name">
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="Multiline"
-                    multiline
-                    rows={4}
-                  />
+                <div className="input_intro">
+                    <input
+                      type="tel"
+                      className="intro__input"
+                      placeholder=" "
+                      name="Nội dung"
+                      required
+                    />
+                    <label htmlFor="email" className="intro__label">
+                      Nội dung
+                    </label>
+                  </div>
                 </div>
                 <div className="title_container__input__buttom">
                   <button> Gửi</button>

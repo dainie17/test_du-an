@@ -71,7 +71,7 @@ const image5 =
   let navgate = useNavigate();
 
   const onclickHome = () => {
-    navgate("/Home");
+    navgate("/");
   };
 
   return (

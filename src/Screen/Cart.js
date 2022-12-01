@@ -45,7 +45,7 @@ const Cart = () => {
   };
 
   const onclickHome = () => {
-    navgate("/Home");
+    navgate("/");
   };
 
   return (

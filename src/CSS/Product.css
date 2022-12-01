@@ -192,7 +192,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 10px;
 }
 
@@ -212,6 +212,7 @@
   font-size: 12px;
   border-radius: 15px;
   padding: 8px;
+  margin-left: 5%;
 }
 
 .product_service{
@@ -262,8 +263,11 @@
   flex-direction: row;
   font-size: 10px;
   align-items: center;
-  justify-content: space-between;
   padding: 6px;
+}
+
+.product-main-top-right-service-top-left p{
+  padding-left: 2px;
 }
 
 .product-main-top-right-service-top-right {
@@ -273,8 +277,11 @@
   flex-direction: row;
   font-size: 10px;
   padding: 6px;
-  justify-content: space-between;
   align-items: center;
+}
+
+.product-main-top-right-service-top-right p{
+  padding-left: 2px;
 }
 
 .product-main-top-right-service-bottom {
@@ -291,8 +298,11 @@
   flex-direction: row;
   font-size: 10px;
   padding: 6px;
-  justify-content: space-between;
   align-items: center;
+}
+
+.product-main-top-right-service-bottom-left p{
+  padding-left: 2px;
 }
 
 .product-main-top-right-service-bottom-right {
@@ -302,8 +312,11 @@
   flex-direction: row;
   font-size: 10px;
   padding: 6px;
-  justify-content: space-between;
   align-items: center;
+}
+
+.product-main-top-right-service-bottom-right p{
+  padding-left: 2px;
 }
 
 /* ----------------- kết thúc nội dung dịch vụ khách hàng--------------------- */
@@ -377,7 +390,7 @@
 .reduce_content {
   width: 22px;
   height: 22px;
-  padding-top: 4px;
+  padding-top: 3.5px;
   margin-top: 11px;
   margin-right: 18px;
   background-color: white;
@@ -404,7 +417,7 @@
   background-image: linear-gradient(#e4f3fcd8, #b4dff8);
   border-radius: 15px;
   opacity: 0;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .product-main-list-content-card:hover .content_card {

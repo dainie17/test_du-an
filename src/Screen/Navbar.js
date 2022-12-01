@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../css/Navbar.css'
 import { useState } from "react";
 import $ from "jquery";
@@ -22,10 +22,23 @@ function Navbar() {
 
     let navgate = useNavigate();
 
-    const onclickItem = () => {
-      navgate("/Personal");
-    };
+  const [tong, setTong] = useState(0);
+
+  const getCart = async () => {
+    let storage = JSON.parse(localStorage.getItem("cart"));
+    if(storage){
+        for (let index = 0; index < storage.length; index++) {
+          setTong(tong => tong + 1);
+        }
+      }
+
+  };
+
+  useEffect(() => {
+    getCart();
+  },[]);
   
+
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -88,11 +101,6 @@ function Navbar() {
               <NavLink className="home-header_ul_li_navlink" to="/Product">
                 Sản phẩm
               </NavLink>
-              <div className="home-header_ul_subnav_content">
-                <a href="#company">Company</a>
-                <a href="#team">Team</a>
-                <a href="#careers">Careers</a>
-              </div>
             </li>
             <li onClick={onclickNavigate}>
               <NavLink className="home-header_ul_li_navlink" to="/Navigate">
@@ -179,7 +187,9 @@ function Navbar() {
             </div>
 
             <div className="font_icon_nav">
-              <div onClick={onclickCart} className="cart" />
+              <div onClick={onclickCart} className="cart_navbar" >
+                <div className="number_cart">{tong}</div>
+              </div>
             </div>
           </div>
         </div>

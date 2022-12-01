@@ -223,9 +223,9 @@
   --black-900: #030303;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
-} */
+}
 
 *,
 *::before,
