@@ -37,7 +37,7 @@ export default function SignUp() {
   const [TKUser, setTKUser] = useState();
   const [EmailUser, setEmailUser] = useState();
   const [passUser, setPassUser] = useState();
-  const [TrangThaiUser, setTrangThaiUser] = useState("Không hoạt động");
+  const [TrangThaiUser, setTrangThaiUser] = useState("Hoạt động");
 
 
 

@@ -9,7 +9,7 @@ import truck from '../assets/delivery-truck.png'
 import money from '../assets/salary.png'
 import hour from '../assets/hour.png'
 import shieldImg from "../assets/shields.png";
-import ScrollToTop from "react-scroll-to-top";
+import ScrollToTop from "./ScrollToTopbtn";
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -74,7 +74,7 @@ const Detail = () => {
 
   return (
     <div className="detail">
-      <ScrollToTop smooth  ></ScrollToTop>
+      <ScrollToTop />
       <Navbar/>
       <div className="detail_container">
         <div className="detail-main">

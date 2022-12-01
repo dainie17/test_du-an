@@ -13,7 +13,7 @@ import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import Avatar from "@mui/material/Avatar";
 import BeatLoader from "react-spinners/BeatLoader";
-import ScrollToTop from "react-scroll-to-top";
+import ScrollToTop from "../Screen/ScrollToTopbtn";
 import Navbar from "./Navbar";
 import Slider from "react-slick";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
@@ -122,7 +122,7 @@ const Product = () => {
 
   return (
     <div className="product">
-      <ScrollToTop className="scroll" smooth></ScrollToTop>
+      <ScrollToTop />
       {loading ? (
         <div className="loading">
           <BeatLoader

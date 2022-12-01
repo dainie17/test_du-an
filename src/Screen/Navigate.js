@@ -7,7 +7,7 @@ import ItemNavi from '../item/ItemNavi'
 import BeatLoader from "react-spinners/BeatLoader";
 import { useState } from "react";
 import { useEffect } from "react";
-import ScrollToTop from "react-scroll-to-top";
+import ScrollToTop from "./ScrollToTopbtn";
 import Navbar from "./Navbar";
 
 const image5 = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
@@ -26,7 +26,7 @@ function Navigate() {
 
   return (
     <div className="home">
-      <ScrollToTop className="scroll" smooth ></ScrollToTop>
+      <ScrollToTop />
       {
         loading ? <div className='loading'>
           <BeatLoader

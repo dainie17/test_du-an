@@ -9,7 +9,7 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import AlignVerticalCenterIcon from "@mui/icons-material/AlignVerticalCenter";
 import Navbar from "./Navbar";
 import BeatLoader from "react-spinners/BeatLoader";
-import ScrollToTop from "react-scroll-to-top";
+import ScrollToTop from "./ScrollToTopbtn";
 
 import "../css/Introduce.css";
 
@@ -29,7 +29,7 @@ const Introduce = () => {
 
   return (
     <div>
-      <ScrollToTop className="scroll" smooth></ScrollToTop>
+      <ScrollToTop />
 
       {loading ? (
         <div className="loading">

@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import '../css/Policy.css'
 import Footer from "../Screen/footer";
 import BeatLoader from "react-spinners/BeatLoader";
-import ScrollToTop from "react-scroll-to-top";
+import ScrollToTop from "../Screen/ScrollToTopbtn";
 import { useEffect } from "react";
 import { useState } from "react";
 const logo =
@@ -25,7 +25,7 @@ export default function Lie() {
     }
     return (
         <div>
-            <ScrollToTop smooth  ></ScrollToTop>
+            <ScrollToTop />
             {
                 loading ? <div className='loading'>
                     <BeatLoader

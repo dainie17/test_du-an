@@ -19,7 +19,7 @@ import shieldImg from "../assets/shield.png";
 import imgUser from "../assets/user.png";
 import Chat from "./slideHome";
 
-import ScrollToTop from "react-scroll-to-top";
+import ScrollToTopbtn from "./ScrollToTopbtn";
 
 import SliderHome from "./Slide_Home";
 import Navbar from "./Navbar";
@@ -311,8 +311,10 @@ const Home = () => {
 
   return (
     <div className="home">
-      <Chat/>
-      <ScrollToTop className="scroll" smooth={true}></ScrollToTop>
+      <div style={{width: "5px", height: "5px"}}>
+      <Chat />
+      </div>
+      <ScrollToTopbtn/>
       <Navbar/>
       <div className="banner_container">
         <div className="home-banner">

@@ -8,7 +8,7 @@ import bar_icon from "../assets/bar-chart.png";
 import teame from "../assets/team.png";
 import shop from "../assets/shop.png";
 import colla from "../assets/collaboration.png";
-import ScrollToTop from "react-scroll-to-top";
+import ScrollToTop from "../Screen/ScrollToTopbtn";
 import Navbar from "./Navbar";
 
 

@@ -8,7 +8,7 @@ import { useNavigate } from "react-router";
 import $ from "jquery";
 import "../css/Cart.css";
 import Footer from "./footer";
-import ScrollToTop from "react-scroll-to-top";
+import ScrollToTop from "../Screen/ScrollToTopbtn";
 import logo from "../assets/logo_cty.png";
 import ItemCart from "../item/ItemCart";
 
@@ -50,7 +50,7 @@ const Cart = () => {
 
   return (
     <div className="carrt">
-      <ScrollToTop smooth></ScrollToTop>
+      <ScrollToTop />
       <div className="cart-header">
         <div className="cart_header_container">
           <div className="cart_header_left">
