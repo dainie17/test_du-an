@@ -1,6 +1,6 @@
 import React from "react";
 import '../css/Navbar.css'
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import $ from "jquery";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
@@ -21,6 +21,22 @@ const onClickSearch = () => {
   };
   
 function NavbarIn() {
+
+  const [tong, setTong] = useState(0);
+
+  const getCart = async () => {
+    let storage = JSON.parse(localStorage.getItem("cart"));
+    if(storage){
+        for (let index = 0; index < storage.length; index++) {
+          setTong(tong => tong + 1);
+        }
+      }
+
+  };
+
+  useEffect(() => {
+    getCart();
+  },[]);
 
     let navgate = useNavigate();
 
@@ -198,7 +214,9 @@ function NavbarIn() {
             </div>
 
             <div className="font_icon_nav">
-              <div onClick={onclickCart} className="cart" />
+              <div onClick={onclickCart} className="cart_navbar" >
+                <div className="number_cart">{tong}</div>
+              </div>
             </div>
           </div>
         </div>

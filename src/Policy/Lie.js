@@ -132,25 +132,11 @@ export default function Lie() {
                 <div className="policy_right_facebook">
                   <h3>Facebook</h3>
                   <div className="policy_right_facebook_iframe">
-                    <iframe
-                      src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                      width="340"
-                      height="331"
-                    ></iframe>
                   </div>
                 </div>
                 <div className="policy_right_facebook">
                   <h3>Youtobe</h3>
                   <div className="policy_right_facebook_iframe">
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/Vueib12RkKY"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                    ></iframe>
                   </div>
                 </div>
               </div>

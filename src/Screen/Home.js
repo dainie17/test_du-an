@@ -17,8 +17,6 @@ import moneyImg from "../assets/money-back-icon.png";
 import hoursImg from "../assets/24-hours.png";
 import shieldImg from "../assets/shield.png";
 import imgUser from "../assets/user.png";
-import Chat from "./slideHome";
-
 import ScrollToTopbtn from "./ScrollToTopbtn";
 
 import SliderHome from "./Slide_Home";
@@ -327,7 +325,6 @@ const Home = () => {
   return (
     <div className="home">
       <div style={{width: "5px", height: "5px"}}>
-      <Chat />
       </div>
       <ScrollToTopbtn/>
       {chxNab ? <NavbarIn/> : <Navbar/> }

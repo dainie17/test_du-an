@@ -188,7 +188,7 @@ function Navbar() {
 
             <div className="font_icon_nav">
               <div onClick={onclickCart} className="cart_navbar" >
-                <div className="number_cart">{tong}</div>
+                {/* <div className="number_cart">{tong}</div> */}
               </div>
             </div>
           </div>
