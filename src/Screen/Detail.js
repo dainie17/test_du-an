@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import yeuthich from '../assets/favorite.png'
@@ -30,6 +30,7 @@ const image5 = "https://thuytinhtadaco.com/wp-content/uploads/2021/08/chai-lo-th
 
 const Detail = () => {
 
+
   const [chxNab, setChxNab] = useState(false);
   useEffect(()=>{
     var getUser = localStorage.getItem("UserUser")
@@ -51,8 +52,28 @@ const Detail = () => {
     }
   }
 
+
+  // const[,set] = useState()
+  const[SaleSP,setSaleSP] = useState()
+  const[NameSP,setNameSP] = useState()
+  const[GiaCX,setGiaCX] = useState()
+  const[GiaBanSP,setGiaBanSP] = useState()
+  const[SoLuongSP,setSoLuongSP] = useState()
+
   useEffect(() => {
     const u = localStorage.getItem("uses");
+
+    var ItemSP = localStorage.getItem("ItemSP")
+    var data = JSON.parse(ItemSP)
+    if(ItemSP == null){
+
+    }else if(ItemSP != null){
+      setSaleSP(data.SaleSP)
+      setNameSP(data.NameSP)
+      setGiaCX(data.GiaCX)
+      setGiaBanSP(data.GiaBanSP)
+      setSoLuongSP(data.SoLuongSP)
+    }
   },);
 
   let navgate = useNavigate();
@@ -64,27 +85,31 @@ const Detail = () => {
     setToggleState(index);
   }
 
-  let { id, name, price, num } = useParams();
-
-  let cart = [];
-  const addTocart = async () => {
-    let storage = localStorage.getItem('cart');
-    if (storage) {
-      cart = JSON.parse(storage);
-    }
+  let { _id} = useParams();
 
 
-    let item = cart.find(c => c.id === id);
 
-    if (item) {
-      item.num += tong
-    } else {
-      cart.push({ id: id, name: name, price: price, num: tong });
-    }
+  // let { _id, name, price, num } = useParams();
 
-    localStorage.setItem('cart', JSON.stringify(cart));
-    console.log(cart);
-  }
+  // let cart = [];
+  // const addTocart = async () => {
+  //   let storage = localStorage.getItem('cart');
+  //   if (storage) {
+  //     cart = JSON.parse(storage);
+  //   }
+
+
+  //   let item = cart.find(c => c._id === _id);
+
+  //   if (item) {
+  //     item.num += tong
+  //   } else {
+  //     cart.push({ _id: _id, name: name, price: price, num: tong });
+  //   }
+
+  //   localStorage.setItem('cart', JSON.stringify(cart));
+  //   console.log(cart);
+  // }
 
   return (
     <div className="detail">
@@ -115,9 +140,9 @@ const Detail = () => {
               </Slider>
             </div>
             <div className="detail-main-top-right">
-              <p className="detail-main-top-right-name">{name}</p>
-              <p className="detail-main-top-right-number">Số lượng: {num}</p>
-              <p className="detail-main-top-right-price">{price} &#8363;</p>
+              <p className="detail-main-top-right-name">{NameSP}</p>
+              <p className="detail-main-top-right-number">Số lượng:{SoLuongSP} </p>
+              <p className="detail-main-top-right-price"> {GiaCX}</p>
               <p className="detail-main-top-right-title">Thông tin sản phẩm:</p>
               <p className="detail-main-top-right-content">Về phần thiết kế, nhà Apple vẫn giữ nguyên kiểu dáng quen thuộc của những phiên bản tiền nhiệm trước đó như: Thiết kế gọn nhẹ, đường bo góc tinh tế, gam màu trắng trang nhã bao bọc trọn vẹn tai nghe và hộp sạc.Ở phiên bản này, hộp sạc được trang bị thêm phần khoen để móc dây treo tiện lợi. Nhờ đó, bạn có thể dễ dàng treo vào balo và mang đi bất kỳ đâu mà không cần dùng tới túi đựng AirPods chuyên dụng. Loa tích hợp trên hộp sạc có thể phát âm thanh giúp bạn dễ dàng xác định vị trí khi vô tình đánh rơi và phát ra âm cảnh báo khi pin yếu hoặc quá trình ghép nối hoàn tất.
 
@@ -145,7 +170,7 @@ const Detail = () => {
                   </div>
                 </div>
               </div>
-              <button onClick={addTocart} className="detail-main-top-right-btngh">Thêm vào giỏ hàng</button>
+              {/* <button onClick={addTocart} className="detail-main-top-right-btngh">Thêm vào giỏ hàng</button> */}
               <p className="detail-main-top-right-titlepay">Thanh toán an toàn</p>
               <p className="detail-main-top-right-option">Nhiều tùy chọn thanh toán</p>
               <p className="detail-main-top-right-service">Đảm bảo dịch vụ khách hàng</p>

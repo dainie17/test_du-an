@@ -21,6 +21,8 @@ import "../css/Product.css";
 import Footer from "./footer";
 import { useEffect, useState } from "react";
 
+import axios from "axios";
+
 import ItemProductType from "../item/ItemProductType";
 import NavbarIn from "./NavbarIn";
 
@@ -88,33 +90,25 @@ const Product = () => {
 
   const data = [image1, image2, image3, image4, image5];
 
-  const dataProduct = [
-    {
-      name: "Chai lọ mĩ phẩm",
-    },
-    {
-      name: "Chai lọ đựng gia vị",
-    },
-    {
-      name: "Chai lọ trà sữa",
-    },
-    {
-      name: "Chai lọ dầu gội và sữa tắm",
-    },
-    {
-      name: "Hũ nhựa",
-    },
-    {
-      name: "Ly nhựa",
-    },
-  ];
+  const ip = "http://localhost:8080"
+
+  const [dsLoaiSP, setDsLoaiSP] = useState([])
+
+
+  const getDataLoaiSP = () => {
+    axios.get(ip + '/getDataLoaiSP')
+      .then((response) => {
+        setDsLoaiSP(response.data);
+      })
+  }
 
   let navgate = useNavigate();
 
-  let name = dataProduct[0];
+
 
   const [loading, setLoading] = useState(false);
   useEffect(() => {
+    getDataLoaiSP()
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -160,7 +154,10 @@ const Product = () => {
                     <ViewListSharp />
                     <p>Danh sách sản phẩm</p>
                   </div>
-                  <div className="product-main-top-left-content"></div>
+                  <div className="product-main-top-left-content">
+                    <p>dsadas</p>
+                    <p>dsadas</p>
+                  </div>
                 </div>
 
                 <div className="product-main-top-center">
@@ -256,8 +253,11 @@ const Product = () => {
             </div>
 
             <div className="product-main-list">
-              {dataProduct.map((item, index) => (
-                <ItemProductType key={index} nameType={item.name} />
+              {dsLoaiSP.map((item, index) => (
+                <ItemProductType 
+                key={index} 
+                NameLoaiSP={item.NameLoaiSP}  
+                />
               ))}
             </div>
           </div>

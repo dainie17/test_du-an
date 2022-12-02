@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import ItemProduct from "../item/ItemProduct";
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const image1 =
   "https://www.chainhuagiare.com/wp-content/uploads/2019/11/94035916_631689647561933_5821421376195526656_n.jpg";
@@ -27,80 +30,42 @@ const image3 =
 
 
 function ItemProductType(props) {
-  const dataProduct = [
-    {
-      id: 0,
-      image: image1,
-      name: "Lọ đựng mĩ phẩm",
-      price: "100.000",
-      number: 30,
-    },
-    {
-      id: 1,
-      image: image2,
-      name: "Tên sản phẩm 2",
-      price: "305.000",
-      number: 30,
-    },
-    {
-      id: 2,
-      image: image3,
-      name: "Tên sản phẩm 3",
-      price: "305.000",
-      number: 30,
-    },
-    {
-      id: 3,
-      image: image4,
-      name: "Tên sản phẩm 4",
-      price: "305.000",
-      number: 30,
-    },
-    {
-      id: 4,
-      image: image5,
-      name: "Tên sản phẩm 5",
-      price: "305.000",
-      number: 30,
-    },
-    {
-      id: 5,
-      image: image6,
-      name: "Tên sản phẩm 6",
-      price: "305.000",
-      number: 30,
-    },
-    {
-      id: 6,
-      image: image7,
-      name: "Tên sản phẩm 7",
-      price: "305.000",
-      number: 30,
-    },
-    {
-      id: 7,
-      image: image8,
-      name: "Tên sản phẩm 8",
-      price: "305.000",
-      number: 30,
-    },
-  ];
+
+  const ip = "http://localhost:8080"
+
+  const [dsLoaiSP, setDsLoaiSP] = useState([])
+
+
+  const getDataSPTheoLoai = () => {
+    axios.get(ip + `/getData/${props.NameLoaiSP}`)
+      .then((response) => {
+        setDsLoaiSP(response.data);
+      })
+  }
+
+  useEffect(()=>{
+    getDataSPTheoLoai()
+  },[])
 
   return (
     <>
       <div className="product_container">
         <div className="product-main-list-title">
-          <p>{props.nameType}</p>
+          <p>{props.NameLoaiSP}</p>
         </div>
         <div className="product-main-list-content">
-          {dataProduct.map((item, index) => (
+          {dsLoaiSP.map((vl, index) => (
             <ItemProduct
-              key={index}
-              id={item.id}
-              image={item.image}
-              name={item.name}
-              price={item.price}
-              number={item.number}
+              key={vl._id}
+              _id={vl._id}
+              idImg = {vl.idImg}
+              NameSP={vl.NameSP}
+              GiaBanSP={vl.GiaBanSP}
+              SoLuongSP={vl.SoLuongSP}
+              SaleSP={vl.SaleSP}
+              TrangThaiSP={vl.TrangThaiSP}
+              LoaiSP={vl.LoaiSP}
+              ChiTietSP = {vl.ChiTietSP}
             />
           ))}
         </div>

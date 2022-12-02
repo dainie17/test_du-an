@@ -90,7 +90,7 @@ useEffect(() => {
         {/* Giới thiệu */}
         <Route path='/Contact' element={<Contact />} />
         {/* Chi tiết */}
-        <Route path='/Detail/:id/:name/:price/:num' element={<Detail />} />
+        <Route path='/Detail/:_id' element={<Detail />} />
         {/* Giỏ hàng */}
         {pathCart ? <Route path="/Cart" element={<Cart />}/> : <Route path="/:somestring" element={<Error />}/>}
         {/* Cá nhân */}

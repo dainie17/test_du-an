@@ -1,38 +1,92 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+import axios from "axios";
+import { useState } from "react";
+import ItemImg from "./ItemImg";
+import Detail from "../Screen/Detail";
 function ItemProduct(props) {
-    let navga = useNavigate();
-    const onClick = () => {
-        navga(`/Detail/${props.id}/${props.name}/${props.price}/${props.number}`);
-      };
+
+  const ip = "http://localhost:8080"
+
+  let navga = useNavigate();
+
+  const [multipleFiles, setMultipleFiles] = useState([]);
+
+  const [Display, setDisplay] = useState("none");
+
+
+  useEffect(() => {
+    if(props.SaleSP != 0){
+      setDisplay("block")
+    }else{
+      setDisplay("none")
+    }
+
+    axios.get(ip + `/getImg/${props.idImg}`)
+      .then((response) => {
+        setMultipleFiles(response.data);
+      })
+
+  }, [])
+
+
+// format giam gia
+  let giaBan = props.GiaBanSP - (props.GiaBanSP * props.SaleSP/100)
+  let resust = Math.round(giaBan)
+  let GiaCX = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(resust);
+
+
+  
+  const onClick = () => {
+    const test = multipleFiles.map((vl) => vl.files)
+    navga(`/Detail/${props._id}`);
+    var ItemSP = {
+      test: test,
+      _id: props._id,
+      SaleSP: props.SaleSP,
+      NameSP: props.NameSP,
+      GiaCX: GiaCX,
+      GiaBanSP: props.GiaBanSP,
+      SoLuongSP: props.SoLuongSP,
+    }
+    localStorage.setItem('ItemSP', JSON.stringify(ItemSP));
+
+  };
   return (
     <>
       <div
         onClick={onClick}
-        key={props.index}
+        key={props._id}
         className="product-main-list-content-card"
       >
-        <div className="reduce">
+        <div className="reduce" style={{display : Display}}>
           <div className="reduce_background">
             <div className="reduce_content">
-              <p>20%</p>
+              <p>{props.SaleSP}%</p>
             </div>
           </div>
         </div>
-        <img
-          src={props.image}
-          alt=""
-          className="product-main-list-content-card-img"
-        />
+        {multipleFiles.map((element, index) => {
+          
+          return (
+            <ItemImg
+              key={index}
+              files={element.files}
+            />  
+          )
+        })}
+
         <div className="content_card">
-          <p className="product-main-list-content-card-name">{props.name}</p>
+          <p className="product-main-list-content-card-name">{props.NameSP}</p>
           <div className="product_price">
             <p className="product-main-list-content-card-price">
-              {props.price} Đ
+              {GiaCX}
             </p>
-            <p className="price_reduced">{props.price} Đ</p>
+            <p className="price_reduced">{props.GiaBanSP} Đ</p>
           </div>
           <p className="product-main-list-content-card-number">
-            Số lượng: {props.number}
+            Số lượng: {props.SoLuongSP}
           </p>
         </div>
       </div>
