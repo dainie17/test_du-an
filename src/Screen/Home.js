@@ -24,12 +24,7 @@ import Navbar from "./Navbar";
 
 import NavbarIn from "./NavbarIn"
 import imgLine from "../assets/line_silde_product.png";
-import imgSpice from "../assets/spice.png";
-import imgFoundation from "../assets/foundation.png";
-import imgCosmetics from "../assets/cosmetics.png";
-import imgBottle from "../assets/bottle.png";
-import imgPlasticBott from "../assets/plastic-bottle.png";
-import imgCup from "../assets/cup.png";
+import axios from "axios";
 
 import image_duce from "../assets/image_duce.jpg";
 import image_u from "../assets/profile.png"
@@ -66,15 +61,15 @@ const Home = () => {
 
   useEffect(() => {
 
-  var getUser = localStorage.getItem("UserUser")
-  var data = JSON.parse(getUser)
-  
-  if (getUser == null) {
-  }
+    var getUser = localStorage.getItem("UserUser")
+    var data = JSON.parse(getUser)
 
-  if(getUser != null){
-    setChxNab(true)
-  }
+    if (getUser == null) {
+    }
+
+    if (getUser != null) {
+      setChxNab(true)
+    }
 
     function runBanner(e) {
       $(".slider__warpper")
@@ -295,39 +290,42 @@ const Home = () => {
     }, 6000);
   });
 
-  const dataSlide = [
-    {
-      title: "Chai lọ đựng gia vị",
-      image: imgSpice,
-    },
-    {
-      title: "Chai lọ đựng dầu gội và sữa tắm",
-      image: imgFoundation,
-    },
-    {
-      title: "Chai lọ đựng mĩ phẩm",
-      image: imgCosmetics,
-    },
-    {
-      title: "Chai lọ PET trà sữa",
-      image: imgBottle,
-    },
-    {
-      title: "Hũ nhựa",
-      image: imgPlasticBott,
-    },
-    {
-      title: "Ly nhựa",
-      image: imgCup,
-    },
-  ];
+  // ------------------------------------------ server -------------------------------------------------------
+
+  const ip = "http://localhost:8080"
+
+  const [dsLoaiSP, setDsLoaiSP] = useState([])
+  const [dsBlog, setDsBlog] = useState([])
+
+
+
+
+  const getDataLoaiSP = () => {
+    axios.get(ip + '/getDataLoaiSP')
+      .then((response) => {
+        setDsLoaiSP(response.data);
+      })
+  }
+
+  const getDataBlog = () => {
+    axios.get(ip + '/getDataBlog')
+    .then((response) => {
+      setDsBlog(response.data);
+    })
+  }
+
+  useEffect(() => {
+    getDataLoaiSP()
+    getDataBlog()
+  },[])
+
 
   return (
     <div className="home">
-      <div style={{width: "5px", height: "5px"}}>
+      <div style={{ width: "5px", height: "5px" }}>
       </div>
-      <ScrollToTopbtn/>
-      {chxNab ? <NavbarIn/> : <Navbar/> }
+      <ScrollToTopbtn />
+      {chxNab ? <NavbarIn /> : <Navbar />}
       <div className="banner_container">
         <div className="home-banner">
           <div className="slider__warpper">
@@ -506,24 +504,31 @@ const Home = () => {
                 slidesToScroll={1}
                 infinite={true}
               >
-                {dataSlide.map((item, index) => (
-                  <div className="home-main-slide-item" key={index}>
-                    <div className="slider_card">
-                      <div className="home_main_slide_item_imgbg">
-                        <img
-                          src={item.image}
-                          alt=""
-                          className="home-main-slide-item-image"
-                        />
+                {dsLoaiSP.map((vl, index) => {
+                  if (vl.TrangThaiLoaiSP == "Hoạt động") {
+                    return (
+                      <div className="home-main-slide-item" key={vl._id}>
+                        <div className="slider_card">
+                          <div className="home_main_slide_item_imgbg">
+                            <img
+                              src={ip + '/uploads/' + vl.ImageLoaiSP}
+                              alt=""
+                              className="home-main-slide-item-image"
+                            />
+                          </div>
+                          <p className="slider_card_title">{vl.NameLoaiSP}</p>
+                          <p className="slider_card_content">
+                            {vl.MotaLoaiSP}
+                          </p>
+                        </div>
                       </div>
-                      <p className="slider_card_title">{item.title}</p>
-                      <p className="slider_card_content">
-                        thông tin chi tiết loại sản phẩm: hình dạng, kích thước,
-                        màu
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                    )
+                  }  else if (vl.TrangThaiLoaiSP == "Không hoạt động") {  
+                  }
+
+                })}
+
+
               </Slider>
             </div>
           </div>
@@ -634,7 +639,7 @@ const Home = () => {
                 </div>
                 <div className="main_news_content">
                   <div className="main_new_top_big_img">
-                  <img src={image_u} alt="" />
+                    <img src={image_u} alt="" />
                   </div>
                   <div className="main_new_top_big_card">
                     <div className="main_new_top_big_time">22 january 2022</div>
@@ -645,19 +650,19 @@ const Home = () => {
                     <div className="main_new_top_big_content">
                       <div className="number_comment">
                         <div className="number_comment_icon">
-                        <img src={image_thumb_up} alt="" />
+                          <img src={image_thumb_up} alt="" />
                         </div>
                         <div className="number_coment_content">71.8k</div>
                       </div>
                       <div className="number_comment">
                         <div className="number_comment_icon">
-                        <img src={image_comments} alt="" />
+                          <img src={image_comments} alt="" />
                         </div>
                         <div className="number_coment_content">4.01k</div>
                       </div>
                       <div className="number_comment">
                         <div className="number_comment_icon">
-                        <img src={image_share} alt="" />
+                          <img src={image_share} alt="" />
                         </div>
                         <div className="number_coment_content">67.05k</div>
                       </div>
@@ -672,7 +677,7 @@ const Home = () => {
                 </div>
                 <div className="main_new_top_center_content">
                   <div className="main_new_top_center_big_img">
-                  <img src={image_u} alt="" />
+                    <img src={image_u} alt="" />
                   </div>
                   <div className="main_new_top_center_card">
                     <div className="main_new_top_center_big_time">
@@ -731,7 +736,7 @@ const Home = () => {
                     <div className="main_new_top_center_big_content">
                       <div className="main_new_top_center_number_comment">
                         <div className="main_new_top_center_number_comment_icon">
-                        <img src={image_thumb_up} alt="" />
+                          <img src={image_thumb_up} alt="" />
                         </div>
                         <div className="main_new_top_center_coment_content">
                           71.8k
@@ -739,7 +744,7 @@ const Home = () => {
                       </div>
                       <div className="main_new_top_center_number_comment">
                         <div className="main_new_top_center_number_comment_icon">
-                        <img src={image_comments} alt="" />
+                          <img src={image_comments} alt="" />
                         </div>
                         <div className="main_new_top_center_coment_content">
                           4.01k
@@ -747,7 +752,7 @@ const Home = () => {
                       </div>
                       <div className="main_new_top_center_number_comment">
                         <div className="main_new_top_center_number_comment_icon">
-                        <img src={image_share} alt="" />
+                          <img src={image_share} alt="" />
                         </div>
                         <div className="main_new_top_center_coment_content">
                           67.05k
@@ -784,7 +789,7 @@ const Home = () => {
                 <div className="main_new_bottom_card_cws">
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                    <img src={image_thumb_up} alt="" />
+                      <img src={image_thumb_up} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -793,7 +798,7 @@ const Home = () => {
 
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                    <img src={image_comments} alt="" />
+                      <img src={image_comments} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -802,58 +807,7 @@ const Home = () => {
 
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                    <img src={image_share} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="main_new_bottom_card">
-              <div
-                className="main_new_bottom_card_image"
-                style={{
-                  backgroundImage: `url("${image2}")`,
-                  width: "100%",
-                  height: "28vh",
-                  borderRadius: "20px 20px 0px 0",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></div>
-              <div className="main_new_bottom_card_image_img">
-                <div className="main_new_bottom_card_image_img_container">
-                  <img src={imgUser} alt="" />
-                </div>
-              </div>
-              <div className="mmain_new_bottom_card_content">
-                <div className="main_new_bottom_card_time">10 May 2022</div>
-                <div className="main_new_bottom_card_name">Fresh Princer</div>
-                <div className="main_new_bottom_card_cws">
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                    <img src={image_thumb_up} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                    <img src={image_comments} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                    <img src={image_share} alt="" />
+                      <img src={image_share} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -886,7 +840,7 @@ const Home = () => {
                 <div className="main_new_bottom_card_cws">
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                    <img src={image_thumb_up} alt="" />
+                      <img src={image_thumb_up} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -895,7 +849,7 @@ const Home = () => {
 
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                    <img src={image_comments} alt="" />
+                      <img src={image_comments} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -904,7 +858,7 @@ const Home = () => {
 
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                    <img src={image_share} alt="" />
+                      <img src={image_share} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -937,7 +891,7 @@ const Home = () => {
                 <div className="main_new_bottom_card_cws">
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                    <img src={image_thumb_up} alt="" />
+                      <img src={image_thumb_up} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -946,7 +900,7 @@ const Home = () => {
 
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                    <img src={image_comments} alt="" />
+                      <img src={image_comments} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
@@ -955,7 +909,58 @@ const Home = () => {
 
                   <div className="main_new_bottom_card_comment">
                     <div className="main_new_bottom_card_comment_image">
-                    <img src={image_share} alt="" />
+                      <img src={image_share} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="main_new_bottom_card">
+              <div
+                className="main_new_bottom_card_image"
+                style={{
+                  backgroundImage: `url("${image2}")`,
+                  width: "100%",
+                  height: "28vh",
+                  borderRadius: "20px 20px 0px 0",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
+              <div className="main_new_bottom_card_image_img">
+                <div className="main_new_bottom_card_image_img_container">
+                  <img src={imgUser} alt="" />
+                </div>
+              </div>
+              <div className="mmain_new_bottom_card_content">
+                <div className="main_new_bottom_card_time">10 May 2022</div>
+                <div className="main_new_bottom_card_name">Fresh Princer</div>
+                <div className="main_new_bottom_card_cws">
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                      <img src={image_thumb_up} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                      <img src={image_comments} alt="" />
+                    </div>
+                    <div className="main_new_bottom_card_comment_content">
+                      89.81k
+                    </div>
+                  </div>
+
+                  <div className="main_new_bottom_card_comment">
+                    <div className="main_new_bottom_card_comment_image">
+                      <img src={image_share} alt="" />
                     </div>
                     <div className="main_new_bottom_card_comment_content">
                       89.81k
