@@ -80,6 +80,8 @@ const Detail = () => {
 
   let navgate = useNavigate();
 
+  const mota = 'Về phần thiết kế, nhà Apple vẫn giữ nguyên kiểu dáng quen thuộc của những phiên bản tiền nhiệm trước đó như: Thiết kế gọn nhẹ, đường bo góc tinh tế, gam màu trắng trang nhã bao bọc trọn vẹn tai nghe và hộp sạc.Ở phiên bản này, hộp sạc được trang bị thêm phần khoen để móc dây treo tiện lợi. Nhờ đó, bạn có thể dễ dàng treo vào balo và mang đi bất kỳ đâu mà không cần dùng tới túi đựng AirPods chuyên dụng. Loa tích hợp trên hộp sạc có thể phát âm thanh giúp bạn dễ dàng xác định vị trí khi vô tình đánh rơi và phát ra âm cảnh báo khi pin yếu hoặc quá trình ghép nối hoàn tất. Ngoài ra, trong mỗi hộp tai nghe Apple này sẽ có bốn cặp đệm tai với các kích cỡ XS, S, M, L cho người dùng thoải mái lựa chọn đệm tai phù hợp. Đệm tai làm từ chất liệu silicone cao cấp cũng sẽ cho bạn cảm giác mềm mại, vừa vặn khi đeo.'
+
   const data = [image1, image2, image3, image4, image5];
 
   const [toggleState, setToggleState] = useState(1);
@@ -130,24 +132,13 @@ const Detail = () => {
             <div className="detail-main-top-right">
               <p className="detail-main-top-right-name">{NameSP}</p>
               <p className="detail-main-top-right-number">
-                Số lượng:{SoLuongSP}{" "}
+                Số lượng: {SoLuongSP}{" "}
               </p>
               <p className="detail-main-top-right-price"> {GiaCX}</p>
               <p className="detail-main-top-right-title">Thông tin sản phẩm:</p>
               <p className="detail-main-top-right-content">
-                Về phần thiết kế, nhà Apple vẫn giữ nguyên kiểu dáng quen thuộc
-                của những phiên bản tiền nhiệm trước đó như: Thiết kế gọn nhẹ,
-                đường bo góc tinh tế, gam màu trắng trang nhã bao bọc trọn vẹn
-                tai nghe và hộp sạc.Ở phiên bản này, hộp sạc được trang bị thêm
-                phần khoen để móc dây treo tiện lợi. Nhờ đó, bạn có thể dễ dàng
-                treo vào balo và mang đi bất kỳ đâu mà không cần dùng tới túi
-                đựng AirPods chuyên dụng. Loa tích hợp trên hộp sạc có thể phát
-                âm thanh giúp bạn dễ dàng xác định vị trí khi vô tình đánh rơi
-                và phát ra âm cảnh báo khi pin yếu hoặc quá trình ghép nối hoàn
-                tất. Ngoài ra, trong mỗi hộp tai nghe Apple này sẽ có bốn cặp
-                đệm tai với các kích cỡ XS, S, M, L cho người dùng thoải mái lựa
-                chọn đệm tai phù hợp. Đệm tai làm từ chất liệu silicone cao cấp
-                cũng sẽ cho bạn cảm giác mềm mại, vừa vặn khi đeo.
+              {mota.substring(0, 400) + " [...]"}
+
               </p>
               <div className="detail-main-top-right-button">
                 <div className="detail-main-top-right-button-picknb">
@@ -178,7 +169,7 @@ const Detail = () => {
                   <div className="favorite_img">
                     <img src={yeuthich}></img>
                   </div>
-                  <div className="favorite_p">
+                  <div className="favorite_pafter">
                     <p>Đã thích</p>
                   </div>
                 </div>
@@ -198,6 +189,9 @@ const Detail = () => {
                   </div>
                 </div>
               </div>
+              <button className="btn_addtocart">
+                    <span className="span_addtocart">Thêm vào giỏ hàng</span>
+              </button>
               {/* <button onClick={addTocart} className="detail-main-top-right-btngh">Thêm vào giỏ hàng</button> */}
               <p className="detail-main-top-right-titlepay">
                 Thanh toán an toàn

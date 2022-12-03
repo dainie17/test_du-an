@@ -8,6 +8,8 @@ export default function Itemhinh(props) {
 
     return (
       <Slider
+      autoplay={true}
+      autoplaySpeed={2000}
       dots
       customPaging={(i) => {
         return (

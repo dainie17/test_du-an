@@ -90,6 +90,8 @@ const Product = () => {
 
   const data = [image1, image2, image3, image4, image5];
 
+  const dataType = ["qưqwqwqwqwqwqwqwqwqwqwqwqwqwqwqwqw", "image2", "image3", "image4", "image5", "image1", "image2", "image3", "image4", "image5"];
+
   const ip = "http://localhost:8080"
 
   const [dsLoaiSP, setDsLoaiSP] = useState([])
@@ -155,8 +157,11 @@ const Product = () => {
                     <p>Danh sách sản phẩm</p>
                   </div>
                   <div className="product-main-top-left-content">
-                    <p>dsadas</p>
-                    <p>dsadas</p>
+                    {dataType.map((item)=>(
+                      <div className="list_type">
+                        <p>{item.substring(0, 28)}</p>
+                      </div>                    
+                    ))}
                   </div>
                 </div>
 

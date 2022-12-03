@@ -104,11 +104,6 @@ function NavbarIn() {
               <NavLink className="home-header_ul_li_navlink" to="/Product">
                 Sản phẩm
               </NavLink>
-              <div className="home-header_ul_subnav_content">
-                <a href="#company">Company</a>
-                <a href="#team">Team</a>
-                <a href="#careers">Careers</a>
-              </div>
             </li>
             <li onClick={onclickNavigate}>
               <NavLink className="home-header_ul_li_navlink" to="/Navigate">
