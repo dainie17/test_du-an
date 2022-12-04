@@ -157,8 +157,8 @@ const Product = () => {
                     <p>Danh sách sản phẩm</p>
                   </div>
                   <div className="product-main-top-left-content">
-                    {dataType.map((item)=>(
-                      <div className="list_type">
+                    {dataType.map((item, index)=>(
+                      <div key={index} className="list_type">
                         <p>{item.substring(0, 28)}</p>
                       </div>                    
                     ))}
