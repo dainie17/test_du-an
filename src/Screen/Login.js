@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../css/Login.css";
-
+import logo from "../assets/logo_cty.png";
 
 
 function useKey(key, cb) {
@@ -180,14 +180,17 @@ function Login() {
     )
   }
 
+  const onclickHome = () => {
+    navigate("/");
+  };
+
   return (
     <div className="container">
-      <div className="logo_form">
+      <div className="logo_form" onClick={onclickHome}>
         <img
           className="logo"
-          src="https://pngimg.com/uploads/bmw_logo/bmw_logo_PNG19705.png"
+          src={logo}
         />
-        <h1 className="name_logo">Vagaboon</h1>
       </div>
 
       <div className="login">

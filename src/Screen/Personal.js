@@ -98,7 +98,6 @@ function Personal() {
 
   return (
     <div className="fersonal">
-      <ScrollToTop smooth></ScrollToTop>
       {loading ? (
         <div className="loading">
           <BeatLoader

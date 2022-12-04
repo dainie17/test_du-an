@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Stack, Checkbox } from "@mui/material";
 import { useForm } from "react-hook-form";
-
+import logo from "../assets/logo_cty.png";
 
 function useKey(key, cb) {
 
@@ -224,15 +224,17 @@ export default function SignUp() {
     )
   }
 
+  const onclickHome = () => {
+    navigate("/");
+  };
 
   return (
     <div className="container">
-      <div className="logo_form">
+      <div className="logo_form" onClick={onclickHome}>
         <img
           className="logo"
-          src="https://pngimg.com/uploads/bmw_logo/bmw_logo_PNG19705.png"
+          src={logo}
         />
-        <h1 className="name_logo">Vagaboon</h1>
       </div>
 
       <div className="login">

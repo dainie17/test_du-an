@@ -16,7 +16,7 @@ import {
 import "../css/Personal.css";
 import Footer from "./footer";
 import BeatLoader from "react-spinners/BeatLoader";
-import ScrollToTop from "react-scroll-to-top";
+import ScrollToT from "./ScrollToTopbtn";
 
 import icon_user from "../assets/icon_user.png";
 import camera from "../assets/camera.png";
@@ -119,7 +119,7 @@ function Peson() {
 
   return (
     <div className="fersonal">
-      <ScrollToTop smooth></ScrollToTop>
+      <ScrollToT/>
         <div>
           {chxNab ? <NavbarIn /> : <Navbar />}
           <div style={{ marginTop: "70px" }}></div>
