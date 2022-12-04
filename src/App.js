@@ -17,70 +17,64 @@ import Pay from './Policy/Pay'
 import Paycp from './Policy/Transport'
 import Contact from './Screen/Contact';
 import Error from './Screen/Error';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 
 function App() {
-  
-const ip = "http://localhost:8080"
 
-const [pathLogin, setPathLogin] = useState(true);
-const [pathSignup, setPathSignup] = useState(true);
-const [pathCart, setPathCart] = useState(false);
-// const [pathPersonal, setPathPersonal] = useState(false);
-const [pathOrder, setPathOrder] = useState(false);
+  const ip = "http://localhost:8080"
 
-useEffect(() => {
-  var getUser = localStorage.getItem("UserUser")
-  var data = JSON.parse(getUser)
+  const [pathLogin, setPathLogin] = useState(true);
+  const [pathSignup, setPathSignup] = useState(true);
+  const [pathOrder, setPathOrder] = useState(false);
 
-  if (getUser == null) {
-  }
+  useEffect(() => {
+    var getUser = localStorage.getItem("UserUser")
+    var data = JSON.parse(getUser)
 
-  if (getUser != null && data.chxSave == false) {
-    setPathLogin(false)
-    setPathSignup(false)
-    setPathCart(true)
-    // setPathPersonal(true)
-    setPathOrder(true)
-    return localStorage.removeItem("UserUser")
-  }
-  if (getUser != null && data.chxSave == true) {
-    fetch(ip + "/login_User", {
-      method: "POST",
-      crossDomain: true,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({
-        TKUser: data.TKUser,
-        passUser: data.passUser,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status == "oke") {
-          window.localStorage.setItem("token", data.data);
-          setPathLogin(false)
-          setPathSignup(false)
-          setPathCart(true)
-          // setPathPersonal(true)
-          setPathOrder(true)
-        }
+    if (getUser == null) {
+    }
+
+    if (getUser != null && data.chxSave == false) {
+      setPathLogin(false)
+      setPathSignup(false)
+      setPathOrder(true)
+      return localStorage.removeItem("UserUser")
+    }
+    if (getUser != null && data.chxSave == true) {
+      fetch(ip + "/login_User", {
+        method: "POST",
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({
+          TKUser: data.TKUser,
+          passUser: data.passUser,
+        }),
       })
-  }
-},)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.status == "oke") {
+            window.localStorage.setItem("token", data.data);
+            setPathLogin(false)
+            setPathSignup(false)
+            setPathOrder(true)
+          }
+        })
+    }
+  },)
 
   return (
     <div>
       <Routes>
         <Route path='/' element={<Home />} />
         {/* Đăng nhập */}
-        {pathLogin ? <Route path="/login" element={<Login/>}/> :  <Route path="/:somestring" element={<Error />}/> }
+        {pathLogin ? <Route path="/login" element={<Login />} /> : <Route path="/:somestring" element={<Error />} />}
         {/* Đăng ký */}
-        {pathSignup ? <Route path="/Signup" element={<Signup />}/> : <Route path="/:somestring" element={<Error />}/> }
+        {pathSignup ? <Route path="/Signup" element={<Signup />} /> : <Route path="/:somestring" element={<Error />} />}
         {/* Ưu đãi */}
         <Route path='/Navigate' element={<Navigate />} />
         {/* Liên hệ */}
@@ -92,12 +86,12 @@ useEffect(() => {
         {/* Chi tiết */}
         <Route path='/Detail/:_id' element={<Detail />} />
         {/* Giỏ hàng */}
-        {pathCart ? <Route path="/Cart" element={<Cart />}/> : <Route path="/:somestring" element={<Error />}/>}
+        <Route path="/Cart" element={<Cart />} />
         {/* Cá nhân */}
-        <Route path="/Personal" element={<Personal />}/>
+        <Route path="/Personal" element={<Personal />} />
         {/* {pathPersonal ? <Route path="/Personal" element={<Personal />}/> : <Route path="/:somestring" element={<Error />}/>} */}
         {/* Thanh toán */}
-        {pathOrder ? <Route path="/Order" element={<Order />}/> : <Route path="/:somestring" element={<Error />}/>}
+        {pathOrder ? <Route path="/Order" element={<Order />} /> : <Route path="/:somestring" element={<Error />} />}
         {/* Chi tiết ưu đãi */}
         <Route path="/ItemNews/:id" element={<New1 />} />
         {/* Chính sách bảo mật */}

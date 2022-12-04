@@ -32,6 +32,13 @@ import image_thumb_up from "../assets/thumb-up.png"
 import image_share from "../assets/share.png"
 import image_comments from "../assets/comments.png"
 import { useNavigate } from "react-router";
+import ItemBlog_1 from "../item/ItemBlog_1";
+import ItemBlog_3 from "../item/ItemBlog_3";
+import ItemBlog_2 from "../item/ItemBlog_2";
+import ItemBlog_4 from "../item/ItemBlog_4";
+import ItemBlog_5 from "../item/ItemBlog_5";
+import ItemBlog_6 from "../item/ItemBlog_6";
+import ItemBlog_7 from "../item/ItemBlog_7";
 
 const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
@@ -295,10 +302,14 @@ const Home = () => {
   const ip = "http://localhost:8080"
 
   const [dsLoaiSP, setDsLoaiSP] = useState([])
+
   const [dsBlog, setDsBlog] = useState([])
-
-
-
+  const [dsBlog1, setDsBlog1] = useState([])
+  const [dsBlog2, setDsBlog2] = useState([])
+  const [dsBlog3, setDsBlog3] = useState([])
+  const [dsBlog4, setDsBlog4] = useState([])
+  const [dsBlog5, setDsBlog5] = useState([])
+  const [dsBlog6, setDsBlog6] = useState([])
 
   const getDataLoaiSP = () => {
     axios.get(ip + '/getDataLoaiSP')
@@ -309,15 +320,23 @@ const Home = () => {
 
   const getDataBlog = () => {
     axios.get(ip + '/getDataBlog')
-    .then((response) => {
-      setDsBlog(response.data);
-    })
+      .then((response) => {
+        setDsBlog(response.data[0]);
+        setDsBlog1(response.data[1]);
+        setDsBlog2(response.data[2]);
+        setDsBlog3(response.data[3]);
+        setDsBlog4(response.data[4]);
+        setDsBlog5(response.data[5]);
+        setDsBlog6(response.data[6]);
+      })
+
+
   }
 
   useEffect(() => {
     getDataLoaiSP()
     getDataBlog()
-  },[])
+  }, [])
 
 
   return (
@@ -523,7 +542,7 @@ const Home = () => {
                         </div>
                       </div>
                     )
-                  }  else if (vl.TrangThaiLoaiSP == "Không hoạt động") {  
+                  } else if (vl.TrangThaiLoaiSP == "Không hoạt động") {
                   }
 
                 })}
@@ -633,342 +652,37 @@ const Home = () => {
           <p className="home_main_new_title">TIN TỨC VÀ SỰ KIỆN</p>
           <div className="home_news_container">
             <div className="home_main_new_top">
-              <div className="main_new_top_big">
-                <div className="main_new_top_big_background">
-                  <img src={imgBanner} alt="" />
-                </div>
-                <div className="main_news_content">
-                  <div className="main_new_top_big_img">
-                    <img src={image_u} alt="" />
-                  </div>
-                  <div className="main_new_top_big_card">
-                    <div className="main_new_top_big_time">22 january 2022</div>
-                    <div className="main_new_top_big_title">
-                      Tesla Cybertruck-inspired camper trailer for Tesla fans
-                      who can't just wait for the truck!
-                    </div>
-                    <div className="main_new_top_big_content">
-                      <div className="number_comment">
-                        <div className="number_comment_icon">
-                          <img src={image_thumb_up} alt="" />
-                        </div>
-                        <div className="number_coment_content">71.8k</div>
-                      </div>
-                      <div className="number_comment">
-                        <div className="number_comment_icon">
-                          <img src={image_comments} alt="" />
-                        </div>
-                        <div className="number_coment_content">4.01k</div>
-                      </div>
-                      <div className="number_comment">
-                        <div className="number_comment_icon">
-                          <img src={image_share} alt="" />
-                        </div>
-                        <div className="number_coment_content">67.05k</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              <div className="main_new_top_center">
-                <div className="main_new_top_center_background">
-                  <img src={imgBanner} alt="" />
-                </div>
-                <div className="main_new_top_center_content">
-                  <div className="main_new_top_center_big_img">
-                    <img src={image_u} alt="" />
-                  </div>
-                  <div className="main_new_top_center_card">
-                    <div className="main_new_top_center_big_time">
-                      22 january 2022
-                    </div>
-                    <div className="main_new_top_center_title">
-                      Tesla Cybertruck-inspired camper trailer for Tesla fans
-                      who can't just wait for the truck!
-                    </div>
-                    <div className="main_new_top_center_big_content">
-                      <div className="main_new_top_center_number_comment">
-                        <div className="main_new_top_center_number_comment_icon">
-                          <img src={image_thumb_up} alt="" />
-                        </div>
-                        <div className="main_new_top_center_coment_content">
-                          71.8k
-                        </div>
-                      </div>
-                      <div className="main_new_top_center_number_comment">
-                        <div className="main_new_top_center_number_comment_icon">
-                          <img src={image_comments} alt="" />
-                        </div>
-                        <div className="main_new_top_center_coment_content">
-                          4.01k
-                        </div>
-                      </div>
-                      <div className="main_new_top_center_number_comment">
-                        <div className="main_new_top_center_number_comment_icon">
-                          <img src={image_share} alt="" />
-                        </div>
-                        <div className="main_new_top_center_coment_content">
-                          67.05k
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ItemBlog_1
+                dsBlog={dsBlog}
+              />
 
-              <div className="main_new_top_small">
-                <div className="main_new_top_center_background">
-                  <img src={imgBanner} alt="" />
-                </div>
-                <div className="main_new_top_center_content">
-                  <div className="main_new_top_center_big_img">
-                    <img src={image_u} alt="" />
-                  </div>
-                  <div className="main_new_top_small_card">
-                    <div className="main_new_top_center_big_time">
-                      22 january 2022
-                    </div>
-                    <div className="main_new_top_center_title">
-                      Tesla Cybertruck-inspired camper trailer for Tesla fans
-                      who can't just wait for the truck!
-                    </div>
-                    <div className="main_new_top_center_big_content">
-                      <div className="main_new_top_center_number_comment">
-                        <div className="main_new_top_center_number_comment_icon">
-                          <img src={image_thumb_up} alt="" />
-                        </div>
-                        <div className="main_new_top_center_coment_content">
-                          71.8k
-                        </div>
-                      </div>
-                      <div className="main_new_top_center_number_comment">
-                        <div className="main_new_top_center_number_comment_icon">
-                          <img src={image_comments} alt="" />
-                        </div>
-                        <div className="main_new_top_center_coment_content">
-                          4.01k
-                        </div>
-                      </div>
-                      <div className="main_new_top_center_number_comment">
-                        <div className="main_new_top_center_number_comment_icon">
-                          <img src={image_share} alt="" />
-                        </div>
-                        <div className="main_new_top_center_coment_content">
-                          67.05k
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ItemBlog_2
+                dsBlog={dsBlog1}
+              />
+
+              <ItemBlog_3
+                dsBlog={dsBlog2}
+              />
             </div>
           </div>
 
           <div className="main_new_bottom">
-            <div className="main_new_bottom_card">
-              <div
-                className="main_new_bottom_card_image"
-                style={{
-                  backgroundImage: `url("${image2}")`,
-                  width: "100%",
-                  height: "28vh",
-                  borderRadius: "20px 20px 0px 0",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></div>
-              <div className="main_new_bottom_card_image_img">
-                <div className="main_new_bottom_card_image_img_container">
-                  <img src={imgUser} alt="" />
-                </div>
-              </div>
-              <div className="mmain_new_bottom_card_content">
-                <div className="main_new_bottom_card_time">10 May 2022</div>
-                <div className="main_new_bottom_card_name">Fresh Princer</div>
-                <div className="main_new_bottom_card_cws">
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                      <img src={image_thumb_up} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
+            <ItemBlog_4
+              dsBlog={dsBlog3}
+            />
 
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                      <img src={image_comments} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
+            <ItemBlog_5
+              dsBlog={dsBlog4}
+            />
 
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                      <img src={image_share} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ItemBlog_6
+              dsBlog={dsBlog5}
+            />
 
-            <div className="main_new_bottom_card">
-              <div
-                className="main_new_bottom_card_image"
-                style={{
-                  backgroundImage: `url("${image2}")`,
-                  width: "100%",
-                  height: "28vh",
-                  borderRadius: "20px 20px 0px 0",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></div>
-              <div className="main_new_bottom_card_image_img">
-                <div className="main_new_bottom_card_image_img_container">
-                  <img src={imgUser} alt="" />
-                </div>
-              </div>
-              <div className="mmain_new_bottom_card_content">
-                <div className="main_new_bottom_card_time">10 May 2022</div>
-                <div className="main_new_bottom_card_name">Fresh Princer</div>
-                <div className="main_new_bottom_card_cws">
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                      <img src={image_thumb_up} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                      <img src={image_comments} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                      <img src={image_share} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="main_new_bottom_card">
-              <div
-                className="main_new_bottom_card_image"
-                style={{
-                  backgroundImage: `url("${image2}")`,
-                  width: "100%",
-                  height: "28vh",
-                  borderRadius: "20px 20px 0px 0",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></div>
-              <div className="main_new_bottom_card_image_img">
-                <div className="main_new_bottom_card_image_img_container">
-                  <img src={imgUser} alt="" />
-                </div>
-              </div>
-              <div className="mmain_new_bottom_card_content">
-                <div className="main_new_bottom_card_time">10 May 2022</div>
-                <div className="main_new_bottom_card_name">Fresh Princer</div>
-                <div className="main_new_bottom_card_cws">
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                      <img src={image_thumb_up} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                      <img src={image_comments} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                      <img src={image_share} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="main_new_bottom_card">
-              <div
-                className="main_new_bottom_card_image"
-                style={{
-                  backgroundImage: `url("${image2}")`,
-                  width: "100%",
-                  height: "28vh",
-                  borderRadius: "20px 20px 0px 0",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></div>
-              <div className="main_new_bottom_card_image_img">
-                <div className="main_new_bottom_card_image_img_container">
-                  <img src={imgUser} alt="" />
-                </div>
-              </div>
-              <div className="mmain_new_bottom_card_content">
-                <div className="main_new_bottom_card_time">10 May 2022</div>
-                <div className="main_new_bottom_card_name">Fresh Princer</div>
-                <div className="main_new_bottom_card_cws">
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                      <img src={image_thumb_up} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                      <img src={image_comments} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-
-                  <div className="main_new_bottom_card_comment">
-                    <div className="main_new_bottom_card_comment_image">
-                      <img src={image_share} alt="" />
-                    </div>
-                    <div className="main_new_bottom_card_comment_content">
-                      89.81k
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ItemBlog_7
+              dsBlog={dsBlog6}
+            />
           </div>
         </div>
       </div>

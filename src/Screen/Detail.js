@@ -76,7 +76,7 @@ const Detail = () => {
       setSoLuongSP(data.SoLuongSP);
       setTest(data.test);
     }
-  },[]);
+  }, []);
 
   let navgate = useNavigate();
 
@@ -122,12 +122,12 @@ const Detail = () => {
         <div className="detail-main">
           <div className="detail-main-top">
             <div className="detail-main-top-left">
-              {test.map((item, index)=>(
-                <Itemhinh 
-                key={index}
-                item={item}
+              {test.map((item, index) => (
+                <Itemhinh
+                  key={index}
+                  item={item}
                 />
-              ))}            
+              ))}
             </div>
             <div className="detail-main-top-right">
               <p className="detail-main-top-right-name">{NameSP}</p>
@@ -137,7 +137,7 @@ const Detail = () => {
               <p className="detail-main-top-right-price"> {GiaCX}</p>
               <p className="detail-main-top-right-title">Thông tin sản phẩm:</p>
               <p className="detail-main-top-right-content">
-              {mota.substring(0, 400) + " [...]"}
+                {mota.substring(0, 400) + " [...]"}
 
               </p>
               <div className="detail-main-top-right-button">
@@ -190,7 +190,7 @@ const Detail = () => {
                 </div>
               </div>
               <button className="btn_addtocart">
-                    <span className="span_addtocart">Thêm vào giỏ hàng</span>
+                <span className="span_addtocart">Thêm vào giỏ hàng</span>
               </button>
               {/* <button onClick={addTocart} className="detail-main-top-right-btngh">Thêm vào giỏ hàng</button> */}
               <p className="detail-main-top-right-titlepay">
