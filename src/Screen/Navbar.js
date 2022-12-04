@@ -153,18 +153,17 @@ function Navbar() {
                       overflow: "visible",
                       filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
                       mt: 1.5,
+                      left: "1200px",
                       "& .MuiAvatar-root": {
-                        width: 32,
-                        height: 32,
-                        ml: -0.5,
-                        mr: 1,
+                        ml: 2,
+                        mr: 5,
                       },
                       "&:before": {
                         content: '""',
                         display: "block",
                         position: "absolute",
                         top: 0,
-                        left: 15,
+                        left: 75,
                         width: 10,
                         height: 10,
                         bgcolor: "background.paper",
@@ -173,14 +172,16 @@ function Navbar() {
                       },
                     },
                   }}
-                  transformOrigin={{ horizontal: "left", vertical: "top" }}
-                  anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
+                  transformOrigin={{ horizontal: "center", vertical: "top" }}
+                  anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
                 >
                   <MenuItem onClick={onClickLogin}>
-                    <Avatar /> Login
+                    <div className="item_navlg">
+                      Đăng nhập
+                    </div>
                   </MenuItem>
                   <MenuItem onClick={onClickSignup}>
-                    <Avatar /> Signup
+                    Signup
                   </MenuItem>
                 </Menu>
               </Fragment>

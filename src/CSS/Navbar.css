@@ -285,5 +285,14 @@
 .home-header_icon_user_content a:hover{
     color: #555;
 }
+
+.item_navlg{
+    background-color: #63A3F7;
+    padding: 5px 15px 5px 15px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+
 /* -----------------------------kết thúc navbar-------------------------- */
 

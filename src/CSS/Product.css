@@ -379,32 +379,30 @@
 }
 
 .reduce {
-  width: 55px;
-  height: 55px;
+  width: 80px;
+  height: 80px;
   right: 0;
+  top: -10px;
   position: absolute;
 }
 
 .reduce_background {
-  width: 55px;
-  height: 55px;
+  width: 80px;
+  height: 80px;
   position: relative;
-  background-image: url("../assets/backgroundgiamgia.png");
+  background-image: url("../assets/decoration.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .reduce_content {
-  width: 22px;
-  height: 22px;
-  padding-top: 3.5px;
-  margin-top: 11px;
-  margin-right: 18px;
-  background-color: white;
-  border-radius: 50%;
-  float: right;
   text-align: center;
+  color: #e2f0f9;
+  margin-top: -10px;
   font-weight: 800;
   font-size: 12px;
 }
