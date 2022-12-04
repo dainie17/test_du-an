@@ -18,7 +18,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import NavbarIn from "./NavbarIn";
 
+import axios from "axios";
+
 const Introduce = () => {
+
   let navgate = useNavigate();
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -27,6 +30,27 @@ const Introduce = () => {
       setLoading(false);
     }, 500);
   }, []);
+
+  const ip = "http://localhost:8080"
+
+  const [Name, setName] = useState();
+  const [Email, setEmail] = useState();
+  const [SDT, setSDT] = useState();
+  const [DiaChi, setDiaChi] = useState();
+  const [Mota, setMota] = useState();
+
+  const btnAdd_PhanHoi = () => {
+    axios.post(ip + "/add_PhanHoi", {
+      Name: Name,
+      Email: Email,
+      SDT: SDT,
+      DiaChi: DiaChi,
+      Mota: Mota,
+      Date: new Date(),
+    })
+
+
+  }
 
   const [chxNab, setChxNab] = useState(false);
   useEffect(() => {
@@ -143,6 +167,7 @@ const Introduce = () => {
                       className="intro__input"
                       placeholder=" "
                       name="Họ và tên"
+                      onChange={(e) => setName(e.target.value)}
                       required
                     />
                     <label htmlFor="email" className="intro__label">
@@ -157,6 +182,7 @@ const Introduce = () => {
                       className="intro__input"
                       placeholder=" "
                       name="email"
+                      onChange={(e) => setEmail(e.target.value)}
                       required
                     />
                     <label htmlFor="email" className="intro__label">
@@ -171,6 +197,7 @@ const Introduce = () => {
                       className="intro__input"
                       placeholder=" "
                       name="Số điện thoại"
+                      onChange={(e) => setSDT(e.target.value)}
                       required
                     />
                     <label htmlFor="email" className="intro__label">
@@ -185,6 +212,7 @@ const Introduce = () => {
                       className="intro__input"
                       placeholder=" "
                       name="Địa chỉ"
+                      onChange={(e) => setDiaChi(e.target.value)}
                       required
                     />
                     <label htmlFor="email" className="intro__label">
@@ -199,6 +227,7 @@ const Introduce = () => {
                       className="intro__input"
                       placeholder=" "
                       name="Nội dung"
+                      onChange={(e) => setMota(e.target.value)}
                       required
                     />
                     <label htmlFor="email" className="intro__label">
@@ -206,7 +235,7 @@ const Introduce = () => {
                     </label>
                   </div>
                 </div>
-                <div className="title_container__input__buttom">
+                <div className="title_container__input__buttom" onClick={btnAdd_PhanHoi}>
                   <button> Gửi</button>
                 </div>
               </div>

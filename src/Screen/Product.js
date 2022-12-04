@@ -118,14 +118,14 @@ const Product = () => {
   }, []);
 
   const [chxNab, setChxNab] = useState(false);
-  useEffect(()=>{
+  useEffect(() => {
     var getUser = localStorage.getItem("UserUser")
     var data = JSON.parse(getUser)
-    
+
     if (getUser == null) {
     }
-  
-    if(getUser != null){
+
+    if (getUser != null) {
       setChxNab(true)
     }
   },)
@@ -157,10 +157,10 @@ const Product = () => {
                     <p>Danh sách sản phẩm</p>
                   </div>
                   <div className="product-main-top-left-content">
-                    {dataType.map((item)=>(
+                    {dataType.map((item) => (
                       <div className="list_type">
                         <p>{item.substring(0, 28)}</p>
-                      </div>                    
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -259,9 +259,9 @@ const Product = () => {
 
             <div className="product-main-list">
               {dsLoaiSP.map((item, index) => (
-                <ItemProductType 
-                key={index} 
-                NameLoaiSP={item.NameLoaiSP}  
+                <ItemProductType
+                  key={index}
+                  NameLoaiSP={item.NameLoaiSP}
                 />
               ))}
             </div>
