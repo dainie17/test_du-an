@@ -1,119 +1,117 @@
-import { useNavigate } from "react-router-dom";
+
+import { useEffect, useState } from 'react';
+
+
+// material
 import {
-  DeleteOutlineSharp,
-  FavoriteBorderSharp,
-  VerifiedUserSharp,
-} from "@mui/icons-material";
-import { useEffect } from "react";
+  Checkbox,
+  TableRow,
+  TableCell,
+  Typography,
+
+} from '@mui/material';
+// avatar
+import Avatar from '@mui/material/Avatar';
+// components
+
+
+import axios from "axios";
+
+
+export default function ItemCart(props) {
+
+  const ip = "http://localhost:8080"
 
 
 
-function ItemCart(props) {
-
-  let remove = [];
-  const onclickRemove = (id) => {
-    let storage = localStorage.getItem("cart");
-    if (storage) {
-      remove = JSON.parse(storage);
+  const handleClick = (event, id) => {
+    const selectedIndex = selected.indexOf(id);
+    let newSelected = [];
+    if (selectedIndex === -1) {
+      newSelected = newSelected.concat(selected, id);
+    } else if (selectedIndex === 0) {
+      newSelected = newSelected.concat(selected.slice(1));
+    } else if (selectedIndex === selected.length - 1) {
+      newSelected = newSelected.concat(selected.slice(0, -1));
+    } else if (selectedIndex > 0) {
+      newSelected = newSelected.concat(selected.slice(0, selectedIndex), selected.slice(selectedIndex + 1));
     }
-      remove = remove.filter((remove) => remove.id != id);
-      localStorage.setItem("cart", JSON.stringify(remove));
-    props.getCart();
+    props.setSelected(newSelected);
   };
 
-  let reduce = [];
-  const onclickReduce = (id) => {
-    let storage = localStorage.getItem("cart");
-    if (storage) {
-      reduce = JSON.parse(storage);
-    }
-
-    let item = reduce.find((c) => c.id === id);
-
-    if (item.num > 1) {
-      item.num -= 1;
-      localStorage.setItem("cart", JSON.stringify(reduce));
-    } else if ((item.num = 1)) {
-      reduce = reduce.filter((remove) => remove.id != id);
-      localStorage.setItem("cart", JSON.stringify(reduce));
-    }
-    props.getCart();
-  };
-
-  let addNum = [];
-  const addNumToCart = async (id) => {
-    let storage = localStorage.getItem("cart");
-    if (storage) {
-      addNum = JSON.parse(storage);
-    }
-
-    let item = addNum.find((c) => c.id === id);
-
-    if (item) {
-      item.num += 1;
-    }
-    localStorage.setItem("cart", JSON.stringify(addNum));
-    props.getCart();
-  };
-
-  const image1 =
-  "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
+  let selected = props.selected
 
   return (
-    <>
-      <div key={props.index} className="cart-main-left-list-card">
-        <input
-          className="cart-main-left-list-card-checkbox"
-          type="checkbox"
-          name={props.name}
-          
-        />
-        <img className="cart-main-left-list-card-image" src={image1} alt="" />
-        <div className="cart-main-left-list-card-content">
-          <p className="cart-main-left-list-card-content-name">{props.name}</p>
-          <p className="cart-main-left-list-card-content-type">
-            Loại:/Ship từ:
-          </p>
-          <p className="cart-main-left-list-card-content-price">
-            {props.price}&#8363;
-          </p>
-          <p className="cart-main-left-list-card-content-cod">COD</p>
-        </div>
-        <div className="cart-main-left-list-card-function">
-          <div className="cart-main-left-list-card-function-button">
-            <button
-              onClick={() => {
-                onclickReduce(props.id);
-              }}
-              className="cart-main-left-list-card-function-button-reduce"
-            >
-              -
-            </button>
-            <div className="cart-main-left-list-card-function-button-num">
-              <p>{props.num}</p>
-            </div>
-            <button
-              onClick={() => {
-                addNumToCart(props.id);
-              }}
-              className="cart-main-left-list-card-function-button-more"
-            >
-              +
-            </button>
-          </div>
-          <div className="cart-main-left-list-card-function-icon">
-            <FavoriteBorderSharp style={{ fontSize: "20px" }} />
-            <DeleteOutlineSharp
-              onClick={() => {
-                onclickRemove(props.id);
-              }}
-              style={{ fontSize: "20px" }}
-            />
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
 
-export default ItemCart;
+    <TableRow
+      hover
+      key={props._id}
+      tabIndex={-1}
+      role="checkbox"
+      selected={props.isItemSelected}
+      aria-checked={props.isItemSelected}
+    >
+      <TableCell padding="checkbox">
+        <Checkbox checked={props.isItemSelected} onChange={(event) => handleClick(event, props._id)} />
+      </TableCell>
+
+      <TableCell className='image_sp' component="th" scope="row">
+        <Avatar sx={{ minWidth: 100, minHeight: 130 }} variant="square">
+          {/* <img className='img' src={ip + '/uploads/' + props.ImageLoaiSP} alt="login" width={'100%'} /> */}
+        </Avatar>
+      </TableCell>
+
+      <TableCell className='name_sp' component="th" scope="row"  >
+        <Typography align='left' variant="subtitle2"  >
+          {props.NameSP}
+        </Typography>
+      </TableCell>
+
+      <TableCell className='moTa_LSP' >
+        <Typography align='left' variant="subtitle2" >
+          {props.LoaiSP}
+        </Typography>
+      </TableCell>
+
+      <TableCell className='name_sp' component="th" scope="row"  >
+        <Typography align='left' variant="subtitle2"  >
+          {props.GiaCX}
+        </Typography>
+      </TableCell>
+
+      <TableCell className='name_sp' component="th" scope="row"  >
+        <Typography align='left' variant="subtitle2"  >
+          {props.GiaBanSP}
+        </Typography>
+      </TableCell>
+      <TableCell className='name_sp' component="th" scope="row"  >
+        <Typography align='left' variant="subtitle2"  >
+          {props.SaleSP}
+        </Typography>
+      </TableCell>
+      <TableCell className='name_sp' component="th" scope="row"  >
+        <Typography align='left' variant="subtitle2"  >
+          {props.TrangThaiSP}
+        </Typography>
+      </TableCell>
+
+
+      {/* ---------------------------------------------- */}
+      {/* <TableCell align="right">
+                <LoaiSPMoreMenu
+                    key={props._id}
+                    _id={props._id}
+                    ImageLoaiSP={props.ImageLoaiSP}
+                    NameLoaiSP={props.NameLoaiSP}
+                    MotaLoaiSP={props.MotaLoaiSP}
+                    TrangThaiLoaiSP={props.TrangThaiLoaiSP}
+                    danhsachSP={props.danhsachSP}
+                    setdanhsachSP={props.setdanhsachSP}
+
+                />
+            </TableCell> */}
+    </TableRow>
+
+
+  )
+}
