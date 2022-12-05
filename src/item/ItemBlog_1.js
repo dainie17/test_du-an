@@ -37,7 +37,7 @@ export default function ItemBlog_1(props) {
                 <div className="main_new_top_big_card">
                     <div className="main_new_top_big_time">{formatDate}</div>
                     <div className="main_new_top_big_title">
-                        {props.dsBlog.TenBlog}
+                        {props.dsBlog.TenBlog.substring(0, 70)+"..."}
                     </div>
                     <div className="main_new_top_big_content">
                         <div className="number_comment">
