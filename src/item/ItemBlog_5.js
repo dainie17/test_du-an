@@ -53,7 +53,7 @@ export default function ItemBlog_5(props) {
             </div>
             <div className="mmain_new_bottom_card_content">
                 <div className="main_new_bottom_card_time">{formatDate}</div>
-                <div className="main_new_bottom_card_name">{props.dsBlog.TenBlog.substring(0,40)+"..."}</div>
+                <div className="main_new_bottom_card_name">{props.dsBlog.TenBlog}</div>
                 <div className="main_new_bottom_card_cws">
                     <div className="main_new_bottom_card_comment">
                         <div className="main_new_bottom_card_comment_image">

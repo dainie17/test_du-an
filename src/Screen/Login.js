@@ -112,7 +112,7 @@ function Login() {
     if (format.test(se) == true) {
       setTKCheck(false);
       setColor2("red");
-      setErrorTK("Vui lòng không điền kí tự đặt biệt");
+      setErrorTK("Vui lòng không điền kí tự đặc biệt");
     }
     if (se == null) {
       setTKCheck(false);
@@ -150,7 +150,7 @@ function Login() {
     if (pass.test(se) == true) {
       setPasswordCheck(false);
       setColor3("red");
-      setErrorPassword("Vui lòng không điền kí tự đặt biệt");
+      setErrorPassword("Vui lòng không điền kí tự đặc biệt");
     }
 
     if (se == null) {
