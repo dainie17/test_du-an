@@ -20,6 +20,16 @@ import Error from './Screen/Error';
 import { useState, useEffect } from 'react';
 import axios from "axios";
 
+import './css/Introduce.css';
+import './css/Contact.css';
+import './css/footer.css';
+import './css/Navigate.css';
+import './css/News.css';
+import './css/Personal.css';
+import './css/Product.css';
+import './css/Introduce.css';
+import './css/Responsive.css'
+
 
 function App() {
 

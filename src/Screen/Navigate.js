@@ -62,7 +62,9 @@ function Navigate() {
                 <Grid container spacing={0} className="title_list_view">
                   {ItemNavi.map((uudai, index) =>
                     <div key={index} className="title_list_cottom">
+                      <div className="title_list_cottom_img">
                       <img src={uudai.image} />
+                      </div>
                       <div className="title_list_cottom--content">
                         <h2>{uudai.title}</h2>
                         <p>{uudai.synopsis.substring(0, 230) + " [...]"}</p>
