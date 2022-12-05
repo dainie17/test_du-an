@@ -17,9 +17,9 @@ function ItemProduct(props) {
 
 
   useEffect(() => {
-    if(props.SaleSP != 0){
+    if (props.SaleSP != 0) {
       setDisplay("block")
-    }else{
+    } else {
       setDisplay("none")
     }
 
@@ -31,24 +31,28 @@ function ItemProduct(props) {
   }, [])
 
 
-// format giam gia
-  let giaBan = props.GiaBanSP - (props.GiaBanSP * props.SaleSP/100)
+  // format giam gia
+  let giaBan = props.GiaBanSP - (props.GiaBanSP * props.SaleSP / 100)
   let resust = Math.round(giaBan)
-  let GiaCX = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(resust);
+  let GiaCX = new Intl.NumberFormat('it-IT').format(resust);
 
 
-  
+
   const onClick = () => {
     const test = multipleFiles.map((vl) => vl.files)
     navga(`/Detail/${props._id}`);
     var ItemSP = {
       test: test,
       _id: props._id,
-      SaleSP: props.SaleSP,
+      idImg: props.idImg,
       NameSP: props.NameSP,
       GiaCX: GiaCX,
       GiaBanSP: props.GiaBanSP,
       SoLuongSP: props.SoLuongSP,
+      SaleSP: props.SaleSP,
+      TrangThaiSP: props.TrangThaiSP,
+      LoaiSP: props.LoaiSP,
+      ChiTietSP: props.ChiTietSP,
     }
     localStorage.setItem('ItemSP', JSON.stringify(ItemSP));
 
@@ -60,7 +64,7 @@ function ItemProduct(props) {
         key={props._id}
         className="product-main-list-content-card"
       >
-        <div className="reduce" style={{display : Display}}>
+        <div className="reduce" style={{ display: Display }}>
           <div className="reduce_background">
             <div className="reduce_content">
               <p>{props.SaleSP}%</p>
@@ -68,12 +72,12 @@ function ItemProduct(props) {
           </div>
         </div>
         {multipleFiles.map((element, index) => {
-          
+
           return (
             <ItemImg
               key={index}
               files={element.files}
-            />  
+            />
           )
         })}
 
@@ -83,7 +87,7 @@ function ItemProduct(props) {
             <p className="product-main-list-content-card-price">
               {GiaCX}
             </p>
-            <p className="price_reduced">{props.GiaBanSP} Đ</p>
+            <p className="price_reduced" style={{ display: Display }}>{props.GiaBanSP} Đ</p>
           </div>
           <p className="product-main-list-content-card-number">
             Số lượng: {props.SoLuongSP}

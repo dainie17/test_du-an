@@ -1,10 +1,8 @@
 import React from "react";
 import { NavLink, useLocation, useParams } from "react-router-dom";
-import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import yeuthich from "../assets/favorite.png";
 import yeuthich1 from "../assets/favorite1.png";
-import $ from "jquery";
 import truck from "../assets/delivery-truck.png";
 import money from "../assets/salary.png";
 import hour from "../assets/hour.png";
@@ -14,37 +12,25 @@ import ScrollToTop from "./ScrollToTopbtn";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { TokenSharp, VerifiedSharp } from "@mui/icons-material";
-import Slider from "react-slick";
 import "../css/Detail.css";
 import Footer from "./footer";
 import Navbar from "./Navbar";
 import NavbarIn from "./NavbarIn";
 import Itemhinh from "../item/Itemhinh"
 
-const image1 =
-  "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
-const image2 =
-  "https://cdn.tgdd.vn/Files/2019/11/18/1220010/4-cach-ve-sinh-ben-trong-chai-lo-cuc-sach-ban-nen-thu-21-760x367.jpg";
-const image3 =
-  "https://bizweb.dktcdn.net/100/154/029/files/san-xuat-chai-lo-nhua-2-941c40bb-0124-4086-8aab-ad24dc55c0b8.jpg?v=1501056541035";
-const image4 =
-  "https://i-raovat.vnecdn.net/2020/05/22/51ade386733b048d7c00c29720e39c04.jpeg?w=1280&h=768&q=100&dpr=1&rt=fit&g=no&wmi=&wmg=ce&wmo=50&wms=30&wmx=0&wmy=0&s=irmRdkv5lf-nqmbP2V8WXg";
-const image5 =
-  "https://thuytinhtadaco.com/wp-content/uploads/2021/08/chai-lo-thuy-tinh.jpg";
+import axios from "axios";
 
 const Detail = () => {
   const [chxNab, setChxNab] = useState(false);
   useEffect(() => {
     var getUser = localStorage.getItem("UserUser");
-    var data = JSON.parse(getUser);
-
     if (getUser == null) {
     }
 
     if (getUser != null) {
       setChxNab(true);
     }
-  });
+  }, []);
 
   const [tong, setTong] = useState(1);
 
@@ -55,34 +41,45 @@ const Detail = () => {
   };
 
   // const[,set] = useState()
-  const [SaleSP, setSaleSP] = useState();
+  const [idUser, setIdUser] = useState()
+  const [idImg, setIdImg] = useState()
   const [NameSP, setNameSP] = useState();
   const [GiaCX, setGiaCX] = useState();
-  const [GiaBanSP, setGiaBanSP] = useState();
   const [SoLuongSP, setSoLuongSP] = useState();
+  const [SaleSP, setSaleSP] = useState();
+  const [TrangThaiSP, setTrangThaiSP] = useState();
+  const [LoaiSP, setLoaiSP] = useState();
+  const [ChiTietSP, setChiTietSP] = useState();
+
+  const [GiaBanSP, setGiaBanSP] = useState();
   const [test, setTest] = useState([]);
 
   useEffect(() => {
-    const u = localStorage.getItem("uses");
+
 
     var ItemSP = localStorage.getItem("ItemSP");
     var data = JSON.parse(ItemSP);
     if (ItemSP == null) {
     } else if (ItemSP != null) {
-      setSaleSP(data.SaleSP);
+      setIdImg(data.idImg)
       setNameSP(data.NameSP);
       setGiaCX(data.GiaCX);
-      setGiaBanSP(data.GiaBanSP);
       setSoLuongSP(data.SoLuongSP);
+      setSaleSP(data.SaleSP);
+      setTrangThaiSP(data.TrangThaiSP)
+      setLoaiSP(data.LoaiSP)
+      setChiTietSP(data.ChiTietSP)
+      setGiaBanSP(data.GiaBanSP);
       setTest(data.test);
     }
+
+    var Infomation = localStorage.getItem("Infomation");
+    var db = JSON.parse(Infomation);
+    if (Infomation == null) {
+    } else if (Infomation != null) {
+      setIdUser(db.data._id)
+    }
   }, []);
-
-  let navgate = useNavigate();
-
-  const mota = 'Về phần thiết kế, nhà Apple vẫn giữ nguyên kiểu dáng quen thuộc của những phiên bản tiền nhiệm trước đó như: Thiết kế gọn nhẹ, đường bo góc tinh tế, gam màu trắng trang nhã bao bọc trọn vẹn tai nghe và hộp sạc.Ở phiên bản này, hộp sạc được trang bị thêm phần khoen để móc dây treo tiện lợi. Nhờ đó, bạn có thể dễ dàng treo vào balo và mang đi bất kỳ đâu mà không cần dùng tới túi đựng AirPods chuyên dụng. Loa tích hợp trên hộp sạc có thể phát âm thanh giúp bạn dễ dàng xác định vị trí khi vô tình đánh rơi và phát ra âm cảnh báo khi pin yếu hoặc quá trình ghép nối hoàn tất. Ngoài ra, trong mỗi hộp tai nghe Apple này sẽ có bốn cặp đệm tai với các kích cỡ XS, S, M, L cho người dùng thoải mái lựa chọn đệm tai phù hợp. Đệm tai làm từ chất liệu silicone cao cấp cũng sẽ cho bạn cảm giác mềm mại, vừa vặn khi đeo.'
-
-  const data = [image1, image2, image3, image4, image5];
 
   const [toggleState, setToggleState] = useState(1);
   const toogleTab = (index) => {
@@ -91,28 +88,24 @@ const Detail = () => {
 
   let { _id } = useParams();
 
-  // let { _id, name, price, num } = useParams();
-
-  // let cart = [];
-  // const addTocart = async () => {
-  //   let storage = localStorage.getItem('cart');
-  //   if (storage) {
-  //     cart = JSON.parse(storage);
-  //   }
-
-  //   let item = cart.find(c => c._id === _id);
-
-  //   if (item) {
-  //     item.num += tong
-  //   } else {
-  //     cart.push({ _id: _id, name: name, price: price, num: tong });
-  //   }
-
-  //   localStorage.setItem('cart', JSON.stringify(cart));
-  //   console.log(cart);
-  // }
-
   const ip = "http://localhost:8080"
+
+  const btn_AddGioHang = () => {
+
+    axios.post(ip + "/add_GioHang", {
+      idUser: idUser,
+      Image: test,
+      idImg: idImg,
+      NameSP: NameSP,
+      GiaCX: GiaCX,
+      GiaBanSP: GiaBanSP,
+      SoLuongSP: SoLuongSP,
+      SaleSP: SaleSP,
+      TrangThaiSP: TrangThaiSP,
+      LoaiSP: LoaiSP,
+      ChiTietSP: ChiTietSP,
+    })
+  }
 
   return (
     <div className="detail">
@@ -137,7 +130,8 @@ const Detail = () => {
               <p className="detail-main-top-right-price"> {GiaCX}</p>
               <p className="detail-main-top-right-title">Thông tin sản phẩm:</p>
               <p className="detail-main-top-right-content">
-                {mota.substring(0, 400) + " [...]"}
+                {/* {ChiTietSP.substring(0, 400) + " [...]"} */}
+                {ChiTietSP}
 
               </p>
               <div className="detail-main-top-right-button">
@@ -189,10 +183,9 @@ const Detail = () => {
                   </div>
                 </div>
               </div>
-              <button className="btn_addtocart">
-                <span className="span_addtocart">Thêm vào giỏ hàng</span>
+              <button className="btn_addtocart" onClick={btn_AddGioHang} >
+                <span className="span_addtocart" >Thêm vào giỏ hàng</span>
               </button>
-              {/* <button onClick={addTocart} className="detail-main-top-right-btngh">Thêm vào giỏ hàng</button> */}
               <p className="detail-main-top-right-titlepay">
                 Thanh toán an toàn
               </p>

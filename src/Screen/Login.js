@@ -53,7 +53,7 @@ function Login() {
       validatePass(passUser)
       return
     }
-    if(TKCheck == true && passwordCheck == true){
+    if (TKCheck == true && passwordCheck == true) {
       fetch(ip + "/login_User", {
         method: "POST",
         crossDomain: true,
@@ -69,33 +69,32 @@ function Login() {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data, "userLogin");
           if (data.error == "Tài khoản không tồn tại") {
             validateTK(data.error)
             setTKUser("Tài khoản không tồn tại")
-          }else{
+          } else {
             setTKUser(TKUser)
           }
           if (data.error == "Mật khẩu sai") {
             validatePass(data.error)
             setPassUser("Mật khẩu sai")
-          }else{
+          } else {
             setPassUser(passUser)
           }
           if (data.status == "oke") {
-            window.localStorage.setItem("token", data.data);
             var user = {
               TKUser: TKUser,
               passUser: passUser,
               chxSave: chxSave
             }
             localStorage.setItem('UserUser', JSON.stringify(user));
+            localStorage.setItem('Infomation', JSON.stringify(data))
             window.localStorage.setItem("token", data.data);
             navigate("/", { replace: true });
           }
         })
     }
-   
+
   };
 
   // ============================================== validate ===================================================
@@ -124,12 +123,12 @@ function Login() {
       setTKCheck(false);
       setColor2("red");
       setErrorTK("Tài khoản không tồn tại");
-    }else
-    if (se != "Tài khoản không tồn tại" && se != null){
-      setTKCheck(true);
-      setColor2("#d8dde1");
-      setErrorTK("");
-    }
+    } else
+      if (se != "Tài khoản không tồn tại" && se != null) {
+        setTKCheck(true);
+        setColor2("#d8dde1");
+        setErrorTK("");
+      }
 
   }
 
@@ -164,7 +163,7 @@ function Login() {
       setPasswordCheck(false);
       setColor3("red");
       setErrorPassword("Mật khẩu sai");
-    } 
+    }
     if (se != "Mật khẩu sai" && se != null) {
       setPasswordCheck(true);
       setColor3("#d8dde1");

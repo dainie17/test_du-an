@@ -94,11 +94,23 @@ const Product = () => {
 
   const [dsLoaiSP, setDsLoaiSP] = useState([])
 
+  const [danhsachSP, setDanhsachSP] = useState([])
+
 
   const getDataLoaiSP = () => {
     axios.get(ip + '/getDataLoaiSP')
       .then((response) => {
         setDsLoaiSP(response.data);
+
+
+      })
+  }
+
+  const getData = () => {
+    axios.get(ip + '/getData')
+      .then((response) => {
+        setDanhsachSP(response.data);
+
       })
   }
 
@@ -109,6 +121,7 @@ const Product = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     getDataLoaiSP()
+    getData()
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -116,14 +129,14 @@ const Product = () => {
   }, []);
 
   const [chxNab, setChxNab] = useState(false);
-  useEffect(()=>{
+  useEffect(() => {
     var getUser = localStorage.getItem("UserUser")
     var data = JSON.parse(getUser)
-    
+
     if (getUser == null) {
     }
-  
-    if(getUser != null){
+
+    if (getUser != null) {
       setChxNab(true)
     }
   },)
@@ -155,10 +168,10 @@ const Product = () => {
                     <p>Danh sách sản phẩm</p>
                   </div>
                   <div className="product-main-top-left-content">
-                    {dsLoaiSP.map((item, index)=>(
+                    {dsLoaiSP.map((item, index) => (
                       <div key={index} className="list_type">
                         <p>{item.NameLoaiSP.substring(0, 28)}</p>
-                      </div>                    
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -256,12 +269,19 @@ const Product = () => {
             </div>
 
             <div className="product-main-list">
-              {dsLoaiSP.map((item, index) => (
-                <ItemProductType 
-                key={index} 
-                NameLoaiSP={item.NameLoaiSP}  
-                />
-              ))}
+              {dsLoaiSP.map((item, index) => {
+                if (item.TrangThaiLoaiSP == "Hoạt động") {
+                  return (
+                    <ItemProductType
+                      key={index}
+                      NameLoaiSP={item.NameLoaiSP}
+                    />
+                  )
+                } else if (item.TrangThaiLoaiSP == "Không hoạt động") {
+
+                }
+
+              })}
             </div>
           </div>
 

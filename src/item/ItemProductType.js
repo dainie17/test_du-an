@@ -13,19 +13,19 @@ const image2 =
 const image3 =
   "http://nhuathanhdanh.com/vnt_upload/weblink/banner_2.jpg";
 
-  const image4 =
+const image4 =
   "https://cf.shopee.vn/file/074c82cfc1cc79f80974ca044322d44b";
 
-  const image5 =
+const image5 =
   "https://cf.shopee.vn/file/9d5ba115723905cbcb6c1cb2e7d477f1";
 
-  const image6 =
+const image6 =
   "https://ae01.alicdn.com/kf/HTB16VaeXqmWBuNkHFJHq6yatVXaG.jpg";
 
-  const image7 =
+const image7 =
   "https://thuytinhmiso.com/wp-content/uploads/2021/08/chai-nhua-pet-my-pham-300x300.jpg";
 
-  const image8 =
+const image8 =
   "https://thegioichainhua.com.vn/wp-content/uploads/2020/02/chai-nhua-pet-100ml-4.jpg";
 
 
@@ -43,9 +43,9 @@ function ItemProductType(props) {
       })
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     getDataSPTheoLoai()
-  },[])
+  }, [])
 
   return (
     <>
@@ -54,20 +54,26 @@ function ItemProductType(props) {
           <p>{props.NameLoaiSP}</p>
         </div>
         <div className="product-main-list-content">
-          {dsLoaiSP.map((vl, index) => (
-            <ItemProduct
-              key={vl._id}
-              _id={vl._id}
-              idImg = {vl.idImg}
-              NameSP={vl.NameSP}
-              GiaBanSP={vl.GiaBanSP}
-              SoLuongSP={vl.SoLuongSP}
-              SaleSP={vl.SaleSP}
-              TrangThaiSP={vl.TrangThaiSP}
-              LoaiSP={vl.LoaiSP}
-              ChiTietSP = {vl.ChiTietSP}
-            />
-          ))}
+          {dsLoaiSP.map((vl, index) => {
+            if (vl.TrangThaiSP == "Hoạt động") {
+              return (
+                <ItemProduct
+                  key={vl._id}
+                  _id={vl._id}
+                  idImg={vl.idImg}
+                  NameSP={vl.NameSP}
+                  GiaBanSP={vl.GiaBanSP}
+                  SoLuongSP={vl.SoLuongSP}
+                  SaleSP={vl.SaleSP}
+                  TrangThaiSP={vl.TrangThaiSP}
+                  LoaiSP={vl.LoaiSP}
+                  ChiTietSP={vl.ChiTietSP}
+                />
+              )
+            } else if (vl.TrangThaiSP == "Không hoạt động") {
+
+            }
+          })}
         </div>
       </div>
     </>

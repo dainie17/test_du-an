@@ -77,6 +77,8 @@ function NavbarIn() {
 
   const onClickLogout = () => {
     localStorage.removeItem("UserUser");
+    localStorage.removeItem("token")
+    localStorage.removeItem("Infomation")
     window.location.href = "/login";
     navgate("/login");
   };
@@ -178,10 +180,10 @@ function NavbarIn() {
                 anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
               >
                 <MenuItem onClick={onclickItem}>
-                <div style={{ display: "flex", color: "#4d7bb7", alignItems: 'center' }}>
-                <Avatar /> Profile
+                  <div style={{ display: "flex", color: "#4d7bb7", alignItems: 'center' }}>
+                    <Avatar /> Profile
                   </div>
-                 
+
                 </MenuItem>
                 <Divider />
                 <MenuItem>

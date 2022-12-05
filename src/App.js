@@ -18,6 +18,7 @@ import Paycp from './Policy/Transport'
 import Contact from './Screen/Contact';
 import Error from './Screen/Error';
 import { useState, useEffect } from 'react';
+import axios from "axios";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
   const [pathOrder, setPathOrder] = useState(false);
 
   useEffect(() => {
+
     var getUser = localStorage.getItem("UserUser")
     var data = JSON.parse(getUser)
 
@@ -57,6 +59,7 @@ function App() {
       })
         .then((res) => res.json())
         .then((data) => {
+
           if (data.status == "oke") {
             window.localStorage.setItem("token", data.data);
             setPathLogin(false)
@@ -65,7 +68,41 @@ function App() {
           }
         })
     }
+
+    var getToken = localStorage.getItem("token")
+
+    if (getToken != null) {
+      fetch(ip + "/User_data", {
+        method: "POST",
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({
+          token: window.localStorage.getItem("token")
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data, "userLogin");
+          localStorage.setItem('Infomation', JSON.stringify(data));
+        })
+    } else if (getToken == null) {
+
+    }
+
+    getData()
+
   },)
+
+  const getData = () => {
+    axios.get(ip + '/getData')
+      .then((response) => {
+        window.localStorage.setItem("DanhSachSP", JSON.stringify(response.data));
+      })
+  }
 
   return (
     <div>
