@@ -10,7 +10,7 @@ import logo from "../assets/logo_cty.png"
 import '../css/footer.css'
 import { NavLink } from "react-router-dom";
 
-const link = "https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/290060769_743780313625287_2293101306042313153_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=tYrMvqDgsQYAX-0Bjd3&_nc_ht=scontent.fdad1-2.fna&oh=00_AfBy5erLepMsW8zrN7W_QsexkOCq6OfP2kGFdo-3I0wNcA&oe=637D3C08"  
+const link = "https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/290060769_743780313625287_2293101306042313153_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=tYrMvqDgsQYAX-0Bjd3&_nc_ht=scontent.fdad1-2.fna&oh=00_AfBy5erLepMsW8zrN7W_QsexkOCq6OfP2kGFdo-3I0wNcA&oe=637D3C08"
 
 function footer() {
     return (
@@ -30,7 +30,7 @@ function footer() {
                     <div className="form_fanpage">
                         <h3>FANPAGE</h3>
                         <div>
-                        
+
                         </div>
                     </div>
 
@@ -67,28 +67,35 @@ function footer() {
                     <div className="form_people">
                         <h3>Về chúng tôi</h3>
                         <div className="form_people_p" >
-                            <NavLink to='/Contact' className="form_people_p_me">Giới thiệu</NavLink>
-                            <NavLink to='/Product' className="form_people_p_me">Sản phẩm</NavLink>
-                            <NavLink to='/Navigate' className="form_people_p_me">Ưu đãi</NavLink>
-                            <NavLink to='/Introduce' className="form_people_p_me">Liên hệ</NavLink>
+                            <div className="form_people_one">
+                                <NavLink to='/Contact' className="form_people_p_me">Giới thiệu</NavLink>
+                                <NavLink to='/Product' className="form_people_p_me">Sản phẩm</NavLink>
+                            </div>
+                            <div className="form_people_one">
+                                <NavLink to='/Navigate' className="form_people_p_me">Ưu đãi</NavLink>
+                                <NavLink to='/Introduce' className="form_people_p_me">Liên hệ</NavLink>
+                            </div>
                         </div>
                     </div>
                     <div className="form_people">
                         <h3>Chính sách</h3>
                         <div className="form_people_p" >
-
-                            <NavLink className="form_link" to="/baomat">
-                                Chính sách bảo mật
-                            </NavLink>
-                            <NavLink className="form_link" to="/doitra">
-                                Chính sách đổi trả
-                            </NavLink>
-                            <NavLink className="form_link" to="/thanhtoan">
-                                Chính sách thanh toán
-                            </NavLink>
-                            <NavLink className="form_link" to="/vanchuyen">
-                                Chính sách vận chuyển
-                            </NavLink>
+                            <div className="form_people_one">
+                                <NavLink className="form_link" to="/baomat">
+                                    Chính sách bảo mật
+                                </NavLink>
+                                <NavLink className="form_link" to="/doitra">
+                                    Chính sách đổi trả
+                                </NavLink>
+                            </div>
+                            <div className="form_people_one">
+                                <NavLink className="form_link" to="/thanhtoan">
+                                    Chính sách thanh toán
+                                </NavLink>
+                                <NavLink className="form_link" to="/vanchuyen">
+                                    Chính sách vận chuyển
+                                </NavLink>
+                            </div>
                         </div>
                     </div>
                 </div>
