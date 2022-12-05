@@ -764,6 +764,9 @@
 }
 
 .main_new_top_big_content {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
   width: 30%;
   display: flex;
   justify-content: space-between;
@@ -780,15 +783,16 @@
 }
 
 .number_comment_icon {
-  width: 25%;
+  width: 17px;
 }
 
 .number_comment_icon img {
-  width: 100%;
+  width: 17px;
 }
 
 .number_coment_content {
   width: 70%;
+  font-size: 12px;
 }
 
 .main_new_top_big:hover .main_new_top_big_card {
@@ -869,6 +873,9 @@
 }
 
 .main_new_top_center_big_content {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
   width: 60%;
   display: flex;
   justify-content: space-between;
@@ -885,11 +892,11 @@
 }
 
 .main_new_top_center_number_comment_icon {
-  width: 20%;
+  width: 15px;
 }
 
 .main_new_top_center_number_comment_icon img {
-  width: 100%;
+  width: 15px;
 }
 
 .main_new_top_center_coment_content {
@@ -907,6 +914,7 @@
 .main_new_top_small_card {
   width: 100%;
   opacity: 0;
+  padding-top: 20px;
   transition: transform 0.2s linear 0.2s, opacity 0.3s linear 0.2s;
 }
 
@@ -971,8 +979,10 @@
 
 .mmain_new_bottom_card_content{
   width: 78%;
+  height: 130px;
   text-align: left;
   margin: auto;
+  position: relative;
 }
 
 .main_new_bottom_card_time{
@@ -990,34 +1000,34 @@
 }
 
 .main_new_bottom_card_cws{
+  position: absolute;
+  bottom: 10px;
+  right: -10px;
   text-align: right;
   font-size: 15px;
   color: #9b9b9b;
-  width: 70%;
-  padding-top: 43px;
-  padding-bottom: 20px;
+  width: 150px;
   display: flex;
   justify-content: space-between;
-  float: right  ;
 }
 
 .main_new_bottom_card_comment{
-  width: 28%;
+  width: 40px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
 .main_new_bottom_card_comment_image{
-  width: 25%;
+  width: 12px;
 }
 
 .main_new_bottom_card_comment_image img{
-  width: 100%;
+  width: 12px;
 }
 
 .main_new_bottom_card_comment_content{
-  font-size: 9px;
+  padding-left: 4px;
+  font-size: 12px;
 }
 
 
