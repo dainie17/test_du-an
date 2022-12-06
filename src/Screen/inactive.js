@@ -20,7 +20,7 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function Completed() {
+export default function Inactive() {
   return (
     <Container>
       <ContentStyle sx={{ textAlign: 'center', alignItems: 'center' }}>

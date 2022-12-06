@@ -31,6 +31,7 @@ import './css/Product.css';
 import './css/Introduce.css';
 import './css/Responsive.css'
 import Forgot_Pass from './Screen/Forgot_Pass';
+import Inactive from './Screen/Inactive';
 
 
 function App() {
@@ -156,6 +157,8 @@ function App() {
         <Route path='/vanchuyen' element={<Paycp />} />
         {/* Trang error */}
         <Route path="/:somestring" element={<Error />} />
+        {/* khóa tài khoản */}
+        <Route path="/Inactive" element={<Inactive />} />
       </Routes>
     </div>
   );

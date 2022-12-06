@@ -69,6 +69,7 @@ function Login() {
       })
         .then((res) => res.json())
         .then((data) => {
+
           if (data.error == "Tài khoản không tồn tại") {
             validateTK(data.error)
             setTKUser("Tài khoản không tồn tại")
@@ -82,15 +83,38 @@ function Login() {
             setPassUser(passUser)
           }
           if (data.status == "oke") {
-            var user = {
-              TKUser: TKUser,
-              passUser: passUser,
-              chxSave: chxSave
-            }
-            localStorage.setItem('UserUser', JSON.stringify(user));
-            localStorage.setItem('Infomation', JSON.stringify(data))
-            window.localStorage.setItem("token", data.data);
-            navigate("/", { replace: true });
+            fetch(ip + "/User_data", {
+              method: "POST",
+              crossDomain: true,
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+              },
+              body: JSON.stringify({
+                token: data.data
+              }),
+            })
+              .then((res) => res.json())
+              .then((db) => {
+                if (db.data.TrangThaiUser == "Hoạt động") {
+                  var user = {
+                    TKUser: TKUser,
+                    passUser: passUser,
+                    chxSave: chxSave
+                  }
+                  localStorage.setItem('UserUser', JSON.stringify(user));
+                  localStorage.setItem('Infomation', JSON.stringify(data))
+                  window.localStorage.setItem("token", data.data);
+
+                  navigate("/", { replace: true });
+                  console.log(data);
+                } else if (db.data.TrangThaiUser == "Không hoạt động") {
+                  navigate("/Inactive", { replace: true });
+                }
+
+              })
+
           }
         })
     }
