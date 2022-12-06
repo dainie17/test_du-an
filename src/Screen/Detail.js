@@ -8,7 +8,7 @@ import money from "../assets/salary.png";
 import hour from "../assets/hour.png";
 import shieldImg from "../assets/shields.png";
 import ScrollToTop from "./ScrollToTopbtn";
-
+import $ from "jquery";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { TokenSharp, VerifiedSharp } from "@mui/icons-material";
@@ -16,9 +16,10 @@ import "../css/Detail.css";
 import Footer from "./footer";
 import Navbar from "./Navbar";
 import NavbarIn from "./NavbarIn";
-import Itemhinh from "../item/Itemhinh"
+import Itemhinh from "../item/Itemhinh";
 
 import axios from "axios";
+import { number } from "yup";
 
 const Detail = () => {
   const [chxNab, setChxNab] = useState(false);
@@ -30,19 +31,23 @@ const Detail = () => {
     if (getUser != null) {
       setChxNab(true);
     }
-  }, []);
+  });
 
   const [tong, setTong] = useState(1);
 
-  const onclickReduce = () => {
-    if (tong > 1) {
-      setTong(tong - 1);
+  const setKTTong = () => {
+    var oldValue = $('#counter').val();
+    if (oldValue > SoLuongSP) {
+      $('#counter').val(SoLuongSP);
+      setTong(SoLuongSP);
+    } else {
+      setTong(oldValue);
     }
   };
 
   // const[,set] = useState()
-  const [idUser, setIdUser] = useState()
-  const [idImg, setIdImg] = useState()
+  const [idUser, setIdUser] = useState();
+  const [idImg, setIdImg] = useState();
   const [NameSP, setNameSP] = useState();
   const [GiaCX, setGiaCX] = useState();
   const [SoLuongSP, setSoLuongSP] = useState();
@@ -55,20 +60,18 @@ const Detail = () => {
   const [test, setTest] = useState([]);
 
   useEffect(() => {
-
-
     var ItemSP = localStorage.getItem("ItemSP");
     var data = JSON.parse(ItemSP);
     if (ItemSP == null) {
     } else if (ItemSP != null) {
-      setIdImg(data.idImg)
+      setIdImg(data.idImg);
       setNameSP(data.NameSP);
       setGiaCX(data.GiaCX);
       setSoLuongSP(data.SoLuongSP);
       setSaleSP(data.SaleSP);
-      setTrangThaiSP(data.TrangThaiSP)
-      setLoaiSP(data.LoaiSP)
-      setChiTietSP(data.ChiTietSP)
+      setTrangThaiSP(data.TrangThaiSP);
+      setLoaiSP(data.LoaiSP);
+      setChiTietSP(data.ChiTietSP);
       setGiaBanSP(data.GiaBanSP);
       setTest(data.test);
     }
@@ -77,8 +80,36 @@ const Detail = () => {
     var db = JSON.parse(Infomation);
     if (Infomation == null) {
     } else if (Infomation != null) {
-      setIdUser(db.data._id)
+      setIdUser(db.data._id);
     }
+
+    $('.btn_input').on('click', function (e) {
+      e.preventDefault();
+
+      var button = $(this);
+      var oldValue = $('#counter').val();
+
+      if (button.attr('data-type') == "increase") {
+          if(oldValue > SoLuongSP){
+              newVal = SoLuongSP;
+              setTong(SoLuongSP);
+          } else {
+            var newVal = parseFloat(oldValue) + 1;
+            setTong(newVal);
+          }
+      } else {
+          if (oldValue > 1) {
+              var newVal = parseFloat(oldValue) - 1;
+              setTong(newVal);
+          } else {
+              newVal = 1;
+              setTong(1);
+          }
+      }
+
+      $('#counter').val(newVal);
+  });
+
   }, []);
 
   const [toggleState, setToggleState] = useState(1);
@@ -88,10 +119,9 @@ const Detail = () => {
 
   let { _id } = useParams();
 
-  const ip = "http://localhost:8080"
+  const ip = "http://localhost:8080";
 
   const btn_AddGioHang = () => {
-
     axios.post(ip + "/add_GioHang", {
       idUser: idUser,
       Image: test,
@@ -99,13 +129,13 @@ const Detail = () => {
       NameSP: NameSP,
       GiaCX: GiaCX,
       GiaBanSP: GiaBanSP,
-      SoLuongSP: SoLuongSP,
+      SoLuongSP: tong,
       SaleSP: SaleSP,
       TrangThaiSP: TrangThaiSP,
       LoaiSP: LoaiSP,
       ChiTietSP: ChiTietSP,
-    })
-  }
+    });
+  };
 
   return (
     <div className="detail">
@@ -116,10 +146,7 @@ const Detail = () => {
           <div className="detail-main-top">
             <div className="detail-main-top-left">
               {test.map((item, index) => (
-                <Itemhinh
-                  key={index}
-                  item={item}
-                />
+                <Itemhinh key={index} item={item} />
               ))}
             </div>
             <div className="detail-main-top-right">
@@ -132,25 +159,21 @@ const Detail = () => {
               <p className="detail-main-top-right-content">
                 {/* {ChiTietSP.substring(0, 400) + " [...]"} */}
                 {ChiTietSP}
-
               </p>
               <div className="detail-main-top-right-button">
                 <div className="detail-main-top-right-button-picknb">
-                  <button
-                    onClick={onclickReduce}
-                    className="detail-main-top-right-button-picknb-reduce"
-                  >
-                    -
-                  </button>
-                  <p className="detail-main-top-right-button-picknb-num">
-                    {tong}
-                  </p>
-                  <button
-                    onClick={() => setTong(tong + 1)}
-                    className="detail-main-top-right-button-picknb-augment"
-                  >
-                    +
-                  </button>
+                  <div className="custom-input">
+                    <span className="btn_input" data-type="decrease">-</span>
+                    <input
+                      type="number"
+                      step="1"
+                      min="1"
+                      id="counter"
+                      defaultValue={1}
+                      onBlur={setKTTong}
+                    />
+                    <span className="btn_input" data-type="increase">+</span>
+                  </div>
                 </div>
                 <div
                   className={
@@ -183,8 +206,8 @@ const Detail = () => {
                   </div>
                 </div>
               </div>
-              <button className="btn_addtocart" onClick={btn_AddGioHang} >
-                <span className="span_addtocart" >Thêm vào giỏ hàng</span>
+              <button className="btn_addtocart" onClick={btn_AddGioHang}>
+                <span className="span_addtocart">Thêm vào giỏ hàng</span>
               </button>
               <p className="detail-main-top-right-titlepay">
                 Thanh toán an toàn

@@ -95,6 +95,18 @@
   padding: 17px 16px;
 }
 
+.input_intro textarea {
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: inherit;
+  color: black;
+  outline: none;
+  padding: 17px 16px;
+}
+
 .input_intro input:hover {
   border-color: #797b7c;
 }

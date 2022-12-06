@@ -143,7 +143,8 @@ function App() {
         <Route path="/Personal" element={<Personal />} />
         {/* {pathPersonal ? <Route path="/Personal" element={<Personal />}/> : <Route path="/:somestring" element={<Error />}/>} */}
         {/* Thanh toán */}
-        {pathOrder ? <Route path="/Order" element={<Order />} /> : <Route path="/:somestring" element={<Error />} />}
+        {/* {pathOrder ? <Route path="/Order" element={<Order />} /> : <Route path="/:somestring" element={<Error />} />} */}
+        <Route path="/Order" element={<Order />} />
         {/* Chi tiết ưu đãi */}
         <Route path="/ItemNews/:id" element={<New1 />} />
         {/* Chính sách bảo mật */}

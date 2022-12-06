@@ -19,9 +19,9 @@ import { useState } from "react";
 import NavbarIn from "./NavbarIn";
 
 import axios from "axios";
+import { useRef } from "react";
 
 const Introduce = () => {
-
   let navgate = useNavigate();
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -31,7 +31,7 @@ const Introduce = () => {
     }, 500);
   }, []);
 
-  const ip = "http://localhost:8080"
+  const ip = "http://localhost:8080";
 
   const [Name, setName] = useState();
   const [Email, setEmail] = useState();
@@ -40,30 +40,43 @@ const Introduce = () => {
   const [Mota, setMota] = useState();
 
   const btnAdd_PhanHoi = () => {
-    axios.post(ip + "/add_PhanHoi", {
-      Name: Name,
-      Email: Email,
-      SDT: SDT,
-      DiaChi: DiaChi,
-      Mota: Mota,
-      Date: new Date(),
-    })
-
-
-  }
+    if (
+      nameCheck == false &&
+      EmailCheck == false &&
+      phoneCheck == false &&
+      diaChiCheck == false &&
+      noiDungCheck == false
+    ) {
+    } else if (
+      nameCheck == true &&
+      EmailCheck == true &&
+      phoneCheck == true &&
+      diaChiCheck == true &&
+      noiDungCheck == true
+    ) {
+      axios.post(ip + "/add_PhanHoi", {
+        Name: Name,
+        Email: Email,
+        SDT: SDT,
+        DiaChi: DiaChi,
+        Mota: Mota,
+        Date: new Date(),
+      });
+    }
+  };
 
   const [chxNab, setChxNab] = useState(false);
   useEffect(() => {
-    var getUser = localStorage.getItem("UserUser")
-    var data = JSON.parse(getUser)
+    var getUser = localStorage.getItem("UserUser");
+    var data = JSON.parse(getUser);
 
     if (getUser == null) {
     }
 
     if (getUser != null) {
-      setChxNab(true)
+      setChxNab(true);
     }
-  },)
+  });
 
   const [color2, setColor2] = useState("#d8dde1");
   const [nameCheck, setNameCheck] = useState(false);
@@ -96,20 +109,24 @@ const Introduce = () => {
       setColor2("red");
       setErrorName("Vui lòng nhập ít hơn 20 ký tự");
     }
-    if (se != "" && se.length > 1 && se.length <21 && format.test(se) == false && formatNum.test(se) == false) {
+    if (
+      se != "" &&
+      se.length > 1 &&
+      se.length < 21 &&
+      format.test(se) == false &&
+      formatNum.test(se) == false
+    ) {
       setNameCheck(true);
       setColor2("#d8dde1");
       setErrorName("");
     }
-  }
+  };
 
   function ErrorName(props) {
-    if (props.isHidden) { return null; }
-    return (
-      <div className="form_warning_intro">
-        {props.errorName}
-      </div>
-    )
+    if (props.isHidden) {
+      return null;
+    }
+    return <div className="form_warning_intro">{props.errorName}</div>;
   }
   const [color3, setColor3] = useState("#d8dde1");
   const [EmailCheck, setEmailCheck] = useState(false);
@@ -117,66 +134,104 @@ const Introduce = () => {
   const validateEmailCheck = (se) => {
     const formatEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-
     if (se == "") {
       setEmailCheck(false);
       setColor3("red");
       setErrorEmailCheck("Email không được để trống");
     }
-    if (se != "" && formatEmail.test(se) == false){
+    if (se != "" && formatEmail.test(se) == false) {
       setEmailCheck(false);
       setColor3("red");
       setErrorEmailCheck("Email không đúng định dạng");
     }
 
-    if (se != "" && formatEmail.test(se) == true){
+    if (se != "" && formatEmail.test(se) == true) {
       setEmailCheck(true);
       setColor3("#d8dde1");
       setErrorEmailCheck("");
     }
-
-  }
+  };
   function ErrorEmailCheck(props) {
-    if (props.isHidden) { return null; }
-    return (
-      <div className="form_warning_intro">
-        {props.errorEmailCheck}
-      </div>
-    )
+    if (props.isHidden) {
+      return null;
+    }
+    return <div className="form_warning_intro">{props.errorEmailCheck}</div>;
   }
 
   const [color4, setColor4] = useState("#d8dde1");
   const [phoneCheck, setPhoneCheck] = useState(false);
   const [errorPhoneCheck, setErrorPhoneCheck] = useState("");
   const validatePhoneCheck = (se) => {
-    const formatPhone = /((09|03|07|08|05)+([0-9]{8})\b)/g;
-
+    const formatPhone = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
 
     if (se == "") {
       setPhoneCheck(false);
       setColor4("red");
-      setErrorEmailCheck("Số điện thoại không được để trống");
+      setErrorPhoneCheck("Số điện thoại không được để trống");
     }
-    if (se != "" && formatPhone.test(se) == false){
+    if (se != "" && formatPhone.test(se) == false) {
       setPhoneCheck(false);
       setColor4("red");
-      setErrorEmailCheck("Số điện thoại không đúng định dạng");
+      setErrorPhoneCheck("Số điện thoại không đúng định dạng");
     }
 
-    if (se != "" && formatPhone.test(se) == true){
+    if (se != "" && formatPhone.test(se) == true) {
       setPhoneCheck(true);
       setColor4("#d8dde1");
-      setErrorEmailCheck("");
+      setErrorPhoneCheck("");
+    }
+  };
+  function ErrorPhoneCheck(props) {
+    if (props.isHidden) {
+      return null;
+    }
+    return <div className="form_warning_intro">{props.errorPhoneCheck}</div>;
+  }
+
+  const [color5, setColor5] = useState("#d8dde1");
+  const [diaChiCheck, setDiaChiCheck] = useState(false);
+  const [errorDiaChiCheck, setErrorDiaChiCheck] = useState("");
+  const validateDiaChiCheck = (se) => {
+    if (se == "") {
+      setDiaChiCheck(false);
+      setColor5("red");
+      setErrorDiaChiCheck("Địa chỉ không được để trống");
     }
 
+    if (se != "") {
+      setDiaChiCheck(true);
+      setColor5("#d8dde1");
+      setErrorDiaChiCheck("");
+    }
+  };
+  function ErrorDiaChiCheck(props) {
+    if (props.isHidden) {
+      return null;
+    }
+    return <div className="form_warning_intro">{props.errorDiaChiCheck}</div>;
   }
-  function ErrorPhoneCheck(props) {
-    if (props.isHidden) { return null; }
-    return (
-      <div className="form_warning_intro">
-        {props.errorPhoneCheck}
-      </div>
-    )
+
+  const [color6, setColor6] = useState("#d8dde1");
+  const [noiDungCheck, setNoiDungCheck] = useState(false);
+  const [errorNoiDungCheck, setErrorNoiDungCheck] = useState("");
+  const validateNoiDungCheck = (se) => {
+    if (se == "") {
+      setNoiDungCheck(false);
+      setColor6("red");
+      setErrorNoiDungCheck("Nội dung không được để trống");
+    }
+
+    if (se != "") {
+      setNoiDungCheck(true);
+      setColor6("#d8dde1");
+      setErrorNoiDungCheck("");
+    }
+  };
+  function ErrorNoiDungCheck(props) {
+    if (props.isHidden) {
+      return null;
+    }
+    return <div className="form_warning_intro">{props.errorNoiDungCheck}</div>;
   }
 
   return (
@@ -282,15 +337,14 @@ const Introduce = () => {
                       className="intro__input"
                       placeholder=" "
                       name="Họ và tên"
-                      // onClick={useKey("Enter", btnAdd_PhanHoi)}
                       onChange={(e) => setName(e.target.value)}
-                      onBlur={(e)=> validateName(e.target.value)}
+                      onBlur={(e) => validateName(e.target.value)}
                       required
                     />
                     <label htmlFor="email" className="intro__label">
                       Họ và tên
                     </label>
-                    <ErrorName isHidden={nameCheck} errorName={errorName}/>
+                    <ErrorName isHidden={nameCheck} errorName={errorName} />
                   </div>
                 </div>
                 <div className="title_container__input__Textfield__name">
@@ -302,13 +356,16 @@ const Introduce = () => {
                       placeholder=" "
                       name="email"
                       onChange={(e) => setEmail(e.target.value)}
-                      onBlur={(e)=> validateEmailCheck(e.target.value)}
+                      onBlur={(e) => validateEmailCheck(e.target.value)}
                       required
                     />
                     <label htmlFor="email" className="intro__label">
                       Email
                     </label>
-                    <ErrorEmailCheck isHidden={EmailCheck} errorEmailCheck={errorEmailCheck}/>
+                    <ErrorEmailCheck
+                      isHidden={EmailCheck}
+                      errorEmailCheck={errorEmailCheck}
+                    />
                   </div>
                 </div>
                 <div className="title_container__input__Textfield__name">
@@ -320,48 +377,64 @@ const Introduce = () => {
                       placeholder=" "
                       name="Số điện thoại"
                       onChange={(e) => setSDT(e.target.value)}
-                      onBlur={(e)=>validatePhoneCheck(e.target.value)}
+                      onBlur={(e) => validatePhoneCheck(e.target.value)}
                       required
                     />
                     <label htmlFor="email" className="intro__label">
                       Số điện thoại
                     </label>
-                    <ErrorEmailCheck isHidden={phoneCheck} errorPhoneCheck={errorPhoneCheck}/>
+                    <ErrorPhoneCheck
+                      isHidden={phoneCheck}
+                      errorPhoneCheck={errorPhoneCheck}
+                    />
                   </div>
                 </div>
                 <div className="title_container__input__Textfield__name">
                   <div className="input_intro">
                     <input
                       type="text"
-                      style={{ borderColor: color2 }}
+                      style={{ borderColor: color5 }}
                       className="intro__input"
                       placeholder=" "
                       name="Địa chỉ"
+                      onBlur={(e) => validateDiaChiCheck(e.target.value)}
                       onChange={(e) => setDiaChi(e.target.value)}
                       required
                     />
                     <label htmlFor="email" className="intro__label">
                       Địa chỉ
                     </label>
+                    <ErrorDiaChiCheck
+                      isHidden={diaChiCheck}
+                      errorDiaChiCheck={errorDiaChiCheck}
+                    />
                   </div>
                 </div>
                 <div className="title_container__input__Textfield__name">
                   <div className="input_intro">
-                    <input
-                      type="tel"
-                      style={{ borderColor: color2 }}
+                    <textarea
+                      type="textarea"
+                      style={{ borderColor: color6 }}
                       className="intro__input"
                       placeholder=" "
                       name="Nội dung"
+                      onBlur={(e) => validateNoiDungCheck(e.target.value)}
                       onChange={(e) => setMota(e.target.value)}
                       required
                     />
-                    <label htmlFor="email" className="intro__label">
+                    <label htmlFor="intro__input" className="intro__label">
                       Nội dung
                     </label>
+                    <ErrorNoiDungCheck
+                      isHidden={noiDungCheck}
+                      errorNoiDungCheck={errorNoiDungCheck}
+                    />
                   </div>
                 </div>
-                <div className="title_container__input__buttom" onClick={btnAdd_PhanHoi}>
+                <div
+                  className="title_container__input__buttom"
+                  onClick={btnAdd_PhanHoi}
+                >
                   <button> Gửi</button>
                 </div>
               </div>
