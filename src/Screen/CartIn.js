@@ -128,7 +128,7 @@ const CartIn = () => {
                     setdanhsachSP(response.data);
                 })
         }
-    }, [])
+    },)
 
     // useEffect(() => {
     //   getDataLoaiSP();
