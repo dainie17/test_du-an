@@ -182,6 +182,9 @@ function Login() {
   const onclickHome = () => {
     navigate("/");
   };
+  const onclickForgotPass = () => {
+    navigate("/ForgotPass");
+  };
 
   return (
     <div className="container">
@@ -238,7 +241,7 @@ function Login() {
               <input className='cbx_ipt' name="rememberme" type="checkbox" onChange={(e) => setChxSave(!chxSave)} defaultChecked={chxSave} />
               <div className="title_chb">Lưu mật khẩu</div>
             </div>
-            <p>Quên mật khẩu ?</p>
+            <p onClick={onclickForgotPass}>Quên mật khẩu ?</p>
           </div>
           <button
             className="form_login_btn"

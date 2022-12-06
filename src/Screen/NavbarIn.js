@@ -15,26 +15,31 @@ import Logout from "@mui/icons-material/Logout";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo_cty.png";
 import { Fragment } from "react";
+import axios from "axios";
 
 const onClickSearch = () => {
   $(".input_search").toggleClass("active");
 };
 
 function NavbarIn() {
+
+  const ip = "http://localhost:8080"
   const [tong, setTong] = useState(0);
 
-  const getCart = async () => {
-    let storage = JSON.parse(localStorage.getItem("cart"));
-    if (storage) {
-      for (let index = 0; index < storage.length; index++) {
-        setTong((tong) => tong + 1);
-      }
-    }
-  };
-
   useEffect(() => {
-    getCart();
-  }, []);
+    var getInfomation = localStorage.getItem("Infomation")
+    var db = JSON.parse(getInfomation)
+    if (getInfomation == null) {
+    }
+
+    if (getInfomation != null) {
+      axios.get(ip + `/getGioHang/${db.data._id}`)
+        .then((response) => {
+          setTong(response.data.length);
+          // setdanhsachSP(response.data);
+        })
+    }
+  }, [])
 
   let navgate = useNavigate();
 

@@ -17,6 +17,7 @@ import Pay from './Policy/Pay'
 import Paycp from './Policy/Transport'
 import Contact from './Screen/Contact';
 import Error from './Screen/Error';
+
 import { useState, useEffect } from 'react';
 import axios from "axios";
 
@@ -29,6 +30,7 @@ import './css/Personal.css';
 import './css/Product.css';
 import './css/Introduce.css';
 import './css/Responsive.css'
+import Forgot_Pass from './Screen/Forgot_Pass';
 
 
 function App() {
@@ -122,6 +124,8 @@ function App() {
         {pathLogin ? <Route path="/login" element={<Login />} /> : <Route path="/:somestring" element={<Error />} />}
         {/* Đăng ký */}
         {pathSignup ? <Route path="/Signup" element={<Signup />} /> : <Route path="/:somestring" element={<Error />} />}
+        {/* Quên mật khẩu */}
+        <Route path='/ForgotPass' element={<Forgot_Pass />} />
         {/* Ưu đãi */}
         <Route path='/Navigate' element={<Navigate />} />
         {/* Liên hệ */}
