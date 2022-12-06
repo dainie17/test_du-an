@@ -44,7 +44,7 @@ const image5 =
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [addre, setAddre] = useState("");
-
+  const [nameCheck, setNameCheck] = useState(false);
 
   const getAddress =  () => {
       var storage = localStorage.getItem("address");
@@ -154,9 +154,9 @@ const image5 =
                     >
                       Chỉnh sửa
                     </button>
-                    <button className="order-main-left-address-content-button-delete">
+                    {/* <button className="order-main-left-address-content-button-delete">
                       Xóa
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
