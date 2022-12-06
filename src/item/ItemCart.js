@@ -1,7 +1,4 @@
 
-import { useEffect, useState } from 'react';
-
-
 // material
 import {
   Checkbox,
@@ -10,12 +7,9 @@ import {
   Typography,
 
 } from '@mui/material';
-// avatar
-import Avatar from '@mui/material/Avatar';
-// components
-
 
 import axios from "axios";
+import ItemImgCart from './ItemImgCart';
 
 
 export default function ItemCart(props) {
@@ -56,9 +50,18 @@ export default function ItemCart(props) {
       </TableCell>
 
       <TableCell className='image_sp' component="th" scope="row">
-        <Avatar sx={{ minWidth: 100, minHeight: 130 }} variant="square">
-          {/* <img className='img' src={ip + '/uploads/' + props.ImageLoaiSP} alt="login" width={'100%'} /> */}
-        </Avatar>
+        <Typography>
+          {props.Image.map((element, index) => {
+            return (
+              <ItemImgCart
+                key={index}
+                files={element}
+
+              />
+            )
+          }
+          )}
+        </Typography>
       </TableCell>
 
       <TableCell className='name_sp' component="th" scope="row"  >
@@ -69,12 +72,6 @@ export default function ItemCart(props) {
 
       <TableCell className='moTa_LSP' >
         <Typography align='left' variant="subtitle2" >
-          {props.LoaiSP}
-        </Typography>
-      </TableCell>
-
-      <TableCell className='name_sp' component="th" scope="row"  >
-        <Typography align='left' variant="subtitle2"  >
           {props.GiaCX}
         </Typography>
       </TableCell>
@@ -84,6 +81,7 @@ export default function ItemCart(props) {
           {props.GiaBanSP}
         </Typography>
       </TableCell>
+
       <TableCell className='name_sp' component="th" scope="row"  >
         <Typography align='left' variant="subtitle2"  >
           {props.SaleSP}
@@ -91,7 +89,7 @@ export default function ItemCart(props) {
       </TableCell>
       <TableCell className='name_sp' component="th" scope="row"  >
         <Typography align='left' variant="subtitle2"  >
-          {props.TrangThaiSP}
+          {props.SoLuongSP}
         </Typography>
       </TableCell>
 

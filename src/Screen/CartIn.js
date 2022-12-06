@@ -74,11 +74,10 @@ const CartIn = () => {
     const TABLE_HEAD = [
         { id: 'Image', label: 'Image', alignRight: false },
         { id: 'NameSP', label: 'NameSP', alignRight: false },
-        { id: 'LoaiSP', label: 'LoaiSP', alignRight: false },
         { id: 'GiaCX', label: 'GiaCX', alignRight: false },
         { id: 'GiaBanSP', label: 'GiaBanSP', alignRight: false },
         { id: 'SaleSP', label: 'SaleSP', alignRight: false },
-        { id: 'TrangThaiSP', label: 'TrangThaiSP', alignRight: false },
+        { id: 'SoLuongSP', label: 'SoLuongSP', alignRight: false },
         { id: '' },
 
     ];
@@ -110,36 +109,38 @@ const CartIn = () => {
             return a[1] - b[1];
         });
         if (query) {
-            return filter(array, (array) => array.NameLoaiSP.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+            return filter(array, (array) => array.NameSP.toLowerCase().indexOf(query.toLowerCase()) !== -1);
         }
         return stabilizedThis.map((el) => el[0]);
     }
 
     useEffect(() => {
         var getInfomation = localStorage.getItem("Infomation")
-        var getGioHang = localStorage.getItem("GioHang")
-
         var db = JSON.parse(getInfomation)
-        var dbGioHang = JSON.parse(getGioHang)
-
-        if (getInfomation == null && getGioHang == null) {
+        if (getInfomation == null) {
         }
 
-        if (getInfomation != null && getGioHang != null) {
-            setdanhsachSP(dbGioHang);
+        if (getInfomation != null) {
+            axios.get(ip + `/getGioHang/${db.data._id}`)
+                .then((response) => {
+                    window.localStorage.setItem("GioHang", JSON.stringify(response.data));
+                    setdanhsachSP(response.data)
+                })
         }
+        // var getGioHang = localStorage.getItem("GioHang")
+        // var dbGioHang = JSON.parse(getGioHang)
+
+        // if (getGioHang == null) {
+        // }
+
+        // if (getGioHang != null) {
+        //     setdanhsachSP(dbGioHang);
+        // }
     }, [])
 
 
-    // useEffect(() => {
-    //   getDataLoaiSP();
-    //   setLoading(true);
-    //   setTimeout(() => {
-    //     setLoading(false);
-    //   }, 1000);
-    // }, [])
 
-    // dialog
+
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';

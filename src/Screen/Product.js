@@ -106,13 +106,13 @@ const Product = () => {
       })
   }
 
-  const getData = () => {
-    axios.get(ip + '/getData')
-      .then((response) => {
-        setDanhsachSP(response.data);
+  // const getData = () => {
+  //   axios.get(ip + '/getData')
+  //     .then((response) => {
+  //       setDanhsachSP(response.data);
 
-      })
-  }
+  //     })
+  // }
 
   let navgate = useNavigate();
 
@@ -121,7 +121,7 @@ const Product = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     getDataLoaiSP()
-    getData()
+    // getData()
     setLoading(true);
     setTimeout(() => {
       setLoading(false);

@@ -83,32 +83,6 @@ const Detail = () => {
       setIdUser(db.data._id);
     }
 
-    $('.btn_input').on('click', function (e) {
-      e.preventDefault();
-
-      var button = $(this);
-      var oldValue = $('#counter').val();
-
-      if (button.attr('data-type') == "increase") {
-          if(oldValue > SoLuongSP){
-              newVal = SoLuongSP;
-              setTong(SoLuongSP);
-          } else {
-            var newVal = parseFloat(oldValue) + 1;
-            setTong(newVal);
-          }
-      } else {
-          if (oldValue > 1) {
-              var newVal = parseFloat(oldValue) - 1;
-              setTong(newVal);
-          } else {
-              newVal = 1;
-              setTong(1);
-          }
-      }
-
-      $('#counter').val(newVal);
-  });
 
   }, []);
 
@@ -121,20 +95,90 @@ const Detail = () => {
 
   const ip = "http://localhost:8080";
 
+  // let { _id, name, price, num } = useParams();
+
+  // let cart = [];
+  // const addTocart = async () => {
+  //   let storage = localStorage.getItem('cart');
+  //   if (storage) {
+  //     cart = JSON.parse(storage);
+  //   }
+
+
+  //   let item = cart.find(c => c._id === _id);
+
+  //   if (item) {
+  //     item.num += tong
+  //   } else {
+  //     cart.push({ _id: _id, name: name, price: price, num: tong });
+  //   }
+
+  //   localStorage.setItem('cart', JSON.stringify(cart));
+  //   console.log(cart);
+  // }
+
   const btn_AddGioHang = () => {
-    axios.post(ip + "/add_GioHang", {
-      idUser: idUser,
-      Image: test,
-      idImg: idImg,
-      NameSP: NameSP,
-      GiaCX: GiaCX,
-      GiaBanSP: GiaBanSP,
-      SoLuongSP: tong,
-      SaleSP: SaleSP,
-      TrangThaiSP: TrangThaiSP,
-      LoaiSP: LoaiSP,
-      ChiTietSP: ChiTietSP,
-    });
+    var getInfomation = localStorage.getItem("Infomation")
+    var getGioHang = localStorage.getItem("GioHang")
+    var ItemSP = localStorage.getItem("ItemSP");
+
+
+    if (getGioHang == "[]") {
+      axios.post(ip + "/add_GioHang", {
+        idUser: idUser,
+        Image: test,
+        idImg: idImg,
+        NameSP: NameSP,
+        GiaCX: GiaCX,
+        GiaBanSP: GiaBanSP,
+        SoLuongSP: tong,
+        SaleSP: SaleSP,
+        TrangThaiSP: TrangThaiSP,
+        LoaiSP: LoaiSP,
+        ChiTietSP: ChiTietSP,
+      });
+
+    } else if (getGioHang != null) {
+      var data = JSON.parse(ItemSP);
+      var db = JSON.parse(getInfomation)
+      var dbGioHang = JSON.parse(getGioHang)
+
+
+      let item = dbGioHang.find(c => c.idImg === idImg);
+
+      if (item) {
+        if (item.SoLuongSP + tong > SoLuongSP) {
+          axios.put(ip + `/UpdateGioHang/${item.idImg}/${db.data._id}`, {
+            SoLuongSP: SoLuongSP
+          });
+        } else {
+          axios.put(ip + `/UpdateGioHang/${item.idImg}/${db.data._id}`, {
+            SoLuongSP: item.SoLuongSP + tong
+          });
+        }
+
+      } else {
+        axios.post(ip + "/add_GioHang", {
+          idUser: idUser,
+          Image: test,
+          idImg: idImg,
+          NameSP: NameSP,
+          GiaCX: GiaCX,
+          GiaBanSP: GiaBanSP,
+          SoLuongSP: tong,
+          SaleSP: SaleSP,
+          TrangThaiSP: TrangThaiSP,
+          LoaiSP: LoaiSP,
+          ChiTietSP: ChiTietSP,
+        });
+
+
+      }
+
+    }
+
+
+
   };
 
   return (
@@ -163,16 +207,17 @@ const Detail = () => {
               <div className="detail-main-top-right-button">
                 <div className="detail-main-top-right-button-picknb">
                   <div className="custom-input">
-                    <span className="btn_input" data-type="decrease">-</span>
+
                     <input
                       type="number"
                       step="1"
                       min="1"
                       id="counter"
+                      max={SoLuongSP}
                       defaultValue={1}
                       onBlur={setKTTong}
                     />
-                    <span className="btn_input" data-type="increase">+</span>
+
                   </div>
                 </div>
                 <div
