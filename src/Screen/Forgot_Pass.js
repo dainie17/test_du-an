@@ -86,8 +86,8 @@ export default function Forgot_Pass(props) {
             </div>
 
             <div className="login">
-                <div className="form_login_title">
-                    <p className="title_content">Nhập địa chỉ Email</p>
+                <div style={{width: "100%", textAlign: "center", margin: "0 0 30px 0"}}>
+                    <p style={{fontSize: "30px", fontWeight:"750", color: "#707070"}}>Nhập địa chỉ Email</p>
                 </div>
                 <div className="form_login_input">
                     <div className="userr">
@@ -112,7 +112,7 @@ export default function Forgot_Pass(props) {
                         className="form_login_btn"
                         onClick={onclickForgetPass}
                     >
-                        Đăng nhập
+                        Gửi xác nhận đến email
                     </button>
                 </div>
             </div>
