@@ -24,22 +24,22 @@ const onClickSearch = () => {
 function NavbarIn() {
 
   const ip = "http://localhost:8080"
-  const [tong, setTong] = useState(0);
+  // const [tong, setTong] = useState(0);
 
-  useEffect(() => {
-    var getInfomation = localStorage.getItem("Infomation")
-    var db = JSON.parse(getInfomation)
-    if (getInfomation == null) {
-    }
+  // useEffect(() => {
+  //   var getInfomation = localStorage.getItem("Infomation")
+  //   var db = JSON.parse(getInfomation)
+  //   if (getInfomation == null) {
+  //   }
 
-    if (getInfomation != null) {
-      axios.get(ip + `/getGioHang/${db.data._id}`)
-        .then((response) => {
-          setTong(response.data.length);
-          // setdanhsachSP(response.data);
-        })
-    }
-  }, [])
+  //   if (getInfomation != null) {
+  //     axios.get(ip + `/getGioHang/${db.data._id}`)
+  //       .then((response) => {
+  //         setTong(response.data.length);
+  //         // setdanhsachSP(response.data);
+  //       })
+  //   }
+  // },)
 
   let navgate = useNavigate();
 
@@ -84,6 +84,7 @@ function NavbarIn() {
     localStorage.removeItem("UserUser");
     localStorage.removeItem("token")
     localStorage.removeItem("Infomation")
+    localStorage.removeItem("GioHang")
     window.location.href = "/login";
     navgate("/login");
   };
@@ -221,7 +222,7 @@ function NavbarIn() {
 
           <div className="font_icon_nav">
             <div onClick={onclickCart} className="cart_navbar">
-              <div className="number_cart">{tong}</div>
+              {/* <div className="number_cart">{tong}</div> */}
             </div>
           </div>
         </div>

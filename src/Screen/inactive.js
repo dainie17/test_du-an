@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import { Button, Typography, Container, Box } from '@mui/material';
 // components
 import hinhanh404 from '../assets/404-error.png';
+import { useNavigate } from "react-router-dom";
 
 
 // ----------------------------------------------------------------------
@@ -21,6 +22,14 @@ const ContentStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function Inactive() {
+  const navigate = useNavigate();
+  const onClickHome = () => {
+    localStorage.removeItem("UserUser");
+    localStorage.removeItem("token")
+    localStorage.removeItem("Infomation")
+    window.location.href = "/login";
+    navigate("/login");
+  }
   return (
     <Container>
       <ContentStyle sx={{ textAlign: 'center', alignItems: 'center' }}>
@@ -41,7 +50,7 @@ export default function Inactive() {
 
         </div>
 
-        <Button to="/" size="medium" variant="contained" component={RouterLink}>
+        <Button onClick={onClickHome} size="medium" variant="contained" component={RouterLink}>
           VỀ TRANG CHỦ
         </Button>
       </ContentStyle>

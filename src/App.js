@@ -32,11 +32,14 @@ import './css/Introduce.css';
 import './css/Responsive.css'
 import Forgot_Pass from './Screen/Forgot_Pass';
 import Inactive from './Screen/Inactive';
+import { useNavigate, Link } from "react-router-dom";
 
 
 function App() {
 
   const ip = "http://localhost:8080"
+
+  const navigate = useNavigate();
 
   const [pathLogin, setPathLogin] = useState(true);
   const [pathSignup, setPathSignup] = useState(true);
@@ -45,18 +48,18 @@ function App() {
   useEffect(() => {
 
     var getUser = localStorage.getItem("UserUser")
-    var data = JSON.parse(getUser)
+    var dataUser = JSON.parse(getUser)
 
     if (getUser == null) {
     }
 
-    if (getUser != null && data.chxSave == false) {
+    if (getUser != null && dataUser.chxSave == false) {
       setPathLogin(false)
       setPathSignup(false)
       setPathOrder(true)
       return localStorage.removeItem("UserUser")
     }
-    if (getUser != null && data.chxSave == true) {
+    if (getUser != null && dataUser.chxSave == true) {
       fetch(ip + "/login_User", {
         method: "POST",
         crossDomain: true,
@@ -66,49 +69,58 @@ function App() {
           "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify({
-          TKUser: data.TKUser,
-          passUser: data.passUser,
+          TKUser: dataUser.TKUser,
+          passUser: dataUser.passUser,
         }),
       })
         .then((res) => res.json())
         .then((data) => {
-
           if (data.status == "oke") {
-            window.localStorage.setItem("token", data.data);
-            setPathLogin(false)
-            setPathSignup(false)
-            setPathOrder(true)
+            fetch(ip + "/User_data", {
+              method: "POST",
+              crossDomain: true,
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+              },
+              body: JSON.stringify({
+                token: data.data
+              }),
+            })
+              .then((res) => res.json())
+              .then((db) => {
+                if (db.data.TrangThaiUser == "Hoạt động") {
+                  localStorage.setItem('Infomation', JSON.stringify(db))
+                  window.localStorage.setItem("token", data.data);
+                } else if (db.data.TrangThaiUser == "Không hoạt động") {
+                  navigate("/Inactive", { replace: true });
+                }
+
+              })
           }
         })
     }
 
-    var getToken = localStorage.getItem("token")
 
-    if (getToken != null) {
-      fetch(ip + "/User_data", {
-        method: "POST",
-        crossDomain: true,
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify({
-          token: window.localStorage.getItem("token")
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data, "userLogin");
-          localStorage.setItem('Infomation', JSON.stringify(data));
+
+
+    var getInfomation = localStorage.getItem("Infomation")
+    var db = JSON.parse(getInfomation)
+    if (getInfomation == null) {
+    }
+
+    if (getInfomation != null) {
+      axios.get(ip + `/getGioHang/${db.data._id}`)
+        .then((response) => {
+          window.localStorage.setItem("GioHang", JSON.stringify(response.data));
         })
-    } else if (getToken == null) {
-
     }
 
     getData()
 
   },)
+
 
   const getData = () => {
     axios.get(ip + '/getData')

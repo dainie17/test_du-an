@@ -338,27 +338,27 @@ const Home = () => {
   useEffect(() => {
     getDataLoaiSP()
     getDataBlog()
-    var getToken = localStorage.getItem("token")
+    // var getToken = localStorage.getItem("token")
 
-    if (getToken != null) {
-      fetch(ip + "/User_data", {
-        method: "POST",
-        crossDomain: true,
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify({
-          token: window.localStorage.getItem("token")
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data, "userLogin");
-        })
-    } else if (getToken == null) {
-    }
+    // if (getToken != null) {
+    //   fetch(ip + "/User_data", {
+    //     method: "POST",
+    //     crossDomain: true,
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Accept: "application/json",
+    //       "Access-Control-Allow-Origin": "*",
+    //     },
+    //     body: JSON.stringify({
+    //       token: window.localStorage.getItem("token")
+    //     }),
+    //   })
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       console.log(data, "userLogin");
+    //     })
+    // } else if (getToken == null) {
+    // }
   }, [])
 
 

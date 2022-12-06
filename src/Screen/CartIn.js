@@ -115,20 +115,21 @@ const CartIn = () => {
         return stabilizedThis.map((el) => el[0]);
     }
 
-
     useEffect(() => {
         var getInfomation = localStorage.getItem("Infomation")
+        var getGioHang = localStorage.getItem("GioHang")
+
         var db = JSON.parse(getInfomation)
-        if (getInfomation == null) {
+        var dbGioHang = JSON.parse(getGioHang)
+
+        if (getInfomation == null && getGioHang == null) {
         }
 
-        if (getInfomation != null) {
-            axios.get(ip + `/getGioHang/${db.data._id}`)
-                .then((response) => {
-                    setdanhsachSP(response.data);
-                })
+        if (getInfomation != null && getGioHang != null) {
+            setdanhsachSP(dbGioHang);
         }
-    },)
+    }, [])
+
 
     // useEffect(() => {
     //   getDataLoaiSP();
