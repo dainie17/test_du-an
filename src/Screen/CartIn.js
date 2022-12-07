@@ -44,10 +44,10 @@ import ItemCart from "../item/ItemCart";
 const CartIn = () => {
     const [loading, setLoading] = useState(false);
     useEffect(() => {
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-      }, 500);
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 500);
     }, []);
     let navgate = useNavigate();
 
