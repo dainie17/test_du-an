@@ -33,6 +33,7 @@ import './css/Responsive.css'
 import Forgot_Pass from './Screen/Forgot_Pass';
 import Inactive from './Screen/Inactive';
 import { useNavigate, Link } from "react-router-dom";
+import { array } from 'yup';
 
 
 function App() {
@@ -44,6 +45,8 @@ function App() {
   const [pathLogin, setPathLogin] = useState(true);
   const [pathSignup, setPathSignup] = useState(true);
   const [pathOrder, setPathOrder] = useState(false);
+
+
 
   useEffect(() => {
 
@@ -117,7 +120,52 @@ function App() {
         })
     }
 
-    getData()
+    var getGioHang = localStorage.getItem("GioHang")
+    var dbGioHang = JSON.parse(getGioHang)
+    var getDsSP = localStorage.getItem("DanhSachSP")
+    var dbDsSP = JSON.parse(getDsSP)
+
+
+    if (getGioHang == null && getDsSP == null) {
+    }
+
+    if (getGioHang != null && getDsSP != null) {
+
+      const getdbDsSP = dbDsSP.map((vl, index) => {
+        let giaBan = vl.GiaBanSP - (vl.GiaBanSP * (vl.SaleSP / 100))
+        let resust = Math.round(giaBan)
+        // let GiaCX = new Intl.NumberFormat('it-IT').format(resust);
+
+        let item = dbGioHang.find(c => c.idImg == vl.idImg);
+        if (item) {
+
+          axios.get(ip + `/getImg/${item.idImg}`)
+            .then((response) => {
+              const getElement = response.data.map((element) => {
+                let Array = []
+                Array.push(element.files)
+                axios.put(ip + `/UpdateSPGioHang/${item.idImg}`, {
+                  Image: Array,
+                  NameSP: vl.NameSP,
+                  GiaCX: resust,
+                  GiaBanSP: vl.GiaBanSP,
+                  SaleSP: vl.SaleSP,
+                  TrangThaiSP: vl.TrangThaiSP,
+                  LoaiSP: vl.LoaiSP,
+                  ChiTietSP: vl.ChiTietSP,
+                });
+
+              })
+
+            })
+
+        }
+      })
+
+
+    }
+
+    getData();
 
   },)
 
@@ -128,6 +176,7 @@ function App() {
         window.localStorage.setItem("DanhSachSP", JSON.stringify(response.data));
       })
   }
+
 
   return (
     <div>

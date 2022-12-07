@@ -10,12 +10,15 @@ import {
 
 import axios from "axios";
 import ItemImgCart from './ItemImgCart';
+import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
 
 
 export default function ItemCart(props) {
 
   const ip = "http://localhost:8080"
 
+  let navga = useNavigate();
 
 
   const handleClick = (event, id) => {
@@ -35,6 +38,44 @@ export default function ItemCart(props) {
 
   let selected = props.selected
 
+  let GiaCX = new Intl.NumberFormat('it-IT').format(props.GiaCX);
+
+
+
+  const onClick = () => {
+
+    var getDsSP = localStorage.getItem("DanhSachSP")
+    var dbDsSP = JSON.parse(getDsSP)
+
+
+    if (getDsSP == null) {
+    }
+    if (getDsSP != null) {
+      let item = dbDsSP.find(c => c.idImg == props.idImg);
+      if (item) {
+        navga(`/Detail/${props._id}`);
+        var ItemSP = {
+          test: props.Image,
+          _id: props._id,
+          idImg: props.idImg,
+          NameSP: props.NameSP,
+          GiaCX: GiaCX,
+          GiaBanSP: props.GiaBanSP,
+          SoLuongSP: item.SoLuongSP,
+          SaleSP: props.SaleSP,
+          TrangThaiSP: props.TrangThaiSP,
+          LoaiSP: props.LoaiSP,
+          ChiTietSP: props.ChiTietSP,
+        }
+        localStorage.setItem('ItemSP', JSON.stringify(ItemSP));
+      }
+    }
+
+
+
+  };
+  let TongMoney = props.GiaCX * props.SoLuongSP
+
   return (
 
     <TableRow
@@ -45,6 +86,7 @@ export default function ItemCart(props) {
       selected={props.isItemSelected}
       aria-checked={props.isItemSelected}
     >
+
       <TableCell padding="checkbox">
         <Checkbox checked={props.isItemSelected} onChange={(event) => handleClick(event, props._id)} />
       </TableCell>
@@ -72,7 +114,7 @@ export default function ItemCart(props) {
 
       <TableCell className='moTa_LSP' >
         <Typography align='left' variant="subtitle2" >
-          {props.GiaCX}
+          {TongMoney}
         </Typography>
       </TableCell>
 
@@ -92,24 +134,12 @@ export default function ItemCart(props) {
           {props.SoLuongSP}
         </Typography>
       </TableCell>
-
-
-      {/* ---------------------------------------------- */}
-      {/* <TableCell align="right">
-                <LoaiSPMoreMenu
-                    key={props._id}
-                    _id={props._id}
-                    ImageLoaiSP={props.ImageLoaiSP}
-                    NameLoaiSP={props.NameLoaiSP}
-                    MotaLoaiSP={props.MotaLoaiSP}
-                    TrangThaiLoaiSP={props.TrangThaiLoaiSP}
-                    danhsachSP={props.danhsachSP}
-                    setdanhsachSP={props.setdanhsachSP}
-
-                />
-            </TableCell> */}
+      <TableCell className='name_sp' component="th" scope="row"  >
+        <Typography align='left' variant="subtitle2"  >
+          <button onClick={onClick}>xem chi tiet</button>
+        </Typography>
+      </TableCell>
     </TableRow>
-
 
   )
 }

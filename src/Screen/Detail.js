@@ -86,6 +86,7 @@ const Detail = () => {
       setChiTietSP(data.ChiTietSP);
       setGiaBanSP(data.GiaBanSP);
       setTest(data.test);
+      console.log(data.test);
     }
 
     var Infomation = localStorage.getItem("Infomation");
@@ -219,7 +220,7 @@ const Detail = () => {
                   <p className="detail-main-top-right-number">
                     Số lượng: {SoLuongSP}{" "}
                   </p>
-                  <p className="detail-main-top-right-price"> {GiaCX}</p>
+                  <p className="detail-main-top-right-price"> {GiaCX} VND</p>
                   <p className="detail-main-top-right-title">Thông tin sản phẩm:</p>
                   <p className="detail-main-top-right-content">
                     {/* {ChiTietSP.substring(0, 400) + " [...]"} */}
