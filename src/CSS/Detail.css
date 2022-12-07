@@ -106,6 +106,21 @@
   border-top: #54e6e7 2px solid;
   border-bottom: #54e6e7 2px solid;
   margin-bottom: 20px;
+  display: flex;
+}
+
+.detail_price{
+  font-size: 25px;
+}
+
+.price_reduced_detail {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 10px;
+  padding-top: 8px;
+  padding-left: 10px;
+  font-weight: bold;
+  color: rgb(141, 141, 141);
+  text-decoration: line-through;
 }
 
 /* tiêu đề */
@@ -138,7 +153,7 @@
 }
 
 .detail-main-top-right-button-picknb {
-  width: 50%;
+  width: 50px;
   border: #54e6e7 2px solid;
   border-radius: 10px;
   display: flex;
@@ -203,10 +218,13 @@
   border: none;
   outline: 0;
   color: black;
-  width: 40px;
+  width: 50px;
   text-align: center;
   margin: 0;
   padding: 0;
+  font-size: 16px;
+  padding-right: 6px;
+  padding-left: 3px;
   height: 17px;
 }
 

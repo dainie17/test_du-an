@@ -24,6 +24,7 @@ import axios from "axios";
 import { number } from "yup";
 
 const Detail = () => {
+  const [Display, setDisplay] = useState("none");
   let navgate = useNavigate();
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -46,9 +47,9 @@ const Detail = () => {
   const [tong, setTong] = useState(1);
 
   const setKTTong = () => {
-    var oldValue = $('#counter').val();
+    var oldValue = $("#counter").val();
     if (oldValue > SoLuongSP) {
-      $('#counter').val(SoLuongSP);
+      $("#counter").val(SoLuongSP);
       setTong(SoLuongSP);
     } else {
       setTong(oldValue);
@@ -91,12 +92,17 @@ const Detail = () => {
     var Infomation = localStorage.getItem("Infomation");
     var db = JSON.parse(Infomation);
     if (Infomation == null) {
-      setChxUser("none")
+      setChxUser("none");
     } else if (Infomation != null) {
       setIdUser(db.data._id);
-      setChxUser("block")
+      setChxUser("block");
     }
 
+    if(data.SaleSP == 0){
+      setDisplay("none")
+    } else {
+      setDisplay("block")
+    }
 
   }, []);
 
@@ -109,12 +115,10 @@ const Detail = () => {
 
   const ip = "http://localhost:8080";
 
-
   const btn_AddGioHang = () => {
-    var getInfomation = localStorage.getItem("Infomation")
-    var getGioHang = localStorage.getItem("GioHang")
+    var getInfomation = localStorage.getItem("Infomation");
+    var getGioHang = localStorage.getItem("GioHang");
     var ItemSP = localStorage.getItem("ItemSP");
-
 
     if (getGioHang == "[]") {
       axios.post(ip + "/add_GioHang", {
@@ -130,26 +134,23 @@ const Detail = () => {
         LoaiSP: LoaiSP,
         ChiTietSP: ChiTietSP,
       });
-
     } else if (getGioHang != null) {
       var data = JSON.parse(ItemSP);
-      var db = JSON.parse(getInfomation)
-      var dbGioHang = JSON.parse(getGioHang)
+      var db = JSON.parse(getInfomation);
+      var dbGioHang = JSON.parse(getGioHang);
 
-
-      let item = dbGioHang.find(c => c.idImg === idImg);
+      let item = dbGioHang.find((c) => c.idImg === idImg);
 
       if (item) {
         if (item.SoLuongSP + tong > SoLuongSP) {
           axios.put(ip + `/UpdateGioHang/${item.idImg}/${db.data._id}`, {
-            SoLuongSP: SoLuongSP
+            SoLuongSP: SoLuongSP,
           });
         } else {
           axios.put(ip + `/UpdateGioHang/${item.idImg}/${db.data._id}`, {
-            SoLuongSP: item.SoLuongSP + tong
+            SoLuongSP: item.SoLuongSP + tong,
           });
         }
-
       } else {
         axios.post(ip + "/add_GioHang", {
           idUser: idUser,
@@ -164,15 +165,9 @@ const Detail = () => {
           LoaiSP: LoaiSP,
           ChiTietSP: ChiTietSP,
         });
-
-
       }
-
     }
-
-
   };
-
 
   const onClickVanChuyen = () => {
     navgate("/vanchuyen");
@@ -219,8 +214,17 @@ const Detail = () => {
                   <p className="detail-main-top-right-number">
                     Số lượng: {SoLuongSP}{" "}
                   </p>
-                  <p className="detail-main-top-right-price"> {GiaCX}</p>
-                  <p className="detail-main-top-right-title">Thông tin sản phẩm:</p>
+                  <div className="detail-main-top-right-price">
+                    <p className="detail_price">
+                      {GiaCX}
+                    </p>
+                    <p className="price_reduced_detail" style={{ display: Display }}>
+                      {GiaBanSP} Đ
+                    </p>
+                  </div>
+                  <p className="detail-main-top-right-title">
+                    Thông tin sản phẩm:
+                  </p>
                   <p className="detail-main-top-right-content">
                     {/* {ChiTietSP.substring(0, 400) + " [...]"} */}
                     {ChiTietSP}
@@ -228,7 +232,6 @@ const Detail = () => {
                   <div className="detail-main-top-right-button">
                     <div className="detail-main-top-right-button-picknb">
                       <div className="custom-input">
-
                         <input
                           type="number"
                           step="1"
@@ -238,7 +241,6 @@ const Detail = () => {
                           defaultValue={1}
                           onBlur={setKTTong}
                         />
-
                       </div>
                     </div>
                     <div
@@ -272,7 +274,9 @@ const Detail = () => {
                       </div>
                     </div>
                   </div>
-                  <button className="btn_addtocart" onClick={btn_AddGioHang}
+                  <button
+                    className="btn_addtocart"
+                    onClick={btn_AddGioHang}
                     style={{ display: ChxUser }}
                   >
                     <span className="span_addtocart">Thêm vào giỏ hàng</span>
@@ -306,7 +310,9 @@ const Detail = () => {
                 <p>Dịch vụ của chúng tôi</p>
               </div>
               <div className="preview_content">
-                <p>Công ty cổ phần Thang Máy Fujitech đơn vị uy tín chất lượng</p>
+                <p>
+                  Công ty cổ phần Thang Máy Fujitech đơn vị uy tín chất lượng
+                </p>
               </div>
             </div>
             <div className="home-main-purview-card">
