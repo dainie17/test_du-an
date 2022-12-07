@@ -1,6 +1,4 @@
 import {
-  DeleteOutlineSharp,
-  FavoriteBorderSharp,
   VerifiedUserSharp,
 } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
@@ -10,19 +8,19 @@ import Footer from "./footer";
 import ScrollToTop from "react-scroll-to-top";
 import Address from "../dialog/Address";
 import logo from "../assets/logo_cty.png";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
-const image2 =
-  "https://cdn.tgdd.vn/Files/2019/11/18/1220010/4-cach-ve-sinh-ben-trong-chai-lo-cuc-sach-ban-nen-thu-21-760x367.jpg";
-const image3 =
-  "https://bizweb.dktcdn.net/100/154/029/files/san-xuat-chai-lo-nhua-2-941c40bb-0124-4086-8aab-ad24dc55c0b8.jpg?v=1501056541035";
-const image4 =
-  "https://i-raovat.vnecdn.net/2020/05/22/51ade386733b048d7c00c29720e39c04.jpeg?w=1280&h=768&q=100&dpr=1&rt=fit&g=no&wmi=&wmg=ce&wmo=50&wms=30&wmx=0&wmy=0&s=irmRdkv5lf-nqmbP2V8WXg";
-const image5 =
-  "https://thuytinhtadaco.com/wp-content/uploads/2021/08/chai-lo-thuy-tinh.jpg";
 
   export default function Order () {
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    }, []);
   const [openAdd, setOpenAdd] = useState(false);
   const handleClickItemAdd = () => {
     setOpenAdd(true);
@@ -76,6 +74,18 @@ const image5 =
 
   return (
     <>
+    {loading ? (
+      <div className="loading">
+        <BeatLoader
+          color={"#36d7b7"}
+          loading={loading}
+          size={15}
+          margin={5}
+          speedMultiplier={1}
+        />
+      </div>
+    ) : (
+      <>
       <Address open={openAdd} setOpen={setOpenAdd} />
       <div className="order">
         <ScrollToTop smooth></ScrollToTop>
@@ -243,6 +253,8 @@ const image5 =
         <Footer />
       </div>
     </>
+    )}
+  </>
   );
 };
 

@@ -42,6 +42,13 @@ import ItemCart from "../item/ItemCart";
 
 
 const CartIn = () => {
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    }, []);
     let navgate = useNavigate();
 
     const onclickItem = () => {
@@ -53,8 +60,6 @@ const CartIn = () => {
     };
 
     const ip = "http://localhost:8080"
-
-    const [loading, setLoading] = useState(false);
 
     const [danhsachSP, setdanhsachSP] = useState([]);
 
@@ -242,6 +247,7 @@ const CartIn = () => {
                         </Stack>
 
                         <Card>
+
                             <CartListToolbar selected={selected} numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
                             <Scrollbar>

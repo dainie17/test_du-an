@@ -8,8 +8,10 @@ import money from "../assets/salary.png";
 import hour from "../assets/hour.png";
 import shieldImg from "../assets/shields.png";
 import ScrollToTop from "./ScrollToTopbtn";
+import BeatLoader from "react-spinners/BeatLoader";
 import $ from "jquery";
 import "slick-carousel/slick/slick.css";
+import { useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick-theme.css";
 import { TokenSharp, VerifiedSharp } from "@mui/icons-material";
 import "../css/Detail.css";
@@ -22,6 +24,14 @@ import axios from "axios";
 import { number } from "yup";
 
 const Detail = () => {
+  let navgate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
   const [chxNab, setChxNab] = useState(false);
   useEffect(() => {
     var getUser = localStorage.getItem("UserUser");
@@ -178,136 +188,166 @@ const Detail = () => {
     }
 
 
+  };
 
+  
+  const onClickVanChuyen = () => {
+    navgate("/vanchuyen");
+  };
+
+  const onClickDoiTra = () => {
+    navgate("/doitra");
+  };
+
+  const onClickBaoMat = () => {
+    navgate("/baomat");
+  };
+
+  const onClickThanhToan = () => {
+    navgate("/thanhtoan");
   };
 
   return (
-    <div className="detail">
-      <ScrollToTop />
-      {chxNab ? <NavbarIn /> : <Navbar />}
-      <div className="detail_container">
-        <div className="detail-main">
-          <div className="detail-main-top">
-            <div className="detail-main-top-left">
-              {test.map((item, index) => (
-                <Itemhinh key={index} item={item} />
-              ))}
-            </div>
-            <div className="detail-main-top-right">
-              <p className="detail-main-top-right-name">{NameSP}</p>
-              <p className="detail-main-top-right-number">
-                Số lượng: {SoLuongSP}{" "}
-              </p>
-              <p className="detail-main-top-right-price"> {GiaCX}</p>
-              <p className="detail-main-top-right-title">Thông tin sản phẩm:</p>
-              <p className="detail-main-top-right-content">
-                {/* {ChiTietSP.substring(0, 400) + " [...]"} */}
-                {ChiTietSP}
-              </p>
-              <div className="detail-main-top-right-button">
-                <div className="detail-main-top-right-button-picknb">
-                  <div className="custom-input">
-
-                    <input
-                      type="number"
-                      step="1"
-                      min="1"
-                      id="counter"
-                      max={SoLuongSP}
-                      defaultValue={1}
-                      onBlur={setKTTong}
-                    />
-
+    <>
+      {loading ? (
+        <div className="loading">
+          <BeatLoader
+            color={"#36d7b7"}
+            loading={loading}
+            size={15}
+            margin={5}
+            speedMultiplier={1}
+          />
+        </div>
+      ) : (
+        <div className="detail">
+        <ScrollToTop />
+        {chxNab ? <NavbarIn /> : <Navbar />}
+        <div className="detail_container">
+          <div className="detail-main">
+            <div className="detail-main-top">
+              <div className="detail-main-top-left">
+                {test.map((item, index) => (
+                  <Itemhinh key={index} item={item} />
+                ))}
+              </div>
+              <div className="detail-main-top-right">
+                <p className="detail-main-top-right-name">{NameSP}</p>
+                <p className="detail-main-top-right-number">
+                  Số lượng: {SoLuongSP}{" "}
+                </p>
+                <p className="detail-main-top-right-price"> {GiaCX}</p>
+                <p className="detail-main-top-right-title">Thông tin sản phẩm:</p>
+                <p className="detail-main-top-right-content">
+                  {/* {ChiTietSP.substring(0, 400) + " [...]"} */}
+                  {ChiTietSP}
+                </p>
+                <div className="detail-main-top-right-button">
+                  <div className="detail-main-top-right-button-picknb">
+                    <div className="custom-input">
+  
+                      <input
+                        type="number"
+                        step="1"
+                        min="1"
+                        id="counter"
+                        max={SoLuongSP}
+                        defaultValue={1}
+                        onBlur={setKTTong}
+                      />
+  
+                    </div>
+                  </div>
+                  <div
+                    className={
+                      toggleState === 2
+                        ? "favorite detail-main-top-right-button-favorite1"
+                        : "fv"
+                    }
+                    onClick={() => toogleTab(1)}
+                  >
+                    <div className="favorite_img">
+                      <img src={yeuthich}></img>
+                    </div>
+                    <div className="favorite_pafter">
+                      <p>Đã thích</p>
+                    </div>
+                  </div>
+                  <div
+                    className={
+                      toggleState === 1
+                        ? "favorite detail-main-top-right-button-favorite "
+                        : "fv"
+                    }
+                    onClick={() => toogleTab(2)}
+                  >
+                    <div className="favorite_img">
+                      <img src={yeuthich1}></img>
+                    </div>
+                    <div className="favorite_p">
+                      <p>Yêu thích</p>
+                    </div>
                   </div>
                 </div>
-                <div
-                  className={
-                    toggleState === 2
-                      ? "favorite detail-main-top-right-button-favorite1"
-                      : "fv"
-                  }
-                  onClick={() => toogleTab(1)}
-                >
-                  <div className="favorite_img">
-                    <img src={yeuthich}></img>
+                <button className="btn_addtocart" onClick={btn_AddGioHang}>
+                  <span className="span_addtocart">Thêm vào giỏ hàng</span>
+                </button>
+                <p className="detail-main-top-right-titlepay">
+                  Thanh toán an toàn
+                </p>
+                <p className="detail-main-top-right-option">
+                  Nhiều tùy chọn thanh toán
+                </p>
+                <p className="detail-main-top-right-service">
+                  Đảm bảo dịch vụ khách hàng
+                </p>
+                <div className="detail-main-top-right-itemsv">
+                  <div className="detail-main-top-right-itemsv-left">
+                    <VerifiedSharp />
+                    <p>Đảm bảo DOA</p>
                   </div>
-                  <div className="favorite_pafter">
-                    <p>Đã thích</p>
-                  </div>
-                </div>
-                <div
-                  className={
-                    toggleState === 1
-                      ? "favorite detail-main-top-right-button-favorite "
-                      : "fv"
-                  }
-                  onClick={() => toogleTab(2)}
-                >
-                  <div className="favorite_img">
-                    <img src={yeuthich1}></img>
-                  </div>
-                  <div className="favorite_p">
-                    <p>Yêu thích</p>
+                  <div className="detail-main-top-right-itemsv-right">
+                    <TokenSharp />
+                    <p>Đảm bảo hàng bị thiếu / sai</p>
                   </div>
                 </div>
               </div>
-              <button className="btn_addtocart" onClick={btn_AddGioHang}>
-                <span className="span_addtocart">Thêm vào giỏ hàng</span>
-              </button>
-              <p className="detail-main-top-right-titlepay">
-                Thanh toán an toàn
-              </p>
-              <p className="detail-main-top-right-option">
-                Nhiều tùy chọn thanh toán
-              </p>
-              <p className="detail-main-top-right-service">
-                Đảm bảo dịch vụ khách hàng
-              </p>
-              <div className="detail-main-top-right-itemsv">
-                <div className="detail-main-top-right-itemsv-left">
-                  <VerifiedSharp />
-                  <p>Đảm bảo DOA</p>
-                </div>
-                <div className="detail-main-top-right-itemsv-right">
-                  <TokenSharp />
-                  <p>Đảm bảo hàng bị thiếu / sai</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="home-purview">
-        <div className="preview">
-          <div className="preview_title">
-            <p>Dịch vụ của chúng tôi</p>
+        <div className="home-purview">
+          <div className="preview">
+            <div className="preview_title">
+              <p>Dịch vụ của chúng tôi</p>
+            </div>
+            <div className="preview_content">
+              <p>Công ty cổ phần Thang Máy Fujitech đơn vị uy tín chất lượng</p>
+            </div>
           </div>
-          <div className="preview_content">
-            <p>Công ty cổ phần Thang Máy Fujitech đơn vị uy tín chất lượng</p>
+          <div className="home-main-purview-card">
+            <div onClick={onClickVanChuyen} className="home-main-purview">
+              <img src={truck}></img>
+              <p>GIAO DỊCH TOÀN QUỐC</p>
+            </div>
+            <div onClick={onClickDoiTra} className="home-main-purview">
+              <img src={money}></img>
+              <p>HOÀN TIỀN NẾU HÀNG LỖI </p>
+            </div>
+            <div onClick={onClickThanhToan} className="home-main-purview">
+              <img src={hour}></img>
+              <p>CHĂM SÓC KHÁCH HÀNG 24/7</p>
+            </div>
+            <div onClick={onClickBaoMat} className="home-main-purview">
+              <img src={shieldImg}></img>
+              <p>CAM KẾT 100% CHẤT LƯỢNG</p>
+            </div>
           </div>
         </div>
-        <div className="home-main-purview-card">
-          <div className="home-main-purview">
-            <img src={truck}></img>
-            <p>GIAO DỊCH TOÀN QUỐC</p>
-          </div>
-          <div className="home-main-purview">
-            <img src={money}></img>
-            <p>HOÀN TIỀN NẾU HÀNG LỖI </p>
-          </div>
-          <div className="home-main-purview">
-            <img src={hour}></img>
-            <p>CHĂM SÓC KHÁCH HÀNG 24/7</p>
-          </div>
-          <div className="home-main-purview">
-            <img src={shieldImg}></img>
-            <p>CAM KẾT 100% CHẤT LƯỢNG</p>
-          </div>
-        </div>
+  
+        <Footer />
       </div>
-
-      <Footer />
-    </div>
+      )}
+    </>
   );
 };
 

@@ -92,7 +92,7 @@ function NavbarIn() {
   return (
     <nav className="home-header">
       <div className="header_container">
-        <div className="home-header_logo">
+        <div onClick={onclickHome} className="home-header_logo">
           <img className="home-header-logo-image" src={logo} alt="" />
         </div>
         <ul className="home-header_ul">

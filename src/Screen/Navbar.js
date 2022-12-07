@@ -3,15 +3,8 @@ import "../css/Navbar.css";
 import { useState } from "react";
 import $ from "jquery";
 import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Divider from "@mui/material/Divider";
 import Tooltip from "@mui/material/Tooltip";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
-import Logout from "@mui/icons-material/Logout";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo_cty.png";
 import { Fragment } from "react";
@@ -80,7 +73,7 @@ function Navbar() {
   return (
     <nav className="home-header">
       <div className="header_container">
-        <div className="home-header_logo">
+        <div onClick={onclickHome} className="home-header_logo">
           <img className="home-header-logo-image" src={logo} alt="" />
         </div>
         <ul className="home-header_ul">
