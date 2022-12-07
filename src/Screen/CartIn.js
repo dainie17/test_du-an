@@ -79,7 +79,7 @@ const CartIn = () => {
     const TABLE_HEAD = [
         { id: 'Image', label: 'Image', alignRight: false },
         { id: 'NameSP', label: 'NameSP', alignRight: false },
-        { id: 'GiaCX', label: 'GiaCX', alignRight: false },
+        { id: 'GiaCX', label: 'TongGia', alignRight: false },
         { id: 'GiaBanSP', label: 'GiaBanSP', alignRight: false },
         { id: 'SaleSP', label: 'SaleSP', alignRight: false },
         { id: 'SoLuongSP', label: 'SoLuongSP', alignRight: false },
@@ -276,28 +276,33 @@ const CartIn = () => {
                                             <TableBody >
                                                 {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((val) => {
                                                     const isItemSelected = selected.indexOf(val._id) !== -1;
+                                                    if (val.TrangThaiSP == "Hoạt động") {
+                                                        return (
+                                                            <ItemCart
+                                                                key={val._id}
+                                                                _id={val._id}
+                                                                idUser={val.idUser}
+                                                                Image={val.Image}
+                                                                idImg={val.idImg}
+                                                                NameSP={val.NameSP}
+                                                                GiaCX={val.GiaCX}
+                                                                GiaBanSP={val.GiaBanSP}
+                                                                SoLuongSP={val.SoLuongSP}
+                                                                SaleSP={val.SaleSP}
+                                                                TrangThaiSP={val.TrangThaiSP}
+                                                                LoaiSP={val.LoaiSP}
+                                                                ChiTietSP={val.ChiTietSP}
+                                                                setdanhsachSP={setdanhsachSP}
+                                                                isItemSelected={isItemSelected}
+                                                                selected={selected}
+                                                                setSelected={setSelected}
+                                                            />
+                                                        )
+                                                    } else if (val.TrangThaiSP == "Không hoạt động") {
+                                                        // console.log(val._id);
+                                                        axios.delete(ip + `/DeleteGioHang/${val._id}`)
+                                                    }
 
-                                                    return (
-                                                        <ItemCart
-                                                            key={val._id}
-                                                            _id={val._id}
-                                                            idUser={val.idUser}
-                                                            Image={val.Image}
-                                                            idImg={val.idImg}
-                                                            NameSP={val.NameSP}
-                                                            GiaCX={val.GiaCX}
-                                                            GiaBanSP={val.GiaBanSP}
-                                                            SoLuongSP={val.SoLuongSP}
-                                                            SaleSP={val.SaleSP}
-                                                            TrangThaiSP={val.TrangThaiSP}
-                                                            LoaiSP={val.LoaiSP}
-                                                            ChiTietSP={val.ChiTietSP}
-                                                            setdanhsachSP={setdanhsachSP}
-                                                            isItemSelected={isItemSelected}
-                                                            selected={selected}
-                                                            setSelected={setSelected}
-                                                        />
-                                                    )
                                                 })}
                                                 {emptyRows > 0 && (
                                                     <TableRow style={{ height: 53 * emptyRows }}>
