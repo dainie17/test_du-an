@@ -458,10 +458,11 @@
 
 .price_reduced {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 12px;
+  font-size: 10px;
+  padding-top: 6px;
   font-weight: bold;
+  color: rgb(141, 141, 141);
   text-decoration: line-through;
-  padding-top: 3px;
 }
 /* -------------------số lượng sản phẩm--------------------- */
 .product-main-list-content-card-number {
