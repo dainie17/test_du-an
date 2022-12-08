@@ -35,7 +35,7 @@ function Navigate() {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    }, 500);
+    }, 1000);
   }, []);
 
   return (
@@ -44,7 +44,7 @@ function Navigate() {
       {
         loading ? <div className='loading'>
           <BeatLoader
-            color={'#36d7b7'}
+            color={'#2065d1'}
             loading={loading}
             size={15}
             margin={5}
@@ -70,7 +70,9 @@ function Navigate() {
                         <p>{uudai.synopsis.substring(0, 230) + " [...]"}</p>
 
 
-                        <Link className="title_list_cottom_button" to={{ pathname: `/ItemNews/${uudai.id} ` }} state={uudai}  >Đọc Thêm</Link>
+                        <Link class="button-24" to={{ pathname: `/ItemNews/${uudai.id} ` }} state={uudai}  >Xem Thêm</Link>
+               
+
 
                       </div>
                     </div>
@@ -86,12 +88,24 @@ function Navigate() {
                 <div className="hashtag_header--list">
                   <p>HAGHTAG #VAGABONSHOP ĐỂ CÓ CƠ HỘI XUẤT HIỆN TRÊN TRANG CỦA CHÚNG TÔI</p>
                   <div className="hashtag_header--list--img">
+                    <div className="hagtag_img">
                     <img src='https://i.9mobi.vn/cf/images/sa/2019/10/24/hinh-anh-nguoi-dep-cho-dien-thoai-9.jpg'></img>
+                    </div>
+                    <div className="hagtag_img">
                     <img src='https://bigdata-vn.com/wp-content/uploads/2022/01/1641168792_297_Tong-hop-hinh-nen-gai-xinh-cuc-dep.jpg'></img>
+                    </div>
+                    <div className="hagtag_img">
                     <img src='https://ss-images.saostar.vn/wp700/pc/1657511752254/saostar-gytty8hxodobknq0.jpg'></img>
+                    </div>
+                    <div className="hagtag_img">
                     <img src='https://anhdep123.com/wp-content/uploads/2021/03/Tong-hop-nhung-hinh-anh-sieu-mau-nam-dep-2.jpg'></img>
+                    </div>
+                    <div className="hagtag_img">
                     <img src='https://images.pexels.com/photos/9719017/pexels-photo-9719017.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'></img>
+                    </div>
+                    <div className="hagtag_img">
                     <img src='https://upanh123.com/wp-content/uploads/2019/01/hinh-nen-gai-xinh-trung-quoc-1-640x937.jpg'></img>
+                    </div>
                   </div>
                 </div>
               </div>
