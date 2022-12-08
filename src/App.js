@@ -106,7 +106,7 @@ function App() {
     }
 
 
-
+    // luu gio hang len localStorage
 
     var getInfomation = localStorage.getItem("Infomation")
     var db = JSON.parse(getInfomation)
@@ -119,6 +119,10 @@ function App() {
           window.localStorage.setItem("GioHang", JSON.stringify(response.data));
         })
     }
+
+
+
+    // auto update gio hang
 
     var getGioHang = localStorage.getItem("GioHang")
     var dbGioHang = JSON.parse(getGioHang)
@@ -134,7 +138,6 @@ function App() {
       const getdbDsSP = dbDsSP.map((vl, index) => {
         let giaBan = vl.GiaBanSP - (vl.GiaBanSP * (vl.SaleSP / 100))
         let resust = Math.round(giaBan)
-        // let GiaCX = new Intl.NumberFormat('it-IT').format(resust);
 
         let item = dbGioHang.find(c => c.idImg == vl.idImg);
         if (item) {
@@ -154,17 +157,14 @@ function App() {
                   LoaiSP: vl.LoaiSP,
                   ChiTietSP: vl.ChiTietSP,
                 });
-
               })
-
             })
-
         }
       })
 
-
     }
 
+    // luu ds sp len localStorage
     getData();
 
   },)

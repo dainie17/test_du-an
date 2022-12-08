@@ -99,7 +99,7 @@ const Detail = () => {
       setChxUser("block");
     }
 
-    if(data.SaleSP == 0){
+    if (data.SaleSP == 0) {
       setDisplay("none")
     } else {
       setDisplay("block")
@@ -141,7 +141,6 @@ const Detail = () => {
       var dbGioHang = JSON.parse(getGioHang);
 
       let item = dbGioHang.find((c) => c.idImg == idImg);
-      console.log(item);
       if (item) {
         let a = item.SoLuongSP + tong
         if (a > SoLuongSP) {

@@ -126,30 +126,22 @@ const CartIn = () => {
     }
 
     if (getInfomation != null) {
-      axios.get(ip + `/getGioHang/${db.data._id}`).then((response) => {
-        window.localStorage.setItem("GioHang", JSON.stringify(response.data));
-        setdanhsachSP(response.data);
-      });
+      axios.get(ip + `/getGioHang/${db.data._id}`)
+        .then((response) => {
+          window.localStorage.setItem("GioHang", JSON.stringify(response.data));
+          setdanhsachSP(response.data);
+        });
     }
-    // var getGioHang = localStorage.getItem("GioHang")
-    // var dbGioHang = JSON.parse(getGioHang)
 
-    // if (getGioHang == null) {
-    // }
-
-    // if (getGioHang != null) {
-    //     setdanhsachSP(dbGioHang);
-    // }
-  
   }, []);
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     let numBe = 0;
     for (let index = 0; index < danhsachSP.length; index++) {
       numBe = numBe + 1;
       setSoLuongNum(numBe);
     }
-  },[danhsachSP.length])
+  }, [danhsachSP.length])
 
   let num = 0;
 
@@ -325,13 +317,14 @@ const CartIn = () => {
                                   setSelected={setSelected}
                                   setMoney={setMoney}
                                   money={money}
-                                   
+
                                 />
                               );
                             } else if (val.TrangThaiSP == "Không hoạt động") {
-                              // console.log(val._id);
+                              // delete giỏ hàng khi đã sửa trạng thái sản phẩm trên admin
                               axios.delete(ip + `/DeleteGioHang/${val._id}`);
                             }
+
                           })}
                         {emptyRows > 0 && (
                           <TableRow style={{ height: 53 * emptyRows }}>
@@ -384,10 +377,10 @@ const CartIn = () => {
               <p className="cart-main-right-total-content">{money}&#8363;</p>
             </div>
             <button
-                    className="btn_thanh_toan"
-                    onClick={onclickItem}
-                  >
-                    <span className="span_thanh_toan">Đặt hàng</span>
+              className="btn_thanh_toan"
+              onClick={onclickItem}
+            >
+              <span className="span_thanh_toan">Đặt hàng</span>
             </button>
           </div>
         </div>
