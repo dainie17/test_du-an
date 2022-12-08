@@ -210,6 +210,7 @@
   }
 
 .cart_navbar{
+    cursor: pointer;
     width: 100%;
     height: 25px;
     background-image: url("../assets/carts.png");

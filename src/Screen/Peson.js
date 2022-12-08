@@ -25,6 +25,7 @@ import love from "../assets/love.png";
 import Popup from "reactjs-popup";
 import Navbar from "./Navbar"
 import NavbarIn from "./NavbarIn";
+import ItemOder from "../item/ItemOder";
 
 const img =
   "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
@@ -129,6 +130,21 @@ function Peson() {
 
 
   },)
+
+  const [cart, setCart] = useState([]);
+
+  const getCart = () => {
+    var storage = localStorage.getItem("GioHang");
+    var carrt = JSON.parse(storage);
+    if (storage != null) {
+      setCart(carrt);
+    } else {
+    }
+  };
+
+  useEffect(() => {
+    getCart();
+  }, []);
 
   return (
     <div className="fersonal">
@@ -300,49 +316,46 @@ function Peson() {
                 <div className="active-content-title">
                   <p className="active-content-title-content">Giỏ hàng </p>
                 </div>
-                <div className="active-content-list">
-                  {user.map((item, index) => (
-                    <div key={index}>
-                      <div className="active-content-list-card">
-                        <img
-                          className="active-content-list-card-image"
-                          src={item.image}
-                          alt=""
-                        />
-                        <div className="active-content-list-card-content">
-                          <p className="active-content-list-card-content-name">
-                            {item.name}
-                          </p>
-                          <p className="active-content-list-card-content-type">
-                            Loại:{item.Loai}/Ship từ:{item.Ship}
-                          </p>
-                          <p className="active-content-list-card-content-price">
-                            {item.price}&#8363;
-                          </p>
-                          <p className="active-content-list-card-content-cod">
-                            COD
-                          </p>
-                        </div>
-                        <div className="active-content-list-card-function">
-                          <div className="active-content-list-card-function-button">
-                            <button className="active-content-list-card-function-button-reduce">
-                              -
-                            </button>
-                            <p className="active-content-list-card-function-button-num">
-                              1
-                            </p>
-                            <button className="active-content-list-card-function-button-more">
-                              +
-                            </button>
-                          </div>
-                          <div className="active-content-list-card-function-icon">
-                            <FavoriteBorderSharp />
-                            <DeleteOutlineSharp />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="personal-br"></div>
+                <div className="order-main-left-list">
+                    <div className="order_main_card_imgtitle">
+                      <p className="order-main-left-list-card-content-name">
+                        Sản phẩm
+                      </p>
                     </div>
+                    <p
+                      style={{ fontWeight: "bold" }}
+                      className="order-main-left-list-card-content-price"
+                    >
+                      đơn giá
+                    </p>
+
+                    <div
+                      style={{ fontWeight: "bold" }}
+                      className="oder-main-left-list-card-function-button-num"
+                    >
+                      số lượng
+                    </div>
+
+                    <div className="order_main_card_tt">thành tiền</div>
+                  </div>
+                <div className="active-content-list">
+                  {cart.map((item, index) => (
+                  <ItemOder
+
+                  key={item._id}
+                  _id={item._id}
+                  idUser={item.idUser}
+                  Image={item.Image}
+                  idImg={item.idImg}
+                  NameSP={item.NameSP}
+                  GiaCX={item.GiaCX}
+                  GiaBanSP={item.GiaBanSP}
+                  SoLuongSP={item.SoLuongSP}
+                  SaleSP={item.SaleSP}
+                  TrangThaiSP={item.TrangThaiSP}
+                  LoaiSP={item.LoaiSP}
+                  ChiTietSP={item.ChiTietSP}
+                  />
                   ))}
                 </div>
               </div>

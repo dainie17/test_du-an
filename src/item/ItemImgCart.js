@@ -4,8 +4,8 @@ export default function ItemImgCart(props) {
         <img
             src={ip + `/${props.files[0].filePath}`}
             alt=""
-            width="100"
-            height="150"
+            width="100px"
+            height="140px"
         />
     )
 }

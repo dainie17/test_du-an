@@ -50,7 +50,7 @@ export default function CartListHead({
                         onChange={onSelectAllClick}
                     />
                 </TableCell>
-                {headLabel.map((headCell) => (
+                {/* {headLabel.map((headCell) => (
                     <TableCell
                         key={headCell.id}
                         align={headCell.alignRight ? 'right' : 'left'}
@@ -68,7 +68,18 @@ export default function CartListHead({
                             ) : null}
                         </TableSortLabel>
                     </TableCell>
-                ))}
+                ))} */}
+                <TableCell>
+                    <p style={{marginLeft: "-30px", fontSize: "16px"}}>Chọn tất cả</p>
+                </TableCell>
+                <TableCell>
+                </TableCell>
+                <TableCell>
+                </TableCell>
+                <TableCell>
+                </TableCell>
+                <TableCell>
+                </TableCell>
             </TableRow>
         </TableHead>
     );

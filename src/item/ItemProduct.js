@@ -85,9 +85,9 @@ function ItemProduct(props) {
           <p className="product-main-list-content-card-name">{props.NameSP}</p>
           <div className="product_price">
             <p className="product-main-list-content-card-price">
-              {GiaCX}
+              {GiaCX} VND
             </p>
-            <p className="price_reduced" style={{ display: Display }}>{props.GiaBanSP} Đ</p>
+            <p className="price_reduced" style={{ display: Display }}>{props.GiaBanSP} VND</p>
           </div>
           <p className="product-main-list-content-card-number">
             Số lượng: {props.SoLuongSP}

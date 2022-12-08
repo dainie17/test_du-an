@@ -52,7 +52,8 @@ const Detail = () => {
       $("#counter").val(SoLuongSP);
       setTong(SoLuongSP);
     } else {
-      setTong(oldValue);
+      let num = parseInt(oldValue);
+      setTong(num);
     }
   };
 
@@ -87,7 +88,6 @@ const Detail = () => {
       setChiTietSP(data.ChiTietSP);
       setGiaBanSP(data.GiaBanSP);
       setTest(data.test);
-      console.log(data.test);
     }
 
     var Infomation = localStorage.getItem("Infomation");
@@ -136,20 +136,21 @@ const Detail = () => {
         ChiTietSP: ChiTietSP,
       });
     } else if (getGioHang != null) {
-      var data = JSON.parse(ItemSP);
+
       var db = JSON.parse(getInfomation);
       var dbGioHang = JSON.parse(getGioHang);
 
-      let item = dbGioHang.find((c) => c.idImg === idImg);
-
+      let item = dbGioHang.find((c) => c.idImg == idImg);
+      console.log(item);
       if (item) {
-        if (item.SoLuongSP + tong > SoLuongSP) {
+        let a = item.SoLuongSP + tong
+        if (a > SoLuongSP) {
           axios.put(ip + `/UpdateGioHang/${item.idImg}/${db.data._id}`, {
             SoLuongSP: SoLuongSP,
           });
         } else {
           axios.put(ip + `/UpdateGioHang/${item.idImg}/${db.data._id}`, {
-            SoLuongSP: item.SoLuongSP + tong,
+            SoLuongSP: a,
           });
         }
       } else {
@@ -226,10 +227,6 @@ const Detail = () => {
                   <p className="detail-main-top-right-title">
                     Thông tin sản phẩm:
                   </p>
-
-                  <p className="detail-main-top-right-price"> {GiaCX} VND</p>
-                  <p className="detail-main-top-right-title">Thông tin sản phẩm:</p>
-
                   <p className="detail-main-top-right-content">
                     {/* {ChiTietSP.substring(0, 400) + " [...]"} */}
                     {ChiTietSP}

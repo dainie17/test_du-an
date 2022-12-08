@@ -295,6 +295,7 @@
 
 .btn_addtocart::before,
 .btn_addtocart::after {
+  cursor: pointer;
   content: "";
   width: 0;
   height: 2px;

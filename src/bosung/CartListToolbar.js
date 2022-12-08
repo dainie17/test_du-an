@@ -6,6 +6,7 @@ import { Toolbar, Tooltip, IconButton, Typography, OutlinedInput, InputAdornment
 import Iconify from './Iconify';
 
 import axios from "axios";
+import { useNavigate } from 'react-router';
 
 // ----------------------------------------------------------------------
 
@@ -38,13 +39,13 @@ CartListToolbar.propTypes = {
 };
 
 export default function CartListToolbar({ selected, numSelected, filterName, onFilterName }) {
-
     const ip = "http://localhost:8080"
     const DeleteDs_chx = () => {
         const id_chx = selected.map((vl, index) => {
             axios.delete(ip + `/DeleteGioHang/${vl}`)
             return
         })
+        window.location.reload();
     }
     return (
         <RootStyle
