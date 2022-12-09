@@ -447,16 +447,19 @@
 }
 
 .home-main-purview-card {
-  width: 70%;
-  text-align: center;
   display: flex;
-  flex-direction: row;
+  width: 85%;
   justify-content: space-around;
+}
+.purview_respon{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
   margin: 5% 0;
 }
-
 .home-main-purview {
-  width: 22%;
+  width: 160px;
   height: 160px;
   border: 3px solid rgb(235, 110, 110);
   font-family: "Cinzel", serif;

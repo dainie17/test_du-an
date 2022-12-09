@@ -29,7 +29,9 @@ import './css/News.css';
 import './css/Personal.css';
 import './css/Product.css';
 import './css/Introduce.css';
-import './css/Responsive.css'
+import './css/Responsive.css';
+import './css/Navbar.css';
+import './css/Detail.css'
 import Forgot_Pass from './Screen/Forgot_Pass';
 import Inactive from './Screen/Inactive';
 import { useNavigate, Link } from "react-router-dom";

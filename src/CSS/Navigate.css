@@ -44,13 +44,16 @@
     width: 100%;
     height: 300px;
     object-fit: cover;
+    transition: all 0.4s ease-in-out;
+    
 }
-.title_list_cottom_img {
-    transition: all 1s ease-in-out;
+.title_list_cottom_img{
+    
     overflow: hidden;
 }
-.title_list_cottom_img:hover img{
-    transition: all 1s ease-in-out;
+.title_list_cottom:hover img{
+    
+    transition: all 0.4s ease-in-out;
     transform: scale(1.1);
 }
 .title_list_cottom--content{
@@ -95,16 +98,57 @@
     justify-content: space-evenly;
     padding: 2% 0;
 }
-.hashtag_header--list img {
+.hagtag_img {
     width: 15%;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+}
+.hagtag_img img{
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+    width: 100%;
     height: 250px;
     object-fit: cover;
+}
+.hagtag_img:hover img {
+    transform: scale(1.1);
 }
 
 .hashtag_header--list p {
     padding-top: 1%;
-    font-size: 12px;
+    font-size: 13px;
 }
+
+.button-24 {
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-decoration: none;
+
+  }
+  
+  .button-24:hover,
+  .button-24:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #FF4742;
+  }
+  
+  .button-24:active {
+    opacity: .5;
+  }
 
 /* .footer {
     background: repeat fixed 100% url("https://img5.thuthuatphanmem.vn/uploads/2021/09/19/anh-nen-toi-4k_100313800.jpg");
