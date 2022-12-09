@@ -527,16 +527,16 @@
 
 .name_cart_item{
   width: 100%;
-  font-size: 18px;
+  font-size: 16px;
   color: rgb(123, 123, 123);
 }
 
 .type_cart_item{
   width: max-content;
-  font-size: 13px;
+  font-size: 11px;
   color: #909090;
-  padding: 4px;
-  margin-top: 5px;
+  padding: 3px 10px;
+  margin-top: 2px;
   font-weight: 500;
   border-radius: 3px;
   background-color: rgb(240, 240, 240);
@@ -545,6 +545,7 @@
 .money_cart_list{
   display: flex;
   padding-top: 20px;
+  align-items: flex-end;
 }
 
 .money_cart_item{
@@ -556,7 +557,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 10px;
   padding-left: 5px;
-  padding-top: 8px;
+  padding-bottom: 5px;
   font-weight: bold;
   color: rgb(141, 141, 141);
   text-decoration: line-through;

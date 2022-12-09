@@ -53,7 +53,6 @@ const CartIn = () => {
   const onclickHome = () => {
     navgate("/");
   };
-
   const ip = "http://localhost:8080";
 
   const [danhsachSP, setdanhsachSP] = useState([]);

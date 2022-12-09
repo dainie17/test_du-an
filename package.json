@@ -33,6 +33,7 @@
     "simplebar-react": "^2.4.3",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.6",
+    "swiper": "^8.4.5",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },

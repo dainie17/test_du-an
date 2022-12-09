@@ -914,7 +914,7 @@
 .main_new_top_small_card {
   width: 100%;
   opacity: 0;
-  padding-top: 20px;
+  padding-top: 50px;
   transition: transform 0.2s linear 0.2s, opacity 0.3s linear 0.2s;
 }
 

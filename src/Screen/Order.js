@@ -54,6 +54,19 @@ export default function Order() {
     } else {
     }
   };
+  const [soLuongNum, setSoLuongNum] = useState(0);
+  const [tongMn, setTongMn] = useState(0);
+  useEffect(() => {
+    let numBe = 0;
+    let tongTien = 0;
+    for (let index = 0; index < cart.length; index++) {
+      numBe = numBe + 1;
+      let TongMoney = cart[index].GiaCX * cart[index].SoLuongSP;
+      tongTien = tongTien + TongMoney;
+      setSoLuongNum(numBe);
+      setTongMn(tongTien);
+    }
+  }, [cart.length])
 
   useEffect(() => {
     getCart();
@@ -237,10 +250,10 @@ export default function Order() {
                 </div>
                 <div className="cart-main-right-total">
                   <p className="cart-main-right-total-title">
-                    Tổng &#10088;1&#10089;
+                    Tổng &#10088;{soLuongNum}&#10089;
                   </p>
                   <p className="cart-main-right-total-content">
-                    6.883.034&#8363;
+                    {tongMn}&#8363;
                   </p>
                 </div>
                 <button className="btn_thanh_toan">
