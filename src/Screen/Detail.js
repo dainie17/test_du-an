@@ -317,6 +317,7 @@ const Detail = () => {
               </div>
             </div>
             <div className="home-main-purview-card">
+              <div className="purview_respon">
               <div onClick={onClickVanChuyen} className="home-main-purview">
                 <img src={truck}></img>
                 <p>GIAO DỊCH TOÀN QUỐC</p>
@@ -325,6 +326,8 @@ const Detail = () => {
                 <img src={money}></img>
                 <p>HOÀN TIỀN NẾU HÀNG LỖI </p>
               </div>
+              </div>
+              <div className="purview_respon">
               <div onClick={onClickThanhToan} className="home-main-purview">
                 <img src={hour}></img>
                 <p>CHĂM SÓC KHÁCH HÀNG 24/7</p>
@@ -332,6 +335,7 @@ const Detail = () => {
               <div onClick={onClickBaoMat} className="home-main-purview">
                 <img src={shieldImg}></img>
                 <p>CAM KẾT 100% CHẤT LƯỢNG</p>
+              </div>
               </div>
             </div>
           </div>
