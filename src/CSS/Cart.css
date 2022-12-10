@@ -218,12 +218,10 @@
 /* khối div tiêu đề */
 .cart-main-left-title {
   background: white;
-  padding: 20px;
+  padding: 24px;
   width: 100%;
   display: flex;
   border-radius: 15px;
-  align-items: center;
-  justify-content: center;
 }
 
 .cart-main-left-title-content {
@@ -298,7 +296,6 @@
   font-size: 20px;
   font-weight: 300;
 }
-
 
 .cart-main-left-list-card-content-type {
   background-color: rgb(217, 217, 217);
@@ -410,13 +407,13 @@
 }
 
 .cart-main-right-subtotal-title {
-  width: 50%;
+  width: 40%;
   font-size: 15px;
   font-weight: 300;
 }
 
 .cart-main-right-subtotal-content {
-  width: 50%;
+  width: 60%;
   text-align: right;
   font-size: 15px;
   font-weight: 300;
@@ -430,13 +427,13 @@
 }
 
 .cart-main-right-total-title {
-  width: 50%;
+  width: 40%;
   font-size: 17px;
   font-weight: 600;
 }
 
 .cart-main-right-total-content {
-  width: 50%;
+  width: 60%;
   text-align: right;
   font-size: 17px;
   font-weight: 600;
@@ -444,8 +441,7 @@
 
 .btn_thanh_toan {
   cursor: pointer;
-  width: 90%;
-  margin-left: 5%;
+  width: 100%;
   background: #54e6e7;
   color: white;
   font-size: 20px;
@@ -525,35 +521,35 @@
   height: 155px;
 } */
 
-.name_cart_item{
+.name_cart_item {
   width: 100%;
-  font-size: 16px;
-  color: rgb(123, 123, 123);
+  font-size: 17px;
+  color: rgb(107, 107, 107);
 }
 
-.type_cart_item{
+.type_cart_item {
   width: max-content;
   font-size: 11px;
-  color: #909090;
+  color: #7e7e7e;
   padding: 3px 10px;
   margin-top: 2px;
-  font-weight: 500;
   border-radius: 3px;
-  background-color: rgb(240, 240, 240);
+  background-color: rgba(240, 240, 240, 0.723);
 }
 
-.money_cart_list{
+.money_cart_list {
   display: flex;
-  padding-top: 20px;
+  padding-top: 35px;
   align-items: flex-end;
 }
 
-.money_cart_item{
+.money_cart_item {
+  color: #0b4e78;
   font-size: 20px;
   font-weight: 700;
 }
 
-.moneygg_cart_item{
+.moneygg_cart_item {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 10px;
   padding-left: 5px;
@@ -563,16 +559,16 @@
   text-decoration: line-through;
 }
 
-.num_cart_item{
+.num_cart_item {
   width: max-content;
   color: #7a7a7a;
-  padding: 2px 2px 0 2px;
+  padding: 2px 2px 0 0px;
   border-radius: 2px;
   font-size: 11px;
   display: flex;
 }
 
-.cart_button{
+.cart_button {
   cursor: pointer;
   width: 80px;
   height: 160px;

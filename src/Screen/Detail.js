@@ -70,6 +70,7 @@ const Detail = () => {
       });
       setShowAdd("")
       setNameShowBtn("Đã thêm vào giỏ hàng")
+      setGioHang()
     } else if (ShowAdd == "") {
 
     }
@@ -146,11 +147,26 @@ const Detail = () => {
 
   }, []);
 
+  const setGioHang = () => {
+
+    var getInfomation = localStorage.getItem("Infomation")
+    var db = JSON.parse(getInfomation)
+
+    if (getInfomation == null) {
+    }
+
+    if (getInfomation != null) {
+      axios.get(ip + `/getGioHang/${db.data._id}`)
+        .then((response) => {
+          window.localStorage.setItem("GioHang", JSON.stringify(response.data));
+        })
+    }
+  }
+
 
   const btn_AddGioHang = () => {
-    var getInfomation = localStorage.getItem("Infomation");
     var getGioHang = localStorage.getItem("GioHang");
-    var ItemSP = localStorage.getItem("ItemSP");
+    var dbGioHang = JSON.parse(getGioHang);
 
     if (getGioHang == "[]") {
       axios.post(ip + "/add_GioHang", {
@@ -167,24 +183,24 @@ const Detail = () => {
         ChiTietSP: ChiTietSP,
       });
       setShowAdd("1")
-    } else if (getGioHang != null) {
 
-      var db = JSON.parse(getInfomation);
-      var dbGioHang = JSON.parse(getGioHang);
+
+    } else if (getGioHang != null) {
 
       let item = dbGioHang.find((c) => c.idImg == idImg);
       if (item) {
         let a = item.SoLuongSP + tong
         if (a > SoLuongSP) {
-          axios.put(ip + `/UpdateGioHang/${item.idImg}/${db.data._id}`, {
+          axios.put(ip + `/UpdateGioHang/${item.idImg}/${item.idUser}`, {
             SoLuongSP: SoLuongSP,
           });
           setShowAdd("1")
         } else {
-          axios.put(ip + `/UpdateGioHang/${item.idImg}/${db.data._id}`, {
+          axios.put(ip + `/UpdateGioHang/${item.idImg}/${item.idUser}`, {
             SoLuongSP: a,
           });
           setShowAdd("1")
+
         }
       } else {
         axios.post(ip + "/add_GioHang", {
@@ -201,6 +217,7 @@ const Detail = () => {
           ChiTietSP: ChiTietSP,
         });
         setShowAdd("1")
+
       }
     }
   };
@@ -246,7 +263,7 @@ const Detail = () => {
                   <img src={oke} width='28' height='28' />
                   <p className="msg">{NameShowBtn}</p>
                   <div className="btn_alert_add">
-                    X
+                    x
                   </div>
                 </div>
               </div>

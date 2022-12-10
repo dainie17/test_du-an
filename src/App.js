@@ -36,6 +36,7 @@ import Forgot_Pass from './Screen/Forgot_Pass';
 import Inactive from './Screen/Inactive';
 import { useNavigate, Link } from "react-router-dom";
 import { array } from 'yup';
+import Completed from './Screen/Completed';
 
 
 function App() {
@@ -222,6 +223,8 @@ function App() {
         <Route path="/:somestring" element={<Error />} />
         {/* khóa tài khoản */}
         <Route path="/Inactive" element={<Inactive />} />
+        {/* Đặt hằng thành công */}
+        <Route path="/Completed" element={<Completed />} />
       </Routes>
     </div>
   );

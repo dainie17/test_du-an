@@ -5,6 +5,7 @@ import "../css/Cart.css";
 import Footer from "./footer";
 import ScrollToTop from "../Screen/ScrollToTopbtn";
 import logo from "../assets/logo_cty.png";
+import error from "../assets/error.png"
 
 import { filter } from "lodash";
 import { Link as RouterLink } from "react-router-dom";
@@ -24,6 +25,7 @@ import {
 } from "@mui/material";
 
 import axios from "axios";
+import $ from "jquery";
 
 // gọi trang
 import Scrollbar from "../bosung/Scrollbar";
@@ -37,22 +39,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import ItemCart from "../item/ItemCart";
 
 const CartIn = () => {
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
-  }, []);
-  let navgate = useNavigate();
 
-  const onclickItem = () => {
-    navgate("/Order");
-  };
-
-  const onclickHome = () => {
-    navgate("/");
-  };
   const ip = "http://localhost:8080";
 
   const [danhsachSP, setdanhsachSP] = useState([]);
@@ -70,6 +57,8 @@ const CartIn = () => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const [money, setMoney] = useState(0);
+
+  let TongTien = new Intl.NumberFormat("it-IT").format(money);
 
   const [soLuongNum, setSoLuongNum] = useState(0);
 
@@ -109,10 +98,7 @@ const CartIn = () => {
       return a[1] - b[1];
     });
     if (query) {
-      return filter(
-        array,
-        (array) =>
-          array.NameSP.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      return filter(array, (array) => array.NameSP.toLowerCase().indexOf(query.toLowerCase()) !== -1
       );
     }
     return stabilizedThis.map((el) => el[0]);
@@ -179,16 +165,50 @@ const CartIn = () => {
     setFilterName(event.target.value);
   };
 
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - danhsachSP.length) : 0;
+  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - danhsachSP.length) : 0;
 
-  const filteredUsers = applySortFilter(
-    danhsachSP,
-    getComparator(order, orderBy),
-    filterName
-  );
+  const filteredUsers = applySortFilter(danhsachSP, getComparator(order, orderBy), filterName);
 
   const isUserNotFound = filteredUsers.length === 0;
+
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
+  let navgate = useNavigate();
+
+  const onclickItem = () => {
+    if (money == 0) {
+      $(".update").ready(function () {
+        $(".alert_update").addClass("show_update");
+        $(".alert_update").removeClass("hide_update");
+        $(".alert_update").addClass("showAlert_update");
+        setTimeout(function () {
+          $(".alert_update").removeClass("show_update");
+          $(".alert_update").addClass("hide_update");
+        }, 3000);
+      });
+      $(".btn_alert_update").click(function () {
+        $(".alert_update").removeClass("show_update");
+        $(".alert_update").addClass("hide_update");
+      });
+    } else if (money > 0) {
+      var DonHang = {
+        Array_id: selected,
+        money: money,
+      }
+      localStorage.setItem('DonHang', JSON.stringify(DonHang));
+      navgate("/Order");
+    }
+
+  };
+
+  const onclickHome = () => {
+    navgate("/");
+  };
 
   return (
     <div className="carrt">
@@ -202,6 +222,17 @@ const CartIn = () => {
             <div className="cart-header-test">
               <VerifiedUserSharp />
               <p>Kiểm tra an toàn</p>
+            </div>
+          </div>
+
+          <div>
+            <button className='update' style={{ display: "none" }}>sửa</button>
+            <div className="alert_update hide_update">
+              <img src={error} width='28' height='28' />
+              <p className="msg_update">Bạn chưa chọn sản phẩm đặt hàng</p>
+              <div className="btn_alert_update">
+                x
+              </div>
             </div>
           </div>
 
@@ -366,14 +397,14 @@ const CartIn = () => {
             <div className="cart-main-right-subtotal">
               <p className="cart-main-right-subtotal-title">Tổng phụ</p>
               <p className="cart-main-right-subtotal-content">
-                6.883.034&#8363;
+                {TongTien} VND
               </p>
             </div>
             <div className="cart-main-right-total">
               <p className="cart-main-right-total-title">
-                Tổng &#10088;{selected.length}&#10089;
+                Tổng&#10088;{selected.length}&#10089;
               </p>
-              <p className="cart-main-right-total-content">{money}&#8363;</p>
+              <p className="cart-main-right-total-content">{TongTien} VND</p>
             </div>
             <button
               className="btn_thanh_toan"

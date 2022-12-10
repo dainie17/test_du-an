@@ -11,82 +11,69 @@ export default function Address(props) {
     props.setOpen(false);
   };
 
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [addres, setAddres] = useState("");
+  const [NameDH, setNameDH] = useState(props.NameDH);
+  const [PhoneDH, setPhoneDH] = useState(props.PhoneDH);
+  const [EmailDH, setEmailDH] = useState(props.EmailDH);
+  const [AddreeDH, setAddreeDH] = useState(props.AddreeDH);
 
-  const [nameud, setNameud] = useState("");
-  const [phoneud, setPhoneud] = useState("");
-  const [emailud, setEmailud] = useState("");
-  const [addresud, setAddresud] = useState("");
 
   const addToAddress = async () => {
-    if(nameCheck == false){
+    validateName(NameDH)
+    validatePhoneCheck(PhoneDH)
+    validateEmailCheck(EmailDH)
+    validateAdres(AddreeDH)
+    if (nameCheck == false) {
       setColor1("red");
     } else if (phoneCheck == false) {
       setcolor2("red");
-    } else if (EmailCheck == false){
+    } else if (EmailCheck == false) {
       setColor3("red");
-    } else if (adresCheck == false){
+    } else if (adresCheck == false) {
       setColor4("red");
-    } else if (nameCheck == true && phoneCheck == true && EmailCheck == true && adresCheck == true){
-      var addre = {
-        name: nameud,
-        phone: phoneud,
-        email: emailud,
-        addres: addresud,
-      };
-      localStorage.setItem("address", JSON.stringify(addre));
+    } else if (nameCheck == true && phoneCheck == true && EmailCheck == true && adresCheck == true) {
+      props.setNameDH(NameDH)
+      props.setPhoneDH(PhoneDH)
+      props.setEmailDH(EmailDH)
+      props.setAddreeDH(AddreeDH)
       props.setOpen(false);
     }
   };
 
-  const getAddress = () => {
-    var storage = localStorage.getItem("address");
-    var address = JSON.parse(storage);
-    if (storage != null) {
-      setName(address.name);
-      setPhone(address.phone);
-      setEmail(address.email);
-      setAddres(address.addres);
-    } else {
-    }
-  };
+
 
   const [color1, setColor1] = useState("#d8dde1");
   const [nameCheck, setNameCheck] = useState(false);
   const [errorName, setErrorName] = useState("");
   const validateName = (se) => {
-    const format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     const formatNum = /[0123456789]/;
-    if (se == "") {
+    if (se == null) {
       setNameCheck(false);
       setColor1("red");
       setErrorName("Tên người dùng không được để trống");
     }
-    if (se != "" && format.test(se) == true) {
+    if (se != null && format.test(se) == true) {
       setNameCheck(false);
       setColor1("red");
       setErrorName("Vui lòng không điền kí tự đặc biệt");
     }
-    if (se != "" && formatNum.test(se) == true) {
+    if (se != null && formatNum.test(se) == true) {
       setNameCheck(false);
       setColor1("red");
       setErrorName("Vui lòng không điền kí tự đặc biệt");
     }
-    if (se != "" && se.length < 2) {
+    if (se != null && se.length < 2) {
       setNameCheck(false);
       setColor1("red");
       setErrorName("Vui lòng nhập hơn 1 ký tự");
     }
-    if (se != "" && se.length > 20) {
+    if (se != null && se.length > 20) {
       setNameCheck(false);
       setColor1("red");
       setErrorName("Vui lòng nhập ít hơn 20 ký tự");
     }
     if (
-      se != "" &&
+      se != null &&
       se.length > 1 &&
       se.length < 21 &&
       format.test(se) == false &&
@@ -110,17 +97,17 @@ export default function Address(props) {
   const [errorPhoneCheck, setErrorPhoneCheck] = useState("");
   const validatePhoneCheck = (se) => {
     const formatPhone = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
-    if (se != "" && formatPhone.test(se) == true ) {
+    if (se != null && formatPhone.test(se) == true) {
       setPhoneCheck(true);
       setcolor2("#d8dde1");
       setErrorPhoneCheck("");
     }
-    if (se == "") {
+    if (se == null) {
       setPhoneCheck(false);
       setcolor2("red");
       setErrorPhoneCheck("Số điện thoại không được để trống");
     }
-    if (se != "" && formatPhone.test(se) == false) {
+    if (se != null && formatPhone.test(se) == false) {
       setPhoneCheck(false);
       setcolor2("red");
       setErrorPhoneCheck("Số điện thoại không đúng định dạng");
@@ -140,18 +127,18 @@ export default function Address(props) {
   const validateEmailCheck = (se) => {
     const formatEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-    if (se == "") {
+    if (se == null) {
       setEmailCheck(false);
       setColor3("red");
       setErrorEmailCheck("Email không được để trống");
     }
-    if (se != "" && formatEmail.test(se) == false) {
+    if (se != null && formatEmail.test(se) == false) {
       setEmailCheck(false);
       setColor3("red");
       setErrorEmailCheck("Email không đúng định dạng");
     }
 
-    if (se != "" && formatEmail.test(se) == true) {
+    if (se != null && formatEmail.test(se) == true) {
       setEmailCheck(true);
       setColor3("#d8dde1");
       setErrorEmailCheck("");
@@ -170,23 +157,23 @@ export default function Address(props) {
   const validateAdres = (se) => {
     const format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     const formatNum = /[0123456789]/;
-    if (se == "") {
+    if (se == null) {
       setAdresCheck(false);
       setColor4("red");
       setErrorAdres("Địa chỉ không được để trống");
     }
-    if (se != "" && se.length < 15) {
+    if (se != null && se.length < 15) {
       setAdresCheck(false);
       setColor4("red");
       setErrorAdres("Vui lòng nhập địa chỉ chi tiết hơn");
     }
-    if (se != "" && se.length > 50) {
+    if (se != null && se.length > 50) {
       setAdresCheck(false);
       setColor4("red");
       setErrorAdres("Vui lòng nhập ít hơn 50 ký tự");
     }
     if (
-      se != "" &&
+      se != null &&
       se.length > 15 &&
       se.length < 50
     ) {
@@ -203,10 +190,6 @@ export default function Address(props) {
     return <div className="form_warning_adr">{props.errorAdresCheck}</div>;
   }
 
-
-  useEffect(() => {
-    getAddress();
-  });
 
   return (
     <Dialog
@@ -229,8 +212,8 @@ export default function Address(props) {
               style={{ borderColor: color1 }}
               placeholder=" "
               name="Họ và tên"
-              defaultValue={name}
-              onChange={(e) => setNameud(e.target.value)}
+              defaultValue={props.NameDH}
+              onChange={(e) => setNameDH(e.target.value)}
               onBlur={(e) => validateName(e.target.value)}
               required
             />
@@ -247,8 +230,8 @@ export default function Address(props) {
               style={{ borderColor: color2 }}
               placeholder=" "
               name="Số điện thoại"
-              defaultValue={phone}
-              onChange={(e) => setPhoneud(e.target.value)}
+              defaultValue={props.PhoneDH}
+              onChange={(e) => setPhoneDH(e.target.value)}
               onBlur={(e) => validatePhoneCheck(e.target.value)}
               required
             />
@@ -269,8 +252,8 @@ export default function Address(props) {
             style={{ borderColor: color3 }}
             placeholder=" "
             name="Email"
-            defaultValue={email}
-            onChange={(e) => setEmailud(e.target.value)}
+            defaultValue={props.EmailDH}
+            onChange={(e) => setEmailDH(e.target.value)}
             onBlur={(e) => validateEmailCheck(e.target.value)}
             required
           />
@@ -290,9 +273,9 @@ export default function Address(props) {
             style={{ borderColor: color4 }}
             placeholder=" "
             name="địa chỉ"
-            defaultValue={addres}
-            onChange={(e) => setAddresud(e.target.value)}
-              onBlur={(e) => validateAdres(e.target.value)}
+            defaultValue={props.AddreeDH}
+            onChange={(e) => setAddreeDH(e.target.value)}
+            onBlur={(e) => validateAdres(e.target.value)}
             required
           />
           <label htmlFor="text" className="form__label">

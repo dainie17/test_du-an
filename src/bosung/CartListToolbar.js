@@ -52,12 +52,12 @@ export default function CartListToolbar({ selected, numSelected, filterName, onF
             sx={{
                 ...(numSelected > 0 && {
                     color: 'primary.main',
-                    bgcolor: 'primary.lighter',
+                    bgcolor: '#D1E9FC',
                 }),
             }}
         >
             {numSelected > 0 ? (
-                <Typography component="div" variant="subtitle1">
+                <Typography component="div" variant="subtitle1" style={{ fontSize: "16px", fontWeight: "bold" }}>
                     {numSelected} selected
                 </Typography>
             ) : (

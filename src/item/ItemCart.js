@@ -11,14 +11,11 @@ export default function ItemCart(props) {
 
   let navga = useNavigate();
   const [Display, setDisplay] = useState("none");
-  const [colo, setColo] = useState("black");
   useEffect(() => {
     if (props.SaleSP != 0) {
       setDisplay("block");
-      setColo("red");
     } else {
       setDisplay("none");
-      setColo("black");
     }
   });
 
@@ -39,11 +36,11 @@ export default function ItemCart(props) {
     }
     props.setSelected(newSelected);
     if (event.target.checked == true) {
-      props.setMoney(props.money + TongMoney);
+      props.setMoney(props.money + (props.GiaCX * props.SoLuongSP));
     }
     if (event.target.checked == false) {
       if (props.money >= GiaCX) {
-        props.setMoney(props.money - TongMoney);
+        props.setMoney(props.money - (props.GiaCX * props.SoLuongSP));
       } else {
       }
     }
@@ -51,7 +48,12 @@ export default function ItemCart(props) {
 
   let selected = props.selected;
 
+
   let GiaCX = new Intl.NumberFormat("it-IT").format(props.GiaCX);
+
+  let TongMoney = new Intl.NumberFormat("it-IT").format(props.GiaCX * props.SoLuongSP);
+
+  let TongGiaGoc = new Intl.NumberFormat("it-IT").format(props.GiaBanSP * props.SoLuongSP);
 
   const onClick = () => {
     var getDsSP = localStorage.getItem("DanhSachSP");
@@ -78,10 +80,10 @@ export default function ItemCart(props) {
         };
         localStorage.setItem("ItemSP", JSON.stringify(ItemSP));
       }
+
     }
   };
-  let TongMoney = props.GiaCX * props.SoLuongSP;
-  let TongGiaGoc = props.GiaBanSP * props.SoLuongSP;
+
   return (
     <TableRow
       hover
@@ -91,7 +93,7 @@ export default function ItemCart(props) {
       selected={props.isItemSelected}
       aria-checked={props.isItemSelected}
     >
-      <TableCell style={{ padding: "10px 5px 5px 5px" }} padding="checkbox">
+      <TableCell style={{ padding: "10px 5px 5px 13px" }} padding="checkbox">
         <Checkbox
           checked={props.isItemSelected}
           onChange={(event) => handleClick(event, props._id)}
@@ -112,7 +114,7 @@ export default function ItemCart(props) {
       </TableCell>
 
       <TableCell
-        style={{ padding: "10px 5px 5px 5px" }}
+        style={{ padding: "0 15px" }}
         className="name_sp"
         component="th"
         scope="row"
@@ -121,7 +123,7 @@ export default function ItemCart(props) {
           <div className="name_cart_item">{props.NameSP}</div>
           <div className="type_cart_item">Loại: {props.LoaiSP}</div>
           <div className="money_cart_list">
-            <div className="money_cart_item" style={{ color: colo }}>
+            <div className="money_cart_item">
               {TongMoney} VND
             </div>
             <div className="moneygg_cart_item" style={{ display: Display }}>

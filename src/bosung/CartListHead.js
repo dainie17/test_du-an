@@ -43,7 +43,7 @@ export default function CartListHead({
     return (
         <TableHead>
             <TableRow>
-                <TableCell padding="checkbox">
+                <TableCell padding="checkbox" style={{ paddingLeft: "13px" }}>
                     <Checkbox
                         indeterminate={numSelected > 0 && numSelected < rowCount}
                         checked={rowCount > 0 && numSelected === rowCount}
@@ -70,7 +70,7 @@ export default function CartListHead({
                     </TableCell>
                 ))} */}
                 <TableCell>
-                    <p style={{marginLeft: "-30px", fontSize: "16px"}}>Chọn tất cả</p>
+                    <p style={{ marginLeft: "-11px", fontSize: "16px" }}>Chọn tất cả</p>
                 </TableCell>
                 <TableCell>
                 </TableCell>

@@ -5,15 +5,26 @@ import "../css/Order.css";
 import Footer from "./footer";
 import ScrollToTop from "react-scroll-to-top";
 import Address from "../dialog/Address";
+
+import axios from "axios";
+import $ from "jquery";
+
 import logo from "../assets/logo_cty.png";
+import cod from "../assets/cod.png";
+import paypal from "../assets/paypal.png";
+import error from "../assets/error.png"
+
+
 import BeatLoader from "react-spinners/BeatLoader";
-import ItemImgCart from "../item/ItemImgCart";
 import ItemOder from "../item/ItemOder";
 
 const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
 
 export default function Order() {
+
+  const ip = "http://localhost:8080";
+
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
@@ -26,61 +37,159 @@ export default function Order() {
     setOpenAdd(true);
   };
 
-  const [cart, setCart] = useState([]);
+
+
+  const [DonHang, setDonHang] = useState([]);
+
+  const [TongTien, setTongTien] = useState(0);
+
+  let ArrayOrder = []
+  var getDH = localStorage.getItem("DonHang");
+  var dbDH = JSON.parse(getDH);
+
+  var getGioHang = localStorage.getItem("GioHang")
+  var dbGioHang = JSON.parse(getGioHang)
+
+  var getInfomation = localStorage.getItem("Infomation")
+  var db = JSON.parse(getInfomation)
 
   const getCart = () => {
-    var storage = localStorage.getItem("GioHang");
-    var carrt = JSON.parse(storage);
-    if (storage != null) {
-      setCart(carrt);
-    } else {
+    if (getDH == null && getGioHang == null) {
+    } else if (getDH != null && getGioHang != null) {
+      dbGioHang.map((vl, index) => {
+        let item = dbDH.Array_id.find(val => val == vl._id);
+        if (item) {
+          ArrayOrder.push(vl)
+          setDonHang(ArrayOrder)
+        }
+      })
     }
   };
 
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [addre, setAddre] = useState("");
-  const [nameCheck, setNameCheck] = useState(false);
+  const [NameDH, setNameDH] = useState();
+  const [PhoneDH, setPhoneDH] = useState();
+  const [EmailDH, setEmailDH] = useState();
+  const [AddreeDH, setAddreeDH] = useState();
 
-  const getAddress = () => {
-    var storage = localStorage.getItem("address");
-    var address = JSON.parse(storage);
-    if (storage != null) {
-      setName(address.name);
-      setPhone(address.phone);
-      setEmail(address.email);
-      setAddre(address.addres);
-    } else {
-    }
-  };
-  const [soLuongNum, setSoLuongNum] = useState(0);
-  const [tongMn, setTongMn] = useState(0);
-  useEffect(() => {
-    let numBe = 0;
-    let tongTien = 0;
-    for (let index = 0; index < cart.length; index++) {
-      numBe = numBe + 1;
-      let TongMoney = cart[index].GiaCX * cart[index].SoLuongSP;
-      tongTien = tongTien + TongMoney;
-      setSoLuongNum(numBe);
-      setTongMn(tongTien);
-    }
-  }, [cart.length])
+
 
   useEffect(() => {
     getCart();
   }, []);
 
-  useEffect(() => {
-    getAddress();
-  });
+
 
   let navgate = useNavigate();
 
   const onclickHome = () => {
     navgate("/");
   };
+
+  const WartingAlert = () => {
+    $(".update").ready(function () {
+      $(".alert_update").addClass("show_update");
+      $(".alert_update").removeClass("hide_update");
+      $(".alert_update").addClass("showAlert_update");
+      setTimeout(function () {
+        $(".alert_update").removeClass("show_update");
+        $(".alert_update").addClass("hide_update");
+      }, 3000);
+    });
+    $(".btn_alert_update").click(function () {
+      $(".alert_update").removeClass("show_update");
+      $(".alert_update").addClass("hide_update");
+    });
+  }
+
+
+
+  const [TrangThaiDH, setTrangThaiDH] = useState("Chờ xác nhận");
+
+
+  const onclickDH = () => {
+    if (NameDH == null && PhoneDH == null && EmailDH == null && AddreeDH == null) {
+      WartingAlert()
+      setShowAler("Bạn chưa nhập đầu đủ địa chỉ")
+    } else if (NameDH != null && PhoneDH != null && EmailDH != null && AddreeDH != null) {
+      if (ThanhToan == 0) {
+        WartingAlert()
+        setShowAler("Hãy chọn phương thức thanh toán")
+      } else if (ThanhToan == 1) {
+        let PhuongThucTT = "Thanh Toán Trực Tiếp";
+        axios.post(ip + "/add_DonHang", {
+          idUser: db.data._id,
+          DsSP: DonHang,
+          NameDH: NameDH,
+          PhoneDH: PhoneDH,
+          EmailDH: EmailDH,
+          AddreeDH: AddreeDH,
+          PhuongThucTT: PhuongThucTT,
+          SumMoney: TongTien,
+          DateDH: new Date(),
+          TrangThaiDH: TrangThaiDH,
+        });
+
+        const id_chx = dbDH.Array_id.map((vl, index) => {
+          axios.delete(ip + `/DeleteGioHang/${vl}`);
+        })
+        navgate("/Completed");
+      } else if (ThanhToan == 2) {
+        console.log("Thanh Toán Online");
+      }
+    }
+
+
+  };
+
+  const [ThanhToan, setThanhToan] = useState(0);
+
+  const [Display, setDisplay] = useState();
+
+  const [ShowAler, setShowAler] = useState("");
+
+
+  function getThanhToanOff() {
+    if (ThanhToan == 0) {
+      setThanhToan(1);
+    } else if (ThanhToan == 2) {
+      setThanhToan(1)
+    } else {
+      setThanhToan(0);
+    }
+  }
+
+  function getThanhToanOnl() {
+    if (ThanhToan == 0) {
+      setThanhToan(2);
+    } else if (ThanhToan == 1) {
+      setThanhToan(2)
+    } else {
+      setThanhToan(0);
+    }
+  }
+
+  let TongMoney = new Intl.NumberFormat("it-IT").format(TongTien);
+  let TongPhu = new Intl.NumberFormat("it-IT").format(dbDH.money);
+  useEffect(() => {
+
+    if (ThanhToan == 0) {
+      setDisplay("none")
+      setTongTien(dbDH.money)
+      $(".order-main-left-payment-button-left").removeClass("payment_button_left_onclick");
+      $(".order-main-left-payment-button-right").removeClass("payment_button_right_onclick");
+    } else if (ThanhToan == 1) {
+      setDisplay("")
+      setTongTien(dbDH.money + 35000)
+
+      $(".order-main-left-payment-button-right").removeClass("payment_button_right_onclick");
+      $(".order-main-left-payment-button-left").addClass("payment_button_left_onclick");
+    } else if (ThanhToan == 2) {
+      setTongTien(dbDH.money)
+      setDisplay("none")
+      $(".order-main-left-payment-button-left").removeClass("payment_button_left_onclick");
+      $(".order-main-left-payment-button-right").addClass("payment_button_right_onclick");
+    }
+  },)
 
   return (
     <>
@@ -96,11 +205,32 @@ export default function Order() {
         </div>
       ) : (
         <>
-          <Address open={openAdd} setOpen={setOpenAdd} />
+          <Address
+            open={openAdd}
+            setOpen={setOpenAdd}
+            NameDH={NameDH}
+            PhoneDH={PhoneDH}
+            EmailDH={EmailDH}
+            AddreeDH={AddreeDH}
+            setNameDH={setNameDH}
+            setPhoneDH={setPhoneDH}
+            setEmailDH={setEmailDH}
+            setAddreeDH={setAddreeDH}
+          />
           <div className="order">
             <ScrollToTop smooth></ScrollToTop>
             <div className="cart-header">
               <div className="cart_header_container">
+                <div>
+                  <button className='update' style={{ display: "none" }}>sửa</button>
+                  <div className="alert_update hide_update">
+                    <img src={error} width='28' height='28' />
+                    <p className="msg_update">{ShowAler}</p>
+                    <div className="btn_alert_update">
+                      x
+                    </div>
+                  </div>
+                </div>
                 <div className="cart_header_left">
                   <div className="cart-header-logo" onClick={onclickHome}>
                     <img src={logo} alt="" />
@@ -164,11 +294,15 @@ export default function Order() {
                     <div className="order-main-left-address-para-icon"></div>
                     <div className="order-main-left-para-content">
                       <p className="order-main-left-address-para-content-person">
-                        {name}, {phone}
+                        {NameDH}, {PhoneDH}
                       </p>
                       <p className="order-main-left-address-content-address">
-                        {addre}
+                        {EmailDH}
                       </p>
+                      <p className="order-main-left-address-content-address">
+                        {AddreeDH}
+                      </p>
+
                       <div className="order-main-left-address-content-button">
                         <button
                           onClick={handleClickItemAdd}
@@ -176,9 +310,6 @@ export default function Order() {
                         >
                           Chỉnh sửa
                         </button>
-                        {/* <button className="order-main-left-address-content-button-delete">
-                      Xóa
-                    </button> */}
                       </div>
                     </div>
                   </div>
@@ -189,8 +320,18 @@ export default function Order() {
                     Phương thức thanh toán
                   </p>
                   <div className="order-main-left-payment-button">
-                    <div className="order-main-left-payment-button-left"></div>
-                    <div className="order-main-left-payment-button-right"></div>
+                    <div onClick={getThanhToanOff} className="order-main-left-payment-button-left">
+                      <span className="payment_button_span_left">
+                        <img src={cod} width="100" height="100" />
+                        <p>Thanh toán trực tiếp</p>
+                      </span>
+                    </div>
+                    <div onClick={getThanhToanOnl} className="order-main-left-payment-button-right">
+                      <span className="payment_button_span_right">
+                        <img src={paypal} width="100" height="100" />
+                        <p>Thanh toán online</p>
+                      </span>
+                    </div>
                   </div>
                 </div>
 
@@ -220,24 +361,25 @@ export default function Order() {
 
                     <div className="order_main_card_tt">thành tiền</div>
                   </div>
-                  {cart.map((item, index) => (
-                    <ItemOder
-
-                    key={item._id}
-                    _id={item._id}
-                    idUser={item.idUser}
-                    Image={item.Image}
-                    idImg={item.idImg}
-                    NameSP={item.NameSP}
-                    GiaCX={item.GiaCX}
-                    GiaBanSP={item.GiaBanSP}
-                    SoLuongSP={item.SoLuongSP}
-                    SaleSP={item.SaleSP}
-                    TrangThaiSP={item.TrangThaiSP}
-                    LoaiSP={item.LoaiSP}
-                    ChiTietSP={item.ChiTietSP}
-                    />
-                  ))}
+                  {DonHang.map((item, index) => {
+                    return (
+                      <ItemOder
+                        key={item._id}
+                        _id={item._id}
+                        idUser={item.idUser}
+                        Image={item.Image}
+                        idImg={item.idImg}
+                        NameSP={item.NameSP}
+                        GiaCX={item.GiaCX}
+                        GiaBanSP={item.GiaBanSP}
+                        SoLuongSP={item.SoLuongSP}
+                        SaleSP={item.SaleSP}
+                        TrangThaiSP={item.TrangThaiSP}
+                        LoaiSP={item.LoaiSP}
+                        ChiTietSP={item.ChiTietSP}
+                      />
+                    )
+                  })}
                 </div>
               </div>
               <div className="order-main-right">
@@ -245,18 +387,24 @@ export default function Order() {
                 <div className="cart-main-right-subtotal">
                   <p className="cart-main-right-subtotal-title">Tổng phụ</p>
                   <p className="cart-main-right-subtotal-content">
-                    6.883.034&#8363;
+                    {TongPhu} VND
+                  </p>
+                </div>
+                <div className="cart-main-right-subtotal" style={{ display: Display }}>
+                  <p className="cart-main-right-subtotal-title">Ship</p>
+                  <p className="cart-main-right-subtotal-content">
+                    35.000 VND
                   </p>
                 </div>
                 <div className="cart-main-right-total">
                   <p className="cart-main-right-total-title">
-                    Tổng &#10088;{soLuongNum}&#10089;
+                    Tổng
                   </p>
                   <p className="cart-main-right-total-content">
-                    {tongMn}&#8363;
+                    {TongMoney} VND
                   </p>
                 </div>
-                <button className="btn_thanh_toan">
+                <button className="btn_thanh_toan" onClick={onclickDH}>
                   <span className="span_thanh_toan">Đặt hàng</span>
                 </button>
               </div>
