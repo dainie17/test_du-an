@@ -16,7 +16,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo_cty.png";
 import { Fragment } from "react";
 import axios from "axios";
-
+import three_dot from "../assets/three_dot.png";
+import name_logo from "../assets/name_logo.png"
 const onClickSearch = () => {
   $(".input_search").toggleClass("active");
 };
@@ -89,11 +90,25 @@ function NavbarIn() {
     navgate("/login");
   };
 
+  const [opNav, setOpNav] = useState(0);
+
+  function myFunction() {
+    if (opNav == 0) {
+      $(".home-header_ul").addClass("repon_nav");
+      setOpNav(1);
+    } else {
+      $(".home-header_ul").removeClass("repon_nav");
+      setOpNav(0);
+    }
+  }
+
   return (
     <nav className="home-header">
       <div className="header_container">
+      <div onClick={myFunction} className="open_nav" id={"openNav"}><img className="open_navimg" src={three_dot}></img></div>
         <div onClick={onclickHome} className="home-header_logo">
           <img className="home-header-logo-image" src={logo} alt="" />
+          <img className="home-header-logo-image-name" src={name_logo} alt="" />
         </div>
         <ul className="home-header_ul">
           <li onClick={onclickHome}>

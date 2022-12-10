@@ -116,12 +116,12 @@ const Product = () => {
   const [prevActive, setPrevActive] = useState(0);
 
   function addPre(vl) {
-    if(vl == 0){
-      setPrevActive(1)
-    } else if(vl == 1){
-      setPrevActive(2)
-    }else if(vl == 2){
-      setPrevActive(0)
+    if (vl == 0) {
+      setPrevActive(1);
+    } else if (vl == 1) {
+      setPrevActive(2);
+    } else if (vl == 2) {
+      setPrevActive(0);
     }
   }
 
@@ -147,53 +147,86 @@ const Product = () => {
       setChxNab(true);
     }
 
-    const slides = document.querySelectorAll(".slide");
-    const controls = document.querySelectorAll(".control");
-    let activeSlide = 0;
-
-
-
-      if (prevActive == 0) {
-        $(".abcd").ready(function(){
-          $(`.slide_1`).addClass("active");
-          $(`.control_1`).addClass("active");
-          $(`.slide_2`).removeClass("active");
-          $(`.control_2`).removeClass("active");
-          $(`.slide_3`).removeClass("active");
-          $(`.control_3`).removeClass("active");
-          setTimeout( function() {
-            addPre(0);
-          }, 4000);
-        })
-      } else  if (prevActive == 1) {
-        $(".abcd").ready(function(){
-          $(`.slide_2`).addClass("active");
-          $(`.control_2`).addClass("active");
-          $(`.slide_1`).removeClass("active");
-          $(`.control_1`).removeClass("active");
-          $(`.slide_3`).removeClass("active");
-          $(`.control_3`).removeClass("active");
-          setTimeout( function() {
-            addPre(1);
-          }, 4000);
-        })
-      } else  if (prevActive == 2) {
-
-        $(".abcd").ready(function(){
-          $(`.slide_3`).addClass("active");
-          $(`.control_3`).addClass("active");
-          $(`.slide_1`).removeClass("active");
-          $(`.control_1`).removeClass("active");
-          $(`.slide_2`).removeClass("active");
-          $(`.control_2`).removeClass("active");
-          setTimeout( function() {
-            addPre(2);
-          }, 4000);
-        })
-        
-      }
-
+    if (prevActive == 0) {
+      $(".abcd").ready(function () {
+        $(`.slide_1`).addClass("active");
+        $(`.control_1`).addClass("active");
+        $(`.slide_2`).removeClass("active");
+        $(`.control_2`).removeClass("active");
+        $(`.slide_3`).removeClass("active");
+        $(`.control_3`).removeClass("active");
+        setTimeout(function () {
+          addPre(0);
+        }, 4000);
+      });
+    } else if (prevActive == 1) {
+      $(".abcd").ready(function () {
+        $(`.slide_2`).addClass("active");
+        $(`.control_2`).addClass("active");
+        $(`.slide_1`).removeClass("active");
+        $(`.control_1`).removeClass("active");
+        $(`.slide_3`).removeClass("active");
+        $(`.control_3`).removeClass("active");
+        setTimeout(function () {
+          addPre(1);
+        }, 4000);
+      });
+    } else if (prevActive == 2) {
+      $(".abcd").ready(function () {
+        $(`.slide_3`).addClass("active");
+        $(`.control_3`).addClass("active");
+        $(`.slide_1`).removeClass("active");
+        $(`.control_1`).removeClass("active");
+        $(`.slide_2`).removeClass("active");
+        $(`.control_2`).removeClass("active");
+        setTimeout(function () {
+          addPre(2);
+        }, 4000);
+      });
+    }
   });
+
+  const onclickItem = () => {
+    navgate("/Personal");
+  };
+
+  const onclickCart = () => {
+    navgate("/Cart");
+  };
+
+  const onClickVanChuyen = () => {
+    navgate("/vanchuyen");
+  };
+
+  const onClickDoiTra = () => {
+    navgate("/doitra");
+  };
+
+  const onClickBaoMat = () => {
+    navgate("/baomat");
+  };
+
+  const onClickThanhToan = () => {
+    navgate("/thanhtoan");
+  };
+
+  
+  const [TKUser, setTKUser] = useState();
+
+  useEffect(() => {
+
+    var getInfomation = localStorage.getItem("Infomation")
+    var db = JSON.parse(getInfomation)
+    if (getInfomation == null) {
+      setTKUser("Người dùng")
+    }
+
+    if (getInfomation != null) {
+      setTKUser(db.data.TKUser)
+    }
+
+
+  },)
 
   return (
     <div className="product">
@@ -216,17 +249,24 @@ const Product = () => {
           <div className="product-main">
             <div className="product_container">
               <div className="product-main-top">
-                <button className="abcd" style={{display:"none"}}></button>
+                <button className="abcd" style={{ display: "none" }}></button>
                 <div className="product-main-top-left">
                   <div className="product-main-top-left-title">
                     <ViewListSharp />
                     <p>Danh sách sản phẩm</p>
                   </div>
                   <div className="product-main-top-left-content">
+                    <div className="list_type">
+                      <p>Tất cả loại sản phẩm</p>
+                    </div>
+                    <div className="line_type"></div>
                     {dsLoaiSP.map((item, index) => (
-                      <div key={index} className="list_type">
-                        <p>{item.NameLoaiSP.substring(0, 28)}</p>
-                      </div>
+                      <>
+                        <div key={index} className="list_type">
+                          <p>{item.NameLoaiSP.substring(0, 28)}</p>
+                        </div>
+                        <div className="line_type"></div>
+                      </>
                     ))}
                   </div>
                 </div>
@@ -255,29 +295,17 @@ const Product = () => {
                         <br />
                         the brightest.
                       </h1>
-                      <div
-                        className="slide slide_1"
-                        style={{
-                          background:
-                            "url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80')",
-                        }}
-                      ></div>
+                      <div className="slide_product slide_1">
+                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" />
+                      </div>
 
-                      <div
-                        className="slide slide_2"
-                        style={{
-                          background:
-                            "url('https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80')",
-                        }}
-                      ></div>
+                      <div className="slide_product slide_2">
+                        <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80" />
+                      </div>
 
-                      <div
-                        className="slide slide_3"
-                        style={{
-                          background:
-                            "url('https://images.unsplash.com/photo-1504707748692-419802cf939d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1330&q=80')",
-                        }}
-                      ></div>
+                      <div className="slide_product slide_3">
+                        <img src="https://images.unsplash.com/photo-1504707748692-419802cf939d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1330&q=80" />
+                      </div>
 
                       <div className="controls-container">
                         <div className="control control_1"></div>
@@ -308,13 +336,13 @@ const Product = () => {
                     </div>
                     <div className="product-main-top-right-user-information">
                       <div className="product-main-top-right-user-information-title">
-                        <p>Xin chào! Punpun</p>
+                        <p>Xin chào! <br/> {TKUser}</p>
                       </div>
                       <div className="product-main-top-right-user-information-button">
-                        <button className="product-main-top-right-user-information-button-left">
+                        <button onClick={onclickItem} className="product-main-top-right-user-information-button-left">
                           Tài khoản
                         </button>
-                        <button className="product-main-top-right-user-information-button-right">
+                        <button onClick={onclickCart} className="product-main-top-right-user-information-button-right">
                           Đơn hàng
                         </button>
                       </div>
@@ -326,29 +354,29 @@ const Product = () => {
                     </div>
                     <div className="product-main-top-right-service">
                       <div className="product-main-top-right-service-top">
-                        <div className="product-main-top-right-service-top-left">
+                        <div onClick={onClickThanhToan} className="product-main-top-right-service-top-left">
                           <GppGoodSharp
-                            style={{ fontSize: "15px", paddingRight: "1px" }}
+                            style={{ fontSize: "13px", paddingRight: "1px" }}
                           />
                           <p>Bảo mật thanh toán</p>
                         </div>
-                        <div className="product-main-top-right-service-top-right">
+                        <div onClick={onClickVanChuyen} className="product-main-top-right-service-top-right">
                           <TokenSharp
-                            style={{ fontSize: "15px", paddingRight: "1px" }}
+                            style={{ fontSize: "13px", paddingRight: "1px" }}
                           />
                           <p>Đảm bảo giao hàng</p>
                         </div>
                       </div>
                       <div className="product-main-top-right-service-bottom">
-                        <div className="product-main-top-right-service-bottom-left">
+                        <div onClick={onClickBaoMat} className="product-main-top-right-service-bottom-left">
                           <DiamondSharp
-                            style={{ fontSize: "15px", paddingRight: "1px" }}
+                            style={{ fontSize: "13px", paddingRight: "1px" }}
                           />
                           <p>Đảm bảo chất lượng</p>
                         </div>
-                        <div className="product-main-top-right-service-bottom-right">
+                        <div onClick={onClickDoiTra} className="product-main-top-right-service-bottom-right">
                           <AssignmentReturnSharp
-                            style={{ fontSize: "15px", paddingRight: "1px" }}
+                            style={{ fontSize: "13px", paddingRight: "1px" }}
                           />
                           <p>Trả lại không lý do</p>
                         </div>

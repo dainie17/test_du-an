@@ -12,32 +12,13 @@
   }
 }
 
-@media only screen and (max-width: 1024px) {
-    .home-header_icon{
-      width: 16%;
-    }
-  .title_container--text {
-    width: 55%;
-  }
-  .title {
-    max-width: 90%;
-  }
-
-  .news_table {
-    width: 90%;
-  }
-  .footer_container {
-    max-width: 90%;
-  }
-  .policy {
-    width: 90%;
-  }
-  .detail_container {
-    width: 90%;
-  }
-}
-
 @media only screen and (max-width: 1280px) {
+  /* ------------------------------Home------------------------- */
+  .container-nganh-hoc .mid{
+    top: 10%;
+    font-size: 13px;
+  }
+
   /* -----------------------------navbar------------------------ */
   .home-header_ul_li_navlink{
     font-size: 10px;
@@ -80,7 +61,73 @@
     font-size: 14px;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  /* --------------------------Home------------------------ */
+  .container-nganh-hoc .mid{
+    width: 90%;
+    top: 8%;
+    font-size: 12px;
+  }
+  
+  .home-main-introduce-content-frontpager{
+    font-size: 15px;
+  }
+
+  .home-main-introduce-content-title{
+    font-size: 12px;
+    height: 120px;
+  }
+
+    .text--big{
+      font-size: 5em;
+    }
+
+    .text__background{
+      top: 10%;
+      font-size: 90px;
+    }
+
+    /* ---------------navbar------------------ */
+    .home-header_icon{
+      width: 16%;
+    }
+  .title_container--text {
+    width: 55%;
+  }
+  .title {
+    max-width: 90%;
+  }
+
+  .news_table {
+    width: 90%;
+  }
+  .footer_container {
+    max-width: 90%;
+  }
+  .policy {
+    width: 90%;
+  }
+  .detail_container {
+    width: 90%;
+  }
+}
+
 @media only screen and (max-width: 820px) {
+
+    /* -----------------------------Home---------------------------- */
+    .pre_container{
+      flex-wrap: wrap;
+    }
+
+    .container-nganh-hoc{
+      width: 50%;
+    }
+
+    .container-nganh-hoc .mid {
+      top: 13%;
+      font-size: 13px;
+    }
 
     /* --------------------------navbar-------------------------- */
     .home-header_ul_li_navlink{
@@ -141,10 +188,30 @@
 }
 @media only screen and (max-width: 767px) {
 
+  /* ---------------------------------Home--------------------------- */
+  .home-main-introduce-content-frontpager{
+    font-size: 13px;
+  }
+
+  .home-main-introduce-content-title{
+    font-size: 11px;
+    height: 120px;
+  }
+
+  .text--big{
+    font-size: 4em;
+  }
+
+  .text__background{
+    top: 10%;
+    font-size: 80px;
+  }
+
+
 
     /* -----------------------------navbar--------------------------- */
     .open_nav{
-        width: 20%;
+        width: 10%;
     }
     
     .open_navimg{
@@ -273,6 +340,40 @@
 }
 }
 @media only screen and (max-width: 640px) {
+
+  /* --------------------------Home---------------------- */
+  .container-nganh-hoc .mid {
+    top: 10%;
+  }
+  
+  .home-main-introduce{
+    flex-direction: column;
+  }
+
+  .home-main-introduce-content{
+    width: 100%;
+  }
+
+  .home-main-introduce-content-title{
+    width: 100%;
+    height: 70px;
+  }
+
+  .home-main-introduce-image{
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .text--big{
+    font-size: 3em;
+  }
+
+  .text__background{
+    top: 10%;
+    font-size: 70px;
+  }
+
+
   .home-header_icon{
     width: 31%;
 }
@@ -353,11 +454,21 @@
   }
 }
 @media only screen and (max-width: 540px) {
+    /* ------------------------------Home----------------------------- */
+    .text--big{
+      font-size: 2em;
+    }
+
+    .text__background{
+      top: 20%;
+      font-size: 50px;
+    }
+
 
     
     /* -----------------------------navbar--------------------------- */
     .open_nav{
-        width: 20%;
+        width: 10%;
     }
     
     .open_navimg{
@@ -455,12 +566,36 @@
 }
 @media only screen and (max-width: 480px) {
 
+  /* --------------------------------------Home----------------------------------- */
+  .pre_container{
+    flex-direction: column;
+
+  }
+
+  .container-nganh-hoc{
+    width: 100%;
+  }
+
+  .container-nganh-hoc .mid {
+    height: 90%;
+    top: 15%;
+  }
+
+  .container-nganh-hoc .bot{
+    transform: translate(21%, 35%);
+  }
+
+  .home-main-introduce-content-title{
+    width: 100%;
+    height: 90px;
+  }
+
   .home-header_icon{
     width: 50%;
 }
 
 .open_nav{
-  width: 20%;
+  width: 10%;
 }
 
 .open_navimg{
@@ -546,7 +681,7 @@
 @media only screen and (max-width: 415px) {
 
   .open_nav{
-    width: 20%;
+    width: 10%;
 }
 
 .open_navimg{
@@ -613,7 +748,7 @@
 @media only screen and (max-width: 350px) {
 
   .open_nav{
-    width: 20%;
+    width: 10%;
 }
 
 .open_navimg{
