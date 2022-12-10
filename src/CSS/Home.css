@@ -13,6 +13,10 @@
   margin: 0 auto;
 }
 
+.open_nav{
+  display: none;
+}
+
 .slick-next::before,
 .slick-prev::before {
   display: none;
@@ -24,7 +28,7 @@
 
 /* -------------căn lề cho banner----------- */
 .banner_container {
-  margin-top: 70px;
+  margin-top: 67px;
   width: 100%;
   height: 91vh;
 }
@@ -593,7 +597,7 @@
   height: 80%;
   z-index: -1;
   position: absolute;
-  top: 12.8%;
+  top: 11%;
   padding-top: 40%;
   left: 50%;
   transform: translate(-50%, 0);

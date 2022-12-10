@@ -37,16 +37,14 @@
 
 /* ----------------chỉnh hình logo-------------- */
 .home-header-logo-image{
-    width: 50%;
+    width: 60%;
+}
+
+.home-header-logo-image-name{
+    width: 40%;
 }
 
 /* -----------------têu đề của logo------------- */
-.home-header-logo-title{
-    width: 40%;
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
-}
 
 /*-------------------list header----------------- */
 .home-header_ul {
