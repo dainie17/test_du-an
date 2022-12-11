@@ -28,6 +28,16 @@
   flex-direction: row;
 }
 
+.product-main-top_new{
+  display: none;
+  width: 100%;
+  padding-top: 50px;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 /* ---------------------chỉnh phần bên trái của main-top--------------- */
 .product-main-top-left {
   width: 24%;

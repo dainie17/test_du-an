@@ -8,15 +8,22 @@
 
 /* -------------------logo--------------- */
 .logo_form {
-  width: 7%;
+  width: 15%;
   display: flex;
   align-items: center;
-  margin-top: 2%;
-  margin-left: 2%;
+  justify-content: center;
+  margin-top: 1%;
+  margin-left: 1%;
 }
+
 .logo {
-  width: 100%;
+  width: 50%;
 }
+
+.name_logo_login{
+  width: 50%;
+}
+
 .name_logo {
   font-size: 20px;
   margin: 5px;
@@ -212,7 +219,7 @@
 }
 
 .form_login_forgetmenot p {
-  width: 33%;
+  width: 35%;
   text-align: left;
   cursor: pointer;
   font-size: 14px;

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../css/Login.css";
 import logo from "../assets/logo_cty.png";
-
+import name_logo from "../assets/name_logo.png";
 
 function useKey(key, cb) {
 
@@ -217,6 +217,7 @@ function Login() {
           className="logo"
           src={logo}
         />
+         <img className="name_logo_login" src={name_logo} alt="" />
       </div>
 
       <div className="login">

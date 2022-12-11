@@ -7,7 +7,7 @@ import Menu from "@mui/material/Menu";
 import Tooltip from "@mui/material/Tooltip";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo_cty.png";
-import name_logo from "../assets/name_logo.png"
+import name_logo from "../assets/name_logo.png";
 import three_dot from "../assets/three_dot.png";
 import { Fragment } from "react";
 const onClickSearch = () => {

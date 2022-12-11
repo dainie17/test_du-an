@@ -291,9 +291,9 @@ const Product = () => {
                     </Slider> */}
                     <div className="slider-container">
                       <h1>
-                        The best for
+                        Hình ảnh các mẫu 
                         <br />
-                        the brightest.
+                       sản phẩm được ưa chuộng
                       </h1>
                       <div className="slide_product slide_1">
                         <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" />
@@ -329,6 +329,144 @@ const Product = () => {
                       >
                         <Avatar
                           sx={{ width: 60, height: 60 }}
+                          alt="Remy Sharp"
+                          src={img}
+                        />
+                      </StyledBadge>
+                    </div>
+                    <div className="product-main-top-right-user-information">
+                      <div className="product-main-top-right-user-information-title">
+                        <p>Xin chào! <br/> {TKUser}</p>
+                      </div>
+                      <div className="product-main-top-right-user-information-button">
+                        <button onClick={onclickItem} className="product-main-top-right-user-information-button-left">
+                          Tài khoản
+                        </button>
+                        <button onClick={onclickCart} className="product-main-top-right-user-information-button-right">
+                          Đơn hàng
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="product_service">
+                    <div className="product-main-top-right-title">
+                      <p>Chính sách dịch vụ khách hàng</p>
+                    </div>
+                    <div className="product-main-top-right-service">
+                      <div className="product-main-top-right-service-top">
+                        <div onClick={onClickThanhToan} className="product-main-top-right-service-top-left">
+                          <GppGoodSharp
+                            style={{ fontSize: "13px", paddingRight: "1px" }}
+                          />
+                          <p>Bảo mật thanh toán</p>
+                        </div>
+                        <div onClick={onClickVanChuyen} className="product-main-top-right-service-top-right">
+                          <TokenSharp
+                            style={{ fontSize: "13px", paddingRight: "1px" }}
+                          />
+                          <p>Đảm bảo giao hàng</p>
+                        </div>
+                      </div>
+                      <div className="product-main-top-right-service-bottom">
+                        <div onClick={onClickBaoMat} className="product-main-top-right-service-bottom-left">
+                          <DiamondSharp
+                            style={{ fontSize: "13px", paddingRight: "1px" }}
+                          />
+                          <p>Đảm bảo chất lượng</p>
+                        </div>
+                        <div onClick={onClickDoiTra} className="product-main-top-right-service-bottom-right">
+                          <AssignmentReturnSharp
+                            style={{ fontSize: "13px", paddingRight: "1px" }}
+                          />
+                          <p>Trả lại không lý do</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div className="product-main-top_new">
+                <button className="abcd" style={{ display: "none" }}></button>
+                <div className="product-main-top-center">
+                  <div className="product-main-top-center-slide">
+                    {/* <Slider
+                      autoplay={true}
+                      autoplaySpeed={2000}
+                      prevArrow={<PreviousBtn />}
+                      nextArrow={<NextBtn />}
+                    >
+                      {data.map((item, index) => (
+                        <div key={index}>
+                          <img
+                            src={item}
+                            alt=""
+                            className="product-main-top-center-slide-img"
+                          />
+                        </div>
+                      ))}
+                    </Slider> */}
+                    <div className="slider-container">
+                      <h1>
+                        Hình ảnh các mẫu 
+                        <br />
+                       sản phẩm được ưa chuộng
+                      </h1>
+                      <div className="slide_product slide_1">
+                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" />
+                      </div>
+
+                      <div className="slide_product slide_2">
+                        <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80" />
+                      </div>
+
+                      <div className="slide_product slide_3">
+                        <img src="https://images.unsplash.com/photo-1504707748692-419802cf939d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1330&q=80" />
+                      </div>
+
+                      <div className="controls-container">
+                        <div className="control control_1"></div>
+                        <div className="control control_2"></div>
+                        <div className="control control_3"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="product-main-top-left">
+                  <div className="product-main-top-left-title">
+                    <ViewListSharp />
+                    <p>Danh sách sản phẩm</p>
+                  </div>
+                  <div className="product-main-top-left-content">
+                    <div className="list_type">
+                      <p>Tất cả loại sản phẩm</p>
+                    </div>
+                    <div className="line_type"></div>
+                    {dsLoaiSP.map((item, index) => (
+                      <>
+                        <div key={index} className="list_type">
+                          <p>{item.NameLoaiSP.substring(0, 28)}</p>
+                        </div>
+                        <div className="line_type"></div>
+                      </>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="product-main-top-right">
+                  <div className="product-main-top-right-user">
+                    <div className="img_user_product">
+                      <StyledBadge
+                        overlap="circular"
+                        anchorOrigin={{
+                          vertical: "bottom",
+                          horizontal: "right",
+                        }}
+                        variant="dot"
+                      >
+                        <Avatar
+                          sx={{ width: "100%", height: 60 }}
                           alt="Remy Sharp"
                           src={img}
                         />
