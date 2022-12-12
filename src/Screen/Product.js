@@ -25,7 +25,7 @@ import axios from "axios";
 
 import ItemProductType from "../item/ItemProductType";
 import NavbarIn from "./NavbarIn";
-import userImg from "../assets/people.png"
+import userImg from "../assets/people.png";
 import { clear } from "@testing-library/user-event/dist/clear";
 
 const image1 =
@@ -208,23 +208,19 @@ const Product = () => {
     navgate("/thanhtoan");
   };
 
-  
   const [TKUser, setTKUser] = useState();
 
   useEffect(() => {
-
-    var getInfomation = localStorage.getItem("Infomation")
-    var db = JSON.parse(getInfomation)
+    var getInfomation = localStorage.getItem("Infomation");
+    var db = JSON.parse(getInfomation);
     if (getInfomation == null) {
-      setTKUser("Người dùng")
+      setTKUser("Người dùng");
     }
 
     if (getInfomation != null) {
-      setTKUser(db.data.TKUser)
+      setTKUser(db.data.TKUser);
     }
-
-
-  },)
+  });
 
   return (
     <div className="product">
@@ -257,41 +253,29 @@ const Product = () => {
                     <div className="list_type">
                       <p>Tất cả loại sản phẩm</p>
                     </div>
-                    <div className="line_type"></div>
-                    {dsLoaiSP.map((item, index) => (
-                      <>
-                        <div key={index} className="list_type">
-                          <p>{item.NameLoaiSP.substring(0, 28)}</p>
-                        </div>
-                        <div className="line_type"></div>
-                      </>
-                    ))}
+                    {dsLoaiSP.map((item, index) => {
+                      if (item.TrangThaiLoaiSP == "Hoạt động") {
+                        return (
+                          <div key={index}>
+                            <div className="list_type">
+                              <p>{item.NameLoaiSP.substring(0, 28)}</p>
+                            </div>
+                            <div className="line_type"></div>
+                          </div>
+                        );
+                      } else if (item.TrangThaiLoaiSP == "Không hoạt động") {
+                      }
+                    })}
                   </div>
                 </div>
 
                 <div className="product-main-top-center">
                   <div className="product-main-top-center-slide">
-                    {/* <Slider
-                      autoplay={true}
-                      autoplaySpeed={2000}
-                      prevArrow={<PreviousBtn />}
-                      nextArrow={<NextBtn />}
-                    >
-                      {data.map((item, index) => (
-                        <div key={index}>
-                          <img
-                            src={item}
-                            alt=""
-                            className="product-main-top-center-slide-img"
-                          />
-                        </div>
-                      ))}
-                    </Slider> */}
                     <div className="slider-container">
                       <h1>
-                        Hình ảnh các mẫu 
+                        Hình ảnh các mẫu
                         <br />
-                       sản phẩm được ưa chuộng
+                        sản phẩm được ưa chuộng
                       </h1>
                       <div className="slide_product slide_1">
                         <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" />
@@ -334,13 +318,21 @@ const Product = () => {
                     </div>
                     <div className="product-main-top-right-user-information">
                       <div className="product-main-top-right-user-information-title">
-                        <p>Xin chào! <br/> {TKUser}</p>
+                        <p>
+                          Xin chào! <br /> {TKUser}
+                        </p>
                       </div>
                       <div className="product-main-top-right-user-information-button">
-                        <button onClick={onclickItem} className="product-main-top-right-user-information-button-left">
+                        <button
+                          onClick={onclickItem}
+                          className="product-main-top-right-user-information-button-left"
+                        >
                           Tài khoản
                         </button>
-                        <button onClick={onclickCart} className="product-main-top-right-user-information-button-right">
+                        <button
+                          onClick={onclickCart}
+                          className="product-main-top-right-user-information-button-right"
+                        >
                           Đơn hàng
                         </button>
                       </div>
@@ -352,13 +344,19 @@ const Product = () => {
                     </div>
                     <div className="product-main-top-right-service">
                       <div className="product-main-top-right-service-top">
-                        <div onClick={onClickThanhToan} className="product-main-top-right-service-top-left">
+                        <div
+                          onClick={onClickThanhToan}
+                          className="product-main-top-right-service-top-left"
+                        >
                           <GppGoodSharp
                             style={{ fontSize: "13px", paddingRight: "1px" }}
                           />
                           <p>Bảo mật thanh toán</p>
                         </div>
-                        <div onClick={onClickVanChuyen} className="product-main-top-right-service-top-right">
+                        <div
+                          onClick={onClickVanChuyen}
+                          className="product-main-top-right-service-top-right"
+                        >
                           <TokenSharp
                             style={{ fontSize: "13px", paddingRight: "1px" }}
                           />
@@ -366,13 +364,19 @@ const Product = () => {
                         </div>
                       </div>
                       <div className="product-main-top-right-service-bottom">
-                        <div onClick={onClickBaoMat} className="product-main-top-right-service-bottom-left">
+                        <div
+                          onClick={onClickBaoMat}
+                          className="product-main-top-right-service-bottom-left"
+                        >
                           <DiamondSharp
                             style={{ fontSize: "13px", paddingRight: "1px" }}
                           />
                           <p>Đảm bảo chất lượng</p>
                         </div>
-                        <div onClick={onClickDoiTra} className="product-main-top-right-service-bottom-right">
+                        <div
+                          onClick={onClickDoiTra}
+                          className="product-main-top-right-service-bottom-right"
+                        >
                           <AssignmentReturnSharp
                             style={{ fontSize: "13px", paddingRight: "1px" }}
                           />
@@ -384,32 +388,15 @@ const Product = () => {
                 </div>
               </div>
 
-
               <div className="product-main-top_new">
                 <button className="abcd" style={{ display: "none" }}></button>
                 <div className="product-main-top-center">
                   <div className="product-main-top-center-slide">
-                    {/* <Slider
-                      autoplay={true}
-                      autoplaySpeed={2000}
-                      prevArrow={<PreviousBtn />}
-                      nextArrow={<NextBtn />}
-                    >
-                      {data.map((item, index) => (
-                        <div key={index}>
-                          <img
-                            src={item}
-                            alt=""
-                            className="product-main-top-center-slide-img"
-                          />
-                        </div>
-                      ))}
-                    </Slider> */}
                     <div className="slider-container">
                       <h1>
-                        Hình ảnh các mẫu 
+                        Hình ảnh các mẫu
                         <br />
-                       sản phẩm được ưa chuộng
+                        sản phẩm được ưa chuộng
                       </h1>
                       <div className="slide_product slide_1">
                         <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" />
@@ -440,15 +427,19 @@ const Product = () => {
                     <div className="list_type">
                       <p>Tất cả loại sản phẩm</p>
                     </div>
-                    <div className="line_type"></div>
-                    {dsLoaiSP.map((item, index) => (
-                      <>
-                        <div key={index} className="list_type">
-                          <p>{item.NameLoaiSP.substring(0, 28)}</p>
-                        </div>
-                        <div className="line_type"></div>
-                      </>
-                    ))}
+                    {dsLoaiSP.map((item, index) => {
+                      if (item.TrangThaiLoaiSP == "Hoạt động") {
+                        return (
+                          <div key={index}>
+                            <div className="list_type">
+                              <p>{item.NameLoaiSP.substring(0, 28)}</p>
+                            </div>
+                            <div className="line_type"></div>
+                          </div>
+                        );
+                      } else if (item.TrangThaiLoaiSP == "Không hoạt động") {
+                      }
+                    })}
                   </div>
                 </div>
 
@@ -472,13 +463,21 @@ const Product = () => {
                     </div>
                     <div className="product-main-top-right-user-information">
                       <div className="product-main-top-right-user-information-title">
-                        <p>Xin chào! <br/> {TKUser}</p>
+                        <p>
+                          Xin chào! <br /> {TKUser}
+                        </p>
                       </div>
                       <div className="product-main-top-right-user-information-button">
-                        <button onClick={onclickItem} className="product-main-top-right-user-information-button-left">
+                        <button
+                          onClick={onclickItem}
+                          className="product-main-top-right-user-information-button-left"
+                        >
                           Tài khoản
                         </button>
-                        <button onClick={onclickCart} className="product-main-top-right-user-information-button-right">
+                        <button
+                          onClick={onclickCart}
+                          className="product-main-top-right-user-information-button-right"
+                        >
                           Đơn hàng
                         </button>
                       </div>
@@ -490,13 +489,19 @@ const Product = () => {
                     </div>
                     <div className="product-main-top-right-service">
                       <div className="product-main-top-right-service-top">
-                        <div onClick={onClickThanhToan} className="product-main-top-right-service-top-left">
+                        <div
+                          onClick={onClickThanhToan}
+                          className="product-main-top-right-service-top-left"
+                        >
                           <GppGoodSharp
                             style={{ fontSize: "13px", paddingRight: "1px" }}
                           />
                           <p>Bảo mật thanh toán</p>
                         </div>
-                        <div onClick={onClickVanChuyen} className="product-main-top-right-service-top-right">
+                        <div
+                          onClick={onClickVanChuyen}
+                          className="product-main-top-right-service-top-right"
+                        >
                           <TokenSharp
                             style={{ fontSize: "13px", paddingRight: "1px" }}
                           />
@@ -504,13 +509,19 @@ const Product = () => {
                         </div>
                       </div>
                       <div className="product-main-top-right-service-bottom">
-                        <div onClick={onClickBaoMat} className="product-main-top-right-service-bottom-left">
+                        <div
+                          onClick={onClickBaoMat}
+                          className="product-main-top-right-service-bottom-left"
+                        >
                           <DiamondSharp
                             style={{ fontSize: "13px", paddingRight: "1px" }}
                           />
                           <p>Đảm bảo chất lượng</p>
                         </div>
-                        <div onClick={onClickDoiTra} className="product-main-top-right-service-bottom-right">
+                        <div
+                          onClick={onClickDoiTra}
+                          className="product-main-top-right-service-bottom-right"
+                        >
                           <AssignmentReturnSharp
                             style={{ fontSize: "13px", paddingRight: "1px" }}
                           />

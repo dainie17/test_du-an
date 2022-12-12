@@ -23,11 +23,12 @@ import camera from "../assets/camera.png";
 import truck from "../assets/truck.png";
 import love from "../assets/love.png";
 import Popup from "reactjs-popup";
-import Navbar from "./Navbar"
+import Navbar from "./Navbar";
 import NavbarIn from "./NavbarIn";
 import ItemOder from "../item/ItemOder";
 
 import axios from "axios";
+import ItemDonHang from "../item/ItemDonHang";
 
 const img =
   "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
@@ -67,7 +68,6 @@ function openForm() {
 }
 
 function Peson() {
-
   const ip = "http://localhost:8080";
 
   const [toggleState, setToggleState] = useState(1);
@@ -106,7 +106,7 @@ function Peson() {
       setLoading(false);
     }, 500);
   }, []);
-
+  const [chxDelete, setChxDelete] = useState(false);
   const [chxNab, setChxNab] = useState(false);
 
   const [TKUser, setTKUser] = useState();
@@ -114,43 +114,47 @@ function Peson() {
 
   const [DsDonHang, setDsDonHang] = useState([]);
 
+  var getInfomation = localStorage.getItem("Infomation");
+  var db = JSON.parse(getInfomation);
 
-  var getInfomation = localStorage.getItem("Infomation")
-  var db = JSON.parse(getInfomation)
+  useEffect(()=>{
+    if (chxDelete == true) {
+      getDataDonHang();
+    } else {
+
+    }
+  })
 
   useEffect(() => {
-    var getUser = localStorage.getItem("UserUser")
-    var data = JSON.parse(getUser)
+    var getUser = localStorage.getItem("UserUser");
+    var data = JSON.parse(getUser);
 
     if (getUser == null) {
     }
 
     if (getUser != null) {
-      setChxNab(true)
+      setChxNab(true);
     }
 
     if (getInfomation == null) {
     }
 
     if (getInfomation != null) {
-      setTKUser(db.data.TKUser)
-      setEmailUser(db.data.EmailUser)
+      setTKUser(db.data.TKUser);
+      setEmailUser(db.data.EmailUser);
     }
 
-    getDataDonHang()
-
-  }, [])
+    getDataDonHang();
+  }, []);
 
   // delete Don hang
   //           axios.delete(ip + `/DeleteDonHang/${_id}`);
 
   const getDataDonHang = () => {
-    axios.get(ip + `/getDonHangUser/${db.data._id}`)
-      .then((response) => {
-        setDsDonHang(response.data);
-        console.log(response.data);
-      })
-  }
+    axios.get(ip + `/getDonHangUser/${db.data._id}`).then((response) => {
+      setDsDonHang(response.data);
+    });
+  };
 
   const [cart, setCart] = useState([]);
 
@@ -253,7 +257,7 @@ function Peson() {
                   </div>
                   <p>Tình trạng đơn hàng</p>
                 </div>
-                <div className="content" onClick={() => toogleTab(1)}>
+                <div className="content" onClick={() => toogleTab(2)}>
                   <div className="content_icon">
                     <img src={love} />
                   </div>
@@ -264,9 +268,7 @@ function Peson() {
             <div className="fersonal_container-right--fooder--content">
               {/* -------------------Thông tin cá nhân------------------------ */}
               <div
-                className={
-                  toggleState === 1 ? "contentt active-content" : "ac"
-                }
+                className={toggleState === 1 ? "contentt active-content" : "ac"}
               >
                 <div className="fersonal_container-right--fooder--content--active">
                   <div>
@@ -310,9 +312,7 @@ function Peson() {
                     <h3>Mật Khẩu</h3>
 
                     <Popup
-                      trigger={
-                        <button onClick={openForm}>Đổi mật khẩu</button>
-                      }
+                      trigger={<button onClick={openForm}>Đổi mật khẩu</button>}
                       position="right center"
                     >
                       <div>Popup content here !!</div>
@@ -322,17 +322,13 @@ function Peson() {
               </div>
               {/* ----------------------------sản phẩn ưa thích--------------------- */}
               <div
-                className={
-                  toggleState === 2 ? "contentt active-content" : "ac"
-                }
+                className={toggleState === 2 ? "contentt active-content" : "ac"}
               >
                 <p>Sản phẩm ưa thích</p>
               </div>
               {/* ----------------------------giỏ hàng----------------------------- */}
               <div
-                className={
-                  toggleState === 4 ? "contentt active-content" : "ac"
-                }
+                className={toggleState === 4 ? "contentt active-content" : "ac"}
               >
                 <div className="active-content-title">
                   <p className="active-content-title-content">Giỏ hàng </p>
@@ -362,7 +358,6 @@ function Peson() {
                 <div className="active-content-list">
                   {cart.map((item, index) => (
                     <ItemOder
-
                       key={item._id}
                       _id={item._id}
                       idUser={item.idUser}
@@ -381,16 +376,48 @@ function Peson() {
                 </div>
               </div>
               <div
-                className={
-                  toggleState === 5 ? "contentt active-content" : "ac"
-                }
+                className={toggleState === 5 ? "contentt active-content" : "ac"}
               >
-                <p>Tình trạng</p>
+                <div className="active-content-title">
+                  <p className="active-content-title-content">Tình trạng đơn hàng</p>
+                </div>
+                <div className="List_TinhTrangDH">
+                  <div className="Item_IDDH">
+                    <p>
+                      ID đơn hàng
+                    </p>
+                  </div>
+                  <p
+                    className="Item_TrangThaiDH"
+                  >
+                    Trạng thái
+                  </p>
+
+                  <div
+                    className="Item_ThanhTienDH"
+                  >
+                    Thành tiền
+                  </div>
+
+                  <div className="Item_TimeDH">Thời gian đặt</div>
+                  <div className="Item_btnDH">Chức năng</div>
+                </div>
+                <div style={{width: "100%"}}>
+                  {DsDonHang.map((item, index) => (
+                    <ItemDonHang
+                      key={item._id}
+                      _id={item._id}
+                      TrangThaiDH={item.TrangThaiDH}
+                      SumMoney={item.SumMoney}
+                      DateDH={item.DateDH}
+                      DsSP={item.DsSP}
+                      setChxDelete={setChxDelete}
+                    />
+                  ))}
+                </div>
               </div>
               <div
-                className={
-                  toggleState === 6 ? "contentt active-content" : "ac"
-                }
+                className={toggleState === 6 ? "contentt active-content" : "ac"}
               >
                 <p>Đăng xuất</p>
               </div>
