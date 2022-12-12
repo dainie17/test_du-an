@@ -27,6 +27,8 @@ import Navbar from "./Navbar"
 import NavbarIn from "./NavbarIn";
 import ItemOder from "../item/ItemOder";
 
+import axios from "axios";
+
 const img =
   "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
 
@@ -65,6 +67,9 @@ function openForm() {
 }
 
 function Peson() {
+
+  const ip = "http://localhost:8080";
+
   const [toggleState, setToggleState] = useState(1);
   const toogleTab = (index) => {
     setToggleState(index);
@@ -107,6 +112,12 @@ function Peson() {
   const [TKUser, setTKUser] = useState();
   const [EmailUser, setEmailUser] = useState();
 
+  const [DsDonHang, setDsDonHang] = useState([]);
+
+
+  var getInfomation = localStorage.getItem("Infomation")
+  var db = JSON.parse(getInfomation)
+
   useEffect(() => {
     var getUser = localStorage.getItem("UserUser")
     var data = JSON.parse(getUser)
@@ -118,8 +129,6 @@ function Peson() {
       setChxNab(true)
     }
 
-    var getInfomation = localStorage.getItem("Infomation")
-    var db = JSON.parse(getInfomation)
     if (getInfomation == null) {
     }
 
@@ -128,8 +137,20 @@ function Peson() {
       setEmailUser(db.data.EmailUser)
     }
 
+    getDataDonHang()
 
-  },)
+  }, [])
+
+  // delete Don hang
+  //           axios.delete(ip + `/DeleteDonHang/${_id}`);
+
+  const getDataDonHang = () => {
+    axios.get(ip + `/getDonHangUser/${db.data._id}`)
+      .then((response) => {
+        setDsDonHang(response.data);
+        console.log(response.data);
+      })
+  }
 
   const [cart, setCart] = useState([]);
 
@@ -317,45 +338,45 @@ function Peson() {
                   <p className="active-content-title-content">Giỏ hàng </p>
                 </div>
                 <div className="order-main-left-list">
-                    <div className="order_main_card_imgtitle">
-                      <p className="order-main-left-list-card-content-name">
-                        Sản phẩm
-                      </p>
-                    </div>
-                    <p
-                      style={{ fontWeight: "bold" }}
-                      className="order-main-left-list-card-content-price"
-                    >
-                      đơn giá
+                  <div className="order_main_card_imgtitle">
+                    <p className="order-main-left-list-card-content-name">
+                      Sản phẩm
                     </p>
-
-                    <div
-                      style={{ fontWeight: "bold" }}
-                      className="oder-main-left-list-card-function-button-num"
-                    >
-                      số lượng
-                    </div>
-
-                    <div className="order_main_card_tt">thành tiền</div>
                   </div>
+                  <p
+                    style={{ fontWeight: "bold" }}
+                    className="order-main-left-list-card-content-price"
+                  >
+                    đơn giá
+                  </p>
+
+                  <div
+                    style={{ fontWeight: "bold" }}
+                    className="oder-main-left-list-card-function-button-num"
+                  >
+                    số lượng
+                  </div>
+
+                  <div className="order_main_card_tt">thành tiền</div>
+                </div>
                 <div className="active-content-list">
                   {cart.map((item, index) => (
-                  <ItemOder
+                    <ItemOder
 
-                  key={item._id}
-                  _id={item._id}
-                  idUser={item.idUser}
-                  Image={item.Image}
-                  idImg={item.idImg}
-                  NameSP={item.NameSP}
-                  GiaCX={item.GiaCX}
-                  GiaBanSP={item.GiaBanSP}
-                  SoLuongSP={item.SoLuongSP}
-                  SaleSP={item.SaleSP}
-                  TrangThaiSP={item.TrangThaiSP}
-                  LoaiSP={item.LoaiSP}
-                  ChiTietSP={item.ChiTietSP}
-                  />
+                      key={item._id}
+                      _id={item._id}
+                      idUser={item.idUser}
+                      Image={item.Image}
+                      idImg={item.idImg}
+                      NameSP={item.NameSP}
+                      GiaCX={item.GiaCX}
+                      GiaBanSP={item.GiaBanSP}
+                      SoLuongSP={item.SoLuongSP}
+                      SaleSP={item.SaleSP}
+                      TrangThaiSP={item.TrangThaiSP}
+                      LoaiSP={item.LoaiSP}
+                      ChiTietSP={item.ChiTietSP}
+                    />
                   ))}
                 </div>
               </div>
