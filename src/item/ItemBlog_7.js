@@ -1,5 +1,5 @@
 
-import imgUser from "../assets/user.png";
+import imgUser from "../assets/boy.png";
 import image_thumb_up from "../assets/thumb-up.png"
 import image_share from "../assets/share.png"
 import image_comments from "../assets/comments.png"

@@ -25,6 +25,7 @@ import axios from "axios";
 
 import ItemProductType from "../item/ItemProductType";
 import NavbarIn from "./NavbarIn";
+import userImg from "../assets/people.png"
 import { clear } from "@testing-library/user-event/dist/clear";
 
 const image1 =
@@ -37,9 +38,6 @@ const image4 =
   "https://i-raovat.vnecdn.net/2020/05/22/51ade386733b048d7c00c29720e39c04.jpeg?w=1280&h=768&q=100&dpr=1&rt=fit&g=no&wmi=&wmg=ce&wmo=50&wms=30&wmx=0&wmy=0&s=irmRdkv5lf-nqmbP2V8WXg";
 const image5 =
   "https://thuytinhtadaco.com/wp-content/uploads/2021/08/chai-lo-thuy-tinh.jpg";
-
-const img =
-  "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
 
 const PreviousBtn = (props) => {
   const { className, onClick } = props;
@@ -330,7 +328,7 @@ const Product = () => {
                         <Avatar
                           sx={{ width: 60, height: 60 }}
                           alt="Remy Sharp"
-                          src={img}
+                          src={userImg}
                         />
                       </StyledBadge>
                     </div>
@@ -468,7 +466,7 @@ const Product = () => {
                         <Avatar
                           sx={{ width: "100%", height: 60 }}
                           alt="Remy Sharp"
-                          src={img}
+                          src={userImg}
                         />
                       </StyledBadge>
                     </div>

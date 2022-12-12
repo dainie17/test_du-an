@@ -1,5 +1,5 @@
 
-import image_u from "../assets/profile.png"
+import image_u from "../assets/userImg1.png"
 import image_thumb_up from "../assets/thumb-up.png"
 import image_share from "../assets/share.png"
 import image_comments from "../assets/comments.png"
