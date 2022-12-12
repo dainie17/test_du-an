@@ -134,7 +134,22 @@ export default function Order() {
         })
         navgate("/Completed");
       } else if (ThanhToan == 2) {
-        console.log("Thanh Toán Online");
+        let PhuongThucOnl = "Thanh Toán Online";
+        window.location.href = "http://localhost:8080"
+        axios.post(ip + "/DsSP", {
+          money: dbDH.money,
+          idUser: db.data._id,
+          DsSP: DonHang,
+          NameDH: NameDH,
+          PhoneDH: PhoneDH,
+          EmailDH: EmailDH,
+          AddreeDH: AddreeDH,
+          PhuongThucTT: PhuongThucOnl,
+          SumMoney: TongTien,
+          DateDH: new Date(),
+          TrangThaiDH: TrangThaiDH,
+          ArrayIdSPGH: dbDH.Array_id
+        })
       }
     }
 
