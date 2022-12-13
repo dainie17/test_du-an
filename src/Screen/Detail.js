@@ -238,6 +238,8 @@ const Detail = () => {
     navgate("/thanhtoan");
   };
 
+  let formatGiaCX = new Intl.NumberFormat("it-IT").format(GiaCX);
+
   return (
     <>
       {loading ? (
@@ -282,7 +284,7 @@ const Detail = () => {
                   </p>
                   <div className="detail-main-top-right-price">
                     <p className="detail_price">
-                      {GiaCX}
+                      {formatGiaCX}
                     </p>
                     <p className="price_reduced_detail" style={{ display: Display }}>
                       {GiaBanSP} Đ

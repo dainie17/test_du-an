@@ -128,7 +128,7 @@ const CartIn = () => {
     }
   }, [danhsachSP.length]);
 
-  let num = 0;
+  var num = 0;
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -141,9 +141,10 @@ const CartIn = () => {
       const newSelecteds = danhsachSP.map((n) => n._id);
       setSelected(newSelecteds);
       danhsachSP.map((e) => {
-        num = num + parseFloat(e.GiaCX * e.SoLuongSP);
+        num = num + (e.GiaCX * e.SoLuongSP);
       });
       setMoney(num);
+
     }
     if (event.target.checked == false) {
       setSelected([]);
