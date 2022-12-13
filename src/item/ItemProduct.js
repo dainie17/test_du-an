@@ -46,7 +46,7 @@ function ItemProduct(props) {
       _id: props._id,
       idImg: props.idImg,
       NameSP: props.NameSP,
-      GiaCX: GiaCX,
+      GiaCX: resust,
       GiaBanSP: props.GiaBanSP,
       SoLuongSP: props.SoLuongSP,
       SaleSP: props.SaleSP,

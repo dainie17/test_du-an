@@ -186,7 +186,6 @@ export default function Order() {
   let TongMoney = new Intl.NumberFormat("it-IT").format(TongTien);
   let TongPhu = new Intl.NumberFormat("it-IT").format(dbDH.money);
   useEffect(() => {
-
     if (ThanhToan == 0) {
       setDisplay("none")
       setTongTien(dbDH.money)
