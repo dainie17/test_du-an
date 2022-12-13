@@ -598,12 +598,12 @@
   background: #ffdb9b;
   padding: 15px 10px;
   min-width: 380px;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 80px;
   border-radius: 8px;
   border-left: 8px solid #ffa502;
-  z-index: 2;
+  z-index: 3;
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
@@ -612,13 +612,13 @@
 .alert_update.showAlert_update {
   opacity: 1;
   pointer-events: auto;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   align-items: center;
 }
 .alert_update.show_update {
   animation: show_slide_update 1s ease forwards;
-  z-index: 2;
+  z-index: 3;
 }
 @keyframes show_slide_update {
   0% {

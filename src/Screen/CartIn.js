@@ -5,7 +5,7 @@ import "../css/Cart.css";
 import Footer from "./footer";
 import ScrollToTop from "../Screen/ScrollToTopbtn";
 import logo from "../assets/logo_cty.png";
-import error from "../assets/error.png"
+import error from "../assets/error.png";
 
 import { filter } from "lodash";
 import { Link as RouterLink } from "react-router-dom";
@@ -39,7 +39,6 @@ import BeatLoader from "react-spinners/BeatLoader";
 import ItemCart from "../item/ItemCart";
 
 const CartIn = () => {
-
   const ip = "http://localhost:8080";
 
   const [danhsachSP, setdanhsachSP] = useState([]);
@@ -98,7 +97,10 @@ const CartIn = () => {
       return a[1] - b[1];
     });
     if (query) {
-      return filter(array, (array) => array.NameSP.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      return filter(
+        array,
+        (array) =>
+          array.NameSP.toLowerCase().indexOf(query.toLowerCase()) !== -1
       );
     }
     return stabilizedThis.map((el) => el[0]);
@@ -111,13 +113,11 @@ const CartIn = () => {
     }
 
     if (getInfomation != null) {
-      axios.get(ip + `/getGioHang/${db.data._id}`)
-        .then((response) => {
-          window.localStorage.setItem("GioHang", JSON.stringify(response.data));
-          setdanhsachSP(response.data);
-        });
+      axios.get(ip + `/getGioHang/${db.data._id}`).then((response) => {
+        window.localStorage.setItem("GioHang", JSON.stringify(response.data));
+        setdanhsachSP(response.data);
+      });
     }
-
   }, []);
 
   useEffect(() => {
@@ -126,7 +126,7 @@ const CartIn = () => {
       numBe = numBe + 1;
       setSoLuongNum(numBe);
     }
-  }, [danhsachSP.length])
+  }, [danhsachSP.length]);
 
   let num = 0;
 
@@ -165,9 +165,14 @@ const CartIn = () => {
     setFilterName(event.target.value);
   };
 
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - danhsachSP.length) : 0;
+  const emptyRows =
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - danhsachSP.length) : 0;
 
-  const filteredUsers = applySortFilter(danhsachSP, getComparator(order, orderBy), filterName);
+  const filteredUsers = applySortFilter(
+    danhsachSP,
+    getComparator(order, orderBy),
+    filterName
+  );
 
   const isUserNotFound = filteredUsers.length === 0;
 
@@ -199,11 +204,10 @@ const CartIn = () => {
       var DonHang = {
         Array_id: selected,
         money: money,
-      }
-      localStorage.setItem('DonHang', JSON.stringify(DonHang));
+      };
+      localStorage.setItem("DonHang", JSON.stringify(DonHang));
       navgate("/Order");
     }
-
   };
 
   const onclickHome = () => {
@@ -226,13 +230,13 @@ const CartIn = () => {
           </div>
 
           <div>
-            <button className='update' style={{ display: "none" }}>sửa</button>
+            <button className="update" style={{ display: "none" }}>
+              sửa
+            </button>
             <div className="alert_update hide_update">
-              <img src={error} width='28' height='28' />
+              <img src={error} width="28" height="28" />
               <p className="msg_update">Bạn chưa chọn sản phẩm đặt hàng</p>
-              <div className="btn_alert_update">
-                x
-              </div>
+              <div className="btn_alert_update">x</div>
             </div>
           </div>
 
@@ -294,7 +298,7 @@ const CartIn = () => {
               />
 
               <Scrollbar>
-                <TableContainer sx={{ minWidth: 800 }}>
+                <TableContainer sx={{ minWidth: 340 }}>
                   {loading ? (
                     <div className="loading">
                       <BeatLoader
@@ -347,14 +351,12 @@ const CartIn = () => {
                                   setSelected={setSelected}
                                   setMoney={setMoney}
                                   money={money}
-
                                 />
                               );
                             } else if (val.TrangThaiSP == "Không hoạt động") {
                               // delete giỏ hàng khi đã sửa trạng thái sản phẩm trên admin
                               axios.delete(ip + `/DeleteGioHang/${val._id}`);
                             }
-
                           })}
                         {emptyRows > 0 && (
                           <TableRow style={{ height: 53 * emptyRows }}>
@@ -396,9 +398,7 @@ const CartIn = () => {
             <p className="cart-main-right-title">Tóm tắt theo thứ tự</p>
             <div className="cart-main-right-subtotal">
               <p className="cart-main-right-subtotal-title">Tổng phụ</p>
-              <p className="cart-main-right-subtotal-content">
-                {TongTien} VND
-              </p>
+              <p className="cart-main-right-subtotal-content">{TongTien} VND</p>
             </div>
             <div className="cart-main-right-total">
               <p className="cart-main-right-total-title">
@@ -406,10 +406,7 @@ const CartIn = () => {
               </p>
               <p className="cart-main-right-total-content">{TongTien} VND</p>
             </div>
-            <button
-              className="btn_thanh_toan"
-              onClick={onclickItem}
-            >
+            <button className="btn_thanh_toan" onClick={onclickItem}>
               <span className="span_thanh_toan">Đặt hàng</span>
             </button>
           </div>

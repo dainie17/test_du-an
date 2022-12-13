@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Order.css";
 import Footer from "./footer";
-import ScrollToTop from "react-scroll-to-top";
+import ScrollToTop from "./ScrollToTopbtn";
 import Address from "../dialog/Address";
 
 import axios from "axios";
@@ -12,8 +12,7 @@ import $ from "jquery";
 import logo from "../assets/logo_cty.png";
 import cod from "../assets/cod.png";
 import paypal from "../assets/paypal.png";
-import error from "../assets/error.png"
-
+import error from "../assets/error.png";
 
 import BeatLoader from "react-spinners/BeatLoader";
 import ItemOder from "../item/ItemOder";
@@ -22,7 +21,6 @@ const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
 
 export default function Order() {
-
   const ip = "http://localhost:8080";
 
   const [loading, setLoading] = useState(false);
@@ -37,32 +35,30 @@ export default function Order() {
     setOpenAdd(true);
   };
 
-
-
   const [DonHang, setDonHang] = useState([]);
 
   const [TongTien, setTongTien] = useState(0);
 
-  let ArrayOrder = []
+  let ArrayOrder = [];
   var getDH = localStorage.getItem("DonHang");
   var dbDH = JSON.parse(getDH);
 
-  var getGioHang = localStorage.getItem("GioHang")
-  var dbGioHang = JSON.parse(getGioHang)
+  var getGioHang = localStorage.getItem("GioHang");
+  var dbGioHang = JSON.parse(getGioHang);
 
-  var getInfomation = localStorage.getItem("Infomation")
-  var db = JSON.parse(getInfomation)
+  var getInfomation = localStorage.getItem("Infomation");
+  var db = JSON.parse(getInfomation);
 
   const getCart = () => {
     if (getDH == null && getGioHang == null) {
     } else if (getDH != null && getGioHang != null) {
       dbGioHang.map((vl, index) => {
-        let item = dbDH.Array_id.find(val => val == vl._id);
+        let item = dbDH.Array_id.find((val) => val == vl._id);
         if (item) {
-          ArrayOrder.push(vl)
-          setDonHang(ArrayOrder)
+          ArrayOrder.push(vl);
+          setDonHang(ArrayOrder);
         }
-      })
+      });
     }
   };
 
@@ -71,13 +67,9 @@ export default function Order() {
   const [EmailDH, setEmailDH] = useState();
   const [AddreeDH, setAddreeDH] = useState();
 
-
-
   useEffect(() => {
     getCart();
   }, []);
-
-
 
   let navgate = useNavigate();
 
@@ -99,21 +91,28 @@ export default function Order() {
       $(".alert_update").removeClass("show_update");
       $(".alert_update").addClass("hide_update");
     });
-  }
-
-
+  };
 
   const [TrangThaiDH, setTrangThaiDH] = useState("Chờ xác nhận");
 
-
   const onclickDH = () => {
-    if (NameDH == null && PhoneDH == null && EmailDH == null && AddreeDH == null) {
-      WartingAlert()
-      setShowAler("Bạn chưa nhập đầu đủ địa chỉ")
-    } else if (NameDH != null && PhoneDH != null && EmailDH != null && AddreeDH != null) {
+    if (
+      NameDH == null &&
+      PhoneDH == null &&
+      EmailDH == null &&
+      AddreeDH == null
+    ) {
+      WartingAlert();
+      setShowAler("Bạn chưa nhập đầu đủ địa chỉ");
+    } else if (
+      NameDH != null &&
+      PhoneDH != null &&
+      EmailDH != null &&
+      AddreeDH != null
+    ) {
       if (ThanhToan == 0) {
-        WartingAlert()
-        setShowAler("Hãy chọn phương thức thanh toán")
+        WartingAlert();
+        setShowAler("Hãy chọn phương thức thanh toán");
       } else if (ThanhToan == 1) {
         let PhuongThucTT = "Thanh Toán Trực Tiếp";
         axios.post(ip + "/add_DonHang", {
@@ -131,11 +130,11 @@ export default function Order() {
 
         const id_chx = dbDH.Array_id.map((vl, index) => {
           axios.delete(ip + `/DeleteGioHang/${vl}`);
-        })
+        });
         navgate("/Completed");
       } else if (ThanhToan == 2) {
         let PhuongThucOnl = "Thanh Toán Online";
-        window.location.href = "http://localhost:8080"
+        window.location.href = "http://localhost:8080";
         axios.post(ip + "/DsSP", {
           money: dbDH.money,
           idUser: db.data._id,
@@ -148,12 +147,10 @@ export default function Order() {
           SumMoney: TongTien,
           DateDH: new Date(),
           TrangThaiDH: TrangThaiDH,
-          ArrayIdSPGH: dbDH.Array_id
-        })
+          ArrayIdSPGH: dbDH.Array_id,
+        });
       }
     }
-
-
   };
 
   const [ThanhToan, setThanhToan] = useState(0);
@@ -162,12 +159,11 @@ export default function Order() {
 
   const [ShowAler, setShowAler] = useState("");
 
-
   function getThanhToanOff() {
     if (ThanhToan == 0) {
       setThanhToan(1);
     } else if (ThanhToan == 2) {
-      setThanhToan(1)
+      setThanhToan(1);
     } else {
       setThanhToan(0);
     }
@@ -177,7 +173,7 @@ export default function Order() {
     if (ThanhToan == 0) {
       setThanhToan(2);
     } else if (ThanhToan == 1) {
-      setThanhToan(2)
+      setThanhToan(2);
     } else {
       setThanhToan(0);
     }
@@ -186,25 +182,36 @@ export default function Order() {
   let TongMoney = new Intl.NumberFormat("it-IT").format(TongTien);
   let TongPhu = new Intl.NumberFormat("it-IT").format(dbDH.money);
   useEffect(() => {
-
     if (ThanhToan == 0) {
-      setDisplay("none")
-      setTongTien(dbDH.money)
-      $(".order-main-left-payment-button-left").removeClass("payment_button_left_onclick");
-      $(".order-main-left-payment-button-right").removeClass("payment_button_right_onclick");
+      setDisplay("none");
+      setTongTien(dbDH.money);
+      $(".order-main-left-payment-button-left").removeClass(
+        "payment_button_left_onclick"
+      );
+      $(".order-main-left-payment-button-right").removeClass(
+        "payment_button_right_onclick"
+      );
     } else if (ThanhToan == 1) {
-      setDisplay("")
-      setTongTien(dbDH.money + 35000)
+      setDisplay("");
+      setTongTien(dbDH.money + 35000);
 
-      $(".order-main-left-payment-button-right").removeClass("payment_button_right_onclick");
-      $(".order-main-left-payment-button-left").addClass("payment_button_left_onclick");
+      $(".order-main-left-payment-button-right").removeClass(
+        "payment_button_right_onclick"
+      );
+      $(".order-main-left-payment-button-left").addClass(
+        "payment_button_left_onclick"
+      );
     } else if (ThanhToan == 2) {
-      setTongTien(dbDH.money)
-      setDisplay("none")
-      $(".order-main-left-payment-button-left").removeClass("payment_button_left_onclick");
-      $(".order-main-left-payment-button-right").addClass("payment_button_right_onclick");
+      setTongTien(dbDH.money);
+      setDisplay("none");
+      $(".order-main-left-payment-button-left").removeClass(
+        "payment_button_left_onclick"
+      );
+      $(".order-main-left-payment-button-right").addClass(
+        "payment_button_right_onclick"
+      );
     }
-  },)
+  });
 
   return (
     <>
@@ -237,13 +244,13 @@ export default function Order() {
             <div className="cart-header">
               <div className="cart_header_container">
                 <div>
-                  <button className='update' style={{ display: "none" }}>sửa</button>
+                  <button className="update" style={{ display: "none" }}>
+                    sửa
+                  </button>
                   <div className="alert_update hide_update">
-                    <img src={error} width='28' height='28' />
+                    <img src={error} width="28" height="28" />
                     <p className="msg_update">{ShowAler}</p>
-                    <div className="btn_alert_update">
-                      x
-                    </div>
+                    <div className="btn_alert_update">x</div>
                   </div>
                 </div>
                 <div className="cart_header_left">
@@ -335,13 +342,19 @@ export default function Order() {
                     Phương thức thanh toán
                   </p>
                   <div className="order-main-left-payment-button">
-                    <div onClick={getThanhToanOff} className="order-main-left-payment-button-left">
+                    <div
+                      onClick={getThanhToanOff}
+                      className="order-main-left-payment-button-left"
+                    >
                       <span className="payment_button_span_left">
                         <img src={cod} width="100" height="100" />
                         <p>Thanh toán trực tiếp</p>
                       </span>
                     </div>
-                    <div onClick={getThanhToanOnl} className="order-main-left-payment-button-right">
+                    <div
+                      onClick={getThanhToanOnl}
+                      className="order-main-left-payment-button-right"
+                    >
                       <span className="payment_button_span_right">
                         <img src={paypal} width="100" height="100" />
                         <p>Thanh toán online</p>
@@ -393,7 +406,7 @@ export default function Order() {
                         LoaiSP={item.LoaiSP}
                         ChiTietSP={item.ChiTietSP}
                       />
-                    )
+                    );
                   })}
                 </div>
               </div>
@@ -405,16 +418,15 @@ export default function Order() {
                     {TongPhu} VND
                   </p>
                 </div>
-                <div className="cart-main-right-subtotal" style={{ display: Display }}>
+                <div
+                  className="cart-main-right-subtotal"
+                  style={{ display: Display }}
+                >
                   <p className="cart-main-right-subtotal-title">Ship</p>
-                  <p className="cart-main-right-subtotal-content">
-                    35.000 VND
-                  </p>
+                  <p className="cart-main-right-subtotal-content">35.000 VND</p>
                 </div>
                 <div className="cart-main-right-total">
-                  <p className="cart-main-right-total-title">
-                    Tổng
-                  </p>
+                  <p className="cart-main-right-total-title">Tổng</p>
                   <p className="cart-main-right-total-content">
                     {TongMoney} VND
                   </p>

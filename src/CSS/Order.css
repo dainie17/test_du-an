@@ -90,6 +90,10 @@ khối div địa chỉ giao hàng */
   transition: all ease 0.2s;
 }
 
+.img_item_oder {
+  width: 50%;
+}
+
 .order-main-left-para-content {
   margin-left: 20px;
 }
