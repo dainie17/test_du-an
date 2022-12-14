@@ -18,13 +18,12 @@ import Footer from "./footer";
 import Navbar from "./Navbar";
 import NavbarIn from "./NavbarIn";
 import Itemhinh from "../item/Itemhinh";
-import oke from "../assets/oke.png"
-
+import oke from "../assets/oke.png";
+import Moment from "moment";
 import axios from "axios";
 import { number } from "yup";
 
 const Detail = () => {
-
   // app.get("/getDataSaleDate/:PhanTramGiamGia"
 
   let navgate = useNavigate();
@@ -51,9 +50,8 @@ const Detail = () => {
 
   const ip = "http://localhost:8080";
 
-
-  const [ShowAdd, setShowAdd] = useState("")
-  const [NameShowBtn, setNameShowBtn] = useState()
+  const [ShowAdd, setShowAdd] = useState("");
+  const [NameShowBtn, setNameShowBtn] = useState();
 
   useEffect(() => {
     if (ShowAdd == "1") {
@@ -70,13 +68,12 @@ const Detail = () => {
         $(".alert").removeClass("show");
         $(".alert").addClass("hide");
       });
-      setShowAdd("")
-      setNameShowBtn("Đã thêm vào giỏ hàng")
-      setGioHang()
+      setShowAdd("");
+      setNameShowBtn("Đã thêm vào giỏ hàng");
+      setGioHang();
     } else if (ShowAdd == "") {
-
     }
-  },)
+  });
 
   const [chxNab, setChxNab] = useState(false);
   useEffect(() => {
@@ -112,7 +109,8 @@ const Detail = () => {
 
   const [GiaBanSP, setGiaBanSP] = useState();
   const [test, setTest] = useState([]);
-
+  const [saleBegin, setSaleBegin] = useState();
+  const [saleEnd, setSaleEnd] = useState();
   const [Display, setDisplay] = useState("none");
 
   useEffect(() => {
@@ -130,6 +128,13 @@ const Detail = () => {
       setChiTietSP(data.ChiTietSP);
       setGiaBanSP(data.GiaBanSP);
       setTest(data.test);
+      if (data.SaleSP == 0) {
+      } else {
+        axios.get(ip + `/getDataSaleDate/${data.SaleSP}`).then((response) => {
+          setSaleEnd(response.data[0].NgayEndSale);
+          setSaleBegin(response.data[0].NgayTaoSale);
+        });
+      }
     }
 
     var Infomation = localStorage.getItem("Infomation");
@@ -142,29 +147,33 @@ const Detail = () => {
     }
 
     if (data.SaleSP == 0) {
-      setDisplay("none")
+      setDisplay("none");
     } else {
-      setDisplay("block")
+      setDisplay("block");
     }
-
   }, []);
 
   const setGioHang = () => {
-
-    var getInfomation = localStorage.getItem("Infomation")
-    var db = JSON.parse(getInfomation)
+    var getInfomation = localStorage.getItem("Infomation");
+    var db = JSON.parse(getInfomation);
 
     if (getInfomation == null) {
     }
 
     if (getInfomation != null) {
-      axios.get(ip + `/getGioHang/${db.data._id}`)
-        .then((response) => {
-          window.localStorage.setItem("GioHang", JSON.stringify(response.data));
-        })
+      axios.get(ip + `/getGioHang/${db.data._id}`).then((response) => {
+        window.localStorage.setItem("GioHang", JSON.stringify(response.data));
+      });
     }
-  }
+  };
 
+  //   let item = cart.find(c => c._id === _id);
+
+  //   if (item) {
+  //     item.num += tong
+  //   } else {
+  //     cart.push({ _id: _id, name: name, price: price, num: tong });
+  //   }
 
   const btn_AddGioHang = () => {
     var getGioHang = localStorage.getItem("GioHang");
@@ -184,25 +193,21 @@ const Detail = () => {
         LoaiSP: LoaiSP,
         ChiTietSP: ChiTietSP,
       });
-      setShowAdd("1")
-
-
+      setShowAdd("1");
     } else if (getGioHang != null) {
-
       let item = dbGioHang.find((c) => c.idImg == idImg);
       if (item) {
-        let a = item.SoLuongSP + tong
+        let a = item.SoLuongSP + tong;
         if (a > SoLuongSP) {
           axios.put(ip + `/UpdateGioHang/${item.idImg}/${item.idUser}`, {
             SoLuongSP: SoLuongSP,
           });
-          setShowAdd("1")
+          setShowAdd("1");
         } else {
           axios.put(ip + `/UpdateGioHang/${item.idImg}/${item.idUser}`, {
             SoLuongSP: a,
           });
-          setShowAdd("1")
-
+          setShowAdd("1");
         }
       } else {
         axios.post(ip + "/add_GioHang", {
@@ -218,8 +223,7 @@ const Detail = () => {
           LoaiSP: LoaiSP,
           ChiTietSP: ChiTietSP,
         });
-        setShowAdd("1")
-
+        setShowAdd("1");
       }
     }
   };
@@ -241,6 +245,8 @@ const Detail = () => {
   };
 
   let formatGiaCX = new Intl.NumberFormat("it-IT").format(GiaCX);
+  const formatDateBegin = Moment(saleBegin).format("DD/MM");
+  const formatDateEnd = Moment(saleEnd).format("DD/MM");
 
   return (
     <>
@@ -262,13 +268,13 @@ const Detail = () => {
             <div>
               {/* add */}
               <div>
-                <button className='add_them' style={{ display: "none" }}>Thêm</button>
+                <button className="add_them" style={{ display: "none" }}>
+                  Thêm
+                </button>
                 <div className="alert hide">
-                  <img src={oke} width='28' height='28' />
+                  <img src={oke} width="28" height="28" />
                   <p className="msg">{NameShowBtn}</p>
-                  <div className="btn_alert_add">
-                    x
-                  </div>
+                  <div className="btn_alert_add">x</div>
                 </div>
               </div>
             </div>
@@ -285,12 +291,32 @@ const Detail = () => {
                     Số lượng: {SoLuongSP}{" "}
                   </p>
                   <div className="detail-main-top-right-price">
-                    <p className="detail_price">
-                      {formatGiaCX}
-                    </p>
-                    <p className="price_reduced_detail" style={{ display: Display }}>
-                      {GiaBanSP} Đ
-                    </p>
+                    <div className="detail_price_content">
+                      <p className="detail_price">{formatGiaCX}</p>
+                      <p
+                        className="price_reduced_detail"
+                        style={{ display: Display }}
+                      >
+                        {GiaBanSP} Đ
+                      </p>
+                    </div>
+                    <div className="detail_price_date">
+                      <p
+                        style={{
+                          display: Display,
+                        }}
+                      >
+                        {formatDateBegin}
+                      </p>
+                      <p
+                        style={{
+                          display: Display,
+                          paddingLeft: "4px",
+                        }}
+                      >
+                        đến {formatDateEnd}
+                      </p>
+                    </div>
                   </div>
                   <p className="detail-main-top-right-title">
                     Thông tin sản phẩm:
