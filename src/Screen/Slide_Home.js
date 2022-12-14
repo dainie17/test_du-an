@@ -38,7 +38,7 @@ class SliderItem extends HTMLLIElement {
     }
     // prettier-ignore
     setStyles() {
-        this.style.transform = `translateX(${this.position === 0 ? 35 : 35 + 16 * this.position}rem)`;
+        this.style.transform = `translateX(${this.position === 0 ? 35 : 35 + 15 * this.position}rem)`;
         this.style.display = this.position === movies.length - 0 ? 'none' : 'initial';
         if (this.position === 0) {
             this.classList.add('active');
