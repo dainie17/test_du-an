@@ -25,6 +25,8 @@ import { number } from "yup";
 
 const Detail = () => {
 
+  // app.get("/getDataSaleDate/:PhanTramGiamGia"
+
   let navgate = useNavigate();
 
   const [tong, setTong] = useState(1);

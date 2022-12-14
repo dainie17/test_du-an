@@ -27,6 +27,7 @@ import ItemProductType from "../item/ItemProductType";
 import NavbarIn from "./NavbarIn";
 import userImg from "../assets/people.png";
 import { clear } from "@testing-library/user-event/dist/clear";
+import ItemLoaiSP from "../item/ItemLoaiSP";
 
 const image1 =
   "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
@@ -95,19 +96,13 @@ const Product = () => {
 
   const [danhsachSP, setDanhsachSP] = useState([]);
 
+  const [onClickLoaiSP, setOnClickLoaiSP] = useState("all");
+
   const getDataLoaiSP = () => {
     axios.get(ip + "/getDataLoaiSP").then((response) => {
       setDsLoaiSP(response.data);
     });
   };
-
-  // const getData = () => {
-  //   axios.get(ip + '/getData')
-  //     .then((response) => {
-  //       setDanhsachSP(response.data);
-
-  //     })
-  // }
 
   let navgate = useNavigate();
 
@@ -250,18 +245,20 @@ const Product = () => {
                     <p>Danh sách sản phẩm</p>
                   </div>
                   <div className="product-main-top-left-content">
-                    <div className="list_type">
+                    <div className="list_type" onClick={() => setOnClickLoaiSP("all")}>
                       <p>Tất cả loại sản phẩm</p>
                     </div>
+                    <div className="line_type"></div>
                     {dsLoaiSP.map((item, index) => {
                       if (item.TrangThaiLoaiSP == "Hoạt động") {
                         return (
-                          <div key={index}>
-                            <div className="list_type">
-                              <p>{item.NameLoaiSP.substring(0, 28)}</p>
-                            </div>
-                            <div className="line_type"></div>
-                          </div>
+                          <ItemLoaiSP
+                            key={index}
+                            _id={item._id}
+                            NameLoaiSP={item.NameLoaiSP}
+                            onClickLoaiSP={onClickLoaiSP}
+                            setOnClickLoaiSP={setOnClickLoaiSP}
+                          />
                         );
                       } else if (item.TrangThaiLoaiSP == "Không hoạt động") {
                       }
@@ -537,9 +534,15 @@ const Product = () => {
             <div className="product-main-list">
               {dsLoaiSP.map((item, index) => {
                 if (item.TrangThaiLoaiSP == "Hoạt động") {
-                  return (
-                    <ItemProductType key={index} NameLoaiSP={item.NameLoaiSP} />
-                  );
+                  if (onClickLoaiSP == item.NameLoaiSP) {
+                    return (
+                      <ItemProductType key={index} NameLoaiSP={item.NameLoaiSP} />
+                    );
+                  } else if (onClickLoaiSP == "all") {
+                    return (
+                      <ItemProductType key={index} NameLoaiSP={item.NameLoaiSP} />
+                    );
+                  }
                 } else if (item.TrangThaiLoaiSP == "Không hoạt động") {
                 }
               })}
