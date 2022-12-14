@@ -57,7 +57,7 @@ const Uudai = [
                 {
                     contentnew: '-In hộp giấy đựng thức ăn cũng là cách để quảng bá cho tên tuổi của doanh nghiệp đến gần hơn với khách hàng, người tiêu dùng. Những thông tin như tên thương hiệu, logo, hình ảnh minh họa được thiết kế sản phẩm… đều này góp phần mang đến hải kinh.'
                 },
-                
+
             ]
         },
         {
@@ -75,10 +75,10 @@ const Uudai = [
                 {
                     contentnew: '-In hộp giấy đựng gà rán…'
                 },
-                
+
             ]
         },
-        
+
         {
             name: 'Những tiêu chuẩn khi in hộp giấy đựng thức ăn nhanh',
             content: [
@@ -94,7 +94,7 @@ const Uudai = [
                 {
                     contentnew: '-Thông tin sản phẩm, thương hiệu, thông tin liên hệ cần được in ấn rõ ràng, chi tiết để khách hàng thuận tiện khi có nhu cầu liên lạc đặt hàng hay có những vấn đề thắc mắc. Ngoài ra, thông tin rõ ràng cũng giúp khách hàng, người tiêu dùng phần nào có ấn tượng hơn với thương hiệu kinh doanh thức ăn nhanh của bạn.'
                 },
-                
+
             ]
         },
         {
@@ -112,7 +112,7 @@ const Uudai = [
                 {
                     contentnew: '-Khách hàng khi in hộp giấy đựng thức ăn nhanh có thể lựa chọn công nghệ in ấn phù hợp với điều kiện và nhu cầu sử dụng. Hai công nghệ in ấn phổ biến hiện nay khách hàng có thể chọn là in offset và in kỹ thuật số.'
                 },
-                
+
             ]
         },
         ]
@@ -143,7 +143,7 @@ const Uudai = [
                 {
                     contentnew: 'Nhựa PET được tìm ra vào năm 1941 bởi Calico Printer’s Association tại Manchester và sau đó được đưa vào trong sản xuất ở năm 1973.'
                 },
-                
+
             ]
         },
         {
@@ -161,7 +161,7 @@ const Uudai = [
                 {
                     contentnew: 'Phôi tạo thành sẽ tự động cho ra thùng chứa, ở đó phôi còn được trải qua công đoạn kiểm tra bọt khí và cắt bỏ những phần kim loại còn thừa hay còn gọi là bavia. Tiếp đến, những sản phẩm đạt yêu cầu sẽ để nguội ngoài không khí một thời gian, rồi sau đó đóng bao và chuyển qua khâu thổi chai.'
                 },
-                
+
             ]
         },
         {
@@ -176,8 +176,8 @@ const Uudai = [
                 {
                     contentnew: 'Trên đây là những chia sẻ về quy trình thổi chai nhựa và cách thức chế tạo ra chai nhựa PET đạt tiêu chuẩn chất lượng ISO đến tay người tiêu dùng. Hy vọng qua bài viết này, bạn sẽ có được câu trả lời thỏa đáng cho những thắc mắc của mình về “Chai nhựa PET được tạo ra như thế nào?”. Và đừng quên tiếp tục theo dõi các bài viết mới nhất của Chai Pet Sài Gòn để có thêm nhiều thông tin hữu ích nhé.'
                 },
-                
-                
+
+
             ]
         },
         ]
@@ -211,7 +211,7 @@ const Uudai = [
                 {
                     contentnew: 'Theo đó, một số chủ nhà hàng cho biết, họ cũng đang chuyển dần hướng sử dụng hộp bã mía thay cho hộp xốp để đựng đồ ăn mang đi. Mặc dầu, các loại hộp đựng này có giá thành cao hơn một chút, sẽ phải tính thêm một phần phụ phí nhỏ nhưng hầu hết các khách hàng đều ủng hộ và chia sẻ cho nhau trên các trang mạng xã hội như Facebook hay Instagram. Bên cạnh đó, những mẫu mã và kích thước của các hộp bã mía cũng ngày càng đa dạng, đáp ứng được nhiều nhu cầu khác nhau, giúp cho việc đựng thức ăn thêm phần tiện lợi và bắt mắt hơn.'
                 },
-                
+
             ]
         },
         {
@@ -223,17 +223,17 @@ const Uudai = [
                 {
                     contentnew: 'Nếu bạn có nhu cầu mua sỉ & lẻ các sản phẩm hộp đựng làm từ bã mía và bộ dụng cụ ăn uống làm từ gỗ chất lượng xuất khẩu Nhật Bản thì hãy liên hệ ngay với Joy Food. Chúng tôi hiện đang là đối tác phân phối hàng chính hãng, chất lượng của nhiều cửa hàng ăn uống, nhà hàng- khách sạn, hệ thống resort, food- court, siêu thị…trên toàn quốc.'
                 },
-                
-                
+
+
             ]
         },
-        
+
         ]
-    },{
+    }, {
         id: 5,
-        image: "https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/258866182_1022508898606937_8244121956030973210_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=yqKztM44MF0AX9AWlGa&_nc_ht=scontent.fdad1-3.fna&oh=00_AfAafKzEjdYSuLcMsrR7UZMm4dN8QLh9jRpUsqGz0z6-iA&oe=637E96E4",
+        image: "https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/271589561_1051911569000003_6132723040594655326_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_aid=0&_nc_ohc=Rid8Zn64dhQAX9Jg_JH&tn=KtSen7IKzCsXlmpg&_nc_ht=scontent.fdad2-1.fna&oh=00_AfBANcjrBTI4Y1MFVXR97o7l_PTFI4Ye-jMVIeoMYLecLQ&oe=63A03937",
         title: 'Sản Phầm Mới ',
-        synopsis: 'Công Ty Vũ Gia Group vừa ra sản phẩm chai nhựa mới, độc lạ và có ưu đãi giảm giá 50% . Với những tính chất an toàn như : chịu nhiệt tôt, màu sắc trong suốt,.. là sản phẩm không thể thiếu với dung tích 330ml. Hãy nhanh ta để có thể sở hưu một chai đựng nước đầy sự các tính ',
+        synopsis: 'Công Ty Vũ Gia Group vừa ra sản phẩm chai nhựa mới, độc lạ và có ưu đãi giảm giá 50% . Với những tính chất an toàn như : chịu nhiệt tôt, màu sắc trong suốt,.. là sản phẩm không thể thiếu với dung tích 330ml. Hãy nhanh ta để có thể sở hưu một chai đựng nước đầy sự các tính, ',
         container: [{
             name: 'Xu hướng “tiêu dùng xanh” lên ngôi',
             content: [
@@ -258,7 +258,7 @@ const Uudai = [
                 {
                     contentnew: 'Theo đó, một số chủ nhà hàng cho biết, họ cũng đang chuyển dần hướng sử dụng hộp bã mía thay cho hộp xốp để đựng đồ ăn mang đi. Mặc dầu, các loại hộp đựng này có giá thành cao hơn một chút, sẽ phải tính thêm một phần phụ phí nhỏ nhưng hầu hết các khách hàng đều ủng hộ và chia sẻ cho nhau trên các trang mạng xã hội như Facebook hay Instagram. Bên cạnh đó, những mẫu mã và kích thước của các hộp bã mía cũng ngày càng đa dạng, đáp ứng được nhiều nhu cầu khác nhau, giúp cho việc đựng thức ăn thêm phần tiện lợi và bắt mắt hơn.'
                 },
-                
+
             ]
         },
         {
@@ -270,13 +270,13 @@ const Uudai = [
                 {
                     contentnew: 'Nếu bạn có nhu cầu mua sỉ & lẻ các sản phẩm hộp đựng làm từ bã mía và bộ dụng cụ ăn uống làm từ gỗ chất lượng xuất khẩu Nhật Bản thì hãy liên hệ ngay với Joy Food. Chúng tôi hiện đang là đối tác phân phối hàng chính hãng, chất lượng của nhiều cửa hàng ăn uống, nhà hàng- khách sạn, hệ thống resort, food- court, siêu thị…trên toàn quốc.'
                 },
-                
-                
+
+
             ]
         },
-        
+
         ]
-    },{
+    }, {
         id: 6,
         image: "https://bepnhalanny.com/wp-content/uploads/2018/06/H%E1%BB%99p-b%E1%BA%A3o-qu%E1%BA%A3n-th%E1%BB%B1c-ph%E1%BA%A9m-Kitchen-Smart-Saver-set-7-1.jpg",
         title: 'An toàn với hộp đựng thực phẩm bằng nhựa của tupperware ',
@@ -314,7 +314,7 @@ const Uudai = [
                 {
                     contentnew: 'Sản phẩm của tupperware được làm từ nhựa PP (AN TOÀN) có đặc điểm: Nhựa cứng, đục.  Ứng dụng: An toàn bảo quản thực phẩm, Chai nước, hộp đựng thực phẩm . Khuyến cáo cho người sử dụng về khả năng chịu nhiệt thông thường từ 0 đến 80 độ C. Muốn đảm bảo sức khỏe cho gia đình nên dùng sản phẩm làm từ nhựa PP. '
                 },
-                
+
             ]
         },
         {
@@ -326,11 +326,11 @@ const Uudai = [
                 {
                     contentnew: 'Nếu bạn có nhu cầu mua sỉ & lẻ các sản phẩm hộp đựng làm từ bã mía và bộ dụng cụ ăn uống làm từ gỗ chất lượng xuất khẩu Nhật Bản thì hãy liên hệ ngay với Joy Food. Chúng tôi hiện đang là đối tác phân phối hàng chính hãng, chất lượng của nhiều cửa hàng ăn uống, nhà hàng- khách sạn, hệ thống resort, food- court, siêu thị…trên toàn quốc.'
                 },
-                
-                
+
+
             ]
         },
-        
+
         ]
     }
 ];

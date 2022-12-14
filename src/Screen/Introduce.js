@@ -234,6 +234,12 @@ const Introduce = () => {
     return <div className="form_warning_intro">{props.errorNoiDungCheck}</div>;
   }
 
+  const iframe = '<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1959.7795040699268!2d106.5985520258852!3d10.768430248072342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zODQwLzIwYiBIxrDGoW5nIGzhu5kgMiwgcGjGsOG7nW5nIELDrG5oIFRy4buLIMSQw7RuZyBBLCBxdeG6rW4gQsOsbmggVMOibiwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1671059713738!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>'
+
+  function Iframe(props) {
+    return (<div dangerouslySetInnerHTML={{ __html: props.iframe ? props.iframe : "" }} />);
+  }
+
   return (
     <div>
       <ScrollToTop />
@@ -442,8 +448,7 @@ const Introduce = () => {
           </div>
           <div className="bando">
             <div className="bando_khobau">
-              {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d210063.33014376528!2d105.6389760715208!3d9.804323603329172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a089b78ddc936b%3A0x8e8d46a009e63c4e!2zU0hPUCBUSOG7giBUSEFPIFTDglkgxJDDlCBTUE9SVA!5e0!3m2!1svi!2s!4v1663951607719!5m2!1svi!2s"
-                ></iframe> */}
+              <Iframe iframe={iframe} />,
             </div>
           </div>
           <Footer />

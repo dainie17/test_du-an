@@ -13,15 +13,16 @@
   align-items: center;
   justify-content: center;
   margin-top: 1%;
-  margin-left: 1%;
+  margin-left: 5%;
 }
 
 .logo {
-  width: 50%;
+  width: 45%;
 }
 
-.name_logo_login{
-  width: 50%;
+.name_logo_login {
+  width: 40%;
+  margin-top: 10px;
 }
 
 .name_logo {
@@ -159,7 +160,6 @@
 .cbx_2:hover {
   color: #103996;
 }
-
 
 .form_warning {
   position: absolute;
