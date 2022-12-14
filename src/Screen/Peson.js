@@ -26,9 +26,10 @@ import Popup from "reactjs-popup";
 import Navbar from "./Navbar";
 import NavbarIn from "./NavbarIn";
 import ItemOder from "../item/ItemOder";
-
+import imgUser from "../assets/people.png";
 import axios from "axios";
 import ItemDonHang from "../item/ItemDonHang";
+import cartt from "../assets/carts.png";
 
 const img =
   "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
@@ -117,13 +118,12 @@ function Peson() {
   var getInfomation = localStorage.getItem("Infomation");
   var db = JSON.parse(getInfomation);
 
-  useEffect(()=>{
+  useEffect(() => {
     if (chxDelete == true) {
       getDataDonHang();
     } else {
-
     }
-  })
+  });
 
   useEffect(() => {
     var getUser = localStorage.getItem("UserUser");
@@ -191,7 +191,7 @@ function Peson() {
                   />
                   Thông tin
                 </div>
-                <div
+                {/* <div
                   className="fersonal_container__left__info__tabs"
                   onClick={() => toogleTab(2)}
                 >
@@ -199,7 +199,7 @@ function Peson() {
                     sx={{ marginRight: "2%", color: "#ffa726", fontSize: 20 }}
                   />{" "}
                   Sản phẩm ưa thích
-                </div>
+                </div> */}
 
                 <div
                   className="fersonal_container__left__info__tabs"
@@ -208,7 +208,7 @@ function Peson() {
                   <Shop2Icon
                     sx={{ marginRight: "2%", color: "#ffa726", fontSize: 20 }}
                   />
-                  Đơn đặt hàng của tôi
+                  Giỏ hàng của tôi
                 </div>
                 <div
                   className="fersonal_container__left__info__tabs"
@@ -217,7 +217,7 @@ function Peson() {
                   <AutorenewIcon
                     sx={{ marginRight: "2%", color: "#ffa726", fontSize: 20 }}
                   />
-                  Tình trạng đơn hàng
+                  Đơn hàng
                 </div>
                 <div
                   className="fersonal_container__left__info__tabs"
@@ -236,7 +236,7 @@ function Peson() {
               <div className="backgroud_avatar">
                 <div className="fersonal_container-right--header--avatar">
                   <div className="fersonal_container-right--header--avatar--user">
-                    <img className="avatar_use" src={img}></img>
+                    <img className="avatar_use" src={imgUser}></img>
                     <img className="avatar_camera" src={camera}></img>
                   </div>
                   <div className="fersonal_container-right--header--avatar--name">
@@ -245,23 +245,101 @@ function Peson() {
                 </div>
               </div>
               <div className="fersonal_container-right--header--content">
-                <div className="content" onClick={() => toogleTab(4)}>
+                <div className="content" onClick={() => toogleTab(1)}>
                   <div className="content_icon">
                     <img src={icon_user} />
                   </div>
-                  <p>Đơn hàng của tôi</p>
+                  <p>Thông tin</p>
+                </div>
+                <div className="content" onClick={() => toogleTab(4)}>
+                  <div className="content_icon">
+                    <img src={cartt} />
+                  </div>
+                  <p>Giỏ hàng</p>
                 </div>
                 <div className="content" onClick={() => toogleTab(5)}>
                   <div className="content_icon">
                     <img src={truck} />
                   </div>
-                  <p>Tình trạng đơn hàng</p>
+                  <p>Đơn hàng</p>
                 </div>
-                <div className="content" onClick={() => toogleTab(2)}>
-                  <div className="content_icon">
-                    <img src={love} />
+                <div className="fersonal_container__hover">
+                  <div className="fersonal_container__hover__userName">
+                    <div className="fersonal_container_hover__info">
+                      <h3>Tài khoản của tôi</h3>
+                      <div
+                        style={{ display: "none" }}
+                        className="fersonal_container__hover__info__tabs"
+                        onClick={() => toogleTab(1)}
+                      >
+                        <PermContactCalendarIcon
+                          sx={{
+                            marginRight: "2%",
+                            color: "#ffa726",
+                            fontSize: 20,
+                          }}
+                        />
+                        Thông tin
+                      </div>
+                      {/* <div
+                        style={{ display: "none" }}
+                        className="fersonal_container__hover__info__tabs"
+                        onClick={() => toogleTab(2)}
+                      >
+                        <LocalMallIcon
+                          sx={{
+                            marginRight: "2%",
+                            color: "#ffa726",
+                            fontSize: 20,
+                          }}
+                        />{" "}
+                        Sản phẩm ưa thích
+                      </div> */}
+
+                      <div
+                        style={{ display: "none" }}
+                        className="fersonal_container__hover__info__tabs"
+                        onClick={() => toogleTab(4)}
+                      >
+                        <Shop2Icon
+                          sx={{
+                            marginRight: "2%",
+                            color: "#ffa726",
+                            fontSize: 20,
+                          }}
+                        />
+                        Đơn đặt hàng của tôi
+                      </div>
+                      <div
+                        style={{ display: "none" }}
+                        className="fersonal_container__hover__info__tabs"
+                        onClick={() => toogleTab(5)}
+                      >
+                        <AutorenewIcon
+                          sx={{
+                            marginRight: "2%",
+                            color: "#ffa726",
+                            fontSize: 20,
+                          }}
+                        />
+                        Tình trạng đơn hàng
+                      </div>
+                      <div
+                        style={{ display: "none" }}
+                        className="fersonal_container__hover__info__tabs"
+                        onClick={() => toogleTab(6)}
+                      >
+                        <LogoutIcon
+                          sx={{
+                            marginRight: "2%",
+                            color: "#ffa726",
+                            fontSize: 20,
+                          }}
+                        />
+                        Đăng xuất
+                      </div>
+                    </div>
                   </div>
-                  <p>Yêu thích</p>
                 </div>
               </div>
             </div>
@@ -280,7 +358,7 @@ function Peson() {
                       }}
                       variant="dot"
                     >
-                      <Avatar alt="Remy Sharp" src={img} />
+                      <Avatar alt="Remy Sharp" src={imgUser} />
                     </StyledBadge>
                     <p className="fersonal_right__content_name">
                       {/* {useName} */}
@@ -379,30 +457,22 @@ function Peson() {
                 className={toggleState === 5 ? "contentt active-content" : "ac"}
               >
                 <div className="active-content-title">
-                  <p className="active-content-title-content">Tình trạng đơn hàng</p>
+                  <p className="active-content-title-content">
+                    Tình trạng đơn hàng
+                  </p>
                 </div>
                 <div className="List_TinhTrangDH">
                   <div className="Item_IDDH">
-                    <p>
-                      ID đơn hàng
-                    </p>
+                    <p>ID đơn hàng</p>
                   </div>
-                  <p
-                    className="Item_TrangThaiDH"
-                  >
-                    Trạng thái
-                  </p>
+                  <p className="Item_TrangThaiDH">Trạng thái</p>
 
-                  <div
-                    className="Item_ThanhTienDH"
-                  >
-                    Thành tiền
-                  </div>
+                  <div className="Item_ThanhTienDH">Thành tiền</div>
 
                   <div className="Item_TimeDH">Thời gian đặt</div>
                   <div className="Item_btnDH">Chức năng</div>
                 </div>
-                <div style={{width: "100%"}}>
+                <div style={{ width: "100%" }}>
                   {DsDonHang.map((item, index) => (
                     <ItemDonHang
                       key={item._id}
