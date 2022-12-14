@@ -28,22 +28,22 @@ export default function ItemChiTietDH(props) {
             // console.log("chi tiết tt: " + file);
             return (
               <img
+                key={index}
                 src={ip + `/${file[0].filePath}`}
-                width="90"
-                height="130"
                 style={{ borderRadius: "6px" }}
               />
             );
           })}
         </div>
       </div>
-      {/* --------------- tên  ----------------- */}
-      <div className="name_ChiTiet_DH">{props.NameSP}</div>
-      {/* --------------- GiaCX ----------------- */}
-      {/* --------------- Soluong ----------------- */}
-      <div className="soluong_ChiTiet_DH"> Số lượng: {props.SoLuongSP}</div>
-      {/* --------------- Tong tien SP ----------------- */}
-      <div className="tongTien_ChiTiet_DH">Giá: {TongTienSP} VND</div>
+      <div className="content_CTDH">
+        {/* --------------- tên  ----------------- */}
+        <div className="name_ChiTiet_DH">{props.NameSP}</div>
+        {/* --------------- Soluong ----------------- */}
+        <div className="soluong_ChiTiet_DH"> Số lượng: {props.SoLuongSP}</div>
+        {/* --------------- Tong tien SP ----------------- */}
+        <div className="tongTien_ChiTiet_DH">Giá: {TongTienSP} VND</div>
+      </div>
     </div>
   );
 }

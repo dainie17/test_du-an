@@ -20,6 +20,22 @@
     font-size: 10px;
   }
 
+  .img_item_oder {
+    width: 20%;
+  }
+
+  .order-main-left-list-card {
+    font-size: 12px;
+  }
+
+  .itemDH_ID {
+    font-size: 10px;
+  }
+
+  .itemDH_TrangThai {
+    font-size: 12px;
+  }
+
   /* -------------------------------Cart------------------------  */
   .cart_container {
     width: 95%;
@@ -813,6 +829,39 @@
   }
 }
 @media only screen and (max-width: 640px) {
+  /* -------------------------------Peson----------------------- */
+  .itemDH_ID {
+    font-size: 8px;
+  }
+
+  .itemDH_ThanhTien {
+    font-size: 12px;
+  }
+
+  .itemDH_Date {
+    font-size: 12px;
+  }
+
+  .btn_XemSP {
+    font-size: 10px;
+  }
+
+  .btn_HuyDH {
+    font-size: 10px;
+  }
+
+  .name_ChiTiet_DH {
+    font-size: 10px;
+  }
+
+  .soluong_ChiTiet_DH {
+    font-size: 10px;
+  }
+
+  .tongTien_ChiTiet_DH {
+    font-size: 12px;
+  }
+
   /* -------------------------------Login----------------------- */
   .login {
     width: 55%;
@@ -973,6 +1022,44 @@
 }
 @media only screen and (max-width: 540px) {
   /* ------------------------------Pesonal----------------------- */
+  .fersonal_container_hover__info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+  }
+
+  .fersonal_container__hover {
+    position: relative;
+  }
+
+  .fersonal_container_hover__content {
+    width: 45%;
+    padding: 2%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 9999;
+    background-color: #e2f0f9;
+    transition: 1s;
+  }
+
+  .fersonal_container_hover__content_new {
+    top: 245px;
+    display: block;
+    transition: 1s;
+  }
+
+  .fersonal_container_hover__info img {
+    width: 20%;
+    z-index: 999;
+  }
+
+  .fersonal_container_hover__info h3 {
+    padding-top: 10px;
+  }
 
   .content {
     display: none;
@@ -980,6 +1067,72 @@
 
   .fersonal_container__hover {
     display: block;
+  }
+
+  .Item_IDDH {
+    width: 45%;
+    font-size: 10px;
+  }
+
+  .Item_TrangThaiDH {
+    font-size: 10px;
+  }
+
+  .Item_ThanhTienDH {
+    font-size: 10px;
+  }
+
+  .Item_TimeDH {
+    display: none;
+  }
+
+  .Item_btnDH {
+    font-size: 10px;
+  }
+
+  .itemDH_ID {
+    width: 45%;
+    font-size: 8px;
+  }
+
+  .itemDH_TrangThai {
+    font-size: 8px;
+  }
+
+  .itemDH_ThanhTien {
+    font-size: 8px;
+  }
+
+  .itemDH_Date {
+    display: none;
+  }
+
+  .btn_XemSP {
+    font-size: 7px;
+  }
+
+  .btn_HuyDH {
+    font-size: 7px;
+  }
+  /* ---------------------------------Peson--------------------------- */
+  .content_CTDH {
+    flex-direction: column;
+    justify-content: left;
+  }
+
+  .name_ChiTiet_DH {
+    width: 100%;
+    text-align: left;
+  }
+
+  .soluong_ChiTiet_DH {
+    width: 100%;
+    text-align: left;
+  }
+
+  .tongTien_ChiTiet_DH {
+    width: 100%;
+    text-align: left;
   }
 
   /* --------------------------------Oder----------------------- */

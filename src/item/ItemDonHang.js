@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import ChiTietDonHang from "./ChiTietDonHang";
-import Moment from 'moment';
+import Moment from "moment";
 import axios from "axios";
-
 
 export default function ItemDonHang(props) {
   const ip = "http://localhost:8080";
@@ -24,15 +23,15 @@ export default function ItemDonHang(props) {
     setOpenCT(true);
   };
 
-    // delete Don hang
+  // delete Don hang
   //           axios.delete(ip + `/DeleteDonHang/${_id}`);
 
-  const deleteDH =()=> {
-      axios.delete(ip + `/DeleteDonHang/${props._id}`);
+  const deleteDH = () => {
+    axios.delete(ip + `/DeleteDonHang/${props._id}`);
     props.setChxDelete(true);
-  }
+  };
 
-  const formatDate = Moment(props.DateDH).format('DD/MM/yyyy')
+  const formatDate = Moment(props.DateDH).format("DD/MM/yyyy");
 
   let GiaCX = new Intl.NumberFormat("it-IT").format(props.SumMoney);
 
@@ -43,9 +42,7 @@ export default function ItemDonHang(props) {
         <div className="itemDH_ID">
           <p>{props._id}</p>
         </div>
-        <p className="itemDH_TrangThai">
-          {props.TrangThaiDH}
-        </p>
+        <p className="itemDH_TrangThai">{props.TrangThaiDH}</p>
 
         <div className="itemDH_ThanhTien">
           <p>{GiaCX} VND</p>
@@ -55,15 +52,18 @@ export default function ItemDonHang(props) {
           <p>{formatDate}</p>
         </div>
         <div className="itemDH_bth">
-          <button  onClick={handleClickItemChiTiet} className="btn_XemSP">
+          <button onClick={handleClickItemChiTiet} className="btn_XemSP">
             Xem sản phẩm
           </button>
-          <button onClick={deleteDH} style={{ display: disPlay }} className="btn_HuyDH">
+          <button
+            onClick={deleteDH}
+            style={{ display: disPlay }}
+            className="btn_HuyDH"
+          >
             Hủy đơn hàng
           </button>
         </div>
       </div>
-
     </>
   );
 }

@@ -8,16 +8,11 @@ import AutorenewIcon from "@mui/icons-material/Autorenew";
 import Badge from "@mui/material/Badge";
 import Avatar from "@mui/material/Avatar";
 import { styled } from "@mui/material/styles";
-import {
-  DeleteOutlineSharp,
-  FavoriteBorderSharp,
-  VerifiedUserSharp,
-} from "@mui/icons-material";
+import $ from "jquery";
 import "../css/Personal.css";
 import Footer from "./footer";
 import BeatLoader from "react-spinners/BeatLoader";
 import ScrollToT from "./ScrollToTopbtn";
-
 import icon_user from "../assets/icon_user.png";
 import camera from "../assets/camera.png";
 import truck from "../assets/truck.png";
@@ -30,6 +25,7 @@ import imgUser from "../assets/people.png";
 import axios from "axios";
 import ItemDonHang from "../item/ItemDonHang";
 import cartt from "../assets/carts.png";
+import menuu from "../assets/responsitenavbar.png";
 
 const img =
   "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
@@ -171,6 +167,60 @@ function Peson() {
     getCart();
   }, []);
 
+  const [opNav, setOpNav] = useState(0);
+
+  function myFunction() {
+    if (opNav == 0) {
+      setOpNav(1);
+      $(".fersonal_container_hover__content").addClass(
+        "fersonal_container_hover__content_new"
+      );
+    } else if (opNav == 1) {
+      setOpNav(0);
+      $(".fersonal_container_hover__content").removeClass(
+        "fersonal_container_hover__content_new"
+      );
+    }
+  }
+
+  function myOnclickTT() {
+    toogleTab(1);
+    setOpNav(0);
+    $(".fersonal_container_hover__content").removeClass(
+      "fersonal_container_hover__content_new"
+    );
+  }
+
+  function myOnclickGH() {
+    toogleTab(4);
+    setOpNav(0);
+    $(".fersonal_container_hover__content").removeClass(
+      "fersonal_container_hover__content_new"
+    );
+  }
+
+  function myOnclickDDH() {
+    toogleTab(5);
+    setOpNav(0);
+    $(".fersonal_container_hover__content").removeClass(
+      "fersonal_container_hover__content_new"
+    );
+  }
+  const navigate = useNavigate();
+
+  function myOnclickDMK() {
+    navigate("/ForgotPass");
+  }
+
+  const onClickLogout = () => {
+    localStorage.removeItem("UserUser");
+    localStorage.removeItem("token");
+    localStorage.removeItem("Infomation");
+    localStorage.removeItem("GioHang");
+    window.location.href = "/login";
+    navgate("/login");
+  };
+
   return (
     <div className="fersonal">
       <ScrollToT />
@@ -221,7 +271,7 @@ function Peson() {
                 </div>
                 <div
                   className="fersonal_container__left__info__tabs"
-                  onClick={() => toogleTab(6)}
+                  onClick={onClickLogout}
                 >
                   <LogoutIcon
                     sx={{ marginRight: "2%", color: "#ffa726", fontSize: 20 }}
@@ -265,23 +315,32 @@ function Peson() {
                 </div>
                 <div className="fersonal_container__hover">
                   <div className="fersonal_container__hover__userName">
-                    <div className="fersonal_container_hover__info">
-                      <h3>Tài khoản của tôi</h3>
-                      <div
-                        style={{ display: "none" }}
-                        className="fersonal_container__hover__info__tabs"
-                        onClick={() => toogleTab(1)}
-                      >
-                        <PermContactCalendarIcon
-                          sx={{
-                            marginRight: "2%",
-                            color: "#ffa726",
-                            fontSize: 20,
-                          }}
-                        />
-                        Thông tin
-                      </div>
-                      {/* <div
+                    <div
+                      onClick={myFunction}
+                      className="fersonal_container_hover__info"
+                    >
+                      <img onClick={myFunction} src={menuu} />
+                      <h3 onClick={myFunction}>Menu</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="fersonal_container_hover__content">
+              <div
+                className="fersonal_container__hover__info__tabs"
+                onClick={myOnclickTT}
+              >
+                <PermContactCalendarIcon
+                  sx={{
+                    marginRight: "2%",
+                    color: "#ffa726",
+                    fontSize: 20,
+                  }}
+                />
+                Thông tin
+              </div>
+              {/* <div
                         style={{ display: "none" }}
                         className="fersonal_container__hover__info__tabs"
                         onClick={() => toogleTab(2)}
@@ -296,51 +355,44 @@ function Peson() {
                         Sản phẩm ưa thích
                       </div> */}
 
-                      <div
-                        style={{ display: "none" }}
-                        className="fersonal_container__hover__info__tabs"
-                        onClick={() => toogleTab(4)}
-                      >
-                        <Shop2Icon
-                          sx={{
-                            marginRight: "2%",
-                            color: "#ffa726",
-                            fontSize: 20,
-                          }}
-                        />
-                        Đơn đặt hàng của tôi
-                      </div>
-                      <div
-                        style={{ display: "none" }}
-                        className="fersonal_container__hover__info__tabs"
-                        onClick={() => toogleTab(5)}
-                      >
-                        <AutorenewIcon
-                          sx={{
-                            marginRight: "2%",
-                            color: "#ffa726",
-                            fontSize: 20,
-                          }}
-                        />
-                        Tình trạng đơn hàng
-                      </div>
-                      <div
-                        style={{ display: "none" }}
-                        className="fersonal_container__hover__info__tabs"
-                        onClick={() => toogleTab(6)}
-                      >
-                        <LogoutIcon
-                          sx={{
-                            marginRight: "2%",
-                            color: "#ffa726",
-                            fontSize: 20,
-                          }}
-                        />
-                        Đăng xuất
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div
+                className="fersonal_container__hover__info__tabs"
+                onClick={myOnclickGH}
+              >
+                <Shop2Icon
+                  sx={{
+                    marginRight: "2%",
+                    color: "#ffa726",
+                    fontSize: 20,
+                  }}
+                />
+                Giỏ hàng của tôi
+              </div>
+              <div
+                className="fersonal_container__hover__info__tabs"
+                onClick={myOnclickDDH}
+              >
+                <AutorenewIcon
+                  sx={{
+                    marginRight: "2%",
+                    color: "#ffa726",
+                    fontSize: 20,
+                  }}
+                />
+                Đơn hàng
+              </div>
+              <div
+                className="fersonal_container__hover__info__tabs"
+                onClick={onClickLogout}
+              >
+                <LogoutIcon
+                  sx={{
+                    marginRight: "2%",
+                    color: "#ffa726",
+                    fontSize: 20,
+                  }}
+                />
+                Đăng xuất
               </div>
             </div>
             <div className="fersonal_container-right--fooder--content">
@@ -388,13 +440,7 @@ function Peson() {
                   </div>
                   <div className="fersonal_container-right--fooder--content--active--password">
                     <h3>Mật Khẩu</h3>
-
-                    <Popup
-                      trigger={<button onClick={openForm}>Đổi mật khẩu</button>}
-                      position="right center"
-                    >
-                      <div>Popup content here !!</div>
-                    </Popup>
+                    <button onClick={myOnclickDMK}>Đổi mật khẩu</button>
                   </div>
                 </div>
               </div>

@@ -47,6 +47,14 @@
   padding-bottom: 5%;
 }
 
+.fersonal_container__hover__info__tabs {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 3px;
+}
+
 .fersonal_container__left__info__tabs {
   cursor: pointer;
   display: flex;
@@ -83,6 +91,10 @@
   border-radius: 10px 10px 10px 10px;
   text-align: center;
   margin: 0 auto;
+}
+
+.fersonal_container_hover__content {
+  display: none;
 }
 
 .fersonal_container-right--header--avatar--user {
