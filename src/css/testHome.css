@@ -414,3 +414,30 @@ body {
   margin-top: 3rem;
   text-indent: 3rem;
 }
+
+@media only screen and (max-width: 820px){
+  .slider__item.active img {
+    height: 36.85rem;
+    width: 24.55rem;
+    translate: -11rem;
+  }
+  .text__group h3 {
+    font-size: 2rem;
+  }
+  .text{
+    left: 26rem;
+    top: 23rem;
+  }
+  .slider__item img {
+    height: 15rem;
+    width: 10rem;
+    translate: -15rem;
+  }
+  .btn {
+
+    height: 5rem;
+    left: 28rem;
+    top: 18rem;
+    width: 8rem;
+  }
+}
