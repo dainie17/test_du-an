@@ -288,7 +288,7 @@ const Detail = () => {
                 <div className="detail-main-top-right">
                   <p className="detail-main-top-right-name">{NameSP}</p>
                   <p className="detail-main-top-right-number">
-                    Số lượng: {SoLuongSP}{" "}
+                    Số lượng còn: {SoLuongSP}{" "}
                   </p>
                   <div className="detail-main-top-right-price">
                     <div className="detail_price_content">
@@ -340,7 +340,7 @@ const Detail = () => {
                         />
                       </div>
                     </div>
-                    <div
+                    {/* <div
                       className={
                         toggleState === 2
                           ? "favorite detail-main-top-right-button-favorite1"
@@ -369,7 +369,7 @@ const Detail = () => {
                       <div className="favorite_p">
                         <p>Yêu thích</p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   <button
                     className="btn_addtocart"
@@ -394,7 +394,7 @@ const Detail = () => {
                     </div>
                     <div className="detail-main-top-right-itemsv-right">
                       <TokenSharp />
-                      <p>Đảm bảo hàng bị thiếu / sai</p>
+                      <p>Đảm bảo đổi trả khi bị thiếu/sai</p>
                     </div>
                   </div>
                 </div>

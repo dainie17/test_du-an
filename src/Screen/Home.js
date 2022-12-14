@@ -34,14 +34,11 @@ import ItemBlog_4 from "../item/ItemBlog_4";
 import ItemBlog_5 from "../item/ItemBlog_5";
 import ItemBlog_6 from "../item/ItemBlog_6";
 import ItemBlog_7 from "../item/ItemBlog_7";
-
-const imgBanner = "https://i.redd.it/dhjkl1p1y8dy.jpg";
-const imgBanner1 = "https://wallpaperaccess.com/full/333442.jpg";
-const imgBanner2 = "http://i.imgur.com/VUnpzvl.jpg";
-const imgBanner3 =
-  "https://img4.thuthuatphanmem.vn/uploads/2019/12/10/hinh-anh-thien-nhien-lam-hinh-nen-cho-dien-thoai_120849603.jpg";
-const imgBanner4 =
-  "https://i.pinimg.com/736x/cf/51/6a/cf516a55c15cab2557e7c0953c92995c.jpg";
+import imgBanner from "../assets/imgbanner1.jpg";
+import imgBanner1 from "../assets/imgBanner2.jpg";
+import imgBanner2 from "../assets/imgbanner3.jpg";
+import imgBanner3 from "../assets/imgbanner4.jpg";
+import imgBanner4 from "../assets/imgbanner5.jpg";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -384,16 +381,17 @@ const Home = () => {
                 >
                   <div className="flex__item flex__item--left">
                     <div className="flex__content">
-                      <p className="text--sub">Pokemon Gen I</p>
-                      <h1 className="text--big">Pikachu</h1>
+                      {/* <p className="text--sub">Pokemon Gen I</p> */}
+                      <h1 className="text--big">Cung cấp vỏ chai lọ</h1>
                       <p className="text--normal">
-                        Pikachu is an Electric-type Pokémon introduced in
-                        Generation I. Pikachu are small, chubby, and incredibly
-                        cute mouse-like Pokémon. They are almost completely
-                        covered by yellow fur.
+                        -Đa dạng mẫu mã, chất liệu, kích thước.
+                        <br />
+                        -Giá cả cạnh tranh.
+                        <br />
+                        -Nhận cung cấp số lượng lơn toàn quốc.
                       </p>
                     </div>
-                    <p className="text__background">Pikachu</p>
+                    {/* <p className="text__background">Pikachu</p> */}
                   </div>
                   <div className="flex__item flex__item--right"></div>
                   <img className="pokemon__img" src={imgBanner} />
@@ -404,16 +402,17 @@ const Home = () => {
                 >
                   <div className="flex__item flex__item--left">
                     <div className="flex__content">
-                      <p className="text--sub">Pokemon Gen IV</p>
-                      <h1 className="text--big">Piplup</h1>
+                      {/* <p className="text--sub">Pokemon Gen IV</p> */}
+                      <h1 className="text--big">Vỏ chai lọ</h1>
                       <p className="text--normal">
-                        Piplup is the Water-type Starter Pokémon of the Sinnoh
-                        region. It was introduced in Generation IV. Piplup has a
-                        strong sense of self-esteem. It seldom accepts food that
-                        people give because of its pride.
+                        -Hũ nhựa.
+                        <br />
+                        -Chai lọ nhựa.
+                        <br />
+                        -Tuýp mỹ phẩm.
                       </p>
                     </div>
-                    <p className="text__background">Piplup</p>
+                    {/* <p className="text__background">Piplup</p> */}
                   </div>
                   <div className="flex__item flex__item--right"></div>
                   <img className="pokemon__img" src={imgBanner1} />
@@ -424,16 +423,17 @@ const Home = () => {
                 >
                   <div className="flex__item flex__item--left">
                     <div className="flex__content">
-                      <p className="text--sub">Pokemon Gen III</p>
-                      <h1 className="text--big">Blaziken</h1>
+                      {/* <p className="text--sub">Pokemon Gen III</p> */}
+                      <h1 className="text--big">Cung cấp vỏ chai lọ</h1>
                       <p className="text--normal">
-                        Blaziken is the Fire/Fighting-type Starter Pokémon of
-                        the Hoenn region, introduced in Generation III. Blaziken
-                        is a large, bipedal, humanoid bird-like Pokémon that
-                        resembles a rooster.
+                        -Nhận đặt hàng số lượng lớn.
+                        <br />
+                        -Uy tín, chất lượng.
+                        <br />
+                        -Hỗ trợ giao hàng.
                       </p>
                     </div>
-                    <p className="text__background">Blaziken</p>
+                    {/* <p className="text__background">Blaziken</p> */}
                   </div>
                   <div className="flex__item flex__item--right"></div>
                   <img className="pokemon__img" src={imgBanner2} />
@@ -444,17 +444,13 @@ const Home = () => {
                 >
                   <div className="flex__item flex__item--left">
                     <div className="flex__content">
-                      <p className="text--sub">Pokemon Gen IV</p>
-                      <h1 className="text--big">Dialga</h1>
+                      {/* <p className="text--sub">Pokemon Gen IV</p> */}
+                      <h1 className="text--big">Chất lượng hàng đầu</h1>
                       <p className="text--normal">
-                        Dialga is a Steel/Dragon-type Legendary Pokémon. Dialga
-                        is a sauropod-like Pokémon. It is mainly blue with some
-                        gray, metallic portions, such as its chest plate, which
-                        has a diamond in the center. It also has various, light
-                        blue lines all over its body.
+                        -Đảm bảo, uy tín, chất lượng chai nhựa cho khách hàng.
                       </p>
                     </div>
-                    <p className="text__background">Dialga</p>
+                    {/* <p className="text__background">Dialga</p> */}
                   </div>
                   <div className="flex__item flex__item--right"></div>
                   <img className="pokemon__img" src={imgBanner3} />
@@ -465,18 +461,15 @@ const Home = () => {
                 >
                   <div className="flex__item flex__item--left">
                     <div className="flex__content">
-                      <p className="text--sub">Pokemon Gen V</p>
-                      <h1 className="text--big">Zekrom</h1>
+                      {/* <p className="text--sub">Pokemon Gen V</p> */}
+                      <h1 className="text--big">Sự kiện giáng sinh</h1>
                       <p className="text--normal">
-                        Zekrom is a Dragon/Electric-type Legendary Pokémon. It
-                        is part of the Tao Trio, along with Reshiram and Kyurem.
-                        Zekrom is a large, black draconian Pokémon that seems to
-                        share its theme with its counterpart, Reshiram. It has
-                        piercing red eyes and dark gray to black skin that seems
-                        to be armor-like.
+                        -Giảm giá 50% chai lọ mỹ phẩm.
+                        <br />
+                        -Bắt đầu từ ngày 10 tháng 12 đến ngày 02 tháng 01.
                       </p>
                     </div>
-                    <p className="text__background">Zekrom</p>
+                    {/* <p className="text__background">Zekrom</p> */}
                   </div>
                   <div className="flex__item flex__item--right"></div>
                   <img className="pokemon__img" src={imgBanner4} />
