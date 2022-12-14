@@ -7,7 +7,7 @@ import Menu from "@mui/material/Menu";
 import Tooltip from "@mui/material/Tooltip";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo_cty.png";
-import name_logo from "../assets/name_logo.png";
+import name_logo from "../assets/name_logo.jpg"
 import three_dot from "../assets/three_dot.png";
 import { Fragment } from "react";
 const onClickSearch = () => {
@@ -87,7 +87,7 @@ function Navbar() {
   return (
     <nav className="home-header">
       <div className="header_container">
-      <div onClick={myFunction} className="open_nav" id={"openNav"}><img className="open_navimg" src={three_dot}></img></div>
+        <div onClick={myFunction} className="open_nav" id={"openNav"}><img className="open_navimg" src={three_dot}></img></div>
         <div onClick={onclickHome} className="home-header_logo">
           <img className="home-header-logo-image" src={logo} alt="" />
           <img className="home-header-logo-image-name" src={name_logo} alt="" />
@@ -148,7 +148,7 @@ function Navbar() {
                 </Tooltip>
               </Box>
               <Menu
-              className="menu_navbar"
+                className="menu_navbar"
                 anchorEl={anchorEl}
                 id="account-menu"
                 open={open}
@@ -185,7 +185,7 @@ function Navbar() {
                 anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
               >
                 <div onClick={onClickLogin} className="item_navlg">
-                   Đăng nhập
+                  Đăng nhập
                 </div>
                 <div onClick={onClickSignup} className="item_navsu">
                   Tham gia với chúng tôi
