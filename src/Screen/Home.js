@@ -55,6 +55,10 @@ const Home = () => {
 
   const navigate = useNavigate();
 
+  const onclickContact = () => {
+    navigate("/Contact");
+  };
+
   useEffect(() => {
     var getUser = localStorage.getItem("UserUser");
     var data = JSON.parse(getUser);
@@ -321,13 +325,13 @@ const Home = () => {
     getDataLoaiSP();
     getDataBlog();
   }, []);
-  
+
   var settings = {
-    autoplay:true,
-    autoplaySpeed:2000,
-    slidesToShow:4,
-    slidesToScroll:1,
-    infinite:true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    infinite: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -516,7 +520,7 @@ const Home = () => {
                         lọ.
                       </p>
                     </div>
-                    <div className="home-main-introduce-button">
+                    <div className="home-main-introduce-button" onClick={onclickContact}>
                       <button className="btn_introduce">
                         <span className="span_introduce">Xem Thêm</span>
                       </button>
@@ -542,8 +546,8 @@ const Home = () => {
                 </div>
                 <div className="home_container">
                   <Slider
-                  {...settings}
-                    
+                    {...settings}
+
                   >
                     {dsLoaiSP.map((vl, index) => {
                       if (vl.TrangThaiLoaiSP == "Hoạt động") {

@@ -94,6 +94,7 @@ export default function Order() {
   };
 
   const [TrangThaiDH, setTrangThaiDH] = useState("Chờ xác nhận");
+  const [Height, setHeight] = useState("300px");
 
   const onclickDH = () => {
     if (
@@ -132,6 +133,7 @@ export default function Order() {
           axios.delete(ip + `/DeleteGioHang/${vl}`);
         });
         navgate("/Completed");
+
       } else if (ThanhToan == 2) {
         let PhuongThucOnl = "Thanh Toán Online";
         window.location.href = "http://localhost:8080";
@@ -162,20 +164,26 @@ export default function Order() {
   function getThanhToanOff() {
     if (ThanhToan == 0) {
       setThanhToan(1);
+      setHeight("370px")
     } else if (ThanhToan == 2) {
       setThanhToan(1);
+      setHeight("370px")
     } else {
       setThanhToan(0);
+      setHeight("300px")
     }
   }
 
   function getThanhToanOnl() {
     if (ThanhToan == 0) {
       setThanhToan(2);
+      setHeight("300px")
     } else if (ThanhToan == 1) {
       setThanhToan(2);
+      setHeight("300px")
     } else {
       setThanhToan(0);
+      setHeight("300px")
     }
   }
 
@@ -410,7 +418,7 @@ export default function Order() {
                   })}
                 </div>
               </div>
-              <div className="order-main-right">
+              <div className="order-main-right" style={{ height: Height }}>
                 <p className="cart-main-right-title">Tóm tắt theo thứ tự</p>
                 <div className="cart-main-right-subtotal">
                   <p className="cart-main-right-subtotal-title">Tổng phụ</p>

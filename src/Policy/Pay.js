@@ -21,14 +21,14 @@ export default function Lie() {
   }, []);
 
   const [chxNab, setChxNab] = useState(false);
-  useEffect(()=>{
+  useEffect(() => {
     var getUser = localStorage.getItem("UserUser")
     var data = JSON.parse(getUser)
-    
+
     if (getUser == null) {
     }
-  
-    if(getUser != null){
+
+    if (getUser != null) {
       setChxNab(true)
     }
   },)
@@ -115,18 +115,6 @@ export default function Lie() {
                   Lưu ý: hình thức này chỉ áp dụng với các dịch vụ trị giá {">"}{" "}
                   5 triệu đồng.
                 </p>
-              </div>
-              <div className="policy_right">
-                <div className="policy_right_facebook">
-                  <h3>Facebook</h3>
-                  <div className="policy_right_facebook_iframe">
-                  </div>
-                </div>
-                <div className="policy_right_facebook">
-                  <h3>Youtobe</h3>
-                  <div className="policy_right_facebook_iframe">
-                  </div>
-                </div>
               </div>
             </div>
           </div>

@@ -26,6 +26,7 @@ import axios from "axios";
 import ItemDonHang from "../item/ItemDonHang";
 import cartt from "../assets/carts.png";
 import menuu from "../assets/responsitenavbar.png";
+import Pagination from "../bosung/Pagination";
 
 const img =
   "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
@@ -66,6 +67,14 @@ function openForm() {
 
 function Peson() {
   const ip = "http://localhost:8080";
+
+
+  // Phân Trang
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(2);
+
+  // Get current posts
+
 
   const [toggleState, setToggleState] = useState(1);
   const toogleTab = (index) => {
@@ -141,6 +150,7 @@ function Peson() {
     }
 
     getDataDonHang();
+
   }, []);
 
   // delete Don hang
@@ -151,6 +161,11 @@ function Peson() {
       setDsDonHang(response.data);
     });
   };
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = DsDonHang.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   const [cart, setCart] = useState([]);
 
@@ -519,7 +534,7 @@ function Peson() {
                   <div className="Item_btnDH">Chức năng</div>
                 </div>
                 <div style={{ width: "100%" }}>
-                  {DsDonHang.map((item, index) => (
+                  {currentPosts.map((item, index) => (
                     <ItemDonHang
                       key={item._id}
                       _id={item._id}
@@ -530,6 +545,23 @@ function Peson() {
                       setChxDelete={setChxDelete}
                     />
                   ))}
+                </div>
+                <div className='phan-trang'>
+                  <div className='phan-trang-left' >
+                    <select className='select-phan-trang' defaultValue={postsPerPage} onChange={(e) => setPostsPerPage(e.target.value)}>
+                      <option value="2">2 Đơn</option>
+                      <option value="4">4 Đơn</option>
+                    </select>
+                  </div>
+                  <Pagination
+                    postsPerPage={postsPerPage}
+                    totalPosts={DsDonHang.length}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    paginate={paginate}
+                    posts={currentPosts}
+                  />
+
                 </div>
               </div>
               <div

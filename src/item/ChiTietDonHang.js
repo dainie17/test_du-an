@@ -21,6 +21,21 @@ export default function ChiTietDonHang(props) {
       maxWidth="md"
     >
       <DialogContent>
+        <div className="frames_ChiTiet_DH">
+          <div className="img_ChiTiet_DH">
+            <p>Hình Sản Phẩm</p>
+          </div>
+          <div className="content_CTDH">
+            {/* --------------- tên  ----------------- */}
+            <div className="name_ChiTiet_DH">Tên Sản Phẩm</div>
+            {/* --------------- Giá chính xác  ----------------- */}
+            <div className="name_ChiTiet_DH">Giá(VND)</div>
+            {/* --------------- Soluong ----------------- */}
+            <div className="soluong_ChiTiet_DH"> Số lượng</div>
+            {/* --------------- Tong tien SP ----------------- */}
+            <div className="tongTien_ChiTiet_DH">Tổng Tiền(VND)</div>
+          </div>
+        </div>
         {props.DsSP.map((vl, index) => {
           return (
             <ItemChiTietDH

@@ -301,21 +301,23 @@ const Detail = () => {
                       </p>
                     </div>
                     <div className="detail_price_date">
-                      <p
-                        style={{
-                          display: Display,
-                        }}
-                      >
-                        {formatDateBegin}
-                      </p>
-                      <p
-                        style={{
-                          display: Display,
-                          paddingLeft: "4px",
-                        }}
-                      >
-                        đến {formatDateEnd}
-                      </p>
+                      <div style={{ display: "flex", backgroundColor: "#FFE1E1", padding: "15px 10px", color: "#E14D2A", borderRadius: "5px", fontWeight: "bold" }}>
+                        <p
+                          style={{
+                            display: Display,
+                          }}
+                        >
+                          Giảm giá {formatDateBegin}
+                        </p>
+                        <p
+                          style={{
+                            display: Display,
+                            paddingLeft: "4px",
+                          }}
+                        >
+                          đến {formatDateEnd}
+                        </p>
+                      </div>
                     </div>
                   </div>
                   <p className="detail-main-top-right-title">
@@ -340,7 +342,7 @@ const Detail = () => {
                         />
                       </div>
                     </div>
-                    {/* <div
+                    <div
                       className={
                         toggleState === 2
                           ? "favorite detail-main-top-right-button-favorite1"
@@ -369,7 +371,7 @@ const Detail = () => {
                       <div className="favorite_p">
                         <p>Yêu thích</p>
                       </div>
-                    </div> */}
+                    </div>
                   </div>
                   <button
                     className="btn_addtocart"

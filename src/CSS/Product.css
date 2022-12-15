@@ -186,7 +186,7 @@
 /* ----------------------------phần người dùng--------------------------------- */
 .product-main-top-right-user {
   width: 100%;
-  padding: 20px;
+  padding: 15px;
   display: flex;
   flex-direction: row;
   background-color: #fff6f0;
@@ -658,16 +658,18 @@
 }
 
 .itemDH_ID {
-  width: 30%;
+  width: 31%;
   padding-left: 20px;
   text-align: center;
   font-size: 15px;
 }
 
 .itemDH_TrangThai {
-  width: 17%;
+  width: 20%;
   text-align: center;
   font-size: 15px;
+  padding: 8px 8px;
+  border-radius: 5px;
 }
 
 .itemDH_ThanhTien {
@@ -737,7 +739,8 @@
 }
 
 .img_ChiTiet_DH img {
-  width: 100%;
+  width: 100px;
+  height: 150px;
 }
 
 .content_CTDH {
@@ -747,7 +750,7 @@
 }
 
 .name_ChiTiet_DH {
-  width: 40%;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
