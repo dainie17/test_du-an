@@ -31,7 +31,7 @@ function footer() {
                     <div className="form_fanpage">
                         <h3>FANPAGE</h3>
                         <div>
-                            <a to="https://www.facebook.com/anhtuangoldland.vu"><img src={anhXep} style={{ width: "250px", height: "200px" }} /></a>
+                            <a href="https://www.facebook.com/anhtuangoldland.vu"><img src={anhXep} style={{ width: "250px", height: "200px" }} /></a>
                         </div>
                     </div>
 

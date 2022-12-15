@@ -101,7 +101,7 @@ export default function ItemCart(props) {
       </TableCell>
 
       <TableCell
-        style={{ width: "100px", height: "140px", padding: "10px 5px 5px 5px" }}
+        style={{ width: "120px", height: "140px", padding: "10px 5px 5px 5px" }}
         className="image_sp"
         component="th"
         scope="row"

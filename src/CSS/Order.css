@@ -91,7 +91,13 @@ khối div địa chỉ giao hàng */
 }
 
 .img_item_oder {
-  width: 50%;
+  width: 100%;
+  height: 140px;
+}
+
+.item_img_oder {
+  width: 25%;
+  height: 140px;
 }
 
 .order-main-left-para-content {

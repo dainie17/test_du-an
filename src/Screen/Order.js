@@ -250,17 +250,17 @@ export default function Order() {
           <div className="order">
             <ScrollToTop smooth></ScrollToTop>
             <div className="cart-header">
-              <div className="cart_header_container">
-                <div>
-                  <button className="update" style={{ display: "none" }}>
-                    sửa
-                  </button>
-                  <div className="alert_update hide_update">
-                    <img src={error} width="28" height="28" />
-                    <p className="msg_update">{ShowAler}</p>
-                    <div className="btn_alert_update">x</div>
-                  </div>
+              <div>
+                <button className="update" style={{ display: "none" }}>
+                  sửa
+                </button>
+                <div className="alert_update hide_update">
+                  <img src={error} width="28" height="28" />
+                  <p className="msg_update">{ShowAler}</p>
+                  <div className="btn_alert_update">x</div>
                 </div>
+              </div>
+              <div className="cart_header_container">
                 <div className="cart_header_left">
                   <div className="cart-header-logo" onClick={onclickHome}>
                     <img src={logo} alt="" />

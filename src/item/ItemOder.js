@@ -5,6 +5,7 @@ import axios from "axios";
 import ItemImgCart from "./ItemImgCart";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import ItemImgOder from "./ItemImgOder";
 
 export default function ItemOder(props) {
   const ip = "http://localhost:8080";
@@ -34,7 +35,7 @@ export default function ItemOder(props) {
       <div className="order_main_card_imgtitle">
         {props.Image.map((element, index) => {
           return (
-            <ItemImgCart
+            <ItemImgOder
               key={index}
               files={element}
             />
