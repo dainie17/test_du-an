@@ -9,6 +9,7 @@ import Footer from "./footer";
 
 import logo from "../assets/logo_cty.png";
 import NavbarIn from "./NavbarIn";
+import ScrollToTop from "./ScrollToTopbtn";
 
 
 
@@ -31,6 +32,7 @@ function News1(props) {
     return (
         <div>
             {chxNab ? <NavbarIn /> : <Navbar />}
+            <ScrollToTop />
             <div className="news" style={{ marginTop: "70px" }}>
 
                 <div className="news_table">
@@ -73,7 +75,7 @@ function News1(props) {
                     </div>
                 </div>
             </div>
-            {/* <Footer /> */}
+            <Footer />
         </div>
     )
 }
