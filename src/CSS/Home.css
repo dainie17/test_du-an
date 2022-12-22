@@ -873,7 +873,7 @@
   font-weight: 700;
   color: white;
   margin-top: 2%;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
 }
 
 .main_new_top_center_big_content {
@@ -918,7 +918,7 @@
 .main_new_top_small_card {
   width: 100%;
   opacity: 0;
-  padding-top: 50px;
+  padding-top: 40px;
   transition: transform 0.2s linear 0.2s, opacity 0.3s linear 0.2s;
 }
 
