@@ -21,10 +21,9 @@ import Itemhinh from "../item/Itemhinh";
 import oke from "../assets/oke.png";
 import Moment from "moment";
 import axios from "axios";
-import { number } from "yup";
+import ItemBinhLuan from "../item/ItemBinhLuan";
 
 const Detail = () => {
-  // app.get("/getDataSaleDate/:PhanTramGiamGia"
 
   let navgate = useNavigate();
 
@@ -113,6 +112,11 @@ const Detail = () => {
   const [saleEnd, setSaleEnd] = useState();
   const [Display, setDisplay] = useState("none");
 
+  const [dsBinhLuan, setDsBinhLuan] = useState([]);
+
+  var Infomation = localStorage.getItem("Infomation");
+  var db = JSON.parse(Infomation);
+
   useEffect(() => {
     var ItemSP = localStorage.getItem("ItemSP");
     var data = JSON.parse(ItemSP);
@@ -130,20 +134,22 @@ const Detail = () => {
       setTest(data.test);
       if (data.SaleSP == 0) {
       } else {
-        axios.get(ip + `/getDataSaleDate/${data.SaleSP}`).then((response) => {
-          setSaleEnd(response.data[0].NgayEndSale);
-          setSaleBegin(response.data[0].NgayTaoSale);
-        });
+        axios.get(ip + `/getDataSaleDate/${data.SaleSP}`)
+          .then((response) => {
+            setSaleEnd(response.data[0].NgayEndSale);
+            setSaleBegin(response.data[0].NgayTaoSale);
+          });
       }
     }
 
-    var Infomation = localStorage.getItem("Infomation");
-    var db = JSON.parse(Infomation);
+
     if (Infomation == null) {
       setChxUser("none");
+      setTen()
     } else if (Infomation != null) {
       setIdUser(db.data._id);
       setChxUser("block");
+      setTen(db.data.TKUser)
     }
 
     if (data.SaleSP == 0) {
@@ -151,6 +157,12 @@ const Detail = () => {
     } else {
       setDisplay("block");
     }
+
+
+    axios.get(ip + `/getBinhLuan/${data.idImg}`)
+      .then((response) => {
+        setDsBinhLuan(response.data)
+      });
   }, []);
 
   const setGioHang = () => {
@@ -166,14 +178,6 @@ const Detail = () => {
       });
     }
   };
-
-  //   let item = cart.find(c => c._id === _id);
-
-  //   if (item) {
-  //     item.num += tong
-  //   } else {
-  //     cart.push({ _id: _id, name: name, price: price, num: tong });
-  //   }
 
   const btn_AddGioHang = () => {
     var getGioHang = localStorage.getItem("GioHang");
@@ -227,6 +231,19 @@ const Detail = () => {
       }
     }
   };
+
+  const [Ten, setTen] = useState();
+  const [NoiDungBL, setNoiDungBL] = useState();
+
+  const btn_AddBinhLuan = () => {
+    axios.post(ip + "/add_BinhLuan", {
+      idImg: idImg,
+      NameUser: db.data.TKUser,
+      Date: new Date(),
+      NoiDung: NoiDungBL,
+    });
+    setNoiDungBL()
+  }
 
   const onClickVanChuyen = () => {
     navgate("/vanchuyen");
@@ -403,6 +420,55 @@ const Detail = () => {
               </div>
             </div>
           </div>
+
+
+          <div style={{ display: ChxUser }}>
+            <div>
+              <div>
+                <img src={shieldImg} width="20" height="20"></img>
+              </div>
+            </div>
+            <div>
+              <div>{Ten}</div>
+              <div>
+                <div className="input_intro">
+                  <input
+                    type="text"
+                    // style={{ borderColor: color4 }}
+                    className="intro__input"
+                    placeholder=" "
+                    name="Bình luận"
+                    onChange={(e) => setNoiDungBL(e.target.value)}
+                    // onBlur={(e) => validatePhoneCheck(e.target.value)}
+                    required
+                  />
+                  <label htmlFor="email" className="intro__label">
+                    Bình luận
+                  </label>
+                </div>
+                <div>
+                  <button onClick={btn_AddBinhLuan}>Gửi</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div>
+            {dsBinhLuan.map((vl, index) => {
+              return (
+                <ItemBinhLuan
+                  key={index}
+                  idImg={vl.idImg}
+                  NameUser={vl.NameUser}
+                  Date={vl.Date}
+                  NoiDung={vl.NoiDung}
+                />
+              )
+            })}
+          </div>
+
+
           <div className="home-purview">
             <div className="preview">
               <div className="preview_title">
@@ -436,7 +502,8 @@ const Detail = () => {
 
           <Footer />
         </div>
-      )}
+      )
+      }
     </>
   );
 };
