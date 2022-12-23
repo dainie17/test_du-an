@@ -6,6 +6,7 @@ import truck from "../assets/delivery-truck.png";
 import money from "../assets/salary.png";
 import hour from "../assets/hour.png";
 import shieldImg from "../assets/shields.png";
+import useImg from "../assets/userImg3.png";
 import ScrollToTop from "./ScrollToTopbtn";
 import BeatLoader from "react-spinners/BeatLoader";
 import $ from "jquery";
@@ -24,7 +25,6 @@ import axios from "axios";
 import ItemBinhLuan from "../item/ItemBinhLuan";
 
 const Detail = () => {
-
   let navgate = useNavigate();
 
   const [tong, setTong] = useState(1);
@@ -134,22 +134,20 @@ const Detail = () => {
       setTest(data.test);
       if (data.SaleSP == 0) {
       } else {
-        axios.get(ip + `/getDataSaleDate/${data.SaleSP}`)
-          .then((response) => {
-            setSaleEnd(response.data[0].NgayEndSale);
-            setSaleBegin(response.data[0].NgayTaoSale);
-          });
+        axios.get(ip + `/getDataSaleDate/${data.SaleSP}`).then((response) => {
+          setSaleEnd(response.data[0].NgayEndSale);
+          setSaleBegin(response.data[0].NgayTaoSale);
+        });
       }
     }
 
-
     if (Infomation == null) {
       setChxUser("none");
-      setTen()
+      setTen();
     } else if (Infomation != null) {
       setIdUser(db.data._id);
       setChxUser("block");
-      setTen(db.data.TKUser)
+      setTen(db.data.TKUser);
     }
 
     if (data.SaleSP == 0) {
@@ -158,11 +156,9 @@ const Detail = () => {
       setDisplay("block");
     }
 
-
-    axios.get(ip + `/getBinhLuan/${data.idImg}`)
-      .then((response) => {
-        setDsBinhLuan(response.data)
-      });
+    axios.get(ip + `/getBinhLuan/${data.idImg}`).then((response) => {
+      setDsBinhLuan(response.data);
+    });
   }, []);
 
   const setGioHang = () => {
@@ -242,8 +238,8 @@ const Detail = () => {
       Date: new Date(),
       NoiDung: NoiDungBL,
     });
-    setNoiDungBL()
-  }
+    setNoiDungBL();
+  };
 
   const onClickVanChuyen = () => {
     navgate("/vanchuyen");
@@ -318,7 +314,16 @@ const Detail = () => {
                       </p>
                     </div>
                     <div className="detail_price_date">
-                      <div style={{ display: "flex", backgroundColor: "#FFE1E1", padding: "15px 10px", color: "#E14D2A", borderRadius: "5px", fontWeight: "bold" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          backgroundColor: "#FFE1E1",
+                          padding: "15px 10px",
+                          color: "#E14D2A",
+                          borderRadius: "5px",
+                          fontWeight: "bold",
+                        }}
+                      >
                         <p
                           style={{
                             display: Display,
@@ -413,7 +418,7 @@ const Detail = () => {
                     </div>
                     <div className="detail-main-top-right-itemsv-right">
                       <TokenSharp />
-                      <p>Đảm bảo đổi trả khi bị thiếu/sai</p>
+                      <p>Đảm bảo đổi trả khi thiếu/sai hàng hóa</p>
                     </div>
                   </div>
                 </div>
@@ -421,16 +426,13 @@ const Detail = () => {
             </div>
           </div>
 
-
-          <div style={{ display: ChxUser }}>
-            <div>
-              <div>
-                <img src={shieldImg} width="20" height="20"></img>
+          <div className="coment detail_container" style={{ display: ChxUser }}>
+            <div className="input_comment">
+              <div className="img_comment">
+                <img src={useImg}></img>
               </div>
-            </div>
-            <div>
-              <div>{Ten}</div>
-              <div>
+              {/* <div>{Ten}</div> */}
+              <div className="input_detail">
                 <div className="input_intro">
                   <input
                     type="text"
@@ -446,28 +448,25 @@ const Detail = () => {
                     Bình luận
                   </label>
                 </div>
-                <div>
+                <div className="btn_comment_detail">
                   <button onClick={btn_AddBinhLuan}>Gửi</button>
                 </div>
               </div>
             </div>
-
+            <div>
+              {dsBinhLuan.map((vl, index) => {
+                return (
+                  <ItemBinhLuan
+                    key={index}
+                    idImg={vl.idImg}
+                    NameUser={vl.NameUser}
+                    Date={vl.Date}
+                    NoiDung={vl.NoiDung}
+                  />
+                );
+              })}
+            </div>
           </div>
-
-          <div>
-            {dsBinhLuan.map((vl, index) => {
-              return (
-                <ItemBinhLuan
-                  key={index}
-                  idImg={vl.idImg}
-                  NameUser={vl.NameUser}
-                  Date={vl.Date}
-                  NoiDung={vl.NoiDung}
-                />
-              )
-            })}
-          </div>
-
 
           <div className="home-purview">
             <div className="preview">
@@ -502,8 +501,7 @@ const Detail = () => {
 
           <Footer />
         </div>
-      )
-      }
+      )}
     </>
   );
 };

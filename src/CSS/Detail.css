@@ -412,14 +412,14 @@
 }
 
 .detail-main-top-right-itemsv {
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .detail-main-top-right-itemsv-left {
-  width: 40%;
+  width: 30%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -434,7 +434,7 @@
 }
 
 .detail-main-top-right-itemsv-right {
-  width: 60%;
+  width: 70%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -685,4 +685,45 @@
 .alert_update .btn_alert_update:hover {
   background: #ce8500;
   color: #ffdb9b;
+}
+
+.input_comment{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.img_comment{
+  width: 5%;
+  background-color: rgb(146, 146, 146);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.img_comment img{
+  width: 90%;
+}
+
+.btn_comment_detail{
+  width: 10%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.input_detail{
+  width: 95%;
+  position: relative;
+}
+
+
+
+.btn_comment_detail button{
+  width: 100%;
 }
