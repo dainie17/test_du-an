@@ -6,7 +6,7 @@ import '../css/News.css'
 import Navbar from "./Navbar";
 import ItemNavi from "../item/ItemNavi"
 import Footer from "./footer";
-
+import BeatLoader from "react-spinners/BeatLoader";
 import logo from "../assets/logo_cty.png";
 import NavbarIn from "./NavbarIn";
 import ScrollToTop from "./ScrollToTopbtn";
@@ -14,6 +14,15 @@ import ScrollToTop from "./ScrollToTopbtn";
 
 
 function News1(props) {
+
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    }, []);
+
     let location = useLocation();
     const data = location.state;
 
@@ -30,7 +39,19 @@ function News1(props) {
         }
     },)
     return (
-        <div>
+        <>
+        {loading ? (
+          <div className="loading">
+            <BeatLoader
+              color={"#36d7b7"}
+              loading={loading}
+              size={15}
+              margin={5}
+              speedMultiplier={1}
+            />
+          </div>
+        ) : (
+            <div>
             {chxNab ? <NavbarIn /> : <Navbar />}
             <ScrollToTop />
             <div className="news" style={{ marginTop: "70px" }}>
@@ -77,6 +98,8 @@ function News1(props) {
             </div>
             <Footer />
         </div>
+        )}
+      </>
     )
 }
 

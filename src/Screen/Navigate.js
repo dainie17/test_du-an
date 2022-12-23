@@ -11,7 +11,13 @@ import ScrollToTop from "./ScrollToTopbtn";
 import Navbar from "./Navbar";
 import NavbarIn from "./NavbarIn";
 
-const image5 = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
+import hashtag1 from "../assets/hastag1.jpg"
+import hashtag2 from "../assets/hastag2.jpg"
+import hashtag3 from "../assets/hastag3.jpg"
+import hashtag4 from "../assets/hastag4.jpg"
+import hashtag5 from "../assets/hashtag5.jpg"
+import hashtag6 from "../assets/hashtag6.jpg"
+
 function Navigate() {
 
 
@@ -89,22 +95,22 @@ function Navigate() {
                   <p>HAGHTAG #VAGABONSHOP ĐỂ CÓ CƠ HỘI XUẤT HIỆN TRÊN TRANG CỦA CHÚNG TÔI</p>
                   <div className="hashtag_header--list--img">
                     <div className="hagtag_img">
-                      <img src='https://i.9mobi.vn/cf/images/sa/2019/10/24/hinh-anh-nguoi-dep-cho-dien-thoai-9.jpg'></img>
+                      <img src={hashtag1}></img>
                     </div>
                     <div className="hagtag_img">
-                      <img src='https://bigdata-vn.com/wp-content/uploads/2022/01/1641168792_297_Tong-hop-hinh-nen-gai-xinh-cuc-dep.jpg'></img>
+                      <img src={hashtag2}></img>
                     </div>
                     <div className="hagtag_img">
-                      <img src='https://ss-images.saostar.vn/wp700/pc/1657511752254/saostar-gytty8hxodobknq0.jpg'></img>
+                      <img src={hashtag3}></img>
                     </div>
                     <div className="hagtag_img">
-                      <img src='https://anhdep123.com/wp-content/uploads/2021/03/Tong-hop-nhung-hinh-anh-sieu-mau-nam-dep-2.jpg'></img>
+                      <img src={hashtag4}></img>
                     </div>
                     <div className="hagtag_img">
-                      <img src='https://images.pexels.com/photos/9719017/pexels-photo-9719017.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'></img>
+                      <img src={hashtag5}></img>
                     </div>
                     <div className="hagtag_img">
-                      <img src='https://upanh123.com/wp-content/uploads/2019/01/hinh-nen-gai-xinh-trung-quoc-1-640x937.jpg'></img>
+                      <img src={hashtag6}></img>
                     </div>
                   </div>
                 </div>
