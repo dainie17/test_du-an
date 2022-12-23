@@ -17,6 +17,7 @@ import Pay from './Policy/Pay'
 import Paycp from './Policy/Transport'
 import Contact from './Screen/Contact';
 import Error from './Screen/Error';
+import Chat from './Screen/Chat';
 
 import { useState, useEffect } from 'react';
 import axios from "axios";
@@ -181,8 +182,10 @@ function App() {
   }
 
 
+
   return (
     <div>
+      <Chat />
       <Routes>
         <Route path='/' element={<Home />} />
         {/* Đăng nhập */}

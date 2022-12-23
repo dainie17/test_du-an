@@ -12,11 +12,11 @@ import Navbar from "./Navbar";
 import NavbarIn from "./NavbarIn";
 
 import hashtag1 from "../assets/hastag1.jpg"
-import hashtag2 from "../assets/hastag2.jpg"
-import hashtag3 from "../assets/hastag3.jpg"
+import hashtag2 from "../assets/hastag3.jpg"
+import hashtag3 from "../assets/hastag2.jpg"
 import hashtag4 from "../assets/hastag4.jpg"
-import hashtag5 from "../assets/hashtag5.jpg"
-import hashtag6 from "../assets/hashtag6.jpg"
+import hashtag5 from "../assets/hastag5.jpg"
+import hashtag6 from "../assets/hastag6.jpg"
 
 function Navigate() {
 
@@ -92,7 +92,7 @@ function Navigate() {
               <div className="hashtag_header">
 
                 <div className="hashtag_header--list">
-                  <p>HAGHTAG #VAGABONSHOP ĐỂ CÓ CƠ HỘI XUẤT HIỆN TRÊN TRANG CỦA CHÚNG TÔI</p>
+                  <p>HAGHTAG #VUGIAGROUP ĐỂ CÓ CƠ HỘI XUẤT HIỆN TRÊN TRANG CỦA CHÚNG TÔI</p>
                   <div className="hashtag_header--list--img">
                     <div className="hagtag_img">
                       <img src={hashtag1}></img>

@@ -41,7 +41,7 @@ export default function Error() {
                     backgroundColor: "white"
                 }} />
             )}
-            <img src={imgBot} alt="" style={{
+            {/* <img src={imgBot} alt="" style={{
 
                 position: "fixed",
                 bottom: "40px",
@@ -53,7 +53,7 @@ export default function Error() {
                 border: "1.5px solid #bdbdbd",
                 borderRadius: "5px",
                 backgroundColor: "white"
-            }} />
+            }} /> */}
         </div>
     );
 }

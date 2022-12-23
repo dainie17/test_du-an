@@ -10,7 +10,7 @@ import anhXep from "../assets/anhXep.jpg"
 import '../css/footer.css'
 import { NavLink } from "react-router-dom";
 
-const link = "https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/290060769_743780313625287_2293101306042313153_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=tYrMvqDgsQYAX-0Bjd3&_nc_ht=scontent.fdad1-2.fna&oh=00_AfBy5erLepMsW8zrN7W_QsexkOCq6OfP2kGFdo-3I0wNcA&oe=637D3C08"
+// const link = "https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/290060769_743780313625287_2293101306042313153_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=tYrMvqDgsQYAX-0Bjd3&_nc_ht=scontent.fdad1-2.fna&oh=00_AfBy5erLepMsW8zrN7W_QsexkOCq6OfP2kGFdo-3I0wNcA&oe=637D3C08"
 
 
 function footer() {
@@ -51,7 +51,7 @@ function footer() {
                         </div>
                         <div className="location">
                             <EmailIcon sx={{ fontSize: "25px", marginRight: '20px' }} />
-                            <p> vagabonds.2hand@gmail.comt</p>
+                            <p>vugiagroup@gmail.com</p>
                         </div>
                         <div className="location_nework">
                             <div className="nework_icon">

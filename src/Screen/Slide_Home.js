@@ -103,8 +103,8 @@ components.forEach((c) => {
 
 
 function SliderHome() {
-    useEffect(()=>{
-    
+    useEffect(() => {
+
         $('.btn').addEventListener('click', () => {
             const items = Array.from(document.querySelectorAll('.slider__item'));
             if (isArrayOfSliderItems(items)) {
@@ -114,17 +114,17 @@ function SliderHome() {
     })
 
 
-  return (
-    <div className="app__inner">
-        <div className="slider">
-            <ul is="slider-list" className="slider__list"></ul>
+    return (
+        <div className="app__inner">
+            <div className="slider">
+                <ul is="slider-list" className="slider__list"></ul>
+            </div>
+            <div className="btn">
+                &#8594;
+            </div>
+            <div className="text"></div>
         </div>
-        <div className="btn">
-            &#8594;
-        </div>
-        <div className="text"></div>
-    </div>
-  )
+    )
 }
 
 export default SliderHome;

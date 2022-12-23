@@ -1,4 +1,3 @@
-const image5 = "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
 
 const Uudai = [
     {
@@ -231,7 +230,7 @@ const Uudai = [
         ]
     }, {
         id: 5,
-        image: "https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/271589561_1051911569000003_6132723040594655326_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_aid=0&_nc_ohc=Rid8Zn64dhQAX9Jg_JH&tn=KtSen7IKzCsXlmpg&_nc_ht=scontent.fdad2-1.fna&oh=00_AfBANcjrBTI4Y1MFVXR97o7l_PTFI4Ye-jMVIeoMYLecLQ&oe=63A03937",
+        image: "https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/270987139_1051911259000034_6597158557804802174_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_aid=0&_nc_ohc=eN8YkUIcFSYAX_5cHB9&_nc_ht=scontent.fdad1-4.fna&oh=00_AfCN-642kDSLVhnyo9NyV3c6i8VsiaVh4FbnMnmaUic4oQ&oe=63A8F81B",
         title: 'Sản Phầm Mới ',
         synopsis: 'Công Ty Vũ Gia Group vừa ra sản phẩm chai nhựa mới, độc lạ và có ưu đãi giảm giá 50% . Với những tính chất an toàn như : chịu nhiệt tôt, màu sắc trong suốt,.. là sản phẩm không thể thiếu với dung tích 330ml. Hãy nhanh ta để có thể sở hưu một chai đựng nước đầy sự các tính, ',
         container: [{
