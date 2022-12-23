@@ -32,36 +32,6 @@ import imgbanner from "../assets/imgbannerproduct.jpg"
 import imgbanner2 from "../assets/imgbannerpr.jpg"
 import imgbanner3 from "../assets/imgbannerpr1.jpg"
 
-
-const image1 =
-  "https://cdn.tgdd.vn/Files/2020/02/12/1235982/vi-sao-nen-su-dung-chai-lo-thuy-tinh-de-dung-tinh-dau-.jpg";
-const image2 =
-  "https://cdn.tgdd.vn/Files/2019/11/18/1220010/4-cach-ve-sinh-ben-trong-chai-lo-cuc-sach-ban-nen-thu-21-760x367.jpg";
-const image3 =
-  "https://bizweb.dktcdn.net/100/154/029/files/san-xuat-chai-lo-nhua-2-941c40bb-0124-4086-8aab-ad24dc55c0b8.jpg?v=1501056541035";
-const image4 =
-  "https://i-raovat.vnecdn.net/2020/05/22/51ade386733b048d7c00c29720e39c04.jpeg?w=1280&h=768&q=100&dpr=1&rt=fit&g=no&wmi=&wmg=ce&wmo=50&wms=30&wmx=0&wmy=0&s=irmRdkv5lf-nqmbP2V8WXg";
-const image5 =
-  "https://thuytinhtadaco.com/wp-content/uploads/2021/08/chai-lo-thuy-tinh.jpg";
-
-const PreviousBtn = (props) => {
-  const { className, onClick } = props;
-  return (
-    <div className={className} onClick={onClick}>
-      <ArrowBackIos style={{ color: "#63A3F7", zIndex: "999" }} />
-    </div>
-  );
-};
-
-const NextBtn = (props) => {
-  const { className, onClick } = props;
-  return (
-    <div className={className} onClick={onClick}>
-      <ArrowForwardIos style={{ color: "#63A3F7" }} />
-    </div>
-  );
-};
-
 const Product = () => {
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
@@ -91,8 +61,6 @@ const Product = () => {
       },
     },
   }));
-
-  const data = [image1, image2, image3, image4, image5];
 
   const ip = "http://localhost:8080";
 
@@ -400,15 +368,15 @@ const Product = () => {
                         sản phẩm được ưa chuộng
                       </h1>
                       <div className="slide_product slide_1">
-                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" />
+                        <img src={imgbanner} />
                       </div>
 
                       <div className="slide_product slide_2">
-                        <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80" />
+                        <img src={imgbanner2} />
                       </div>
 
                       <div className="slide_product slide_3">
-                        <img src="https://images.unsplash.com/photo-1504707748692-419802cf939d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1330&q=80" />
+                        <img src={imgbanner3} />
                       </div>
 
                       <div className="controls-container">

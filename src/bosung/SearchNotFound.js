@@ -13,10 +13,10 @@ SearchNotFound.propTypes = {
 export default function SearchNotFound({ searchQuery = '', ...other }) {
     return (
         <Paper {...other}>
-            <Typography gutterBottom align="center" variant="subtitle1">
-                <img src={Hinh} width="200" height="200" />
+            <Typography style={{paddingTop: "50px"}} gutterBottom align="center" variant="subtitle1">
+                <img src={Hinh} width="150" height="150" />
             </Typography>
-            <Typography variant="body2" align="center">
+            <Typography style={{paddingBottom: "50px"}} variant="body2" align="center" fontSize='20px'>
                 Giỏ hàng hiện tại không có sản phẩm nào...
             </Typography>
         </Paper>

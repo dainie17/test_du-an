@@ -189,7 +189,11 @@ export default function Order() {
 
   let TongMoney = new Intl.NumberFormat("it-IT").format(TongTien);
   let TongPhu = new Intl.NumberFormat("it-IT").format(dbDH.money);
+  const [displ, setdispl] = useState("block");
   useEffect(() => {
+    if(dbDH.money < 100000){
+      setdispl("none")
+    }
     if (ThanhToan == 0) {
       setDisplay("none");
       setTongTien(dbDH.money);
@@ -361,6 +365,7 @@ export default function Order() {
                     </div>
                     <div
                       onClick={getThanhToanOnl}
+                      style={{display: displ}}
                       className="order-main-left-payment-button-right"
                     >
                       <span className="payment_button_span_right">

@@ -60,7 +60,7 @@ export default function Lie() {
             </div>
             <div className="policy_contai">
               <div className="policy_left">
-                <h1>CHÍNH SÁCH HOÀN TIỀN, ĐỔI TRẢ DỊCH VỤT</h1>
+                <h1>CHÍNH SÁCH HOÀN TIỀN, ĐỔI TRẢ DỊCH VỤ</h1>
                 <p>
                   Chính sách hoàn tiền, đổi trả dịch vụ của CÔNG TY được thực
                   hiện nghiêm túc và minh bạch rõ ràng với những phát sinh không

@@ -11,7 +11,8 @@ import colla from "../assets/collaboration.png";
 import ScrollToTop from "../Screen/ScrollToTopbtn";
 import Navbar from "./Navbar";
 import NavbarIn from "./NavbarIn";
-
+import image_duce from "../assets/image_duce.jpg";
+import about_contact from "../assets/about_contact.png"
 
 const image5 =
   "https://znews-photo.zingcdn.me/w660/Uploaded/qhj_yvobvhfwbv/2018_07_18/Nguyen_Huy_Binh1.jpg";
@@ -100,7 +101,7 @@ function Navigate() {
                 </div>
               </div>
               <div className="contact_info_right">
-                <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t1.6435-9/69033220_452408942283605_5045431321086656512_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=19026a&_nc_ohc=M1DYAn5vleQAX_f5vU5&_nc_ht=scontent.fdad2-1.fna&oh=00_AfCMrCiE_6wZlWPdrZEGHg7FXtkmNLNnkuw7YpDblv1Kag&oe=63A032A9"></img>
+                <img src={image_duce}></img>
               </div>
             </div>
             <div className="contact_number">
@@ -135,7 +136,7 @@ function Navigate() {
             </div>
             <div className="contact_benefit">
               <div className="contact_benefit_img">
-                <img src="https://dongsaigonplas.com/vnt_upload/about/about.png" />
+                <img src={about_contact} />
               </div>
               <div className="contact_benefit_whybenefit">
                 <p className="benefit">LỢI ÍCH TỪ CHÚNG TÔI</p>

@@ -61,6 +61,11 @@
   text-align: left;
   font-size: 15px;
   padding-top: 15%;
+  transition: all 1s;
+}
+
+.fersonal_container__left__info__tabs:hover{
+  padding-left: 10px;
 }
 
 /* ------------------- Phần phải-------------------- */
@@ -149,6 +154,14 @@
   justify-content: space-evenly;
   text-align: center;
   align-items: center;
+}
+
+.content:hover .content_icon{
+  transform: scale(1.1);
+}
+
+.content:hover{
+  color: #3c4fe0;
 }
 
 .content_icon {

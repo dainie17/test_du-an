@@ -58,6 +58,8 @@
 }
 .title_list_cottom--content{
     padding: 5%;
+    position: relative;
+    height: 300px;
 }
 .title_list_cottom--content p{
     line-height: 1.5;
@@ -136,7 +138,9 @@
     padding: 12px 14px;
     text-align: center;
     text-decoration: none;
-
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
   }
   
   .button-24:hover,
