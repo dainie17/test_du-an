@@ -31,9 +31,9 @@ export default function Error() {
 
                     position: "fixed",
                     bottom: "85px",
-                    right: "40px",
-                    height: "40px",
-                    width: "40px",
+                    right: "35px",
+                    height: "50px",
+                    width: "50px",
                     fontSize: "50px",
                     zIndex: "999",
                     border: "1.5px solid #bdbdbd",
