@@ -5,6 +5,9 @@ import "../css/Login.css";
 import logo from "../assets/logo_cty.png";
 import name_logo from "../assets/name_logo.png";
 
+import eyeStart from '../assets/eye_icon.png'
+import eyeEnd from '../assets/eye_slash_icon.png';
+
 function useKey(key, cb) {
 
   const callbackRef = useRef(cb);
@@ -210,6 +213,22 @@ function Login() {
     navigate("/ForgotPass");
   };
 
+  // con mắt password
+  const [type, setType] = useState("password");
+  const [eye, setEye] = useState(eyeStart);
+  const hanldeEye = () => {
+    if (eye == eyeStart) {
+      setType("text")
+      setEye(eyeEnd)
+      return
+    }
+    if (eye == eyeEnd) {
+      setType("password")
+      setEye(eyeStart)
+      return
+    }
+  }
+
   return (
     <div className="container">
       <div className="logo_form" onClick={onclickHome}>
@@ -217,7 +236,7 @@ function Login() {
           className="logo"
           src={logo}
         />
-         <img className="name_logo_login" src={name_logo} alt="" />
+        <img className="name_logo_login" src={name_logo} alt="" />
       </div>
 
       <div className="login">
@@ -244,7 +263,7 @@ function Login() {
           </div>
           <div className="userr">
             <input
-              type="password"
+              type={type}
               className="form__input"
               style={{ borderColor: color3 }}
               placeholder=" "
@@ -256,6 +275,7 @@ function Login() {
             <label htmlFor="email" className="form__label">
               Mật khẩu
             </label>
+            <img onClick={hanldeEye} src={eye} width='25' height='25' />
             <ErrolPassword
               isHidden={passwordCheck}
               errorPassword={errorPassword}
