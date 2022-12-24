@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "./footer";
 import Grid from "@mui/material/Unstable_Grid2";
 import '../css/Navigate.css'
@@ -21,12 +21,9 @@ import hashtag6 from "../assets/hastag6.jpg"
 function Navigate() {
 
 
-  let navgate = useNavigate();
-
   const [chxNab, setChxNab] = useState(false);
   useEffect(() => {
     var getUser = localStorage.getItem("UserUser")
-    var data = JSON.parse(getUser)
 
     if (getUser == null) {
     }
