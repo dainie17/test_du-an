@@ -156,10 +156,16 @@ const Detail = () => {
       setDisplay("block");
     }
 
+    getBinhLuan();
+  }, []);
+
+  const getBinhLuan = () => {
+    var ItemSP = localStorage.getItem("ItemSP");
+    var data = JSON.parse(ItemSP);
     axios.get(ip + `/getBinhLuan/${data.idImg}`).then((response) => {
       setDsBinhLuan(response.data);
     });
-  }, []);
+  };
 
   const setGioHang = () => {
     var getInfomation = localStorage.getItem("Infomation");
@@ -238,7 +244,12 @@ const Detail = () => {
       Date: new Date(),
       NoiDung: NoiDungBL,
     });
+    getBinhLuan();
     setNoiDungBL();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
   };
 
   const onClickVanChuyen = () => {
@@ -458,10 +469,13 @@ const Detail = () => {
                 return (
                   <ItemBinhLuan
                     key={index}
+                    _id={vl._id}
                     idImg={vl.idImg}
                     NameUser={vl.NameUser}
                     Date={vl.Date}
                     NoiDung={vl.NoiDung}
+                    getBinhLuan={getBinhLuan}
+                    setLoading={setLoading}
                   />
                 );
               })}

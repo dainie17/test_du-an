@@ -1,9 +1,19 @@
 import { useEffect, useState } from "react";
 import useImg from "../assets/userImg3.png";
 import Moment from 'moment';
-
+import axios from "axios";
 export default function ItemBinhLuan(props) {
+
   const ip = "http://localhost:8080";
+  const deleteBL = () => {
+    axios.delete(ip + `/DeleteBinhLuan/${props._id}`);
+    props.getBinhLuan();
+    props.setLoading(true);
+    setTimeout(() => {
+      props.setLoading(false);
+    }, 500);
+  };
+
   var Infomation = localStorage.getItem("Infomation");
   var db = JSON.parse(Infomation);
   const [Check, setCheck] = useState("none");
@@ -18,6 +28,7 @@ export default function ItemBinhLuan(props) {
         setCheck("none");
       }
     }
+    props.getBinhLuan();
   }, []);
   return (
     <>
@@ -35,7 +46,7 @@ export default function ItemBinhLuan(props) {
         </div>
           <div>{props.NoiDung}</div>
       </div>
-      <div style={{ display: Check }} className="btn_delete_comment">
+      <div onClick={deleteBL} style={{ display: Check }} className="btn_delete_comment">
             <button>Xóa</button>
           </div>
     </div>
