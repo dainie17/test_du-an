@@ -213,7 +213,7 @@ function App() {
         {/* {pathOrder ? <Route path="/Order" element={<Order />} /> : <Route path="/:somestring" element={<Error />} />} */}
         <Route path="/Order" element={<Order />} />
         {/* Chi tiết ưu đãi */}
-        <Route path="/ItemNews/:id" element={<New1 />} />
+        <Route path="/News/:id" element={<New1 />} />
         {/* Chính sách bảo mật */}
         <Route path='/baomat' element={<Confifential />} />
         {/* hính sách đổi trả */}

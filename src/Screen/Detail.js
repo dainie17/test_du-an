@@ -294,19 +294,19 @@ const Detail = () => {
           {chxNab ? <NavbarIn /> : <Navbar />}
           <div className="detail_container">
             <div className="detail-main">
-            <div style={{position: "absolute", right: '0'}}>
-              {/* add */}
-              <div>
-                <button className="add_them" style={{ display: "none" }}>
-                  Thêm
-                </button>
-                <div className="alert hide">
-                  <img src={oke} width="28" height="28" />
-                  <p className="msg">{NameShowBtn}</p>
-                  <div className="btn_alert_add">x</div>
+              <div style={{ position: "absolute", right: '0' }}>
+                {/* add */}
+                <div>
+                  <button className="add_them" style={{ display: "none" }}>
+                    Thêm
+                  </button>
+                  <div className="alert hide">
+                    <img src={oke} width="28" height="28" />
+                    <p className="msg">{NameShowBtn}</p>
+                    <div className="btn_alert_add">x</div>
+                  </div>
                 </div>
               </div>
-            </div>
               <div className="detail-main-top">
                 <div className="detail-main-top-left">
                   {test.map((item, index) => (
@@ -498,14 +498,17 @@ const Detail = () => {
               </div>
             </div>
             <div className="home-main-purview-card">
-              <div onClick={onClickVanChuyen} className="home-main-purview">
-                <img src={truck}></img>
-                <p>GIAO DỊCH TOÀN QUỐC</p>
+              <div className="purview_card">
+                <div onClick={onClickVanChuyen} className="home-main-purview">
+                  <img src={truck}></img>
+                  <p>GIAO DỊCH TOÀN QUỐC</p>
+                </div>
+                <div onClick={onClickDoiTra} className="home-main-purview">
+                  <img src={money}></img>
+                  <p>HOÀN TIỀN NẾU HÀNG LỖI </p>
+                </div>
               </div>
-              <div onClick={onClickDoiTra} className="home-main-purview">
-                <img src={money}></img>
-                <p>HOÀN TIỀN NẾU HÀNG LỖI </p>
-              </div>
+              <div className="purview_card">
               <div onClick={onClickThanhToan} className="home-main-purview">
                 <img src={hour}></img>
                 <p>CHĂM SÓC KHÁCH HÀNG 24/7</p>
@@ -514,6 +517,7 @@ const Detail = () => {
                 <img src={shieldImg}></img>
                 <p>CAM KẾT 100% CHẤT LƯỢNG</p>
               </div>
+            </div>
             </div>
           </div>
 

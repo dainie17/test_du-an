@@ -73,9 +73,7 @@ function Navigate() {
                         <p>{uudai.synopsis.substring(0, 230) + " [...]"}</p>
 
 
-                        <Link className="button-24" to={{ pathname: `/ItemNews/${uudai.id} ` }} state={uudai}  >Xem Thêm</Link>
-
-
+                        <Link className="button-24" to={{ pathname: `/News/${uudai.id} ` }} state={uudai}  >Xem Thêm</Link>
 
                       </div>
                     </div>

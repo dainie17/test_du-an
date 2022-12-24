@@ -462,17 +462,21 @@
   align-items: center;
 }
 
-.home-main-purview-card {
-  width: 70%;
+.purview_card {
+  width: 50%;
   text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin: 5% 0;
 }
-
+.home-main-purview-card{
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+}
 .home-main-purview {
-  width: 22%;
+  width: 40%;
   height: 160px;
   border: 3px solid rgb(102, 167, 252);
   font-family: "Cinzel", serif;
