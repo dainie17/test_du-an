@@ -70,7 +70,7 @@ export default function ItemCart(props) {
           _id: props._id,
           idImg: props.idImg,
           NameSP: props.NameSP,
-          GiaCX: GiaCX,
+          GiaCX: props.GiaCX,
           GiaBanSP: props.GiaBanSP,
           SoLuongSP: item.SoLuongSP,
           SaleSP: props.SaleSP,
