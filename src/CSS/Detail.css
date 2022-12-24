@@ -530,15 +530,15 @@
   background: #c5f3d7;
   padding: 15px 10px;
   min-width: 380px;
-  position: absolute;
-  right: 0;
-  top: 80px;
+  position: fixed;
+  right: 100px;
+  top: 100px;
   border-radius: 8px;
   border-left: 8px solid #2cd872;
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  display: flex;
+  display: none;
   z-index: 2;
 }
 .alert.showAlert {

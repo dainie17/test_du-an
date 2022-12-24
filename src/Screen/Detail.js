@@ -62,10 +62,14 @@ const Detail = () => {
           $(".alert").removeClass("show");
           $(".alert").addClass("hide");
         }, 3000);
+        setTimeout(function () {
+          $(".alert").removeClass("showAlert");
+        }, 4000);
       });
       $(".btn_alert_add").click(function () {
         $(".alert").removeClass("show");
         $(".alert").addClass("hide");
+        $(".alert").removeClass("showAlert");
       });
       setShowAdd("");
       setNameShowBtn("Đã thêm vào giỏ hàng");
@@ -289,7 +293,8 @@ const Detail = () => {
           <ScrollToTop />
           {chxNab ? <NavbarIn /> : <Navbar />}
           <div className="detail_container">
-            <div>
+            <div className="detail-main">
+            <div style={{position: "absolute", right: '0'}}>
               {/* add */}
               <div>
                 <button className="add_them" style={{ display: "none" }}>
@@ -302,7 +307,6 @@ const Detail = () => {
                 </div>
               </div>
             </div>
-            <div className="detail-main">
               <div className="detail-main-top">
                 <div className="detail-main-top-left">
                   {test.map((item, index) => (

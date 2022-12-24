@@ -114,6 +114,10 @@
     font-size: 7px;
   }
 
+  .product-main-list-content-card-img{
+    height: 400px;
+  }
+
   /* ------------------------------Home------------------------- */
   .main_new_bottom_card_cws {
     width: 135px;
@@ -231,6 +235,12 @@
   }
 }
 
+@media only screen and (max-width: 1100px) {
+  .product-main-list-content-card-img{
+    height: 350px;
+  }
+}
+
 @media only screen and (max-width: 1024px) {
   /* ---------------------------Oder------------------------ */
   .order-main {
@@ -321,6 +331,10 @@
 
   .product-main-top-right-user-information-button-right {
     font-size: 16px;
+  }
+
+  .product-main-list-content-card-img{
+    height: 300px;
   }
 
   /* --------------------------Home------------------------ */
@@ -462,6 +476,10 @@
     font-size: 11px;
   }
 
+  .product-main-list-content-card-img{
+    height: 250px;
+  }
+
   /* -----------------------------Home---------------------------- */
   .main_new_bottom {
     flex-wrap: wrap;
@@ -496,6 +514,30 @@
   .container-nganh-hoc .mid {
     top: 13%;
     font-size: 13px;
+  }
+
+  .flex__item{
+    height: 50vh;
+  }
+
+  .banner_container{
+    height: 50vh;
+  }
+
+  .flex__container{
+    height: 50vh;
+  }
+
+  .pokemon__img{
+    height: 50vh;
+  }
+
+  .text--big{
+    font-size: em;
+  }
+
+  .text--normal{
+    font-size: 15px;
   }
 
   /* --------------------------navbar-------------------------- */
@@ -672,11 +714,28 @@
   }
 
   .product-main-list-content-card {
-    width: 48%;
+    width: 31.7%;
   }
 
   .product-main-list-content-card-img {
-    height: 70vh;
+    height: 300px;
+  }
+
+  .content_card{
+    bottom: 0;
+    opacity: 1;
+  }
+
+  .product-main-list-content-card-name {
+    font-size: 14px;
+  }
+
+  .product-main-list-content-card-price {
+    font-size: 16px;
+  }
+
+  .product-main-list-content-card-number {
+    font-size: 8px;
   }
 
   /* ---------------------------------Home--------------------------- */
@@ -699,6 +758,10 @@
   }
 
   /* -----------------------------navbar--------------------------- */
+  .header_container{
+    height: 100%;
+  }
+
   .open_nav {
     width: 10%;
   }
@@ -909,6 +972,26 @@
     font-size: 7px;
   }
 
+  .product-main-list-content-card-img{
+    height: 200px;
+  }
+
+  .product-main-list-content-card-name {
+    font-size: 12px;
+  }
+
+  .product-main-list-content-card-price {
+    font-size: 14px;
+  }
+
+  .price_reduced {
+    font-size: 8px;
+  }
+
+  .product-main-list-content-card-number {
+    font-size: 7px;
+  }
+
   /* --------------------------Home---------------------- */
   .container-nganh-hoc .mid {
     top: 10%;
@@ -951,7 +1034,7 @@
   .home-header_ul {
     position: absolute;
     width: 50%;
-    background-color: aqua;
+    background-color: rgb(255, 255, 255);
     height: max-content;
     left: -50%;
     top: 70px;
@@ -974,6 +1057,7 @@
 
   .home-header_ul_li_navlink {
     width: 100%;
+    color: aqua;
   }
 
   .home-header_icon {
@@ -1192,6 +1276,22 @@
   }
 
   /* ----------------------------Produce---------------------------- */
+  .reduce{
+    width: 30px;
+    height: 30px;
+    right: 5px;
+    top: -5px;
+  }
+
+  .reduce_background{
+    width: 40px;
+    height: 40px;
+  }
+
+  .reduce_content{
+    font-size: 7px;
+  }
+
   .content_card {
     width: 100%;
     position: absolute;
@@ -1203,7 +1303,7 @@
   }
 
   .product-main-top-left-content {
-    height: 320px;
+    height: 160px;
   }
 
   .product-main-top-left-content p {
@@ -1211,7 +1311,7 @@
   }
 
   .img_user_product {
-    width: 40%;
+    width: 50%;
   }
 
   .product-main-top-right-service-top {
@@ -1260,14 +1360,57 @@
     flex-direction: column;
   }
 
+  .product_service{
+    display: none;
+  }
+
+  .product-main-top-right-user-information-button{
+    width: 100%;
+  }
+
+  .product-main-top-right-user-information-button-left{
+    width: 45%;
+    font-size: 10px;
+  }
+
+  .product-main-top-right-user-information-button-right{
+    width: 45%;
+    font-size: 10px;
+  }
+
+  .product-main-top-right-user-information-title{
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
   /* ------------------------------Home----------------------------- */
   .text--big {
-    font-size: 2em;
+    font-size: 1.5em;
+  }
+
+  .flex__content{
+    margin-left: 20px;
   }
 
   .text__background {
     top: 20%;
     font-size: 50px;
+  }
+
+  .flex__item{
+    height: 30vh;
+  }
+
+  .banner_container{
+    height: 30vh;
+  }
+
+  .flex__container{
+    height: 30vh;
+  }
+
+  .pokemon__img{
+    height: 30vh;
   }
 
   /* -----------------------------navbar--------------------------- */
@@ -1378,12 +1521,20 @@
   }
 
   /* ------------------------------------Produce---------------------------------- */
-  .product-main-list-content-card {
-    width: 48%;
+  .product-main-list-content-card-name {
+    font-size: 8px;
   }
 
-  .product-main-list-content-card-img {
-    height: 60vh;
+  .product-main-list-content-card-price {
+    font-size: 10px;
+  }
+
+  .price_reduced {
+    font-size: 8px;
+  }
+
+  .product-main-list-content-card-number {
+    font-size: 7px;
   }
 
   /* --------------------------------------Home----------------------------------- */
@@ -1545,18 +1696,27 @@
 
 @media only screen and (max-width: 415px) {
   /* --------------------------------Produce-------------------------- */
-  .product-main-list-content-card {
-    width: 98%;
-    margin-top: 10px;
+  .product-main-list-content-card-img{
+    height: 150px;
+  }
+  .product-main-list-content-card-name {
+    font-size: 8px;
   }
 
-  .product-main-list-content-card-img {
-    height: 70vh;
+  .product-main-list-content-card-price {
+    font-size: 7px;
   }
 
+  .price_reduced {
+    font-size: 5px;
+  }
+
+  .product-main-list-content-card-number {
+    font-size: 5px;
+  }
   /* -----------------------------------Navbar---------------------------- */
   .open_nav {
-    width: 10%;
+    width: 7%;
   }
 
   .open_navimg {
@@ -1564,7 +1724,7 @@
   }
 
   .home-header_logo {
-    width: 30%;
+    width: 15%;
   }
 
   .home-header-logo-image {
@@ -1572,7 +1732,7 @@
   }
 
   .home-header_icon {
-    width: 80%;
+    width: 30%;
   }
 
   /* Introduct */
@@ -1663,7 +1823,7 @@
   }
 
   .home-header_logo {
-    width: 30%;
+    width: 15%;
   }
 
   .home-header-logo-image {
@@ -1671,7 +1831,7 @@
   }
 
   .home-header_icon {
-    width: 90%;
+    width: 50%;
   }
 }
 
