@@ -7,6 +7,8 @@ import { Stack, Checkbox } from "@mui/material";
 import { useForm } from "react-hook-form";
 import logo from "../assets/logo_cty.png";
 import name_logo from "../assets/name_logo.png";
+import eyeStart from '../assets/eye_icon.png'
+import eyeEnd from '../assets/eye_slash_icon.png';
 
 function useKey(key, cb) {
 
@@ -49,7 +51,7 @@ export default function SignUp() {
       validatePass(passUser)
       return
     }
-    if(TKCheck == false && passwordCheck == true && EmailCheck == true){
+    if (TKCheck == false && passwordCheck == true && EmailCheck == true) {
       validateTK(TKUser)
       return
     }
@@ -89,7 +91,7 @@ export default function SignUp() {
           TKUser: TKUser,
           EmailUser: EmailUser,
           passUser: passUser,
-          TrangThaiUser:TrangThaiUser,
+          TrangThaiUser: TrangThaiUser,
         }),
       })
         .then((res) => res.json())
@@ -98,21 +100,21 @@ export default function SignUp() {
           if (data.error == "Trùng tài khoản") {
             validateTK(data.error)
             setTKUser("Trùng tài khoản")
-          }else{
+          } else {
             setTKUser(TKUser)
           }
-           if (data.error == "Trùng Email") {
-            validateEmailCheck(data.error)  
+          if (data.error == "Trùng Email") {
+            validateEmailCheck(data.error)
             setEmailUser("Trùng Email")
-          } else{
+          } else {
             setEmailUser(EmailUser)
           }
-          if(data.status == "Ok"){
+          if (data.status == "Ok") {
             navigate("/login", { replace: true });
           }
         })
     }
-    }
+  }
 
 
   // ===================================== validate ================================================================
@@ -135,12 +137,12 @@ export default function SignUp() {
       setColor2("red");
       setErrorTK("Tài khoản đã tồn tại");
     }
-    if (se != "Trùng tài khoản" && se != null && format.test(se) == true){
+    if (se != "Trùng tài khoản" && se != null && format.test(se) == true) {
       setTKCheck(false);
       setColor2("red");
       setErrorTK("Vui lòng không điền kí tự đặt biệt");
     }
-    if (se != "Trùng tài khoản" && se != null && format.test(se) == false){
+    if (se != "Trùng tài khoản" && se != null && format.test(se) == false) {
       setTKCheck(true);
       setColor2("#d8dde1");
       setErrorTK("");
@@ -172,12 +174,12 @@ export default function SignUp() {
       setColor4("red");
       setErrorEmailCheck("Email đã tồn tại");
     }
-    if (se != "Trùng Email" && se != null && formatEmail.test(se) == false){
+    if (se != "Trùng Email" && se != null && formatEmail.test(se) == false) {
       setEmailCheck(false);
       setColor4("red");
       setErrorEmailCheck("Email không đúng định dạng");
     }
-    if (se != "Trùng Email" && se != null && formatEmail.test(se) == true){
+    if (se != "Trùng Email" && se != null && formatEmail.test(se) == true) {
       setEmailCheck(true);
       setColor4("#d8dde1");
       setErrorEmailCheck("");
@@ -209,7 +211,7 @@ export default function SignUp() {
       setErrorPassword("Password không được để trống");
     }
 
-    if (se != null && se.length > 0 ) {
+    if (se != null && se.length > 0) {
       setPasswordCheck(true);
       setColor3("#d8dde1");
       setErrorPassword("");
@@ -229,14 +231,30 @@ export default function SignUp() {
     navigate("/");
   };
 
+  // con mắt password
+  const [type, setType] = useState("password");
+  const [eye, setEye] = useState(eyeStart);
+  const hanldeEye = () => {
+    if (eye == eyeStart) {
+      setType("text")
+      setEye(eyeEnd)
+      return
+    }
+    if (eye == eyeEnd) {
+      setType("password")
+      setEye(eyeStart)
+      return
+    }
+  }
+
   return (
     <div className="container">
-            <div className="logo_form" onClick={onclickHome}>
+      <div className="logo_form" onClick={onclickHome}>
         <img
           className="logo"
           src={logo}
         />
-         <img className="name_logo_login" src={name_logo} alt="" />
+        <img className="name_logo_login" src={name_logo} alt="" />
       </div>
 
       <div className="login">
@@ -284,7 +302,7 @@ export default function SignUp() {
           </div>
           <div className="userr">
             <input
-              type="password"
+              type={type}
               className="form__input"
               style={{ borderColor: color3 }}
               placeholder=" "
@@ -297,6 +315,7 @@ export default function SignUp() {
             <label htmlFor="email" className="form__label">
               Mật khẩu
             </label>
+            <img onClick={hanldeEye} src={eye} width='25' height='25' />
             <ErrolPassword
               isHidden={passwordCheck}
               errorPassword={errorPassword}
