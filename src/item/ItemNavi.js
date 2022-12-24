@@ -1,8 +1,13 @@
-
+import imgbig from "../assets/330ml-tam-giac.jpg";
+import imgbig1 from "../assets/hop-dung-trai-cay_1_2.jpg";
+import imgbig2 from "../assets/560_crop_chai-tra-sua-nap-den.jpg";
+import imgbig3 from "../assets/tui-nhua-pvc-31-1575019296.jpg";
+import imgbig4 from "../assets/imgUudai.jpg";
+import imgbig5 from "../assets/Hộp-bảo-quản-thực-phẩm-Kitchen-Smart-Saver-set-7-1.jpg";
 const Uudai = [
     {
         id: 2,
-        image: 'https://chaipetsaigon.com/wp-content/uploads/2020/11/330ml-tam-giac.jpg',
+        image: imgbig,
         title: 'Tổng hợp #10 mẫu chai nhựa đẹp cho cửa hàng đồ uống ',
         synopsis: 'Bạn đang kinh doanh đồ uống và thường xuyên sử dụng chai nhựa làm bao bì? Đã bao giờ bạn nghĩ đến việc in decal dán lên chai nhựa để tăng tính thẩm mỹ và quảng bá thương hiệu chưa? Nếu đang quan tâm vấn đề này thì dưới đây là bài viết dành cho bạn. Hãy cùng Huy Nhất tham khảo nhé!',
         container: [{
@@ -29,7 +34,7 @@ const Uudai = [
     },
     {
         id: 1,
-        image: "https://dongsaigonplas.com/vnt_upload/news/hop-dung-trai-cay_1_2.jpg",
+        image: imgbig1,
         title: 'Tiêu Chuẩn Của Hộp Giấy Đựng Thức Ăn Nhanh Là Gì?',
         synopsis: 'Hộp giấy đựng thức ăn nhanh là một trong những ấn phẩm bao bì hộp giấy được đầu tư in ấn và sử dụng với số lượng lớn trên thị trường. Thức ăn nhanh khi được đóng gói trong những chiếc hộp giấy chất lượng, cao cấp sẽ giúp cho hương vị, độ nóng và mùi thơm giữ được trọn vẹn nhất khi giao đến tay cho khách hàng.',
         container: [{
@@ -118,7 +123,7 @@ const Uudai = [
     },
     {
         id: 3,
-        image: "https://dongsaigonplas.com/vnt_upload/news/28_08_2021/thumbs/560_crop_chai-tra-sua-nap-den.jpg",
+        image: imgbig2,
         title: 'Chi tiết từ A-Z thông tin về quy trình sản xuất chai nhựa pet',
         synopsis: 'Chúng ta đã quá quen thuộc với hình ảnh những chiếc chai nhựa được sử dụng hàng ngày để chứa nước, thực phẩm,… Nhưng có bao giờ bạn hiếu kỳ hay băn khoăn không biết chúng được tạo ra như nào không? Để tìm hiểu điều đó, hãy cùng tham khảo những chia sẻ ngay dưới đây nhé.',
         container: [{
@@ -183,7 +188,7 @@ const Uudai = [
     },
     {
         id: 4,
-        image: "https://afamilycdn.com/thumb_w/650/150157425591193600/2022/8/15/v2-0ae144f03dc247822f7135b4177a34f8720w-1660545748187774498214-1660546148891317417481.jpeg",
+        image: imgbig3,
         title: 'Trào lưu "review" đồ ăn bằng túi, xô nhựa trong suốt gây phản cảm',
         synopsis: 'Sau phong trào thay thế ống hút nhựa bằng “ống hút xanh” (cỏ, giấy, gạo), người tiêu dùng đang muốn thay luôn hộp xốp đựng thực phẩm bằng hộp bã mía, giúp cho trao lưu trở nên varil hơn,hiện không còn là trào lưu mới nổi tại Việt Nam mà nó đã trở thành xu hướng được nhiều khách hàng ưa chuộng.',
         container: [{
@@ -230,7 +235,7 @@ const Uudai = [
         ]
     }, {
         id: 5,
-        image: "https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/270987139_1051911259000034_6597158557804802174_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_aid=0&_nc_ohc=eN8YkUIcFSYAX_5cHB9&_nc_ht=scontent.fdad1-4.fna&oh=00_AfCN-642kDSLVhnyo9NyV3c6i8VsiaVh4FbnMnmaUic4oQ&oe=63A8F81B",
+        image: imgbig4,
         title: 'Sản Phầm Mới ',
         synopsis: 'Công Ty Vũ Gia Group vừa ra sản phẩm chai nhựa mới, độc lạ và có ưu đãi giảm giá 50% . Với những tính chất an toàn như : chịu nhiệt tôt, màu sắc trong suốt,.. là sản phẩm không thể thiếu với dung tích 330ml. Hãy nhanh ta để có thể sở hưu một chai đựng nước đầy sự các tính, ',
         container: [{
@@ -277,7 +282,7 @@ const Uudai = [
         ]
     }, {
         id: 6,
-        image: "https://bepnhalanny.com/wp-content/uploads/2018/06/H%E1%BB%99p-b%E1%BA%A3o-qu%E1%BA%A3n-th%E1%BB%B1c-ph%E1%BA%A9m-Kitchen-Smart-Saver-set-7-1.jpg",
+        image: imgbig5,
         title: 'An toàn với hộp đựng thực phẩm bằng nhựa của tupperware ',
         synopsis: 'Hiện nay trên thị trường có rất nhiều loại hộp đựng thực phẩm với đa dạng thiết kế, công dụng. Mỗi loại chất liệu sẽ có những mục đích sử dụng khác nhau. Dưới đây mình sẽ phân tích qua ưu, nhược điểm của từng loại để bạn cân nhắc chọn hộp đựng thực phẩm chất liệu nào phù hợp.',
         container: [{

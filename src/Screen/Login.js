@@ -111,7 +111,6 @@ function Login() {
                   window.localStorage.setItem("token", data.data);
 
                   navigate("/", { replace: true });
-                  console.log(data);
                 } else if (db.data.TrangThaiUser == "Không hoạt động") {
                   navigate("/Inactive", { replace: true });
                 }
