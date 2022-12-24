@@ -183,6 +183,20 @@ khối div địa chỉ giao hàng */
   border: rgba(0, 0, 0, 0.181) 1px solid;
 }
 
+.order-main-left-payment-button-right-error {
+  width: 30%;
+  height: 130px;
+  background: white;
+  display: flex;
+  color: #54e6e7;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2%;
+  position: relative;
+  border: rgba(0, 0, 0, 0.181) 1px solid;
+}
+
 .payment_button_left_onclick {
   width: 30%;
   height: 130px;
@@ -222,6 +236,19 @@ khối div địa chỉ giao hàng */
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.payment_button_span_right_error {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment_button_span_right_error p{
+  width: 100%;
+  text-align: center;
 }
 
 .order-main-left-payment-button-left::before,

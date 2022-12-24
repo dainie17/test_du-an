@@ -158,6 +158,7 @@ export default function Order() {
   const [ThanhToan, setThanhToan] = useState(0);
 
   const [Display, setDisplay] = useState();
+  const [Dplay, setDplay] = useState("none");
 
   const [ShowAler, setShowAler] = useState("");
 
@@ -193,6 +194,7 @@ export default function Order() {
   useEffect(() => {
     if(dbDH.money < 100000){
       setdispl("none")
+      setDplay("block")
     }
     if (ThanhToan == 0) {
       setDisplay("none");
@@ -371,6 +373,15 @@ export default function Order() {
                       <span className="payment_button_span_right">
                         <img src={paypal} width="100" height="100" />
                         <p>Thanh toán online</p>
+                      </span>
+                    </div>
+                    <div
+                      style={{display: Dplay}}
+                      className="order-main-left-payment-button-right-error"
+                    >
+                      <span className="payment_button_span_right_error">
+                        <img src={paypal} width="85" height="85" />
+                        <p>Thanh toán online chỉ áp dụng cho đơn hàng trên 100.000 đồng</p>
                       </span>
                     </div>
                   </div>
