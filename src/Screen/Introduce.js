@@ -39,32 +39,6 @@ const Introduce = () => {
   const [DiaChi, setDiaChi] = useState();
   const [Mota, setMota] = useState();
 
-  const btnAdd_PhanHoi = () => {
-    if (
-      nameCheck == false &&
-      EmailCheck == false &&
-      phoneCheck == false &&
-      diaChiCheck == false &&
-      noiDungCheck == false
-    ) {
-    } else if (
-      nameCheck == true &&
-      EmailCheck == true &&
-      phoneCheck == true &&
-      diaChiCheck == true &&
-      noiDungCheck == true
-    ) {
-      axios.post(ip + "/add_PhanHoi", {
-        Name: Name,
-        Email: Email,
-        SDT: SDT,
-        DiaChi: DiaChi,
-        Mota: Mota,
-        Date: new Date(),
-      });
-    }
-  };
-
   const [chxNab, setChxNab] = useState(false);
   useEffect(() => {
     var getUser = localStorage.getItem("UserUser");
@@ -84,35 +58,23 @@ const Introduce = () => {
   const validateName = (se) => {
     const format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     const formatNum = /[0123456789]/;
-    if (se == "") {
+    if (se == null) {
       setNameCheck(false);
       setColor2("red");
       setErrorName("Tên người dùng không được để trống");
     }
-    if (se != "" && format.test(se) == true) {
+    if (se != null && format.test(se) == true) {
       setNameCheck(false);
       setColor2("red");
       setErrorName("Vui lòng không điền kí tự đặc biệt");
     }
-    if (se != "" && formatNum.test(se) == true) {
+    if (se != null && formatNum.test(se) == true) {
       setNameCheck(false);
       setColor2("red");
       setErrorName("Vui lòng không điền kí tự đặc biệt");
-    }
-    if (se != "" && se.length < 2) {
-      setNameCheck(false);
-      setColor2("red");
-      setErrorName("Vui lòng nhập hơn 1 ký tự");
-    }
-    if (se != "" && se.length > 20) {
-      setNameCheck(false);
-      setColor2("red");
-      setErrorName("Vui lòng nhập ít hơn 20 ký tự");
     }
     if (
-      se != "" &&
-      se.length > 1 &&
-      se.length < 21 &&
+      se != null &&
       format.test(se) == false &&
       formatNum.test(se) == false
     ) {
@@ -134,18 +96,18 @@ const Introduce = () => {
   const validateEmailCheck = (se) => {
     const formatEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-    if (se == "") {
+    if (se == null) {
       setEmailCheck(false);
       setColor3("red");
       setErrorEmailCheck("Email không được để trống");
     }
-    if (se != "" && formatEmail.test(se) == false) {
+    if (se != null && formatEmail.test(se) == false) {
       setEmailCheck(false);
       setColor3("red");
       setErrorEmailCheck("Email không đúng định dạng");
     }
 
-    if (se != "" && formatEmail.test(se) == true) {
+    if (se != null && formatEmail.test(se) == true) {
       setEmailCheck(true);
       setColor3("#d8dde1");
       setErrorEmailCheck("");
@@ -164,23 +126,23 @@ const Introduce = () => {
   const validatePhoneCheck = (se) => {
     const formatPhone = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
 
-    if (se == "") {
+    if (se == null) {
       setPhoneCheck(false);
       setColor4("red");
       setErrorPhoneCheck("Số điện thoại không được để trống");
     }
-    if (se != "" && formatPhone.test(se) == false) {
-      setPhoneCheck(false);
-      setColor4("red");
-      setErrorPhoneCheck("Số điện thoại không đúng định dạng");
-    }
-
-    if (se != "" && formatPhone.test(se) == true) {
+     if (se != null && formatPhone.test(se) == false) {
+        setPhoneCheck(false);
+        setColor4("red");
+        setErrorPhoneCheck("Số điện thoại không đúng định dạng");
+    } 
+     if (se != null && formatPhone.test(se) == true) {
       setPhoneCheck(true);
       setColor4("#d8dde1");
       setErrorPhoneCheck("");
     }
-  };
+  }
+
   function ErrorPhoneCheck(props) {
     if (props.isHidden) {
       return null;
@@ -192,13 +154,13 @@ const Introduce = () => {
   const [diaChiCheck, setDiaChiCheck] = useState(false);
   const [errorDiaChiCheck, setErrorDiaChiCheck] = useState("");
   const validateDiaChiCheck = (se) => {
-    if (se == "") {
+    if (se == null) {
       setDiaChiCheck(false);
       setColor5("red");
       setErrorDiaChiCheck("Địa chỉ không được để trống");
     }
 
-    if (se != "") {
+    if (se != null) {
       setDiaChiCheck(true);
       setColor5("#d8dde1");
       setErrorDiaChiCheck("");
@@ -215,13 +177,13 @@ const Introduce = () => {
   const [noiDungCheck, setNoiDungCheck] = useState(false);
   const [errorNoiDungCheck, setErrorNoiDungCheck] = useState("");
   const validateNoiDungCheck = (se) => {
-    if (se == "") {
+    if (se == null) {
       setNoiDungCheck(false);
       setColor6("red");
       setErrorNoiDungCheck("Nội dung không được để trống");
     }
 
-    if (se != "") {
+    if (se != null) {
       setNoiDungCheck(true);
       setColor6("#d8dde1");
       setErrorNoiDungCheck("");
@@ -233,6 +195,42 @@ const Introduce = () => {
     }
     return <div className="form_warning_intro">{props.errorNoiDungCheck}</div>;
   }
+
+  const btnAdd_PhanHoi = () => {
+    validateName(Name);
+    validateEmailCheck(Email);
+    validatePhoneCheck(SDT);
+    validateDiaChiCheck(DiaChi);
+    validateNoiDungCheck(Mota);
+    if (
+      nameCheck == false &&
+      EmailCheck == false &&
+      phoneCheck == false &&
+      diaChiCheck == false &&
+      noiDungCheck == false
+    ) {
+      validateName(Name);
+      validateEmailCheck(Email);
+      validatePhoneCheck(SDT);
+      validateDiaChiCheck(DiaChi);
+      validateNoiDungCheck(Mota);
+    } else if (
+      nameCheck == true &&
+      EmailCheck == true &&
+      phoneCheck == true &&
+      diaChiCheck == true &&
+      noiDungCheck == true
+    ) {
+      axios.post(ip + "/add_PhanHoi", {
+        Name: Name,
+        Email: Email,
+        SDT: SDT,
+        DiaChi: DiaChi,
+        Mota: Mota,
+        Date: new Date(),
+      });
+    }
+  };
 
   const iframe = '<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1959.7795040699268!2d106.5985520258852!3d10.768430248072342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zODQwLzIwYiBIxrDGoW5nIGzhu5kgMiwgcGjGsOG7nW5nIELDrG5oIFRy4buLIMSQw7RuZyBBLCBxdeG6rW4gQsOsbmggVMOibiwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1671059713738!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>'
 
@@ -377,7 +375,7 @@ const Introduce = () => {
                 <div className="title_container__input__Textfield__name">
                   <div className="input_intro">
                     <input
-                      type="number"
+                      type="text"
                       style={{ borderColor: color4 }}
                       className="intro__input"
                       placeholder=" "
@@ -422,15 +420,12 @@ const Introduce = () => {
                       type="textarea"
                       style={{ borderColor: color6 }}
                       className="intro__input"
-                      placeholder=" "
+                      placeholder="Nội dung"
                       name="Nội dung"
                       onBlur={(e) => validateNoiDungCheck(e.target.value)}
                       onChange={(e) => setMota(e.target.value)}
                       required
                     />
-                    <label htmlFor="intro__input" className="intro__label">
-                      Nội dung
-                    </label>
                     <ErrorNoiDungCheck
                       isHidden={noiDungCheck}
                       errorNoiDungCheck={errorNoiDungCheck}
