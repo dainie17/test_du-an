@@ -592,9 +592,13 @@
   }
   .home-main-purview-card {
     flex-direction: column;
+    align-items: center;
   }
   .purview_respon {
     width: 100%;
+  }
+  .purview_card {
+    width: 90%;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -884,6 +888,28 @@
     width: 100%;
     margin-top: 10%;
   }
+  .purview_card{
+    display: flex;
+    flex-direction: row;
+  }
+
+
+
+  .form_information_footer{
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .form_div{
+    width: 100%;
+    margin-bottom: 5%;
+  }
+  .form_div1{
+    width: 100%;
+  }
+  .form_people{
+    width: 50%;
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -1105,6 +1131,50 @@
   }
 }
 @media only screen and (max-width: 540px) {
+  .form_div{
+    width: 100%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+  }
+  .form_div1{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .form_people{
+    width: 50%;
+  }
+  .form_fanpage {
+    width: 80%;
+  }
+  .form_contact {
+    width: 80%;
+  }
+  .form_people {
+    width: 80%;
+  }
+  .form_people {
+    width: 80%;
+  }
+
+  .form_people_one {
+    display: flex;
+  }
+  .form_people_p_me{
+    width: 50%;
+  }
+  .form_contact {
+    padding: 2%;
+  }
+  .form_link{
+    width: 50%;
+    padding-right: 2%;
+  }
+  .form_information_footer h3 {
+    padding: 5% 0;
+    height: fit-content;
+  }
   /* ------------------------------Pesonal----------------------- */
   .fersonal_container_hover__info {
     width: 100%;
@@ -1644,6 +1714,20 @@
     width: 45px;
     height: 45px;
   }
+  /* detail */
+  .purview_card{
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+  .home-main-purview{
+    width: 180px;
+    height: 150px;
+    margin-top: 5%;
+  }
+  .home-main-purview-card{
+    margin: 5% 0;
+  }
 }
 
 @media only screen and (max-width: 450px) {
@@ -1692,6 +1776,7 @@
   .home-header_icon {
     width: 60%;
   }
+  
 }
 
 @media only screen and (max-width: 415px) {

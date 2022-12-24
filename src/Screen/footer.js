@@ -28,74 +28,78 @@ function footer() {
                 {/* ----------------thong tin footer---------------------- */}
 
                 <div className="form_information_footer">
-                    <div className="form_fanpage">
-                        <h3>FANPAGE</h3>
-                        <div>
-                            <a href="https://www.facebook.com/anhtuangoldland.vu"><img src={anhXep} style={{ width: "250px", height: "200px" }} /></a>
-                        </div>
-                    </div>
-
-                    <div className="form_contact">
-                        <h3> Công ty TNHH SẢN XUẤT ĐẦU TƯ TM DV XNK VŨ GIA GROUP</h3>
-                        <div className="location">
-
-                            <PinDropIcon sx={{ fontSize: "25px", marginRight: '20px' }} />
-
-                            <p> 840/20B Hương Lộ 2, Phường Bình Trị Đông A, Quận Bình Tân, Thành phố Hồ Chí Minh, Việt Nam</p>
-                        </div>
-                        <div className="location">
-
-                            <CallIcon sx={{ fontSize: "25px", marginRight: '20px' }} />
-
-                            <p> (84+) 706 185 986</p>
-                        </div>
-                        <div className="location">
-                            <EmailIcon sx={{ fontSize: "25px", marginRight: '20px' }} />
-                            <p>vugiagroup@gmail.com</p>
-                        </div>
-                        <div className="location_nework">
-                            <div className="nework_icon">
-                                <FacebookIcon sx={{ fontSize: "15px" }} />
-                            </div>
-                            <div className="nework_icon">
-                                <YouTubeIcon sx={{ fontSize: "15px" }} />
-                            </div>
-                            <div className="nework_icon">
-                                <InstagramIcon sx={{ fontSize: "15px" }} />
+                    <div className="form_div">
+                        <div className="form_fanpage">
+                            <h3>FANPAGE</h3>
+                            <div>
+                                <a href="https://www.facebook.com/anhtuangoldland.vu"><img className="asd" src={anhXep} style={{ width: "70%" }} /></a>
                             </div>
                         </div>
-                    </div>
-                    <div className="form_people">
-                        <h3>Về chúng tôi</h3>
-                        <div className="form_people_p" >
-                            <div className="form_people_one">
-                                <NavLink to='/Contact' className="form_people_p_me">Giới thiệu</NavLink>
-                                <NavLink to='/Product' className="form_people_p_me">Sản phẩm</NavLink>
+
+                        <div className="form_contact">
+                            <h3> Công ty TNHH SẢN XUẤT ĐẦU TƯ TM DV XNK VŨ GIA GROUP</h3>
+                            <div className="location">
+
+                                <PinDropIcon sx={{ fontSize: "25px", marginRight: '20px' }} />
+
+                                <p> 840/20B Hương Lộ 2, Phường Bình Trị Đông A, Quận Bình Tân, Thành phố Hồ Chí Minh, Việt Nam</p>
                             </div>
-                            <div className="form_people_one">
-                                <NavLink to='/Navigate' className="form_people_p_me">Ưu đãi</NavLink>
-                                <NavLink to='/Introduce' className="form_people_p_me">Liên hệ</NavLink>
+                            <div className="location">
+
+                                <CallIcon sx={{ fontSize: "25px", marginRight: '20px' }} />
+
+                                <p> (84+) 706 185 986</p>
+                            </div>
+                            <div className="location">
+                                <EmailIcon sx={{ fontSize: "25px", marginRight: '20px' }} />
+                                <p>vugiagroup@gmail.com</p>
+                            </div>
+                            <div className="location_nework">
+                                <div className="nework_icon">
+                                    <FacebookIcon sx={{ fontSize: "15px" }} />
+                                </div>
+                                <div className="nework_icon">
+                                    <YouTubeIcon sx={{ fontSize: "15px" }} />
+                                </div>
+                                <div className="nework_icon">
+                                    <InstagramIcon sx={{ fontSize: "15px" }} />
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="form_people">
-                        <h3>Chính sách</h3>
-                        <div className="form_people_p" >
-                            <div className="form_people_one">
-                                <NavLink className="form_link" to="/baomat">
-                                    Chính sách bảo mật
-                                </NavLink>
-                                <NavLink className="form_link" to="/doitra">
-                                    Chính sách đổi trả
-                                </NavLink>
+                    <div className="form_div1">
+                        <div className="form_people">
+                            <h3>Về chúng tôi</h3>
+                            <div className="form_people_p" >
+                                <div className="form_people_one">
+                                    <NavLink to='/Contact' className="form_people_p_me">Giới thiệu</NavLink>
+                                    <NavLink to='/Product' className="form_people_p_me">Sản phẩm</NavLink>
+                                </div>
+                                <div className="form_people_one">
+                                    <NavLink to='/Navigate' className="form_people_p_me">Ưu đãi</NavLink>
+                                    <NavLink to='/Introduce' className="form_people_p_me">Liên hệ</NavLink>
+                                </div>
                             </div>
-                            <div className="form_people_one">
-                                <NavLink className="form_link" to="/thanhtoan">
-                                    Chính sách thanh toán
-                                </NavLink>
-                                <NavLink className="form_link" to="/vanchuyen">
-                                    Chính sách vận chuyển
-                                </NavLink>
+                        </div>
+                        <div className="form_people">
+                            <h3>Chính sách</h3>
+                            <div className="form_people_p" >
+                                <div className="form_people_one">
+                                    <NavLink className="form_link" to="/baomat">
+                                        Chính sách bảo mật
+                                    </NavLink>
+                                    <NavLink className="form_link" to="/doitra">
+                                        Chính sách đổi trả
+                                    </NavLink>
+                                </div>
+                                <div className="form_people_one">
+                                    <NavLink className="form_link" to="/thanhtoan">
+                                        Chính sách thanh toán
+                                    </NavLink>
+                                    <NavLink className="form_link" to="/vanchuyen">
+                                        Chính sách vận chuyển
+                                    </NavLink>
+                                </div>
                             </div>
                         </div>
                     </div>

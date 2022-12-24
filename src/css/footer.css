@@ -31,7 +31,7 @@
 }
 
 .logo_footer {
-  width: 130%;
+  width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -51,7 +51,7 @@
 }
 
 .form_fanpage {
-  width: 25%;
+  width: 50%;
   padding-left: 2%;
 }
 .form_fanpage h3 {
@@ -63,7 +63,7 @@
 .form_contact {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 50%;
   padding-left: 2%;
 }
 .form_contact h3 {
@@ -101,7 +101,7 @@
 /* -----------------------Về chúng tôi---------------- */
 
 .form_people {
-  width: 15%;
+  width: 50%;
   padding-left: 2%;
 }
 .form_people h3 {
@@ -133,4 +133,14 @@
 .form_banquyen p {
   color: #afafaf;
   font-size: 11px;
+}
+.form_div{
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+}
+.form_div1{
+  width: 30%;
+  display: flex;
+  flex-direction: row;
 }

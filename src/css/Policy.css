@@ -49,6 +49,8 @@ h3 {
 }
 .policy_list h2 {
   font-size: 14px;
+  text-decoration: none;
+  color: black;
 }
 
 .policy_right_facebook {
@@ -63,4 +65,10 @@ h3 {
 .policy_right_facebook_iframe {
   width: 100%;
   display: flex;
+}
+.policy_click{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
 }
