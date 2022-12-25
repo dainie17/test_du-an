@@ -118,18 +118,18 @@ export default function Address(props) {
   const validateEmailCheck = (se) => {
     const formatEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-    if (se == null) {
+    if (se == "") {
       setEmailCheck(false);
       setColor3("red");
       setErrorEmailCheck("Email không được để trống");
     }
-    if (se != null && formatEmail.test(se) == false) {
+    if (se != "" && formatEmail.test(se) == false) {
       setEmailCheck(false);
       setColor3("red");
       setErrorEmailCheck("Email không đúng định dạng");
     }
 
-    if (se != null && formatEmail.test(se) == true) {
+    if (se != "" && formatEmail.test(se) == true) {
       setEmailCheck(true);
       setColor3("#d8dde1");
       setErrorEmailCheck("");
