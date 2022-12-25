@@ -22,9 +22,7 @@ export default function Address(props) {
     validatePhoneCheck(PhoneDH)
     validateEmailCheck(EmailDH)
     validateAdres(AddreeDH)
-    if (nameCheck == false) {
-      setColor1("red");
-    } else if (phoneCheck == false) {
+    if (phoneCheck == false) {
       setcolor2("red");
     } else if (EmailCheck == false) {
       setColor3("red");
@@ -46,28 +44,28 @@ export default function Address(props) {
   const [errorName, setErrorName] = useState("");
   const validateName = (se) => {
     const format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    if (se == null) {
+    if (se == '') {
       setNameCheck(false);
       setColor1("red");
       setErrorName("Tên người dùng không được để trống");
     }
-    if (se != null && format.test(se) == true) {
+    if (se != '' && format.test(se) == true) {
       setNameCheck(false);
       setColor1("red");
       setErrorName("Vui lòng không điền kí tự đặc biệt");
     }
-    if (se != null && se.length < 2) {
+    if (se != '' && se.length < 2) {
       setNameCheck(false);
       setColor1("red");
       setErrorName("Vui lòng nhập hơn 1 ký tự");
     }
-    if (se != null && se.length > 20) {
+    if (se != '' && se.length > 20) {
       setNameCheck(false);
       setColor1("red");
       setErrorName("Vui lòng nhập ít hơn 20 ký tự");
     }
     if (
-      se != null &&
+      se != '' &&
       se.length > 1 &&
       se.length < 21 &&
       format.test(se) == false
@@ -208,7 +206,7 @@ export default function Address(props) {
               defaultValue={props.NameDH}
               onChange={(e) => setNameDH(e.target.value)}
               onBlur={(e) => validateName(e.target.value)}
-              
+
               required
             />
             <label htmlFor="text" className="form__label">

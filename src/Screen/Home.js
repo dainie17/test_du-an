@@ -388,11 +388,11 @@ const Home = () => {
                       {/* <p className="text--sub">Pokemon Gen I</p> */}
                       <h1 className="text--big">Cung cấp vỏ chai lọ</h1>
                       <p className="text--normal">
-                        -Đa dạng mẫu mã, chất liệu, kích thước.
+                        Đa dạng mẫu mã, chất liệu, kích thước.
                         <br />
-                        -Giá cả cạnh tranh.
+                        Giá cả cạnh tranh.
                         <br />
-                        -Nhận cung cấp số lượng lơn toàn quốc.
+                        Nhận cung cấp số lượng lơn toàn quốc.
                       </p>
                     </div>
                     {/* <p className="text__background">Pikachu</p> */}
@@ -409,11 +409,11 @@ const Home = () => {
                       {/* <p className="text--sub">Pokemon Gen IV</p> */}
                       <h1 className="text--big">Vỏ chai lọ</h1>
                       <p className="text--normal">
-                        -Hũ nhựa.
+                        Hũ nhựa.
                         <br />
-                        -Chai lọ nhựa.
+                        Chai lọ nhựa.
                         <br />
-                        -Tuýp mỹ phẩm.
+                        Tuýp mỹ phẩm.
                       </p>
                     </div>
                     {/* <p className="text__background">Piplup</p> */}
@@ -430,11 +430,11 @@ const Home = () => {
                       {/* <p className="text--sub">Pokemon Gen III</p> */}
                       <h1 className="text--big">Cung cấp vỏ chai lọ</h1>
                       <p className="text--normal">
-                        -Nhận đặt hàng số lượng lớn.
+                        Nhận đặt hàng số lượng lớn.
                         <br />
-                        -Uy tín, chất lượng.
+                        Uy tín, chất lượng.
                         <br />
-                        -Hỗ trợ giao hàng.
+                        Hỗ trợ giao hàng.
                       </p>
                     </div>
                     {/* <p className="text__background">Blaziken</p> */}
@@ -451,7 +451,7 @@ const Home = () => {
                       {/* <p className="text--sub">Pokemon Gen IV</p> */}
                       <h1 className="text--big">Chất lượng hàng đầu</h1>
                       <p className="text--normal">
-                        -Đảm bảo, uy tín, chất lượng chai nhựa cho khách hàng.
+                        Đảm bảo, uy tín, chất lượng chai nhựa cho khách hàng.
                       </p>
                     </div>
                     {/* <p className="text__background">Dialga</p> */}
@@ -468,9 +468,9 @@ const Home = () => {
                       {/* <p className="text--sub">Pokemon Gen V</p> */}
                       <h1 className="text--big">Sự kiện giáng sinh</h1>
                       <p className="text--normal">
-                        -Giảm giá 50% chai lọ mỹ phẩm.
+                        Giảm giá 50% chai lọ mỹ phẩm.
                         <br />
-                        -Bắt đầu từ ngày 10 tháng 12 đến ngày 02 tháng 01.
+                        Bắt đầu từ ngày 10 tháng 12 đến ngày 02 tháng 01.
                       </p>
                     </div>
                     {/* <p className="text__background">Zekrom</p> */}
