@@ -38,8 +38,6 @@ export default function CartListHead({
     const createSortHandler = (property) => (event) => {
         onRequestSort(event, property);
     };
-
-    //  console.log(headLabel.map((headCell)=>headCell));
     return (
         <TableHead>
             <TableRow>

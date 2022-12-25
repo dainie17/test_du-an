@@ -96,7 +96,6 @@ export default function SignUp() {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data, "userResgister");
           if (data.error == "Trùng tài khoản") {
             validateTK(data.error)
             setTKUser("Trùng tài khoản")

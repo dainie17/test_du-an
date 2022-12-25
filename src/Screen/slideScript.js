@@ -8,7 +8,6 @@ next = $(this).data('slide');
 
 function nextImage() {
   imgIndex++
-  console.log(imgIndex);
   if(imgIndex > 4){
     imgIndex = 1
 
