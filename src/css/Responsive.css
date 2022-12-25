@@ -795,7 +795,7 @@
   .home-header_ul {
     position: absolute;
     width: 50%;
-    background-color: aqua;
+    background-color: white;
     height: max-content;
     left: -50%;
     top: 70px;
