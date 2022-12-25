@@ -8,10 +8,6 @@ export default function ItemBinhLuan(props) {
   const deleteBL = () => {
     axios.delete(ip + `/DeleteBinhLuan/${props._id}`);
     props.getBinhLuan();
-    props.setLoading(true);
-    setTimeout(() => {
-      props.setLoading(false);
-    }, 500);
   };
 
   var Infomation = localStorage.getItem("Infomation");

@@ -68,6 +68,23 @@ export default function Order() {
   const [AddreeDH, setAddreeDH] = useState();
 
   useEffect(() => {
+    var getInfomation = localStorage.getItem("Infomation");
+    var db = JSON.parse(getInfomation);
+    if (getInfomation == null) {
+      
+    }
+
+    if (getInfomation != null) {
+      // if (NameDH == null) {
+        setNameDH(db.data.TKUser);
+      // }
+      // if (EmailDH == null) {
+        setEmailDH(db.data.EmailUser);
+      // }
+    }
+  },[]);
+
+  useEffect(() => {
     getCart();
   }, []);
 
@@ -98,14 +115,15 @@ export default function Order() {
 
   const onclickDH = () => {
     if (
-      NameDH == null &&
-      PhoneDH == null &&
-      EmailDH == null &&
+      NameDH == null ||
+      PhoneDH == null ||
+      EmailDH == null ||
       AddreeDH == null
     ) {
       WartingAlert();
       setShowAler("Bạn chưa nhập đầu đủ địa chỉ");
-    } else if (
+    } 
+     if (
       NameDH != null &&
       PhoneDH != null &&
       EmailDH != null &&
@@ -381,7 +399,7 @@ export default function Order() {
                     >
                       <span className="payment_button_span_right_error">
                         <img src={paypal} width="85" height="85" />
-                        <p>Thanh toán online chỉ áp dụng cho đơn hàng trên 100.000 đồng</p>
+                        <p>Chỉ áp dụng cho đơn hàng trên 100.000 đồng</p>
                       </span>
                     </div>
                   </div>

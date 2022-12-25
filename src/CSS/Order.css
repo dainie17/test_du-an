@@ -98,6 +98,7 @@ khối div địa chỉ giao hàng */
 .item_img_oder {
   width: 25%;
   height: 140px;
+  object-fit: cover;
 }
 
 .order-main-left-para-content {

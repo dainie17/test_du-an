@@ -198,9 +198,9 @@ export default function SignUp() {
   const [passwordCheck, setPasswordCheck] = useState(false);
   const [errorPassword, setErrorPassword] = useState("");
   const validatePass = (se) => {
-    const pass = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const pass = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
-    if (pass.test(se) == false) {
+    if (pass.test(se) == true) {
       setPasswordCheck(false);
       setColor3("red");
       setErrorPassword("Vui lòng không điền kí tự đặt biệt");
@@ -208,13 +208,18 @@ export default function SignUp() {
     if (se == null) {
       setPasswordCheck(false);
       setColor3("red");
-      setErrorPassword("Password không được để trống");
+      setErrorPassword("Mật khẩu không được để trống");
     }
 
-    if (se != null && se.length > 0) {
-      setPasswordCheck(true);
-      setColor3("#d8dde1");
-      setErrorPassword("");
+    let mKLength = 0;
+    if (se != null) {
+      if(se.length == null){
+
+      } else if(se.length <= 6) {
+        setPasswordCheck(false);
+        setColor3("red");
+        setErrorPassword("Mật khẩu phải lớn hơn 6 ký tự");
+      }
     }
 
   }

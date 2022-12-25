@@ -56,7 +56,7 @@ const Introduce = () => {
   const [nameCheck, setNameCheck] = useState(false);
   const [errorName, setErrorName] = useState("");
   const validateName = (se) => {
-    const format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     const formatNum = /[0123456789]/;
     if (se == null) {
       setNameCheck(false);

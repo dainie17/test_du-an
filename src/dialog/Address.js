@@ -46,18 +46,12 @@ export default function Address(props) {
   const [errorName, setErrorName] = useState("");
   const validateName = (se) => {
     const format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    const formatNum = /[0123456789]/;
     if (se == null) {
       setNameCheck(false);
       setColor1("red");
       setErrorName("Tên người dùng không được để trống");
     }
     if (se != null && format.test(se) == true) {
-      setNameCheck(false);
-      setColor1("red");
-      setErrorName("Vui lòng không điền kí tự đặc biệt");
-    }
-    if (se != null && formatNum.test(se) == true) {
       setNameCheck(false);
       setColor1("red");
       setErrorName("Vui lòng không điền kí tự đặc biệt");
@@ -76,8 +70,7 @@ export default function Address(props) {
       se != null &&
       se.length > 1 &&
       se.length < 21 &&
-      format.test(se) == false &&
-      formatNum.test(se) == false
+      format.test(se) == false
     ) {
       setNameCheck(true);
       setColor1("#d8dde1");
@@ -215,6 +208,7 @@ export default function Address(props) {
               defaultValue={props.NameDH}
               onChange={(e) => setNameDH(e.target.value)}
               onBlur={(e) => validateName(e.target.value)}
+              
               required
             />
             <label htmlFor="text" className="form__label">
