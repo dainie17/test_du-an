@@ -114,7 +114,7 @@
     font-size: 7px;
   }
 
-  .product-main-list-content-card-img{
+  .product-main-list-content-card-img {
     height: 400px;
   }
 
@@ -236,7 +236,7 @@
 }
 
 @media only screen and (max-width: 1100px) {
-  .product-main-list-content-card-img{
+  .product-main-list-content-card-img {
     height: 350px;
   }
 }
@@ -272,10 +272,10 @@
   .order-main-left-payment-button-right {
     width: 49%;
   }
-  .order-main-left-payment-button-right-error{
+  .order-main-left-payment-button-right-error {
     width: 49%;
   }
-  .payment_button_span_right_error{
+  .payment_button_span_right_error {
     width: 100%;
   }
 
@@ -339,7 +339,7 @@
     font-size: 16px;
   }
 
-  .product-main-list-content-card-img{
+  .product-main-list-content-card-img {
     height: 300px;
   }
 
@@ -447,7 +447,7 @@
     height: 350px;
   }
 
-  .item_img_oder{
+  .item_img_oder {
     height: 70px;
   }
 
@@ -486,7 +486,7 @@
     font-size: 11px;
   }
 
-  .product-main-list-content-card-img{
+  .product-main-list-content-card-img {
     height: 250px;
   }
 
@@ -526,27 +526,27 @@
     font-size: 13px;
   }
 
-  .flex__item{
+  .flex__item {
     height: 50vh;
   }
 
-  .banner_container{
+  .banner_container {
     height: 50vh;
   }
 
-  .flex__container{
+  .flex__container {
     height: 50vh;
   }
 
-  .pokemon__img{
+  .pokemon__img {
     height: 50vh;
   }
 
-  .text--big{
+  .text--big {
     font-size: em;
   }
 
-  .text--normal{
+  .text--normal {
     font-size: 15px;
   }
 
@@ -735,7 +735,7 @@
     height: 300px;
   }
 
-  .content_card{
+  .content_card {
     transform: translate3d(0, 25%, 0);
     opacity: 1;
   }
@@ -772,7 +772,7 @@
   }
 
   /* -----------------------------navbar--------------------------- */
-  .header_container{
+  .header_container {
     height: 100%;
   }
 
@@ -818,7 +818,7 @@
 
   .home-header_ul_li_navlink {
     width: 100%;
-    color: aqua;
+    color: black;
   }
 
   /* Contact */
@@ -899,26 +899,23 @@
     width: 100%;
     margin-top: 10%;
   }
-  .purview_card{
+  .purview_card {
     display: flex;
     flex-direction: row;
   }
 
-
-
-  .form_information_footer{
+  .form_information_footer {
     display: flex;
     flex-direction: column;
-    
   }
-  .form_div{
+  .form_div {
     width: 100%;
     margin-bottom: 5%;
   }
-  .form_div1{
+  .form_div1 {
     width: 100%;
   }
-  .form_people{
+  .form_people {
     width: 50%;
   }
 }
@@ -1009,7 +1006,7 @@
     font-size: 7px;
   }
 
-  .product-main-list-content-card-img{
+  .product-main-list-content-card-img {
     height: 200px;
   }
 
@@ -1094,28 +1091,26 @@
 
   .home-header_ul_li_navlink {
     width: 100%;
-    color: aqua;
+    color: black;
   }
 
   .home-header_icon {
     width: 32%;
   }
-
-
 }
 @media only screen and (max-width: 540px) {
-  .form_div{
+  .form_div {
     width: 100%;
     margin-bottom: 5%;
     display: flex;
     flex-direction: column;
   }
-  .form_div1{
+  .form_div1 {
     width: 100%;
     display: flex;
     flex-direction: column;
   }
-  .form_people{
+  .form_people {
     width: 50%;
   }
   .form_fanpage {
@@ -1134,13 +1129,13 @@
   .form_people_one {
     display: flex;
   }
-  .form_people_p_me{
+  .form_people_p_me {
     width: 50%;
   }
   .form_contact {
     padding: 2%;
   }
-  .form_link{
+  .form_link {
     width: 50%;
     padding-right: 2%;
   }
@@ -1321,19 +1316,19 @@
   }
 
   /* ----------------------------Produce---------------------------- */
-  .reduce{
+  .reduce {
     width: 30px;
     height: 30px;
     right: 5px;
     top: -5px;
   }
 
-  .reduce_background{
+  .reduce_background {
     width: 40px;
     height: 40px;
   }
 
-  .reduce_content{
+  .reduce_content {
     font-size: 7px;
   }
 
@@ -1405,30 +1400,30 @@
     flex-direction: column;
   }
 
-  .product_service{
+  .product_service {
     display: none;
   }
 
-  .product-main-top-right-user-information-button{
+  .product-main-top-right-user-information-button {
     width: 100%;
   }
 
-  .product-main-top-right-user-information-button-left{
+  .product-main-top-right-user-information-button-left {
     width: 45%;
     font-size: 10px;
   }
 
-  .product-main-top-right-user-information-button-right{
+  .product-main-top-right-user-information-button-right {
     width: 45%;
     font-size: 10px;
   }
 
-  .product-main-top-right-user-information-title{
+  .product-main-top-right-user-information-title {
     margin-top: 12px;
     margin-bottom: 12px;
   }
 
-  .content_card{
+  .content_card {
     transform: translate3d(0, 0%, 0);
     opacity: 1;
   }
@@ -1438,7 +1433,7 @@
     font-size: 1.5em;
   }
 
-  .flex__content{
+  .flex__content {
     margin-left: 20px;
   }
 
@@ -1447,19 +1442,19 @@
     font-size: 50px;
   }
 
-  .flex__item{
+  .flex__item {
     height: 30vh;
   }
 
-  .banner_container{
+  .banner_container {
     height: 30vh;
   }
 
-  .flex__container{
+  .flex__container {
     height: 30vh;
   }
 
-  .pokemon__img{
+  .pokemon__img {
     height: 30vh;
   }
 
@@ -1695,17 +1690,17 @@
     height: 45px;
   }
   /* detail */
-  .purview_card{
+  .purview_card {
     flex-direction: column;
     align-items: center;
     margin: 0;
   }
-  .home-main-purview{
+  .home-main-purview {
     width: 180px;
     height: 150px;
     margin-top: 5%;
   }
-  .home-main-purview-card{
+  .home-main-purview-card {
     margin: 5% 0;
   }
 }
@@ -1756,12 +1751,11 @@
   .home-header_icon {
     width: 60%;
   }
-  
 }
 
 @media only screen and (max-width: 415px) {
   /* --------------------------------Produce-------------------------- */
-  .product-main-list-content-card-img{
+  .product-main-list-content-card-img {
     height: 150px;
   }
   .product-main-list-content-card-name {
